@@ -14,6 +14,13 @@
 		807D48CC2C1F532B004FB542 /* LidaChallenges.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 807D48CA2C1F532B004FB542 /* LidaChallenges.xcdatamodeld */; };
 		807D48CE2C1F532D004FB542 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 807D48CD2C1F532D004FB542 /* Assets.xcassets */; };
 		807D48D12C1F532D004FB542 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 807D48CF2C1F532D004FB542 /* LaunchScreen.storyboard */; };
+		80F2CDFF2C20B33000B0E611 /* ColorThemeProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F2CDFE2C20B33000B0E611 /* ColorThemeProvider.swift */; };
+		80F2CE022C20B36A00B0E611 /* ColorThemes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F2CE012C20B36A00B0E611 /* ColorThemes.swift */; };
+		80F2CE052C20B3D200B0E611 /* Color+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F2CE032C20B3D200B0E611 /* Color+Hex.swift */; };
+		80F2CE062C20B3D200B0E611 /* String+Localisation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F2CE042C20B3D200B0E611 /* String+Localisation.swift */; };
+		80F2CE092C20B66400B0E611 /* AppRootVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F2CE082C20B66400B0E611 /* AppRootVC.swift */; };
+		80F2CE0B2C20B74100B0E611 /* Controller+Childred.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F2CE0A2C20B74100B0E611 /* Controller+Childred.swift */; };
+		80F2CE0D2C20BC6600B0E611 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F2CE0C2C20BC6600B0E611 /* MainVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +33,13 @@
 		807D48CD2C1F532D004FB542 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		807D48D02C1F532D004FB542 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		807D48D22C1F532D004FB542 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		80F2CDFE2C20B33000B0E611 /* ColorThemeProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorThemeProvider.swift; sourceTree = "<group>"; };
+		80F2CE012C20B36A00B0E611 /* ColorThemes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorThemes.swift; sourceTree = "<group>"; };
+		80F2CE032C20B3D200B0E611 /* Color+Hex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Color+Hex.swift"; sourceTree = "<group>"; };
+		80F2CE042C20B3D200B0E611 /* String+Localisation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Localisation.swift"; sourceTree = "<group>"; };
+		80F2CE082C20B66400B0E611 /* AppRootVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRootVC.swift; sourceTree = "<group>"; };
+		80F2CE0A2C20B74100B0E611 /* Controller+Childred.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Controller+Childred.swift"; sourceTree = "<group>"; };
+		80F2CE0C2C20BC6600B0E611 /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +75,8 @@
 				807D48C12C1F532B004FB542 /* AppDelegate.swift */,
 				807D48C32C1F532B004FB542 /* SceneDelegate.swift */,
 				807D48C52C1F532B004FB542 /* AfterLaunchViewController.swift */,
+				80F2CE072C20B5E800B0E611 /* Screens */,
+				80F2CDFD2C20B2F600B0E611 /* Utils */,
 				807D48C72C1F532B004FB542 /* Main.storyboard */,
 				807D48CD2C1F532D004FB542 /* Assets.xcassets */,
 				807D48CF2C1F532D004FB542 /* LaunchScreen.storyboard */,
@@ -68,6 +84,35 @@
 				807D48CA2C1F532B004FB542 /* LidaChallenges.xcdatamodeld */,
 			);
 			path = LidaChallenges;
+			sourceTree = "<group>";
+		};
+		80F2CDFD2C20B2F600B0E611 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				80F2CE032C20B3D200B0E611 /* Color+Hex.swift */,
+				80F2CE042C20B3D200B0E611 /* String+Localisation.swift */,
+				80F2CE0A2C20B74100B0E611 /* Controller+Childred.swift */,
+				80F2CE002C20B33400B0E611 /* Colors */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		80F2CE002C20B33400B0E611 /* Colors */ = {
+			isa = PBXGroup;
+			children = (
+				80F2CDFE2C20B33000B0E611 /* ColorThemeProvider.swift */,
+				80F2CE012C20B36A00B0E611 /* ColorThemes.swift */,
+			);
+			path = Colors;
+			sourceTree = "<group>";
+		};
+		80F2CE072C20B5E800B0E611 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				80F2CE082C20B66400B0E611 /* AppRootVC.swift */,
+				80F2CE0C2C20BC6600B0E611 /* MainVC.swift */,
+			);
+			path = Screens;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -141,8 +186,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				80F2CE062C20B3D200B0E611 /* String+Localisation.swift in Sources */,
+				80F2CE052C20B3D200B0E611 /* Color+Hex.swift in Sources */,
+				80F2CDFF2C20B33000B0E611 /* ColorThemeProvider.swift in Sources */,
 				807D48C62C1F532B004FB542 /* AfterLaunchViewController.swift in Sources */,
+				80F2CE0D2C20BC6600B0E611 /* MainVC.swift in Sources */,
+				80F2CE0B2C20B74100B0E611 /* Controller+Childred.swift in Sources */,
+				80F2CE092C20B66400B0E611 /* AppRootVC.swift in Sources */,
 				807D48C22C1F532B004FB542 /* AppDelegate.swift in Sources */,
+				80F2CE022C20B36A00B0E611 /* ColorThemes.swift in Sources */,
 				807D48C42C1F532B004FB542 /* SceneDelegate.swift in Sources */,
 				807D48CC2C1F532B004FB542 /* LidaChallenges.xcdatamodeld in Sources */,
 			);
@@ -299,12 +351,13 @@
 				DEVELOPMENT_TEAM = VYS4WS26NU;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = LidaChallenges/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = Challengizer;
+				INFOPLIST_KEY_CFBundleDisplayName = "Challenge Time";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -328,12 +381,13 @@
 				DEVELOPMENT_TEAM = VYS4WS26NU;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = LidaChallenges/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = Challengizer;
+				INFOPLIST_KEY_CFBundleDisplayName = "Challenge Time";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UIStatusBarStyle = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -1,0 +1,17 @@
+//
+//  ColorThemeProvider.swift
+//  LidaChallenges
+//
+//  Created by Ihar Karunny on 6/17/24.
+//
+
+import Foundation
+import UIKit
+
+final class ColorThemeProvider: ColorTheme {
+    static let shared = ColorThemeProvider()
+    
+    private var currentTheme: ColorTheme = LightTheme()
+    
+    var mainBackground: UIColor { currentTheme.mainBackground }
+}
