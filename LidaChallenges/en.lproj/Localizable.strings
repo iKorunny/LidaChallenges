@@ -1,0 +1,13 @@
+/* 
+  Localizable.strings
+  LidaChallenges
+
+  Created by Ihar Karunny on 6/19/24.
+  
+*/
+"CategoriesTitle" = "Collections";
+"CategoriesHabbits" = "Habbits";
+"CategoriesCare" = "Care";
+"CategoriesSport" = "Sport";
+"CategoriesHealth" = "Health";
+"CategoriesEducation" = "Education";
