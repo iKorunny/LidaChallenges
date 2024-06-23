@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		804D8FC62C2861EE00FA30F3 /* MainCategoriesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 804D8FC52C2861EE00FA30F3 /* MainCategoriesCell.swift */; };
 		805E27432C235BAA0048F78F /* CategoriesSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 805E27422C235BAA0048F78F /* CategoriesSource.swift */; };
 		805E27462C235CF30048F78F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 805E27482C235CF30048F78F /* Localizable.strings */; };
 		805E274B2C2360340048F78F /* CategoriesSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 805E274A2C2360340048F78F /* CategoriesSectionHeader.swift */; };
@@ -27,6 +28,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		804D8FC52C2861EE00FA30F3 /* MainCategoriesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCategoriesCell.swift; sourceTree = "<group>"; };
 		805E27422C235BAA0048F78F /* CategoriesSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesSource.swift; sourceTree = "<group>"; };
 		805E27472C235CF30048F78F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		805E27492C235D0A0048F78F /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -60,6 +62,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		804D8FC42C2861D100FA30F3 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				80F2CE0C2C20BC6600B0E611 /* MainVC.swift */,
+				805E27422C235BAA0048F78F /* CategoriesSource.swift */,
+				805E274A2C2360340048F78F /* CategoriesSectionHeader.swift */,
+				804D8FC52C2861EE00FA30F3 /* MainCategoriesCell.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
 		807D48B52C1F532B004FB542 = {
 			isa = PBXGroup;
 			children = (
@@ -118,9 +131,7 @@
 			isa = PBXGroup;
 			children = (
 				80F2CE082C20B66400B0E611 /* AppRootVC.swift */,
-				80F2CE0C2C20BC6600B0E611 /* MainVC.swift */,
-				805E27422C235BAA0048F78F /* CategoriesSource.swift */,
-				805E274A2C2360340048F78F /* CategoriesSectionHeader.swift */,
+				804D8FC42C2861D100FA30F3 /* Main */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -210,6 +221,7 @@
 				807D48C22C1F532B004FB542 /* AppDelegate.swift in Sources */,
 				80F2CE022C20B36A00B0E611 /* ColorThemes.swift in Sources */,
 				807D48C42C1F532B004FB542 /* SceneDelegate.swift in Sources */,
+				804D8FC62C2861EE00FA30F3 /* MainCategoriesCell.swift in Sources */,
 				807D48CC2C1F532B004FB542 /* LidaChallenges.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

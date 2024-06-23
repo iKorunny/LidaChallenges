@@ -14,4 +14,6 @@ final class ColorThemeProvider: ColorTheme {
     private var currentTheme: ColorTheme = LightTheme()
     
     var mainBackground: UIColor { currentTheme.mainBackground }
+    var itemBackground: UIColor { currentTheme.itemBackground }
+    var itemTextTitle: UIColor { currentTheme.itemTextTitle }
 }

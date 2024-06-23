@@ -1,0 +1,151 @@
+//
+//  MainVC.swift
+//  LidaChallenges
+//
+//  Created by Ihar Karunny on 6/17/24.
+//
+
+import UIKit
+
+final class MainVC: UIViewController {
+    private lazy var window: UIWindow? = {
+        return navigationController?.view.window
+    }()
+    
+    private let source: CategoriesSource = CategoriesSourceMock()
+    
+    private lazy var headerLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = UIFont.systemFont(ofSize: 20, weight: .regular)
+        label.textColor = ColorThemeProvider.shared.itemTextTitle
+        label.numberOfLines = 1
+        label.text = "CategoriesTitle".localised()
+        label.contentMode = .left
+        return label
+    }()
+    
+    private lazy var collectionView: UICollectionView = {
+        let collection = UICollectionView(frame: view.bounds, collectionViewLayout: UICollectionViewFlowLayout())
+        collection.translatesAutoresizingMaskIntoConstraints = false
+        collection.dataSource = self
+        collection.delegate = self
+        collection.backgroundColor = .clear
+        collection.showsHorizontalScrollIndicator = false
+        collection.isPagingEnabled = true
+        if let layout = collection.collectionViewLayout as? UICollectionViewFlowLayout {
+            layout.scrollDirection = .horizontal
+        }
+        return collection
+    }()
+    
+    private lazy var scrollView: UIScrollView = {
+        let scrollView = UIScrollView()
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.backgroundColor = .clear
+        return scrollView
+    }()
+    
+    private lazy var scrollContentView: UIView = {
+        let contentView = UIView()
+        contentView.translatesAutoresizingMaskIntoConstraints = false
+        contentView.backgroundColor = .clear
+        return contentView
+    }()
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        view.backgroundColor = .clear
+        setupCollection()
+        addSearch()
+        addScroll()
+    }
+    
+    private func setupCollection() {
+        collectionView.register(MainCategoriesCell.self, forCellWithReuseIdentifier: "MainCategoriesCell")
+    }
+    
+    private func addSearch() {
+        let search = UISearchController(searchResultsController: nil)
+        search.delegate = self
+        search.searchBar.delegate = self
+        self.navigationItem.searchController = search
+    }
+    
+    private func addScroll() {
+        view.addSubview(scrollView)
+        scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
+        scrollView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+        scrollView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor).isActive = true
+        scrollView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor).isActive = true
+        
+        scrollView.addSubview(scrollContentView)
+        scrollContentView.topAnchor.constraint(equalTo: scrollView.topAnchor).isActive = true
+        scrollContentView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor).isActive = true
+        scrollContentView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor).isActive = true
+        scrollContentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor).isActive = true
+        
+        scrollContentView.addSubview(headerLabel)
+        headerLabel.topAnchor.constraint(equalTo: scrollContentView.topAnchor, constant: 32).isActive = true
+        headerLabel.leadingAnchor.constraint(equalTo: scrollContentView.leadingAnchor, constant: 19).isActive = true
+        headerLabel.trailingAnchor.constraint(equalTo: scrollContentView.trailingAnchor, constant: -19).isActive = true
+        
+        addCollectionView()
+    }
+    
+    private func addCollectionView() {
+        scrollContentView.addSubview(collectionView)
+        collectionView.heightAnchor.constraint(equalToConstant: 190).isActive = true
+        collectionView.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
+        collectionView.topAnchor.constraint(equalTo: headerLabel.bottomAnchor, constant: 15).isActive = true
+        collectionView.bottomAnchor.constraint(equalTo: scrollContentView.bottomAnchor).isActive = true
+        collectionView.leadingAnchor.constraint(equalTo: scrollContentView.leadingAnchor).isActive = true
+        collectionView.trailingAnchor.constraint(equalTo: scrollContentView.trailingAnchor).isActive = true
+    }
+}
+
+extension MainVC: UISearchControllerDelegate {
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        
+    }
+}
+
+extension MainVC: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
+    }
+}
+
+extension MainVC: UICollectionViewDelegate {
+    
+}
+
+extension MainVC: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return source.categoriesCount
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MainCategoriesCell", for: indexPath) as? MainCategoriesCell else { return UICollectionViewCell() }
+        
+        let categories = source.categories
+        let category = categories[indexPath.row]
+        cell.set(text: category.title, image: category.icon)
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: 224.66, height: 190)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 20.5
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        guard let screenWidth = window?.bounds.width else { return UIEdgeInsets.zero }
+        let inset = screenWidth * 0.5 - 224.66 * 0.5
+        return UIEdgeInsets(top: 0, left: inset, bottom: 0, right: inset)
+    }
+}

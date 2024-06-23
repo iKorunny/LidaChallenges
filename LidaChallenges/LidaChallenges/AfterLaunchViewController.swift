@@ -9,7 +9,7 @@ import UIKit
 
 final class AfterLaunchViewController: UIViewController {
     private enum Constants {
-        static let toAppDelay: TimeInterval = 5
+        static let toAppDelay: TimeInterval = 0.5
     }
     
     private lazy var imageView: UIImageView = {

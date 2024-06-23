@@ -10,8 +10,12 @@ import UIKit
 
 protocol ColorTheme {
     var mainBackground: UIColor { get }
+    var itemBackground: UIColor { get }
+    var itemTextTitle: UIColor { get }
 }
 
 final class LightTheme: ColorTheme {
-    var mainBackground: UIColor { return UIColor.color(from: "#FFFFFF") }
+    var mainBackground: UIColor { return .white }
+    var itemBackground: UIColor { .white }
+    var itemTextTitle: UIColor { .black }
 }
