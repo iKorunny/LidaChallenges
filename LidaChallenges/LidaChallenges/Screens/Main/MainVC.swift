@@ -32,7 +32,7 @@ final class MainVC: UIViewController {
         collection.delegate = self
         collection.backgroundColor = .clear
         collection.showsHorizontalScrollIndicator = false
-        collection.isPagingEnabled = true
+//        collection.isPagingEnabled = true
         if let layout = collection.collectionViewLayout as? UICollectionViewFlowLayout {
             layout.scrollDirection = .horizontal
         }
@@ -118,7 +118,28 @@ extension MainVC: UISearchBarDelegate {
 }
 
 extension MainVC: UICollectionViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        
+    }
     
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        if scrollView === collectionView {
+            collectionViewStoppedScroll()
+        }
+    }
+    
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        if decelerate {
+            return
+        }
+        collectionViewStoppedScroll()
+    }
+    
+    private func collectionViewStoppedScroll() {
+        let pageOffset = 224.66 + 20.5
+        let page: Int = Int(round(collectionView.contentOffset.x / pageOffset))
+        collectionView.setContentOffset(CGPoint(x: pageOffset * Double(page), y: 0), animated: true)
+    }
 }
 
 extension MainVC: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
