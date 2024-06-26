@@ -32,7 +32,6 @@ final class MainVC: UIViewController {
         collection.delegate = self
         collection.backgroundColor = .clear
         collection.showsHorizontalScrollIndicator = false
-//        collection.isPagingEnabled = true
         if let layout = collection.collectionViewLayout as? UICollectionViewFlowLayout {
             layout.scrollDirection = .horizontal
         }
@@ -52,9 +51,34 @@ final class MainVC: UIViewController {
         contentView.backgroundColor = .clear
         return contentView
     }()
+    
+    private var actionItems: [MainVCListActionItem] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        actionItems = [
+            MainVCListActionItem(image: UIImage(named: "CreateChallengeAction")!,
+                                 title: "CreateChallengeActionTitle".localised(),
+                                 action: { [weak self] item in
+                                     print("action \(item.title)")
+                                 }),
+            MainVCListActionItem(image: UIImage(named: "RandomChallengeAction")!,
+                                 title: "RandomChallengeActionTitle".localised(),
+                                 action: { [weak self] item in
+                                     print("action \(item.title)")
+                                 }),
+            MainVCListActionItem(image: UIImage(named: "PopularChallengesAction")!,
+                                 title: "PopularChallengesActionTitle".localised(),
+                                 action: { [weak self] item in
+                                     print("action \(item.title)")
+                                 }),
+            MainVCListActionItem(image: UIImage(named: "CompletedChallengesAction")!,
+                                 title: "CompletedChallengesActionTitle".localised(),
+                                 action: { [weak self] item in
+                                     print("action \(item.title)")
+                                 })
+        ]
 
         view.backgroundColor = .clear
         setupCollection()
@@ -92,6 +116,7 @@ final class MainVC: UIViewController {
         headerLabel.trailingAnchor.constraint(equalTo: scrollContentView.trailingAnchor, constant: -19).isActive = true
         
         addCollectionView()
+        addActionButtons()
     }
     
     private func addCollectionView() {
@@ -99,9 +124,34 @@ final class MainVC: UIViewController {
         collectionView.heightAnchor.constraint(equalToConstant: 190).isActive = true
         collectionView.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
         collectionView.topAnchor.constraint(equalTo: headerLabel.bottomAnchor, constant: 15).isActive = true
-        collectionView.bottomAnchor.constraint(equalTo: scrollContentView.bottomAnchor).isActive = true
+//        collectionView.bottomAnchor.constraint(equalTo: scrollContentView.bottomAnchor).isActive = true
         collectionView.leadingAnchor.constraint(equalTo: scrollContentView.leadingAnchor).isActive = true
         collectionView.trailingAnchor.constraint(equalTo: scrollContentView.trailingAnchor).isActive = true
+    }
+    
+    private func addActionButtons() {
+        var previousView: UIView = collectionView
+        for i in 0..<actionItems.count {
+            let actionView = MainVCListActionView()
+            actionView.backgroundColor = ColorThemeProvider.shared.itemBackground
+            actionView.layer.masksToBounds = true
+            actionView.layer.cornerRadius = 10
+            actionView.translatesAutoresizingMaskIntoConstraints = false
+            
+            scrollContentView.addSubview(actionView)
+            actionView.fill(with: actionItems[i])
+            
+            actionView.leadingAnchor.constraint(equalTo: scrollContentView.leadingAnchor, constant: 18).isActive = true
+            actionView.trailingAnchor.constraint(equalTo: scrollContentView.trailingAnchor, constant: -18).isActive = true
+            actionView.heightAnchor.constraint(equalToConstant: 48).isActive = true
+            actionView.topAnchor.constraint(equalTo: previousView.bottomAnchor, constant: 23).isActive = true
+            
+            let isLast = i == (actionItems.count - 1)
+            if isLast {
+                actionView.bottomAnchor.constraint(equalTo: scrollContentView.bottomAnchor).isActive = true
+            }
+            previousView = actionView
+        }
     }
 }
 

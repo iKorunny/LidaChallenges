@@ -11,3 +11,8 @@
 "CategoriesSport" = "Спорт";
 "CategoriesHealth" = "Здоровье";
 "CategoriesEducation" = "Образование";
+// Not transribed
+"CreateChallengeActionTitle" = "Конструктор челленджа";
+"RandomChallengeActionTitle" = "Сгенерировать челлендж случайно";
+"PopularChallengesActionTitle" = "Популярные челленджи";
+"CompletedChallengesActionTitle" = "Пройденные челленджи";
