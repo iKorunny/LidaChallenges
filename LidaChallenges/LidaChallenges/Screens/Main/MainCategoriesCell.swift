@@ -23,7 +23,7 @@ final class MainCategoriesCell: UICollectionViewCell {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 1
-        label.font = UIFont.systemFont(ofSize: 20, weight: .regular)
+        label.font = FontsProvider.regularAppFont(with: 20)
         label.textColor = ColorThemeProvider.shared.itemTextTitle
         label.textAlignment = .center
         return label

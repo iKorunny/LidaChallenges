@@ -19,7 +19,7 @@ final class MainVCListActionView: UIView {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 1
-        label.font = UIFont.systemFont(ofSize: 14, weight: .regular)
+        label.font = FontsProvider.regularAppFont(with: 14)
         label.textColor = ColorThemeProvider.shared.itemTextTitle
         return label
     }()
@@ -45,12 +45,12 @@ final class MainVCListActionView: UIView {
         settedUp = true
         
         addSubview(iconView)
-        iconView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 18).isActive = true
+        iconView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 12).isActive = true
         iconView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
         
         addSubview(titleLabel)
         titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 59).isActive = true
-        titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -18).isActive = true
+        titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -12).isActive = true
         titleLabel.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
         
         addSubview(actionButton)

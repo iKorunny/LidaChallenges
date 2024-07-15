@@ -16,3 +16,5 @@
 "RandomChallengeActionTitle" = "Сгенерировать челлендж случайно";
 "PopularChallengesActionTitle" = "Популярные челленджи";
 "CompletedChallengesActionTitle" = "Пройденные челленджи";
+"MyChallengesLargeButtonTitle" = "Мои челленджи";
+"MyChallengesNoData" = "Нет данных";

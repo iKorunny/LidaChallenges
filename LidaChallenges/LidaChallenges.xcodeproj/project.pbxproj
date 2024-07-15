@@ -21,6 +21,9 @@
 		807D48CC2C1F532B004FB542 /* LidaChallenges.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 807D48CA2C1F532B004FB542 /* LidaChallenges.xcdatamodeld */; };
 		807D48CE2C1F532D004FB542 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 807D48CD2C1F532D004FB542 /* Assets.xcassets */; };
 		807D48D12C1F532D004FB542 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 807D48CF2C1F532D004FB542 /* LaunchScreen.storyboard */; };
+		809137602C45A83D0021CCE0 /* FontsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8091375F2C45A83D0021CCE0 /* FontsProvider.swift */; };
+		809137622C45A9FF0021CCE0 /* AppRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809137612C45A9FF0021CCE0 /* AppRouter.swift */; };
+		809137652C45AC160021CCE0 /* MyChallengesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809137642C45AC160021CCE0 /* MyChallengesVC.swift */; };
 		80F2CDFF2C20B33000B0E611 /* ColorThemeProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F2CDFE2C20B33000B0E611 /* ColorThemeProvider.swift */; };
 		80F2CE022C20B36A00B0E611 /* ColorThemes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F2CE012C20B36A00B0E611 /* ColorThemes.swift */; };
 		80F2CE052C20B3D200B0E611 /* Color+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F2CE032C20B3D200B0E611 /* Color+Hex.swift */; };
@@ -48,6 +51,9 @@
 		807D48CD2C1F532D004FB542 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		807D48D02C1F532D004FB542 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		807D48D22C1F532D004FB542 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8091375F2C45A83D0021CCE0 /* FontsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontsProvider.swift; sourceTree = "<group>"; };
+		809137612C45A9FF0021CCE0 /* AppRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRouter.swift; sourceTree = "<group>"; };
+		809137642C45AC160021CCE0 /* MyChallengesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyChallengesVC.swift; sourceTree = "<group>"; };
 		80F2CDFE2C20B33000B0E611 /* ColorThemeProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorThemeProvider.swift; sourceTree = "<group>"; };
 		80F2CE012C20B36A00B0E611 /* ColorThemes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorThemes.swift; sourceTree = "<group>"; };
 		80F2CE032C20B3D200B0E611 /* Color+Hex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Color+Hex.swift"; sourceTree = "<group>"; };
@@ -116,6 +122,14 @@
 			path = LidaChallenges;
 			sourceTree = "<group>";
 		};
+		809137632C45ABF10021CCE0 /* MyChallenges */ = {
+			isa = PBXGroup;
+			children = (
+				809137642C45AC160021CCE0 /* MyChallengesVC.swift */,
+			);
+			path = MyChallenges;
+			sourceTree = "<group>";
+		};
 		80F2CDFD2C20B2F600B0E611 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -123,6 +137,7 @@
 				80F2CE042C20B3D200B0E611 /* String+Localisation.swift */,
 				80F2CE0A2C20B74100B0E611 /* Controller+Childred.swift */,
 				80F2CE002C20B33400B0E611 /* Colors */,
+				8091375F2C45A83D0021CCE0 /* FontsProvider.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -141,6 +156,8 @@
 			children = (
 				80F2CE082C20B66400B0E611 /* AppRootVC.swift */,
 				804D8FC42C2861D100FA30F3 /* Main */,
+				809137632C45ABF10021CCE0 /* MyChallenges */,
+				809137612C45A9FF0021CCE0 /* AppRouter.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -220,6 +237,7 @@
 			files = (
 				807862022C29E86200FA8938 /* MainVCListActionView.swift in Sources */,
 				80F2CE062C20B3D200B0E611 /* String+Localisation.swift in Sources */,
+				809137622C45A9FF0021CCE0 /* AppRouter.swift in Sources */,
 				80F2CE052C20B3D200B0E611 /* Color+Hex.swift in Sources */,
 				80F2CDFF2C20B33000B0E611 /* ColorThemeProvider.swift in Sources */,
 				807D48C62C1F532B004FB542 /* AfterLaunchViewController.swift in Sources */,
@@ -233,8 +251,10 @@
 				807D48C42C1F532B004FB542 /* SceneDelegate.swift in Sources */,
 				807862002C29E5EB00FA8938 /* MainVCListActionItem.swift in Sources */,
 				804D8FC62C2861EE00FA30F3 /* MainCategoriesCell.swift in Sources */,
+				809137652C45AC160021CCE0 /* MyChallengesVC.swift in Sources */,
 				804D8FC82C2871D300FA30F3 /* MainVCCollectiomLayout.swift in Sources */,
 				807D48CC2C1F532B004FB542 /* LidaChallenges.xcdatamodeld in Sources */,
+				809137602C45A83D0021CCE0 /* FontsProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -412,7 +432,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = iKor.LidaChallenges;
+				PRODUCT_BUNDLE_IDENTIFIER = iKor.LidaChallengeTime;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -442,7 +462,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = iKor.LidaChallenges;
+				PRODUCT_BUNDLE_IDENTIFIER = iKor.LidaChallengeTime;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

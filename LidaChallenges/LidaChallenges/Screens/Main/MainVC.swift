@@ -17,7 +17,7 @@ final class MainVC: UIViewController {
     private lazy var headerLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont.systemFont(ofSize: 20, weight: .regular)
+        label.font = FontsProvider.regularAppFont(with: 20)
         label.textColor = ColorThemeProvider.shared.itemTextTitle
         label.numberOfLines = 1
         label.text = "CategoriesTitle".localised()
@@ -56,6 +56,8 @@ final class MainVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        navigationItem.title = ""
         
         actionItems = [
             MainVCListActionItem(image: UIImage(named: "CreateChallengeAction")!,
