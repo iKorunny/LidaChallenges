@@ -62,8 +62,8 @@ final class MainVC: UIViewController {
         actionItems = [
             MainVCListActionItem(image: UIImage(named: "CreateChallengeAction")!,
                                  title: "CreateChallengeActionTitle".localised(),
-                                 action: { [weak self] item in
-                                     print("action \(item.title)")
+                                 action: { _ in
+                                     AppRouter.shared.toStartCreateChallenge()
                                  }),
             MainVCListActionItem(image: UIImage(named: "RandomChallengeAction")!,
                                  title: "RandomChallengeActionTitle".localised(),

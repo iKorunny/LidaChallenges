@@ -33,4 +33,9 @@ final class AppRouter {
         let nextVC = MyChallengesVC()
         navigationController?.pushViewController(nextVC, animated: false)
     }
+    
+    func toStartCreateChallenge() {
+        let nextVC = CreateChallengeMainVC()
+        navigationController?.pushViewController(nextVC, animated: false)
+    }
 }

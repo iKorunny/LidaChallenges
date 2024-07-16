@@ -12,7 +12,7 @@ enum MyChallengesVCState {
     case hasData
 }
 
-class MyChallengesVC: UIViewController {
+final class MyChallengesVC: UIViewController {
     
     private var state: MyChallengesVCState = .noData {
         didSet {
@@ -39,7 +39,7 @@ class MyChallengesVC: UIViewController {
                                                                    .foregroundColor: ColorThemeProvider.shared.itemTextTitle]
         view.addSubview(noDataLabel)
         noDataLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        noDataLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 47).isActive = true
+        noDataLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         
         stateChanged(newState: state)
     }

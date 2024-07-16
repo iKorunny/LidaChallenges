@@ -85,6 +85,11 @@ class AppRootVC: UIViewController {
         backgroundImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         backgroundImageView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         
+        view.addSubview(containerView)
+        containerView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        containerView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        containerView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        
         view.addSubview(safeAreaBackgroundView)
         safeAreaBackgroundView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         safeAreaBackgroundView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
@@ -92,15 +97,11 @@ class AppRootVC: UIViewController {
         safeAreaBackgroundView.heightAnchor.constraint(equalToConstant: window?.safeAreaInsets.bottom ?? 0).isActive = true
         
         view.addSubview(buttonContainer)
-        buttonContainer.heightAnchor.constraint(equalToConstant: 85).isActive = true
+        buttonContainer.heightAnchor.constraint(equalToConstant: OffsetsService.shared.myChallengesButtonHeight).isActive = true
         buttonContainer.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         buttonContainer.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         buttonContainer.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true // TODO: containt to advertising view
         
-        view.addSubview(containerView)
-        containerView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        containerView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-        containerView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         containerView.bottomAnchor.constraint(equalTo: buttonContainer.topAnchor).isActive = true
         
         toMainVC()
