@@ -20,4 +20,6 @@ final class ColorThemeProvider: ColorTheme {
     var separator: UIColor { currentTheme.separator }
     var ligthItem: UIColor { currentTheme.ligthItem }
     var warningItem: UIColor { currentTheme.warningItem }
+    var placeholder: UIColor { currentTheme.placeholder }
+    var listActionBackground: UIColor { currentTheme.listActionBackground }
 }

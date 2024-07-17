@@ -20,3 +20,5 @@
 "MyChallengesLargeButtonTitle" = "Мои челленджи";
 "MyChallengesNoData" = "Нет данных";
 "CreateChallengeTitle" = "Конструктор челленджа";
+"CreateChallengeNameFieldPlaceholder" = "Введите название  челленджа ...";
+"CreateChallengeDaysCountPlaceholder" = "Количество дней";
