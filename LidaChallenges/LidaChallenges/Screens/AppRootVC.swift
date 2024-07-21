@@ -63,7 +63,7 @@ class AppRootVC: UIViewController {
         separator.topAnchor.constraint(equalTo: container.topAnchor).isActive = true
         separator.leadingAnchor.constraint(equalTo: container.leadingAnchor).isActive = true
         separator.trailingAnchor.constraint(equalTo: container.trailingAnchor).isActive = true
-        separator.heightAnchor.constraint(equalToConstant: 1).isActive = true
+        separator.heightAnchor.constraint(equalToConstant: 0.5).isActive = true
         
         container.addSubview(myChallengesButton)
         myChallengesButton.topAnchor.constraint(equalTo: separator.bottomAnchor).isActive = true
