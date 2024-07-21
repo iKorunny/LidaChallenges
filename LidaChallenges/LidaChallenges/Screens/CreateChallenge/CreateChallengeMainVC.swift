@@ -85,7 +85,7 @@ final class CreateChallengeMainVC: UIViewController {
         actionBackground.layer.cornerRadius = 5
         
         container.addSubview(actionBackground)
-        actionBackground.widthAnchor.constraint(greaterThanOrEqualToConstant: 51).isActive = true
+        actionBackground.widthAnchor.constraint(greaterThanOrEqualToConstant: 58).isActive = true
         actionBackground.heightAnchor.constraint(equalToConstant: 28).isActive = true
         actionBackground.centerYAnchor.constraint(equalTo: container.centerYAnchor).isActive = true
         actionBackground.trailingAnchor.constraint(equalTo: container.trailingAnchor, constant: -18).isActive = true
@@ -94,12 +94,12 @@ final class CreateChallengeMainVC: UIViewController {
         icon.translatesAutoresizingMaskIntoConstraints = false
         actionBackground.addSubview(icon)
         icon.centerYAnchor.constraint(equalTo: actionBackground.centerYAnchor).isActive = true
-        icon.trailingAnchor.constraint(equalTo: actionBackground.trailingAnchor, constant: -4).isActive = true
+        icon.trailingAnchor.constraint(equalTo: actionBackground.trailingAnchor, constant: -9).isActive = true
         
         actionBackground.addSubview(regularityLabel)
         regularityLabel.centerYAnchor.constraint(equalTo: actionBackground.centerYAnchor).isActive = true
         regularityLabel.leadingAnchor.constraint(equalTo: actionBackground.leadingAnchor, constant: 9).isActive = true
-        regularityLabel.trailingAnchor.constraint(equalTo: icon.leadingAnchor, constant: -3).isActive = true
+        regularityLabel.trailingAnchor.constraint(equalTo: icon.leadingAnchor, constant: -5).isActive = true
         
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -163,7 +163,7 @@ final class CreateChallengeMainVC: UIViewController {
         actionBackground.layer.cornerRadius = 5
         
         container.addSubview(actionBackground)
-        actionBackground.widthAnchor.constraint(equalToConstant: 51).isActive = true
+        actionBackground.widthAnchor.constraint(equalToConstant: 58).isActive = true
         actionBackground.heightAnchor.constraint(equalToConstant: 28).isActive = true
         actionBackground.centerYAnchor.constraint(equalTo: container.centerYAnchor).isActive = true
         actionBackground.trailingAnchor.constraint(equalTo: container.trailingAnchor, constant: -18).isActive = true
@@ -172,7 +172,7 @@ final class CreateChallengeMainVC: UIViewController {
         icon.translatesAutoresizingMaskIntoConstraints = false
         actionBackground.addSubview(icon)
         icon.centerYAnchor.constraint(equalTo: actionBackground.centerYAnchor).isActive = true
-        icon.trailingAnchor.constraint(equalTo: actionBackground.trailingAnchor, constant: -4).isActive = true
+        icon.trailingAnchor.constraint(equalTo: actionBackground.trailingAnchor, constant: -9).isActive = true
         
         actionBackground.addSubview(daysCountField)
         daysCountField.topAnchor.constraint(equalTo: actionBackground.topAnchor).isActive = true
@@ -231,9 +231,8 @@ final class CreateChallengeMainVC: UIViewController {
         container.layer.masksToBounds = true
         container.layer.cornerRadius = 10
         container.backgroundColor = .clear
-        
-//        container.heightAnchor.constraint(equalToConstant: 122).isActive = true
-        container.backgroundColor = .clear // TODO: remove both lines and add button lines
+
+        container.backgroundColor = .clear
         
         container.addSubview(nameTextFieldContainer)
         nameTextFieldContainer.topAnchor.constraint(equalTo: container.topAnchor).isActive = true
