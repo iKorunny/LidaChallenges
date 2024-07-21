@@ -22,3 +22,13 @@
 "CreateChallengeTitle" = "Конструктор челленджа";
 "CreateChallengeNameFieldPlaceholder" = "Введите название  челленджа ...";
 "CreateChallengeDaysCountPlaceholder" = "Количество дней";
+"CreateChallengeDaysCountHint" = "Введите значение от 1 до 365";
+"CreateChallengeRegularityPlaceholder" = "Регулярность";
+"CreateChallengeRegularityDaily" = "Ежедневно";
+"CreateChallengeRegularityMonday" = "пн";
+"CreateChallengeRegularityTuesday" = "вт";
+"CreateChallengeRegularityWednesday" = "ср";
+"CreateChallengeRegularityThursday" = "чт";
+"CreateChallengeRegularityFriday" = "птн";
+"CreateChallengeRegularitySaturday" = "сб";
+"CreateChallengeRegularitySunday" = "вскр";

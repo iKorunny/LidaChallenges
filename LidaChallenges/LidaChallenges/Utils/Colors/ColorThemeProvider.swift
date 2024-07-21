@@ -22,4 +22,5 @@ final class ColorThemeProvider: ColorTheme {
     var warningItem: UIColor { currentTheme.warningItem }
     var placeholder: UIColor { currentTheme.placeholder }
     var listActionBackground: UIColor { currentTheme.listActionBackground }
+    var hint: UIColor { currentTheme.hint }
 }

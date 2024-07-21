@@ -7,6 +7,32 @@
 
 import UIKit
 
+enum CreateChallengeRegularityType: Int {
+    case monday = 1
+    case tuesday = 2
+    case wednesday = 3
+    case thursday = 4
+    case friday = 5
+    case saturday = 6
+    case sunday = 7
+    
+    static func allValues() -> [CreateChallengeRegularityType] {
+        return [.monday, .tuesday, .wednesday, .thursday, .friday,. saturday, .sunday]
+    }
+    
+    func stringValue() -> String {
+        switch self {
+        case .monday: return "CreateChallengeRegularityMonday"
+        case .tuesday: return "CreateChallengeRegularityTuesday"
+        case .wednesday: return "CreateChallengeRegularityWednesday"
+        case .thursday: return "CreateChallengeRegularityThursday"
+        case .friday: return "CreateChallengeRegularityFriday"
+        case .saturday: return "CreateChallengeRegularitySaturday"
+        case .sunday: return "CreateChallengeRegularitySunday"
+        }
+    }
+}
+
 final class CreateChallengeMainVC: UIViewController {
     
     deinit {
@@ -14,6 +40,7 @@ final class CreateChallengeMainVC: UIViewController {
     }
     
     private var keyboardService: KeyboardAppearService?
+    private var selectedRegularity: [CreateChallengeRegularityType] = CreateChallengeRegularityType.allValues()
     
     private lazy var continueButton: UIBarButtonItem = {
         let button = UIBarButtonItem(title: "CreateChallengeContinueButtonTitle".localised(),
@@ -22,6 +49,81 @@ final class CreateChallengeMainVC: UIViewController {
                                      action: #selector(onContinue))
         button.isEnabled = false
         return button
+    }()
+    
+    private lazy var regularityLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.numberOfLines = 1
+        label.font = FontsProvider.regularAppFont(with: 14)
+        label.textColor = ColorThemeProvider.shared.placeholder
+        return label
+    }()
+    
+    private lazy var daysSelectionFieldContainer: UIView = {
+        let container = UIView()
+        container.translatesAutoresizingMaskIntoConstraints = false
+        container.backgroundColor = ColorThemeProvider.shared.itemBackground
+        container.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.numberOfLines = 1
+        label.textColor = ColorThemeProvider.shared.placeholder
+        label.font = FontsProvider.regularAppFont(with: 14)
+        label.text = "CreateChallengeRegularityPlaceholder".localised()
+        
+        container.addSubview(label)
+        label.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: 11).isActive = true
+        label.centerYAnchor.constraint(equalTo: container.centerYAnchor).isActive = true
+        label.widthAnchor.constraint(lessThanOrEqualTo: container.widthAnchor, multiplier: 0.6).isActive = true
+        
+        let actionBackground = UIView()
+        actionBackground.translatesAutoresizingMaskIntoConstraints = false
+        actionBackground.backgroundColor = ColorThemeProvider.shared.listActionBackground
+        actionBackground.layer.masksToBounds = true
+        actionBackground.layer.cornerRadius = 5
+        
+        container.addSubview(actionBackground)
+        actionBackground.widthAnchor.constraint(greaterThanOrEqualToConstant: 51).isActive = true
+        actionBackground.heightAnchor.constraint(equalToConstant: 28).isActive = true
+        actionBackground.centerYAnchor.constraint(equalTo: container.centerYAnchor).isActive = true
+        actionBackground.trailingAnchor.constraint(equalTo: container.trailingAnchor, constant: -18).isActive = true
+        
+        let icon = UIImageView(image: .init(named: "CreateChallengeActionArrow"))
+        icon.translatesAutoresizingMaskIntoConstraints = false
+        actionBackground.addSubview(icon)
+        icon.centerYAnchor.constraint(equalTo: actionBackground.centerYAnchor).isActive = true
+        icon.trailingAnchor.constraint(equalTo: actionBackground.trailingAnchor, constant: -4).isActive = true
+        
+        actionBackground.addSubview(regularityLabel)
+        regularityLabel.centerYAnchor.constraint(equalTo: actionBackground.centerYAnchor).isActive = true
+        regularityLabel.leadingAnchor.constraint(equalTo: actionBackground.leadingAnchor, constant: 9).isActive = true
+        regularityLabel.trailingAnchor.constraint(equalTo: icon.leadingAnchor, constant: -3).isActive = true
+        
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.backgroundColor = .clear
+        button.addTarget(self, action: #selector(selectRegularity), for: .touchUpInside)
+        
+        actionBackground.addSubview(button)
+        button.topAnchor.constraint(equalTo: actionBackground.topAnchor).isActive = true
+        button.bottomAnchor.constraint(equalTo: actionBackground.bottomAnchor).isActive = true
+        button.leadingAnchor.constraint(equalTo: actionBackground.leadingAnchor).isActive = true
+        button.trailingAnchor.constraint(equalTo: actionBackground.trailingAnchor).isActive = true
+        
+        return container
+    }()
+    
+    private lazy var daysCountHint: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.numberOfLines = 1
+        label.textColor = ColorThemeProvider.shared.hint
+        label.font = FontsProvider.regularAppFont(with: 10)
+        label.text = "CreateChallengeDaysCountHint".localised()
+        label.isHidden = true
+        return label
     }()
     
     private lazy var daysCountField: UITextField = {
@@ -89,6 +191,10 @@ final class CreateChallengeMainVC: UIViewController {
         button.leadingAnchor.constraint(equalTo: actionBackground.leadingAnchor).isActive = true
         button.trailingAnchor.constraint(equalTo: actionBackground.trailingAnchor).isActive = true
         
+        container.addSubview(daysCountHint)
+        daysCountHint.bottomAnchor.constraint(equalTo: container.bottomAnchor, constant: -3).isActive = true
+        daysCountHint.trailingAnchor.constraint(equalTo: actionBackground.leadingAnchor, constant: -8).isActive = true
+        
         return container
     }()
     
@@ -126,8 +232,8 @@ final class CreateChallengeMainVC: UIViewController {
         container.layer.cornerRadius = 10
         container.backgroundColor = .clear
         
-        container.heightAnchor.constraint(equalToConstant: 122).isActive = true
-        container.backgroundColor = .green // TODO: remove both lines and add button lines
+//        container.heightAnchor.constraint(equalToConstant: 122).isActive = true
+        container.backgroundColor = .clear // TODO: remove both lines and add button lines
         
         container.addSubview(nameTextFieldContainer)
         nameTextFieldContainer.topAnchor.constraint(equalTo: container.topAnchor).isActive = true
@@ -139,6 +245,13 @@ final class CreateChallengeMainVC: UIViewController {
         daysCountContainer.leadingAnchor.constraint(equalTo: container.leadingAnchor).isActive = true
         daysCountContainer.trailingAnchor.constraint(equalTo: container.trailingAnchor).isActive = true
         
+        container.addSubview(daysSelectionFieldContainer)
+        daysSelectionFieldContainer.topAnchor.constraint(equalTo: daysCountContainer.bottomAnchor, constant: 1).isActive = true
+        daysSelectionFieldContainer.leadingAnchor.constraint(equalTo: container.leadingAnchor).isActive = true
+        daysSelectionFieldContainer.trailingAnchor.constraint(equalTo: container.trailingAnchor).isActive = true
+        daysSelectionFieldContainer.bottomAnchor.constraint(equalTo: container.bottomAnchor).isActive = true
+        
+        updateRegularityText(with: selectedRegularity)
         
         return container
     }()
@@ -220,9 +333,21 @@ final class CreateChallengeMainVC: UIViewController {
         daysCountField.resignFirstResponder()
     }
     
+    @objc private func selectRegularity() {
+        
+    }
+    
     @objc private func editDaysCount() {
         hideInputViews()
         daysCountField.becomeFirstResponder()
+    }
+    
+    private func handleDaysCountBadInput() {
+        daysCountHint.isHidden = false
+    }
+    
+    private func updateRegularityText(with types: [CreateChallengeRegularityType]) {
+        regularityLabel.text = "CreateChallengeRegularityDaily".localised()
     }
 }
 
@@ -233,5 +358,31 @@ extension CreateChallengeMainVC: UIScrollViewDelegate {
 }
 
 extension CreateChallengeMainVC: UITextFieldDelegate {
-    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if textField === daysCountField {
+            let allowedCharacters = CharacterSet.decimalDigits
+            let characterSet = CharacterSet(charactersIn: string)
+            let isDigitsOnly = allowedCharacters.isSuperset(of: characterSet)
+            let currentText = textField.text ?? ""
+            guard isDigitsOnly, let swiftRange = Range(range, in: currentText) else {
+                handleDaysCountBadInput()
+                return false
+            }
+            
+            let newString = currentText.replacingCharacters(in: swiftRange, with: string)
+            
+            if newString.isEmpty {
+                handleDaysCountBadInput()
+                return true
+            }
+            
+            let intValue = Int(newString) ?? -1
+            let result = intValue > 0 && intValue < 366
+            if !result {
+                handleDaysCountBadInput()
+            }
+            return result
+        }
+        return true
+    }
 }

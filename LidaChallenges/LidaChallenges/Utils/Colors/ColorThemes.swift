@@ -18,6 +18,7 @@ protocol ColorTheme {
     var warningItem: UIColor { get }
     var placeholder: UIColor { get }
     var listActionBackground: UIColor { get }
+    var hint: UIColor { get }
 }
 
 final class LightTheme: ColorTheme {
@@ -30,4 +31,5 @@ final class LightTheme: ColorTheme {
     var warningItem: UIColor { UIColor.color(from: "#888888") }
     var placeholder: UIColor { UIColor.color(from: "#606060") }
     var listActionBackground: UIColor { UIColor.color(from: "#E8E8E8") }
+    var hint: UIColor { UIColor.color(from: "#699BF7") }
 }
