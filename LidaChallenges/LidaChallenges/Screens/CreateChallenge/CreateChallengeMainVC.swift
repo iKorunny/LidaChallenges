@@ -22,13 +22,13 @@ enum CreateChallengeRegularityType: Int {
     
     func stringValue() -> String {
         switch self {
-        case .monday: return "CreateChallengeRegularityMonday"
-        case .tuesday: return "CreateChallengeRegularityTuesday"
-        case .wednesday: return "CreateChallengeRegularityWednesday"
-        case .thursday: return "CreateChallengeRegularityThursday"
-        case .friday: return "CreateChallengeRegularityFriday"
-        case .saturday: return "CreateChallengeRegularitySaturday"
-        case .sunday: return "CreateChallengeRegularitySunday"
+        case .monday: return "CreateChallengeRegularityMonday".localised()
+        case .tuesday: return "CreateChallengeRegularityTuesday".localised()
+        case .wednesday: return "CreateChallengeRegularityWednesday".localised()
+        case .thursday: return "CreateChallengeRegularityThursday".localised()
+        case .friday: return "CreateChallengeRegularityFriday".localised()
+        case .saturday: return "CreateChallengeRegularitySaturday".localised()
+        case .sunday: return "CreateChallengeRegularitySunday".localised()
         }
     }
 }
@@ -40,7 +40,72 @@ final class CreateChallengeMainVC: UIViewController {
     }
     
     private var keyboardService: KeyboardAppearService?
-    private var selectedRegularity: [CreateChallengeRegularityType] = CreateChallengeRegularityType.allValues()
+    private var selectedRegularity: Set<CreateChallengeRegularityType> = Set<CreateChallengeRegularityType>(CreateChallengeRegularityType.allValues())
+    
+    private var daysPickerTopConstraint: NSLayoutConstraint?
+    
+    private var daysPickerButtons: [UIButton] = []
+    
+    private lazy var daysPickerButtonsStack: UIStackView = {
+        var arrangedSubviews: [UIView] = []
+        
+        for i in 0..<CreateChallengeRegularityType.allValues().count {
+            let buttonContainer = UIView()
+            buttonContainer.backgroundColor = .clear
+            buttonContainer.isUserInteractionEnabled = true
+            let button = UIButton()
+            button.titleLabel?.font = FontsProvider.regularAppFont(with: 14)
+            button.tag = i
+            button.setTitle(CreateChallengeRegularityType.allValues()[i].stringValue(), for: .normal)
+            button.setTitleColor(ColorThemeProvider.shared.itemBackground, for: .normal)
+            button.addTarget(self, action: #selector(onDayPick(_:)), for: .touchUpInside)
+            button.translatesAutoresizingMaskIntoConstraints = false
+            if i < (CreateChallengeRegularityType.allValues().count - 1) {
+                let line = UIView()
+                line.translatesAutoresizingMaskIntoConstraints = false
+                line.backgroundColor = ColorThemeProvider.shared.pickerBorder
+                line.widthAnchor.constraint(equalToConstant: 0.75).isActive = true
+                line.heightAnchor.constraint(equalToConstant: 17).isActive = true
+                buttonContainer.addSubview(line)
+                line.centerYAnchor.constraint(equalTo: buttonContainer.centerYAnchor).isActive = true
+                line.trailingAnchor.constraint(equalTo: buttonContainer.trailingAnchor).isActive = true
+            }
+            buttonContainer.addSubview(button)
+            button.topAnchor.constraint(equalTo: buttonContainer.topAnchor).isActive = true
+            button.bottomAnchor.constraint(equalTo: buttonContainer.bottomAnchor).isActive = true
+            button.leadingAnchor.constraint(equalTo: buttonContainer.leadingAnchor).isActive = true
+            button.trailingAnchor.constraint(equalTo: buttonContainer.trailingAnchor).isActive = true
+            
+            daysPickerButtons.append(button)
+            arrangedSubviews.append(buttonContainer)
+        }
+        
+        let stack = UIStackView(arrangedSubviews: arrangedSubviews)
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        stack.backgroundColor = .clear
+        stack.axis = .horizontal
+        stack.distribution = .fillProportionally
+        stack.isUserInteractionEnabled = true
+        return stack
+    }()
+    
+    private lazy var daysPickerContainer: UIView = {
+        let container = UIView()
+        container.isUserInteractionEnabled = true
+        container.translatesAutoresizingMaskIntoConstraints = false
+        container.backgroundColor = ColorThemeProvider.shared.pickerBackground.withAlphaComponent(0.5)
+        container.layer.masksToBounds = true
+        container.layer.cornerRadius = 10
+        container.alpha = 0
+        
+        container.addSubview(daysPickerButtonsStack)
+        daysPickerButtonsStack.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: 9).isActive = true
+        daysPickerButtonsStack.trailingAnchor.constraint(equalTo: container.trailingAnchor, constant: -9).isActive = true
+        daysPickerButtonsStack.bottomAnchor.constraint(equalTo: container.bottomAnchor).isActive = true
+        daysPickerButtonsStack.topAnchor.constraint(equalTo: container.topAnchor).isActive = true
+        
+        return container
+    }()
     
     private lazy var continueButton: UIBarButtonItem = {
         let button = UIBarButtonItem(title: "CreateChallengeContinueButtonTitle".localised(),
@@ -259,11 +324,21 @@ final class CreateChallengeMainVC: UIViewController {
         let content = UIView()
         content.translatesAutoresizingMaskIntoConstraints = false
         content.backgroundColor = .clear
+        
+        content.addSubview(daysPickerContainer)
+        daysPickerContainer.heightAnchor.constraint(equalToConstant: 36).isActive = true
+        daysPickerContainer.leadingAnchor.constraint(equalTo: content.leadingAnchor, constant: 18).isActive = true
+        daysPickerContainer.trailingAnchor.constraint(equalTo: content.trailingAnchor, constant: -18).isActive = true
+        
         content.addSubview(buttonsContainer)
         buttonsContainer.topAnchor.constraint(equalTo: content.topAnchor, constant: 18).isActive = true
-        buttonsContainer.bottomAnchor.constraint(equalTo: content.bottomAnchor).isActive = true
+        buttonsContainer.bottomAnchor.constraint(equalTo: content.bottomAnchor, constant: -51).isActive = true
         buttonsContainer.leadingAnchor.constraint(equalTo: content.leadingAnchor, constant: 18).isActive = true
         buttonsContainer.trailingAnchor.constraint(equalTo: content.trailingAnchor, constant: -18).isActive = true
+        
+        daysPickerTopConstraint = daysPickerContainer.topAnchor.constraint(equalTo: buttonsContainer.topAnchor, constant: 82)
+        daysPickerTopConstraint?.isActive = true
+        
         return content
     }()
     
@@ -330,10 +405,34 @@ final class CreateChallengeMainVC: UIViewController {
     @objc private func hideInputViews() {
         nameTextField.resignFirstResponder()
         daysCountField.resignFirstResponder()
+        updateDaysPicker(enabled: false)
     }
     
     @objc private func selectRegularity() {
+        updateDaysPicker(enabled: true)
+    }
+    
+    private func updateDaysPicker(enabled: Bool) {
+        UIView.animate(withDuration: 0.3) { [weak self] in
+            self?.daysPickerContainer.alpha = enabled ? 1.0 : 0.0
+            self?.daysPickerTopConstraint?.constant = enabled ? 137 : 82
+            self?.scrollContent.layoutIfNeeded()
+        }
+    }
+    
+    @objc private func onDayPick(_ sender: UIButton) {
+        guard let day = CreateChallengeRegularityType(rawValue: sender.tag + 1) else { return }
+        let button = daysPickerButtons[sender.tag]
+        if selectedRegularity.contains(day) {
+            selectedRegularity.remove(day)
+            button.setTitleColor(ColorThemeProvider.shared.itemTextTitle, for: .normal)
+        }
+        else {
+            selectedRegularity.insert(day)
+            button.setTitleColor(ColorThemeProvider.shared.itemBackground, for: .normal)
+        }
         
+        updateRegularityText(with: selectedRegularity)
     }
     
     @objc private func editDaysCount() {
@@ -345,13 +444,20 @@ final class CreateChallengeMainVC: UIViewController {
         daysCountHint.isHidden = false
     }
     
-    private func updateRegularityText(with types: [CreateChallengeRegularityType]) {
-        regularityLabel.text = "CreateChallengeRegularityDaily".localised()
+    private func updateRegularityText(with types: Set<CreateChallengeRegularityType>) {
+        let intersection = types.intersection(CreateChallengeRegularityType.allValues())
+        if intersection.count == CreateChallengeRegularityType.allValues().count {
+            regularityLabel.text = "CreateChallengeRegularityDaily".localised()
+        }
+        else {
+            regularityLabel.text = selectedRegularity.sorted(by: { $0.rawValue < $1.rawValue }).map({ $0.stringValue() }).joined(separator: ", ")
+        }
     }
 }
 
 extension CreateChallengeMainVC: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        guard scrollView.isTracking else { return }
         hideInputViews()
     }
 }

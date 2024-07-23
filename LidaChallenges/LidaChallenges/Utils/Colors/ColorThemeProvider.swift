@@ -23,4 +23,6 @@ final class ColorThemeProvider: ColorTheme {
     var placeholder: UIColor { currentTheme.placeholder }
     var listActionBackground: UIColor { currentTheme.listActionBackground }
     var hint: UIColor { currentTheme.hint }
+    var pickerBackground: UIColor { currentTheme.pickerBackground }
+    var pickerBorder: UIColor { currentTheme.pickerBorder }
 }
