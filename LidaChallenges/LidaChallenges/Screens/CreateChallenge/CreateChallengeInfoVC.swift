@@ -112,8 +112,8 @@ final class CreateChallengeInfoVC: UIViewController {
         nameLabel.text = model?.name
         
         view.addSubview(textView)
-        textView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 33).isActive = true
-        textView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -33).isActive = true
+        textView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 29).isActive = true
+        textView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -29).isActive = true
         textView.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 25).isActive = true
         textView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -OffsetsService.shared.bottomOffset).isActive = true
     }
