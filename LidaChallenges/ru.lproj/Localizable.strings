@@ -32,3 +32,7 @@
 "CreateChallengeRegularityFriday" = "птн";
 "CreateChallengeRegularitySaturday" = "сб";
 "CreateChallengeRegularitySunday" = "вскр";
+"CreateChallengeInfoTitle" = "Созданный челлендж";
+"CreateChallengeInfoContinue" = "Начать";
+"CreateChallengeInfoPickImage" = "Выбрать картинку";
+"CreateChallengeInfoPlaceholder" = "Опишите ... (при желании)";

@@ -40,7 +40,24 @@ final class CreateChallengeMainVC: UIViewController {
     }
     
     private var keyboardService: KeyboardAppearService?
+    
     private var selectedRegularity: Set<CreateChallengeRegularityType> = Set<CreateChallengeRegularityType>(CreateChallengeRegularityType.allValues())
+    private var daysCount: Int? {
+        guard let daysString = daysCountField.text else { return nil }
+        return Int(daysString)
+    }
+    private var name: String? {
+        nameTextField.text
+    }
+    
+    private var isDaysValid: Bool {
+        guard let days = daysCount else { return false }
+        return days > 0 && days <= 365
+    }
+    private var isNameValid: Bool {
+        guard let name else { return false }
+        return !name.isEmpty
+    }
     
     private var daysPickerTopConstraint: NSLayoutConstraint?
     
@@ -399,13 +416,17 @@ final class CreateChallengeMainVC: UIViewController {
     }
     
     @objc private func onContinue() {
-        
+        hideInputViews()
+        AppRouter.shared.toCreateChallengeInfo(with: ChallengeModelToCreate(name: name ?? "",
+                                                                            daysCount: daysCount ?? 0,
+                                                                            selectedRegularity: selectedRegularity))
     }
     
     @objc private func hideInputViews() {
         nameTextField.resignFirstResponder()
         daysCountField.resignFirstResponder()
         updateDaysPicker(enabled: false)
+        updateContinueButtonEnability()
     }
     
     @objc private func selectRegularity() {
@@ -445,13 +466,12 @@ final class CreateChallengeMainVC: UIViewController {
     }
     
     private func updateRegularityText(with types: Set<CreateChallengeRegularityType>) {
-        let intersection = types.intersection(CreateChallengeRegularityType.allValues())
-        if intersection.count == CreateChallengeRegularityType.allValues().count {
-            regularityLabel.text = "CreateChallengeRegularityDaily".localised()
-        }
-        else {
-            regularityLabel.text = selectedRegularity.sorted(by: { $0.rawValue < $1.rawValue }).map({ $0.stringValue() }).joined(separator: ", ")
-        }
+        regularityLabel.text = CreateChallengeRegularityUtils.regularityToString(types)
+    }
+    
+    private func updateContinueButtonEnability() {
+        let insEnabled = !selectedRegularity.isEmpty && isDaysValid && isNameValid
+        continueButton.isEnabled = insEnabled
     }
 }
 
@@ -489,5 +509,9 @@ extension CreateChallengeMainVC: UITextFieldDelegate {
             return result
         }
         return true
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField, reason: UITextField.DidEndEditingReason) {
+        updateContinueButtonEnability()
     }
 }

@@ -38,4 +38,10 @@ final class AppRouter {
         let nextVC = CreateChallengeMainVC()
         navigationController?.pushViewController(nextVC, animated: false)
     }
+    
+    func toCreateChallengeInfo(with model: ChallengeModelToCreate) {
+        let nextVC = CreateChallengeInfoVC()
+        nextVC.model = model
+        navigationController?.pushViewController(nextVC, animated: false)
+    }
 }

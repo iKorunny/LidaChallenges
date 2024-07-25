@@ -25,4 +25,5 @@ final class ColorThemeProvider: ColorTheme {
     var hint: UIColor { currentTheme.hint }
     var pickerBackground: UIColor { currentTheme.pickerBackground }
     var pickerBorder: UIColor { currentTheme.pickerBorder }
+    var buttonText: UIColor { currentTheme.buttonText }
 }
