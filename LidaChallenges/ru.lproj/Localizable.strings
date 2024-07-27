@@ -36,3 +36,5 @@
 "CreateChallengeInfoContinue" = "Начать";
 "CreateChallengeInfoPickImage" = "Выбрать картинку";
 "CreateChallengeInfoPlaceholder" = "Опишите ... (при желании)";
+"CreateChallengeImagePickerTitle" = "Выбрать картинку";
+"CreateChallengeImagePickerSave" = "Сохранить";

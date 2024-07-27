@@ -44,4 +44,10 @@ final class AppRouter {
         nextVC.model = model
         navigationController?.pushViewController(nextVC, animated: false)
     }
+    
+    func toCreateChallengeImage(onPickImage: @escaping (UIImage) -> Void) {
+        let nextVC = CreateChallengeImageVC()
+        nextVC.onPickImage = onPickImage
+        navigationController?.pushViewController(nextVC, animated: false)
+    }
 }

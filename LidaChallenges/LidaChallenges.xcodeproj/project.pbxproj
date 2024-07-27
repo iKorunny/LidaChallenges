@@ -15,6 +15,7 @@
 		805E27432C235BAA0048F78F /* CategoriesSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 805E27422C235BAA0048F78F /* CategoriesSource.swift */; };
 		805E27462C235CF30048F78F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 805E27482C235CF30048F78F /* Localizable.strings */; };
 		805E274B2C2360340048F78F /* CategoriesSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 805E274A2C2360340048F78F /* CategoriesSectionHeader.swift */; };
+		8074463C2C55991F0093D65F /* CreateChallengeImageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8074463B2C55991E0093D65F /* CreateChallengeImageVC.swift */; };
 		807862002C29E5EB00FA8938 /* MainVCListActionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807861FF2C29E5EB00FA8938 /* MainVCListActionItem.swift */; };
 		807862022C29E86200FA8938 /* MainVCListActionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807862012C29E86200FA8938 /* MainVCListActionView.swift */; };
 		807D48C22C1F532B004FB542 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807D48C12C1F532B004FB542 /* AppDelegate.swift */; };
@@ -49,6 +50,7 @@
 		805E27472C235CF30048F78F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		805E27492C235D0A0048F78F /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		805E274A2C2360340048F78F /* CategoriesSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesSectionHeader.swift; sourceTree = "<group>"; };
+		8074463B2C55991E0093D65F /* CreateChallengeImageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateChallengeImageVC.swift; sourceTree = "<group>"; };
 		807861FF2C29E5EB00FA8938 /* MainVCListActionItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVCListActionItem.swift; sourceTree = "<group>"; };
 		807862012C29E86200FA8938 /* MainVCListActionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVCListActionView.swift; sourceTree = "<group>"; };
 		807D48BE2C1F532B004FB542 /* LidaChallenges.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LidaChallenges.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -152,6 +154,7 @@
 				8026471D2C52EB8800705B2E /* ChallengeModelToCreate.swift */,
 				8091376A2C46FABC0021CCE0 /* KeyboardAppearService.swift */,
 				8026471A2C52E35600705B2E /* CreateChallengeInfoVC.swift */,
+				8074463B2C55991E0093D65F /* CreateChallengeImageVC.swift */,
 			);
 			path = CreateChallenge;
 			sourceTree = "<group>";
@@ -282,6 +285,7 @@
 				807862002C29E5EB00FA8938 /* MainVCListActionItem.swift in Sources */,
 				804D8FC62C2861EE00FA30F3 /* MainCategoriesCell.swift in Sources */,
 				809137652C45AC160021CCE0 /* MyChallengesVC.swift in Sources */,
+				8074463C2C55991F0093D65F /* CreateChallengeImageVC.swift in Sources */,
 				8026471E2C52EB8800705B2E /* ChallengeModelToCreate.swift in Sources */,
 				804D8FC82C2871D300FA30F3 /* MainVCCollectiomLayout.swift in Sources */,
 				807D48CC2C1F532B004FB542 /* LidaChallenges.xcdatamodeld in Sources */,

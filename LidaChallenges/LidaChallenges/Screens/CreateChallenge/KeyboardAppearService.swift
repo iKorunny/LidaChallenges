@@ -49,8 +49,8 @@ final class KeyboardAppearService {
         let keyboardRectangle = keyboardFrame.cgRectValue
         var keyboardHeight = keyboardRectangle.height
         
-        if !appendDefaultOffset {
-            keyboardHeight += defaultBottomOffset
+        if appendDefaultOffset {
+            keyboardHeight -= defaultBottomOffset
         }
         
         onShowInputView(with: keyboardHeight)

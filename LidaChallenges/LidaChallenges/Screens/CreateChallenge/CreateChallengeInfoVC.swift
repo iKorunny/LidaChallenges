@@ -9,9 +9,20 @@ import UIKit
 
 final class CreateChallengeInfoVC: UIViewController {
     
+    deinit {
+        scrollView.removeGestureRecognizer(hideInputsTapGesture)
+    }
+    
     var model: ChallengeModelToCreate?
     
     private let infoPlaceholder = "CreateChallengeInfoPlaceholder".localised()
+    
+    private var keyboardService: KeyboardAppearService?
+    
+    private lazy var hideInputsTapGesture: UITapGestureRecognizer = {
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(hideInputs))
+        return gesture
+    }()
     
     private lazy var startButton: UIBarButtonItem = {
         let button = UIBarButtonItem(title: "CreateChallengeInfoContinue".localised(),
@@ -20,6 +31,46 @@ final class CreateChallengeInfoVC: UIViewController {
                                      action: #selector(onStart))
         button.isEnabled = false
         return button
+    }()
+    
+    private lazy var scrollContent: UIView = {
+        let content = UIView()
+        content.translatesAutoresizingMaskIntoConstraints = false
+        content.backgroundColor = .clear
+        
+        return content
+    }()
+    
+    private lazy var scrollContentContainer: UIView = {
+        let container = UIView()
+        container.translatesAutoresizingMaskIntoConstraints = false
+        container.backgroundColor = .clear
+        
+        container.addSubview(scrollContent)
+        scrollContent.topAnchor.constraint(equalTo: container.topAnchor).isActive = true
+        scrollContent.bottomAnchor.constraint(equalTo: container.bottomAnchor).isActive = true
+        scrollContent.leadingAnchor.constraint(equalTo: container.leadingAnchor).isActive = true
+        scrollContent.trailingAnchor.constraint(equalTo: container.trailingAnchor).isActive = true
+        
+        return container
+    }()
+    
+    private lazy var scrollView: UIScrollView = {
+        let scroll = UIScrollView()
+        scroll.translatesAutoresizingMaskIntoConstraints = false
+        scroll.addSubview(scrollContentContainer)
+        scroll.delegate = self
+        scroll.addGestureRecognizer(hideInputsTapGesture)
+        scrollContentContainer.topAnchor.constraint(equalTo: scroll.topAnchor).isActive = true
+        scrollContentContainer.bottomAnchor.constraint(equalTo: scroll.bottomAnchor).isActive = true
+        scrollContentContainer.leadingAnchor.constraint(equalTo: scroll.leadingAnchor).isActive = true
+        scrollContentContainer.trailingAnchor.constraint(equalTo: scroll.trailingAnchor).isActive = true
+        scrollContentContainer.widthAnchor.constraint(equalTo: scroll.widthAnchor).isActive = true
+        let heighAnchor = scrollContentContainer.heightAnchor.constraint(equalTo: scroll.heightAnchor)
+        heighAnchor.priority = .defaultLow
+        heighAnchor.isActive = true
+        
+        return scroll
     }()
     
     private lazy var textView: UITextView = {
@@ -95,27 +146,36 @@ final class CreateChallengeInfoVC: UIViewController {
         navigationItem.rightBarButtonItem = startButton
         
         setupUI()
+        updateCreateButtonEnability()
         
         showPlaceholderIfNeeded(currentText: nil)
     }
     
     private func setupUI() {
-        view.addSubview(pickImageView)
-        pickImageView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 25).isActive = true
-        pickImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-        pickImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        scrollContent.addSubview(pickImageView)
+        pickImageView.topAnchor.constraint(equalTo: scrollContent.safeAreaLayoutGuide.topAnchor, constant: 25).isActive = true
+        pickImageView.leadingAnchor.constraint(equalTo: scrollContent.leadingAnchor).isActive = true
+        pickImageView.trailingAnchor.constraint(equalTo: scrollContent.trailingAnchor).isActive = true
         
-        view.addSubview(nameLabel)
-        nameLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 33).isActive = true
-        nameLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -33).isActive = true
+        scrollContent.addSubview(nameLabel)
+        nameLabel.leadingAnchor.constraint(equalTo: scrollContent.leadingAnchor, constant: 33).isActive = true
+        nameLabel.trailingAnchor.constraint(equalTo: scrollContent.trailingAnchor, constant: -33).isActive = true
         nameLabel.topAnchor.constraint(equalTo: pickImageView.bottomAnchor, constant: 42).isActive = true
         nameLabel.text = model?.name
         
-        view.addSubview(textView)
-        textView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 29).isActive = true
-        textView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -29).isActive = true
+        scrollContent.addSubview(textView)
+        textView.leadingAnchor.constraint(equalTo: scrollContent.leadingAnchor, constant: 29).isActive = true
+        textView.trailingAnchor.constraint(equalTo: scrollContent.trailingAnchor, constant: -29).isActive = true
         textView.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 25).isActive = true
-        textView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -OffsetsService.shared.bottomOffset).isActive = true
+        textView.bottomAnchor.constraint(equalTo: scrollContent.bottomAnchor).isActive = true
+        
+        view.addSubview(scrollView)
+        scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
+        scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        let scrollBottom = scrollView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -OffsetsService.shared.bottomOffset)
+        scrollBottom.isActive = true
+        keyboardService = KeyboardAppearService(mainView: view, bottomConstraint: scrollBottom)
     }
     
     @objc private func onStart() {
@@ -124,6 +184,9 @@ final class CreateChallengeInfoVC: UIViewController {
     
     @objc private func onPickImage() {
         hideInputs()
+        AppRouter.shared.toCreateChallengeImage { pickedImage in
+            
+        }
     }
     
     private func showPlaceholderIfNeeded(currentText: String?) {
@@ -132,8 +195,13 @@ final class CreateChallengeInfoVC: UIViewController {
         }
     }
     
-    private func hideInputs() {
+    @objc private func hideInputs() {
         textView.resignFirstResponder()
+    }
+    
+    private func updateCreateButtonEnability() {
+        let insEnabled = true
+        startButton.isEnabled = insEnabled
     }
 }
 
@@ -148,5 +216,12 @@ extension CreateChallengeInfoVC: UITextViewDelegate {
     
     func textViewDidEndEditing(_ textView: UITextView) {
         showPlaceholderIfNeeded(currentText: textView.text)
+    }
+}
+
+extension CreateChallengeInfoVC: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        guard scrollView.isTracking else { return }
+        hideInputs()
     }
 }

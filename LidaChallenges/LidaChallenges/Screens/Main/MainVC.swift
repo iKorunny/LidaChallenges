@@ -14,6 +14,8 @@ final class MainVC: UIViewController {
     
     private let source: CategoriesSource = CategoriesSourceMock()
     
+    private var onceAppeared = false
+    
     private lazy var headerLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -86,6 +88,16 @@ final class MainVC: UIViewController {
         setupCollection()
         addSearch()
         addScroll()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        if !onceAppeared && source.categoriesCount > 2 {
+            onceAppeared = true
+            let middleIndex = Int(floor(Double(source.categoriesCount) / 2.0))
+            collectionView.scrollToItem(at: IndexPath(row: middleIndex, section: 0), at: .centeredHorizontally, animated: false)
+        }
     }
     
     private func setupCollection() {
