@@ -38,3 +38,4 @@
 "CreateChallengeInfoPlaceholder" = "Опишите ... (при желании)";
 "CreateChallengeImagePickerTitle" = "Выбрать картинку";
 "CreateChallengeImagePickerSave" = "Сохранить";
+"CreateChallengeImagePickerGallery" = "Выбрать из галереи";

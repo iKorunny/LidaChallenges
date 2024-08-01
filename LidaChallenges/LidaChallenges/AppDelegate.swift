@@ -10,11 +10,18 @@ import CoreData
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
-
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+//        let navigationBarAppearance = UINavigationBarAppearance()
+//        navigationBarAppearance.configureWithOpaqueBackground()
+//        navigationBarAppearance.titleTextAttributes = [
+//            NSAttributedString.Key.foregroundColor : UIColor.white
+//        ]
+//        navigationBarAppearance.backgroundColor = .clear
+//        UINavigationBar.appearance().standardAppearance = navigationBarAppearance
+//        UINavigationBar.appearance().compactAppearance = navigationBarAppearance
+//        UINavigationBar.appearance().scrollEdgeAppearance = navigationBarAppearance
+        
         return true
     }
 

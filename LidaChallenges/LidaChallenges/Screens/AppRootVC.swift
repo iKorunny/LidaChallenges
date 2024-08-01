@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AppRootVC: UIViewController {
+final class AppRootVC: UIViewController {
     private lazy var window: UIWindow? = {
         return (UIApplication.shared.connectedScenes.first(where: { $0.activationState == .foregroundActive }) as? UIWindowScene)?.windows.last
     }()

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		800C40C22C5C1D2200AECCA4 /* UIImage+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800C40C12C5C1D2200AECCA4 /* UIImage+Utils.swift */; };
+		800C40C42C5C1D6100AECCA4 /* UIImageResizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800C40C32C5C1D6100AECCA4 /* UIImageResizer.swift */; };
 		8026471B2C52E35600705B2E /* CreateChallengeInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8026471A2C52E35600705B2E /* CreateChallengeInfoVC.swift */; };
 		8026471E2C52EB8800705B2E /* ChallengeModelToCreate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8026471D2C52EB8800705B2E /* ChallengeModelToCreate.swift */; };
 		802647202C52EBF300705B2E /* CreateChallengeRegularityUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8026471F2C52EBF300705B2E /* CreateChallengeRegularityUtils.swift */; };
@@ -25,6 +27,8 @@
 		807D48CC2C1F532B004FB542 /* LidaChallenges.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 807D48CA2C1F532B004FB542 /* LidaChallenges.xcdatamodeld */; };
 		807D48CE2C1F532D004FB542 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 807D48CD2C1F532D004FB542 /* Assets.xcassets */; };
 		807D48D12C1F532D004FB542 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 807D48CF2C1F532D004FB542 /* LaunchScreen.storyboard */; };
+		808C18362C5C0A1F00316CA8 /* CreateChallengeImagePickGalleryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 808C18352C5C0A1F00316CA8 /* CreateChallengeImagePickGalleryCell.swift */; };
+		808C18382C5C110E00316CA8 /* CreateChallengeImagePickCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 808C18372C5C110E00316CA8 /* CreateChallengeImagePickCell.swift */; };
 		809137602C45A83D0021CCE0 /* FontsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8091375F2C45A83D0021CCE0 /* FontsProvider.swift */; };
 		809137622C45A9FF0021CCE0 /* AppRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809137612C45A9FF0021CCE0 /* AppRouter.swift */; };
 		809137652C45AC160021CCE0 /* MyChallengesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809137642C45AC160021CCE0 /* MyChallengesVC.swift */; };
@@ -41,6 +45,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		800C40C12C5C1D2200AECCA4 /* UIImage+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Utils.swift"; sourceTree = "<group>"; };
+		800C40C32C5C1D6100AECCA4 /* UIImageResizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageResizer.swift; sourceTree = "<group>"; };
 		8026471A2C52E35600705B2E /* CreateChallengeInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateChallengeInfoVC.swift; sourceTree = "<group>"; };
 		8026471D2C52EB8800705B2E /* ChallengeModelToCreate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeModelToCreate.swift; sourceTree = "<group>"; };
 		8026471F2C52EBF300705B2E /* CreateChallengeRegularityUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateChallengeRegularityUtils.swift; sourceTree = "<group>"; };
@@ -62,6 +68,8 @@
 		807D48CD2C1F532D004FB542 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		807D48D02C1F532D004FB542 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		807D48D22C1F532D004FB542 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		808C18352C5C0A1F00316CA8 /* CreateChallengeImagePickGalleryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateChallengeImagePickGalleryCell.swift; sourceTree = "<group>"; };
+		808C18372C5C110E00316CA8 /* CreateChallengeImagePickCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateChallengeImagePickCell.swift; sourceTree = "<group>"; };
 		8091375F2C45A83D0021CCE0 /* FontsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontsProvider.swift; sourceTree = "<group>"; };
 		809137612C45A9FF0021CCE0 /* AppRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRouter.swift; sourceTree = "<group>"; };
 		809137642C45AC160021CCE0 /* MyChallengesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyChallengesVC.swift; sourceTree = "<group>"; };
@@ -138,6 +146,16 @@
 			path = LidaChallenges;
 			sourceTree = "<group>";
 		};
+		808C18342C5C02A600316CA8 /* ImagePick */ = {
+			isa = PBXGroup;
+			children = (
+				8074463B2C55991E0093D65F /* CreateChallengeImageVC.swift */,
+				808C18352C5C0A1F00316CA8 /* CreateChallengeImagePickGalleryCell.swift */,
+				808C18372C5C110E00316CA8 /* CreateChallengeImagePickCell.swift */,
+			);
+			path = ImagePick;
+			sourceTree = "<group>";
+		};
 		809137632C45ABF10021CCE0 /* MyChallenges */ = {
 			isa = PBXGroup;
 			children = (
@@ -154,7 +172,7 @@
 				8026471D2C52EB8800705B2E /* ChallengeModelToCreate.swift */,
 				8091376A2C46FABC0021CCE0 /* KeyboardAppearService.swift */,
 				8026471A2C52E35600705B2E /* CreateChallengeInfoVC.swift */,
-				8074463B2C55991E0093D65F /* CreateChallengeImageVC.swift */,
+				808C18342C5C02A600316CA8 /* ImagePick */,
 			);
 			path = CreateChallenge;
 			sourceTree = "<group>";
@@ -167,6 +185,8 @@
 				80F2CE0A2C20B74100B0E611 /* Controller+Childred.swift */,
 				80F2CE002C20B33400B0E611 /* Colors */,
 				8091375F2C45A83D0021CCE0 /* FontsProvider.swift */,
+				800C40C12C5C1D2200AECCA4 /* UIImage+Utils.swift */,
+				800C40C32C5C1D6100AECCA4 /* UIImageResizer.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -271,12 +291,14 @@
 				80F2CDFF2C20B33000B0E611 /* ColorThemeProvider.swift in Sources */,
 				809137692C46F50C0021CCE0 /* CreateChallengeMainVC.swift in Sources */,
 				8091376D2C47009F0021CCE0 /* OffsetsService.swift in Sources */,
+				808C18382C5C110E00316CA8 /* CreateChallengeImagePickCell.swift in Sources */,
 				807D48C62C1F532B004FB542 /* AfterLaunchViewController.swift in Sources */,
 				80F2CE0D2C20BC6600B0E611 /* MainVC.swift in Sources */,
 				802647202C52EBF300705B2E /* CreateChallengeRegularityUtils.swift in Sources */,
 				805E274B2C2360340048F78F /* CategoriesSectionHeader.swift in Sources */,
 				8026471B2C52E35600705B2E /* CreateChallengeInfoVC.swift in Sources */,
 				80F2CE0B2C20B74100B0E611 /* Controller+Childred.swift in Sources */,
+				808C18362C5C0A1F00316CA8 /* CreateChallengeImagePickGalleryCell.swift in Sources */,
 				805E27432C235BAA0048F78F /* CategoriesSource.swift in Sources */,
 				80F2CE092C20B66400B0E611 /* AppRootVC.swift in Sources */,
 				807D48C22C1F532B004FB542 /* AppDelegate.swift in Sources */,
@@ -285,12 +307,14 @@
 				807862002C29E5EB00FA8938 /* MainVCListActionItem.swift in Sources */,
 				804D8FC62C2861EE00FA30F3 /* MainCategoriesCell.swift in Sources */,
 				809137652C45AC160021CCE0 /* MyChallengesVC.swift in Sources */,
+				800C40C22C5C1D2200AECCA4 /* UIImage+Utils.swift in Sources */,
 				8074463C2C55991F0093D65F /* CreateChallengeImageVC.swift in Sources */,
 				8026471E2C52EB8800705B2E /* ChallengeModelToCreate.swift in Sources */,
 				804D8FC82C2871D300FA30F3 /* MainVCCollectiomLayout.swift in Sources */,
 				807D48CC2C1F532B004FB542 /* LidaChallenges.xcdatamodeld in Sources */,
 				809137602C45A83D0021CCE0 /* FontsProvider.swift in Sources */,
 				8091376B2C46FABC0021CCE0 /* KeyboardAppearService.swift in Sources */,
+				800C40C42C5C1D6100AECCA4 /* UIImageResizer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -457,6 +481,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = LidaChallenges/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = ChallengeTime;
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "$(PRODUCT_NAME) would like to access your photo.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -487,6 +512,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = LidaChallenges/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = ChallengeTime;
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "$(PRODUCT_NAME) would like to access your photo.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
