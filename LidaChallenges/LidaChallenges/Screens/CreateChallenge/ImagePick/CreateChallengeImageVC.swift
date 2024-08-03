@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Photos
 
 final class CreateChallengeImageVC: UIViewController {
     private lazy var window: UIWindow? = {
@@ -84,6 +85,20 @@ final class CreateChallengeImageVC: UIViewController {
     @objc private func onSave() {
         
     }
+    
+    private func toGalleryPicker() {
+        let status = PHPhotoLibrary.authorizationStatus()
+        
+        switch status {
+        case .denied, .restricted:
+            AlertsPresenter.presentAlertNoLibraryAccess(from: navigationController ?? self)
+        default:
+            let nativePicker = UIImagePickerController()
+            nativePicker.allowsEditing = true
+            nativePicker.delegate = self
+            (navigationController ?? self).present(nativePicker, animated: true)
+        }
+    }
 }
 
 extension CreateChallengeImageVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
@@ -136,5 +151,33 @@ extension CreateChallengeImageVC: UICollectionViewDelegate, UICollectionViewData
             let cellWidth = floor((collectionWidth - cellWidthOffset) / CGFloat(inRow))
             return CGSize(width: cellWidth, height: cellWidth)
         }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        switch indexPath.section {
+        case 0: toGalleryPicker()
+        default:
+            let imageName = builtInIconNames[indexPath.row]
+            guard let icon = UIImage(named: imageName) else { return }
+            onPickImage?(icon)
+            navigationController?.popViewController(animated: true)
+        }
+    }
+}
+
+extension CreateChallengeImageVC: UIImagePickerControllerDelegate & UINavigationControllerDelegate {
+    public func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true)
+    }
+    
+    public func imagePickerController(_ picker: UIImagePickerController,
+                                      didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let newImage = info[.editedImage] as? UIImage {
+            let pickedImage = UIImageResizer.resizeTo720p(image: newImage)
+            onPickImage?(pickedImage)
+        }
+        
+        picker.dismiss(animated: true)
+        navigationController?.popViewController(animated: true)
     }
 }

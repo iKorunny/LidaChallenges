@@ -92,22 +92,28 @@ final class CreateChallengeInfoVC: UIViewController {
         return label
     }()
     
+    private lazy var pickImageButton: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.backgroundColor = ColorThemeProvider.shared.mainBackground
+        button.setImage(.init(named: "CreateChallengePickImage"), for: .normal)
+        button.addTarget(self, action: #selector(onPickImage), for: .touchUpInside)
+        button.imageView?.contentMode = .scaleAspectFit
+        
+        return button
+    }()
+    
     private lazy var pickImageView: UIView = {
         let background = UIView()
         background.translatesAutoresizingMaskIntoConstraints = false
         background.backgroundColor = .clear
         background.heightAnchor.constraint(equalTo: background.widthAnchor, multiplier: 160 / 430).isActive = true
         
-        let button = UIButton()
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.backgroundColor = ColorThemeProvider.shared.mainBackground
-        button.setImage(.init(named: "CreateChallengePickImage"), for: .normal)
-        background.addSubview(button)
-        button.topAnchor.constraint(equalTo: background.topAnchor).isActive = true
-        button.leadingAnchor.constraint(equalTo: background.leadingAnchor).isActive = true
-        button.trailingAnchor.constraint(equalTo: background.trailingAnchor).isActive = true
-        button.bottomAnchor.constraint(equalTo: background.bottomAnchor).isActive = true
-        button.addTarget(self, action: #selector(onPickImage), for: .touchUpInside)
+        background.addSubview(pickImageButton)
+        pickImageButton.topAnchor.constraint(equalTo: background.topAnchor).isActive = true
+        pickImageButton.leadingAnchor.constraint(equalTo: background.leadingAnchor).isActive = true
+        pickImageButton.trailingAnchor.constraint(equalTo: background.trailingAnchor).isActive = true
+        pickImageButton.bottomAnchor.constraint(equalTo: background.bottomAnchor).isActive = true
         
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -184,8 +190,8 @@ final class CreateChallengeInfoVC: UIViewController {
     
     @objc private func onPickImage() {
         hideInputs()
-        AppRouter.shared.toCreateChallengeImage { pickedImage in
-            
+        AppRouter.shared.toCreateChallengeImage { [weak self] pickedImage in
+            self?.pickImageButton.setImage(pickedImage, for: .normal)
         }
     }
     

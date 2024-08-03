@@ -39,3 +39,7 @@
 "CreateChallengeImagePickerTitle" = "Выбрать картинку";
 "CreateChallengeImagePickerSave" = "Сохранить";
 "CreateChallengeImagePickerGallery" = "Выбрать из галереи";
+"NoLibraryAccessAlertTitle" = "Вы ограничили доступ";
+"NoLibraryAccessAlertBody" = "Перейдите в настройки";
+"AlertToSettingsButtonTitle" = "Настройки";
+"AlertCancelButtonTitle" = "Отмена";
