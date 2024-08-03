@@ -92,6 +92,21 @@ final class CreateChallengeInfoVC: UIViewController {
         return label
     }()
     
+    private lazy var pickImageLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textColor = ColorThemeProvider.shared.buttonText
+        label.numberOfLines = 1
+        label.font = FontsProvider.regularAppFont(with: 36)
+        label.adjustsFontSizeToFitWidth = true
+        label.minimumScaleFactor = 0.4
+        label.textAlignment = .center
+        label.isUserInteractionEnabled = false
+        label.text = "CreateChallengeInfoPickImage".localised()
+        
+        return label
+    }()
+    
     private lazy var pickImageButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -115,21 +130,10 @@ final class CreateChallengeInfoVC: UIViewController {
         pickImageButton.trailingAnchor.constraint(equalTo: background.trailingAnchor).isActive = true
         pickImageButton.bottomAnchor.constraint(equalTo: background.bottomAnchor).isActive = true
         
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.textColor = ColorThemeProvider.shared.buttonText
-        label.numberOfLines = 1
-        label.font = FontsProvider.regularAppFont(with: 36)
-        label.adjustsFontSizeToFitWidth = true
-        label.minimumScaleFactor = 0.4
-        label.textAlignment = .center
-        label.isUserInteractionEnabled = false
-        label.text = "CreateChallengeInfoPickImage".localised()
-        
-        background.addSubview(label)
-        label.centerYAnchor.constraint(equalTo: background.centerYAnchor).isActive = true
-        label.leadingAnchor.constraint(equalTo: background.leadingAnchor, constant: 10).isActive = true
-        label.trailingAnchor.constraint(equalTo: background.trailingAnchor, constant: -10).isActive = true
+        background.addSubview(pickImageLabel)
+        pickImageLabel.centerYAnchor.constraint(equalTo: background.centerYAnchor).isActive = true
+        pickImageLabel.leadingAnchor.constraint(equalTo: background.leadingAnchor, constant: 10).isActive = true
+        pickImageLabel.trailingAnchor.constraint(equalTo: background.trailingAnchor, constant: -10).isActive = true
         
         let line = UIView()
         line.translatesAutoresizingMaskIntoConstraints = false
@@ -192,6 +196,7 @@ final class CreateChallengeInfoVC: UIViewController {
         hideInputs()
         AppRouter.shared.toCreateChallengeImage { [weak self] pickedImage in
             self?.pickImageButton.setImage(pickedImage, for: .normal)
+            self?.pickImageLabel.text = "CreateChallengeImagePickerChange".localised()
         }
     }
     

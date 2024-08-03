@@ -37,6 +37,7 @@
 "CreateChallengeInfoPickImage" = "Выбрать картинку";
 "CreateChallengeInfoPlaceholder" = "Опишите ... (при желании)";
 "CreateChallengeImagePickerTitle" = "Выбрать картинку";
+"CreateChallengeImagePickerChange" = "Изменить картинку";
 "CreateChallengeImagePickerSave" = "Сохранить";
 "CreateChallengeImagePickerGallery" = "Выбрать из галереи";
 "NoLibraryAccessAlertTitle" = "Вы ограничили доступ";
