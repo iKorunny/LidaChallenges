@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import GoogleMobileAds
 
 final class AppRootVC: UIViewController {
     private lazy var window: UIWindow? = {
@@ -39,6 +40,14 @@ final class AppRootVC: UIViewController {
         button.setImage(.init(named: "MyChallengesLargeButton"), for: .normal)
         button.addTarget(self, action: #selector(toMyChallenges), for: .touchUpInside)
         return button
+    }()
+    
+    private lazy var bannerView: GADBannerView = {
+        let viewWidth = view.frame.inset(by: view.safeAreaInsets).width
+        let adaptiveSize = GADCurrentOrientationAnchoredAdaptiveBannerAdSizeWithWidth(viewWidth)
+        let banner = GADBannerView(adSize: adaptiveSize)
+        banner.translatesAutoresizingMaskIntoConstraints = false
+        return banner
     }()
     
     private lazy var myChallengesLabel: UILabel = {
@@ -96,11 +105,17 @@ final class AppRootVC: UIViewController {
         safeAreaBackgroundView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         safeAreaBackgroundView.heightAnchor.constraint(equalToConstant: window?.safeAreaInsets.bottom ?? 0).isActive = true
         
+        OffsetsService.shared.bannerView = bannerView
+        view.addSubview(bannerView)
+        bannerView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+        bannerView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        
         view.addSubview(buttonContainer)
         buttonContainer.heightAnchor.constraint(equalToConstant: OffsetsService.shared.myChallengesButtonHeight).isActive = true
         buttonContainer.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         buttonContainer.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        buttonContainer.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true // TODO: containt to advertising view
+        buttonContainer.bottomAnchor.constraint(equalTo: bannerView.topAnchor).isActive = true
+//        buttonContainer.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true // TODO: containt to advertising view
         
         containerView.bottomAnchor.constraint(equalTo: buttonContainer.topAnchor).isActive = true
         

@@ -10,6 +10,7 @@
 		800C40C22C5C1D2200AECCA4 /* UIImage+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800C40C12C5C1D2200AECCA4 /* UIImage+Utils.swift */; };
 		800C40C42C5C1D6100AECCA4 /* UIImageResizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800C40C32C5C1D6100AECCA4 /* UIImageResizer.swift */; };
 		800C40C92C5EBCEC00AECCA4 /* AlertsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800C40C82C5EBCEC00AECCA4 /* AlertsPresenter.swift */; };
+		800DA6C72C6172D800FCFCD6 /* ADSManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800DA6C62C6172D800FCFCD6 /* ADSManager.swift */; };
 		8026471B2C52E35600705B2E /* CreateChallengeInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8026471A2C52E35600705B2E /* CreateChallengeInfoVC.swift */; };
 		8026471E2C52EB8800705B2E /* ChallengeModelToCreate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8026471D2C52EB8800705B2E /* ChallengeModelToCreate.swift */; };
 		802647202C52EBF300705B2E /* CreateChallengeRegularityUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8026471F2C52EBF300705B2E /* CreateChallengeRegularityUtils.swift */; };
@@ -49,6 +50,7 @@
 		800C40C12C5C1D2200AECCA4 /* UIImage+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Utils.swift"; sourceTree = "<group>"; };
 		800C40C32C5C1D6100AECCA4 /* UIImageResizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageResizer.swift; sourceTree = "<group>"; };
 		800C40C82C5EBCEC00AECCA4 /* AlertsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertsPresenter.swift; sourceTree = "<group>"; };
+		800DA6C62C6172D800FCFCD6 /* ADSManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ADSManager.swift; sourceTree = "<group>"; };
 		8026471A2C52E35600705B2E /* CreateChallengeInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateChallengeInfoVC.swift; sourceTree = "<group>"; };
 		8026471D2C52EB8800705B2E /* ChallengeModelToCreate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeModelToCreate.swift; sourceTree = "<group>"; };
 		8026471F2C52EBF300705B2E /* CreateChallengeRegularityUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateChallengeRegularityUtils.swift; sourceTree = "<group>"; };
@@ -182,6 +184,7 @@
 		80F2CDFD2C20B2F600B0E611 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				800DA6C62C6172D800FCFCD6 /* ADSManager.swift */,
 				80F2CE032C20B3D200B0E611 /* Color+Hex.swift */,
 				80F2CE042C20B3D200B0E611 /* String+Localisation.swift */,
 				80F2CE0A2C20B74100B0E611 /* Controller+Childred.swift */,
@@ -302,6 +305,7 @@
 				8026471B2C52E35600705B2E /* CreateChallengeInfoVC.swift in Sources */,
 				80F2CE0B2C20B74100B0E611 /* Controller+Childred.swift in Sources */,
 				808C18362C5C0A1F00316CA8 /* CreateChallengeImagePickGalleryCell.swift in Sources */,
+				800DA6C72C6172D800FCFCD6 /* ADSManager.swift in Sources */,
 				805E27432C235BAA0048F78F /* CategoriesSource.swift in Sources */,
 				80F2CE092C20B66400B0E611 /* AppRootVC.swift in Sources */,
 				807D48C22C1F532B004FB542 /* AppDelegate.swift in Sources */,

@@ -6,15 +6,18 @@
 //
 
 import Foundation
+import UIKit
 
 final class OffsetsService {
     static let shared = OffsetsService()
+    
+    var bannerView: UIView?
     
     var myChallengesButtonHeight: CGFloat {
         85
     }
     
     var bottomOffset: CGFloat {
-        myChallengesButtonHeight
+        myChallengesButtonHeight + (bannerView?.bounds.height ?? 0)
     }
 }
