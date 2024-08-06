@@ -120,6 +120,8 @@ final class AppRootVC: UIViewController {
         containerView.bottomAnchor.constraint(equalTo: buttonContainer.topAnchor).isActive = true
         
         toMainVC()
+        
+        ADSManager.shared.setupBannerView(bannerView, from: self)
     }
     
     private func toMainVC() {
