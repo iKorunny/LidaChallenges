@@ -44,6 +44,7 @@ final class MainVC: UIViewController {
         let scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         scrollView.backgroundColor = .clear
+        scrollView.alwaysBounceVertical = true
         return scrollView
     }()
     
