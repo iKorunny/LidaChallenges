@@ -87,6 +87,7 @@ final class CreateChallengeInfoVC: UIViewController {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 1
+        label.textAlignment = .center
         label.textColor = ColorThemeProvider.shared.itemTextTitle
         label.font = FontsProvider.regularAppFont(with: 20)
         return label
@@ -170,13 +171,22 @@ final class CreateChallengeInfoVC: UIViewController {
         scrollContent.addSubview(nameLabel)
         nameLabel.leadingAnchor.constraint(equalTo: scrollContent.leadingAnchor, constant: 33).isActive = true
         nameLabel.trailingAnchor.constraint(equalTo: scrollContent.trailingAnchor, constant: -33).isActive = true
-        nameLabel.topAnchor.constraint(equalTo: pickImageView.bottomAnchor, constant: 42).isActive = true
+        nameLabel.topAnchor.constraint(equalTo: pickImageView.bottomAnchor, constant: 33).isActive = true
         nameLabel.text = model?.name
+        
+        let bottomLine = UIView()
+        bottomLine.translatesAutoresizingMaskIntoConstraints = false
+        scrollContent.addSubview(bottomLine)
+        bottomLine.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor).isActive = true
+        bottomLine.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor).isActive = true
+        bottomLine.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 29).isActive = true
+        bottomLine.backgroundColor = ColorThemeProvider.shared.separator
+        bottomLine.heightAnchor.constraint(equalToConstant: 0.5).isActive = true
         
         scrollContent.addSubview(textView)
         textView.leadingAnchor.constraint(equalTo: scrollContent.leadingAnchor, constant: 29).isActive = true
         textView.trailingAnchor.constraint(equalTo: scrollContent.trailingAnchor, constant: -29).isActive = true
-        textView.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 25).isActive = true
+        textView.topAnchor.constraint(equalTo: bottomLine.bottomAnchor, constant: 19).isActive = true
         textView.bottomAnchor.constraint(equalTo: scrollContent.bottomAnchor).isActive = true
         
         view.addSubview(scrollView)
