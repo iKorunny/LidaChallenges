@@ -26,6 +26,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         return true
     }
+    
+    func applicationDidBecomeActive(_ application: UIApplication) {
+        ADSManager.shared.didBecomeActive()
+        ADSManager.shared.showOnLaunchAdIfNeeded(fromv: AppRouter.shared.navigationController)
+    }
 
     // MARK: UISceneSession Lifecycle
 

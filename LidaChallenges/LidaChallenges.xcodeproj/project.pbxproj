@@ -38,6 +38,7 @@
 		809137692C46F50C0021CCE0 /* CreateChallengeMainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809137682C46F50C0021CCE0 /* CreateChallengeMainVC.swift */; };
 		8091376B2C46FABC0021CCE0 /* KeyboardAppearService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8091376A2C46FABC0021CCE0 /* KeyboardAppearService.swift */; };
 		8091376D2C47009F0021CCE0 /* OffsetsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8091376C2C47009F0021CCE0 /* OffsetsService.swift */; };
+		80A500A52C655F1000EBED90 /* AppOpenAdManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A500A42C655F1000EBED90 /* AppOpenAdManager.swift */; };
 		80F2CDFF2C20B33000B0E611 /* ColorThemeProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F2CDFE2C20B33000B0E611 /* ColorThemeProvider.swift */; };
 		80F2CE022C20B36A00B0E611 /* ColorThemes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F2CE012C20B36A00B0E611 /* ColorThemes.swift */; };
 		80F2CE052C20B3D200B0E611 /* Color+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F2CE032C20B3D200B0E611 /* Color+Hex.swift */; };
@@ -81,6 +82,7 @@
 		809137682C46F50C0021CCE0 /* CreateChallengeMainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateChallengeMainVC.swift; sourceTree = "<group>"; };
 		8091376A2C46FABC0021CCE0 /* KeyboardAppearService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardAppearService.swift; sourceTree = "<group>"; };
 		8091376C2C47009F0021CCE0 /* OffsetsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OffsetsService.swift; sourceTree = "<group>"; };
+		80A500A42C655F1000EBED90 /* AppOpenAdManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppOpenAdManager.swift; sourceTree = "<group>"; };
 		80F2CDFE2C20B33000B0E611 /* ColorThemeProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorThemeProvider.swift; sourceTree = "<group>"; };
 		80F2CE012C20B36A00B0E611 /* ColorThemes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorThemes.swift; sourceTree = "<group>"; };
 		80F2CE032C20B3D200B0E611 /* Color+Hex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Color+Hex.swift"; sourceTree = "<group>"; };
@@ -187,6 +189,7 @@
 			isa = PBXGroup;
 			children = (
 				800DA6C62C6172D800FCFCD6 /* ADSManager.swift */,
+				80A500A42C655F1000EBED90 /* AppOpenAdManager.swift */,
 				80F2CE032C20B3D200B0E611 /* Color+Hex.swift */,
 				80F2CE042C20B3D200B0E611 /* String+Localisation.swift */,
 				80F2CE0A2C20B74100B0E611 /* Controller+Childred.swift */,
@@ -326,6 +329,7 @@
 				800C40C22C5C1D2200AECCA4 /* UIImage+Utils.swift in Sources */,
 				8074463C2C55991F0093D65F /* CreateChallengeImageVC.swift in Sources */,
 				8026471E2C52EB8800705B2E /* ChallengeModelToCreate.swift in Sources */,
+				80A500A52C655F1000EBED90 /* AppOpenAdManager.swift in Sources */,
 				804D8FC82C2871D300FA30F3 /* MainVCCollectiomLayout.swift in Sources */,
 				807D48CC2C1F532B004FB542 /* LidaChallenges.xcdatamodeld in Sources */,
 				809137602C45A83D0021CCE0 /* FontsProvider.swift in Sources */,

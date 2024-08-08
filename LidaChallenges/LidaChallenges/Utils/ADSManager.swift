@@ -8,13 +8,33 @@
 import Foundation
 import GoogleMobileAds
 
-final class ADSManager {
+private enum Constants {
+    static let becomeActiveToShowLaunchAd: Int = 3
+    static let becomeActiveCountKey = "becomeActiveCountKey"
+}
+
+final class ADSManager: NSObject {
     static var shared = ADSManager()
     
-    private var bannerView: GADBannerView?
+    private var becomeActiveCount: Int {
+        get { UserDefaults.standard.integer(forKey: Constants.becomeActiveCountKey) }
+        set { UserDefaults.standard.setValue(newValue, forKey: Constants.becomeActiveCountKey) }
+    }
+    
+    private var bannerView: GADBannerView? {
+        didSet {
+            bannerView?.delegate = self
+        }
+    }
+    
+    func showOnLaunchAdIfNeeded(fromv vc: UIViewController?) {
+        guard becomeActiveCount >= Constants.becomeActiveToShowLaunchAd else { return }
+        AppOpenAdManager.shared.showAdIfAvailable(from: vc)
+    }
     
     func initialise() {
         GADMobileAds.sharedInstance().start(completionHandler: nil)
+        AppOpenAdManager.shared.delegate = self
         
 #if DEBUG
         GADMobileAds.sharedInstance().requestConfiguration.testDeviceIdentifiers = [ 
@@ -24,11 +44,31 @@ final class ADSManager {
 #endif
     }
     
+    func didBecomeActive() {
+        becomeActiveCount += 1
+    }
+    
     func setupBannerView(_ view: GADBannerView, from rootVC: UIViewController) {
         bannerView = view
         bannerView?.adUnitID = "ca-app-pub-7140632902714147/2319187055"
         bannerView?.rootViewController = rootVC
         
         bannerView?.load(GADRequest())
+    }
+}
+
+extension ADSManager: GADBannerViewDelegate {
+    func bannerViewDidRecordClick(_ bannerView: GADBannerView) {
+        print("ADSManager did record click")
+    }
+    
+    func bannerViewDidRecordImpression(_ bannerView: GADBannerView) {
+        print("ADSManager did record impression")
+    }
+}
+
+extension ADSManager: AppOpenAdManagerDelegate {
+    func didShowAd() {
+        becomeActiveCount = 0
     }
 }
