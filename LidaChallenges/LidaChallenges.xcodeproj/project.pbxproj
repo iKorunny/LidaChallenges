@@ -12,6 +12,7 @@
 		800C40C92C5EBCEC00AECCA4 /* AlertsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800C40C82C5EBCEC00AECCA4 /* AlertsPresenter.swift */; };
 		800DA6C72C6172D800FCFCD6 /* ADSManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800DA6C62C6172D800FCFCD6 /* ADSManager.swift */; };
 		801309802C6BE8F000E2020D /* GoogleMobileAds in Frameworks */ = {isa = PBXBuildFile; productRef = 8013097F2C6BE8F000E2020D /* GoogleMobileAds */; };
+		801309832C6BE9A700E2020D /* AppActivityVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 801309822C6BE9A700E2020D /* AppActivityVC.swift */; };
 		8026471B2C52E35600705B2E /* CreateChallengeInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8026471A2C52E35600705B2E /* CreateChallengeInfoVC.swift */; };
 		8026471E2C52EB8800705B2E /* ChallengeModelToCreate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8026471D2C52EB8800705B2E /* ChallengeModelToCreate.swift */; };
 		802647202C52EBF300705B2E /* CreateChallengeRegularityUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8026471F2C52EBF300705B2E /* CreateChallengeRegularityUtils.swift */; };
@@ -53,6 +54,7 @@
 		800C40C32C5C1D6100AECCA4 /* UIImageResizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageResizer.swift; sourceTree = "<group>"; };
 		800C40C82C5EBCEC00AECCA4 /* AlertsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertsPresenter.swift; sourceTree = "<group>"; };
 		800DA6C62C6172D800FCFCD6 /* ADSManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ADSManager.swift; sourceTree = "<group>"; };
+		801309822C6BE9A700E2020D /* AppActivityVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppActivityVC.swift; sourceTree = "<group>"; };
 		8026471A2C52E35600705B2E /* CreateChallengeInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateChallengeInfoVC.swift; sourceTree = "<group>"; };
 		8026471D2C52EB8800705B2E /* ChallengeModelToCreate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeModelToCreate.swift; sourceTree = "<group>"; };
 		8026471F2C52EBF300705B2E /* CreateChallengeRegularityUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateChallengeRegularityUtils.swift; sourceTree = "<group>"; };
@@ -104,6 +106,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		801309812C6BE99200E2020D /* Activity */ = {
+			isa = PBXGroup;
+			children = (
+				801309822C6BE9A700E2020D /* AppActivityVC.swift */,
+			);
+			path = Activity;
+			sourceTree = "<group>";
+		};
 		804D8FC42C2861D100FA30F3 /* Main */ = {
 			isa = PBXGroup;
 			children = (
@@ -214,6 +224,7 @@
 		80F2CE072C20B5E800B0E611 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				801309812C6BE99200E2020D /* Activity */,
 				80F2CE082C20B66400B0E611 /* AppRootVC.swift */,
 				804D8FC42C2861D100FA30F3 /* Main */,
 				809137632C45ABF10021CCE0 /* MyChallenges */,
@@ -325,6 +336,7 @@
 				807D48C42C1F532B004FB542 /* SceneDelegate.swift in Sources */,
 				807862002C29E5EB00FA8938 /* MainVCListActionItem.swift in Sources */,
 				804D8FC62C2861EE00FA30F3 /* MainCategoriesCell.swift in Sources */,
+				801309832C6BE9A700E2020D /* AppActivityVC.swift in Sources */,
 				809137652C45AC160021CCE0 /* MyChallengesVC.swift in Sources */,
 				800C40C22C5C1D2200AECCA4 /* UIImage+Utils.swift in Sources */,
 				8074463C2C55991F0093D65F /* CreateChallengeImageVC.swift in Sources */,

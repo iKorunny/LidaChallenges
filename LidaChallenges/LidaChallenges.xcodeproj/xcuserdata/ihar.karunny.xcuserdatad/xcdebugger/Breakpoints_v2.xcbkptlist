@@ -216,7 +216,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "A81E9303-CFA6-43B6-BA3D-1C5D6C1D8D51"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LidaChallenges/Utils/AppOpenAdManager.swift"
@@ -248,7 +248,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "614563AA-65D7-4A0E-8673-290D9BABA996"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LidaChallenges/Utils/AppOpenAdManager.swift"
@@ -264,7 +264,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "E76B3642-C3E7-4969-A822-68F66D7DB046"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LidaChallenges/Utils/AppOpenAdManager.swift"
@@ -280,7 +280,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "B7589E64-D5F3-4C3B-BAF7-10C51A9500CF"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LidaChallenges/Utils/AppOpenAdManager.swift"
@@ -290,36 +290,6 @@
             endingLineNumber = "44"
             landmarkName = "loadAd()"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "B7589E64-D5F3-4C3B-BAF7-10C51A9500CF - e6baaef8047b34df"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(3) suspend resume partial function for LidaChallenges.AppOpenAdManager.loadAd() async -&gt; ()"
-                  moduleName = "LidaChallenges"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/ihar.karunny/Documents/Home/LidaChallenges/LidaChallenges/LidaChallenges/Utils/AppOpenAdManager.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "44"
-                  endingLineNumber = "44">
-               </Location>
-               <Location
-                  uuid = "B7589E64-D5F3-4C3B-BAF7-10C51A9500CF - 423d630d0ca4eede"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(4) suspend resume partial function for LidaChallenges.AppOpenAdManager.loadAd() async -&gt; ()"
-                  moduleName = "LidaChallenges"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/ihar.karunny/Documents/Home/LidaChallenges/LidaChallenges/LidaChallenges/Utils/AppOpenAdManager.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "44"
-                  endingLineNumber = "44">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy

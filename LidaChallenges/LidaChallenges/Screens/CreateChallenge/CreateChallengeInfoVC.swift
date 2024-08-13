@@ -212,6 +212,11 @@ final class CreateChallengeInfoVC: UIViewController {
     
     @objc private func onStart() {
         hideInputs()
+        
+        let overlay = AppActivityVC()
+        navigationController?.present(overlay, animated: true, completion: {
+            overlay.startAnimation()
+        })
     }
     
     @objc private func onPickImage() {
