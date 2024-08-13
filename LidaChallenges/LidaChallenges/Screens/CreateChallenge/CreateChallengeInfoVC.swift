@@ -108,6 +108,14 @@ final class CreateChallengeInfoVC: UIViewController {
         return label
     }()
     
+    private lazy var changeImageView: UIImageView = {
+        let imageView = UIImageView(image: .init(named: "CreateChallengeEditIcon"))
+        imageView.isUserInteractionEnabled = false
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.isHidden = true
+        return imageView
+    }()
+    
     private lazy var pickImageButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -135,6 +143,10 @@ final class CreateChallengeInfoVC: UIViewController {
         pickImageLabel.centerYAnchor.constraint(equalTo: background.centerYAnchor).isActive = true
         pickImageLabel.leadingAnchor.constraint(equalTo: background.leadingAnchor, constant: 10).isActive = true
         pickImageLabel.trailingAnchor.constraint(equalTo: background.trailingAnchor, constant: -10).isActive = true
+        
+        background.addSubview(changeImageView)
+        changeImageView.centerXAnchor.constraint(equalTo: background.centerXAnchor).isActive = true
+        changeImageView.centerYAnchor.constraint(equalTo: background.centerYAnchor).isActive = true
         
         let line = UIView()
         line.translatesAutoresizingMaskIntoConstraints = false
@@ -206,7 +218,8 @@ final class CreateChallengeInfoVC: UIViewController {
         hideInputs()
         AppRouter.shared.toCreateChallengeImage { [weak self] pickedImage in
             self?.pickImageButton.setImage(pickedImage, for: .normal)
-            self?.pickImageLabel.text = "CreateChallengeImagePickerChange".localised()
+            self?.pickImageLabel.isHidden = true
+            self?.changeImageView.isHidden = false
         }
     }
     

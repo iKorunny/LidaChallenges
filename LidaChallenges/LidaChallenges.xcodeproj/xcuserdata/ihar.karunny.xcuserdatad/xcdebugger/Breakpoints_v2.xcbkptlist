@@ -66,38 +66,6 @@
             endingLineNumber = "206"
             landmarkName = "collectionViewStoppedScroll()"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "23F6F44B-1DC6-49E3-AE2E-660699512F73 - 2c3b6010271fc007"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "LidaChallenges.MainVC.collectionView(_: __C.UICollectionView, numberOfItemsInSection: Swift.Int) -&gt; Swift.Int"
-                  moduleName = "LidaChallenges"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/ihar.karunny/Documents/Home/LidaChallenges/LidaChallenges/LidaChallenges/Screens/Main/MainVC.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "204"
-                  endingLineNumber = "204"
-                  offsetFromSymbolStart = "44">
-               </Location>
-               <Location
-                  uuid = "23F6F44B-1DC6-49E3-AE2E-660699512F73 - bf9519d790d2b06a"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "LidaChallenges.MainVC.collectionViewStoppedScroll() -&gt; ()"
-                  moduleName = "LidaChallenges"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/ihar.karunny/Documents/Home/LidaChallenges/LidaChallenges/LidaChallenges/Screens/Main/MainVC.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "202"
-                  endingLineNumber = "202"
-                  offsetFromSymbolStart = "484">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -242,38 +210,6 @@
             endingLineNumber = "32"
             landmarkName = "applicationDidBecomeActive(_:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "52987864-3D1D-4A1B-9FBA-448D65504AE9 - 7450b651018365d0"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "LidaChallenges.AppDelegate.applicationDidBecomeActive(__C.UIApplication) -&gt; ()"
-                  moduleName = "LidaChallenges"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/ihar.karunny/Documents/Home/LidaChallenges/LidaChallenges/LidaChallenges/AppDelegate.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "32"
-                  endingLineNumber = "32"
-                  offsetFromSymbolStart = "204">
-               </Location>
-               <Location
-                  uuid = "52987864-3D1D-4A1B-9FBA-448D65504AE9 - 7450b651018365d0"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "LidaChallenges.AppDelegate.applicationDidBecomeActive(__C.UIApplication) -&gt; ()"
-                  moduleName = "LidaChallenges"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/ihar.karunny/Documents/Home/LidaChallenges/LidaChallenges/LidaChallenges/AppDelegate.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "32"
-                  endingLineNumber = "32"
-                  offsetFromSymbolStart = "112">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -354,6 +290,36 @@
             endingLineNumber = "44"
             landmarkName = "loadAd()"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "B7589E64-D5F3-4C3B-BAF7-10C51A9500CF - e6baaef8047b34df"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for LidaChallenges.AppOpenAdManager.loadAd() async -&gt; ()"
+                  moduleName = "LidaChallenges"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ihar.karunny/Documents/Home/LidaChallenges/LidaChallenges/LidaChallenges/Utils/AppOpenAdManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "44"
+                  endingLineNumber = "44">
+               </Location>
+               <Location
+                  uuid = "B7589E64-D5F3-4C3B-BAF7-10C51A9500CF - 423d630d0ca4eede"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(4) suspend resume partial function for LidaChallenges.AppOpenAdManager.loadAd() async -&gt; ()"
+                  moduleName = "LidaChallenges"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ihar.karunny/Documents/Home/LidaChallenges/LidaChallenges/LidaChallenges/Utils/AppOpenAdManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "44"
+                  endingLineNumber = "44">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
