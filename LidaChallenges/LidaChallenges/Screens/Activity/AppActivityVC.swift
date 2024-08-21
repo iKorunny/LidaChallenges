@@ -23,7 +23,7 @@ final class AppActivityVC: UIViewController, AppActivityView {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        view.backgroundColor = .black.withAlphaComponent(0.1)
+        view.backgroundColor = .black.withAlphaComponent(0.33)
         view.addSubview(activityView)
         activityView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         activityView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true

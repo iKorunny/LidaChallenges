@@ -40,6 +40,7 @@
 		8091376B2C46FABC0021CCE0 /* KeyboardAppearService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8091376A2C46FABC0021CCE0 /* KeyboardAppearService.swift */; };
 		8091376D2C47009F0021CCE0 /* OffsetsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8091376C2C47009F0021CCE0 /* OffsetsService.swift */; };
 		80A500A52C655F1000EBED90 /* AppOpenAdManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A500A42C655F1000EBED90 /* AppOpenAdManager.swift */; };
+		80B8BB1E2C766C2900A29B8C /* AppActivityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B8BB1D2C766C2900A29B8C /* AppActivityManager.swift */; };
 		80F2CDFF2C20B33000B0E611 /* ColorThemeProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F2CDFE2C20B33000B0E611 /* ColorThemeProvider.swift */; };
 		80F2CE022C20B36A00B0E611 /* ColorThemes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F2CE012C20B36A00B0E611 /* ColorThemes.swift */; };
 		80F2CE052C20B3D200B0E611 /* Color+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F2CE032C20B3D200B0E611 /* Color+Hex.swift */; };
@@ -85,6 +86,7 @@
 		8091376A2C46FABC0021CCE0 /* KeyboardAppearService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardAppearService.swift; sourceTree = "<group>"; };
 		8091376C2C47009F0021CCE0 /* OffsetsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OffsetsService.swift; sourceTree = "<group>"; };
 		80A500A42C655F1000EBED90 /* AppOpenAdManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppOpenAdManager.swift; sourceTree = "<group>"; };
+		80B8BB1D2C766C2900A29B8C /* AppActivityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppActivityManager.swift; sourceTree = "<group>"; };
 		80F2CDFE2C20B33000B0E611 /* ColorThemeProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorThemeProvider.swift; sourceTree = "<group>"; };
 		80F2CE012C20B36A00B0E611 /* ColorThemes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorThemes.swift; sourceTree = "<group>"; };
 		80F2CE032C20B3D200B0E611 /* Color+Hex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Color+Hex.swift"; sourceTree = "<group>"; };
@@ -110,6 +112,7 @@
 			isa = PBXGroup;
 			children = (
 				801309822C6BE9A700E2020D /* AppActivityVC.swift */,
+				80B8BB1D2C766C2900A29B8C /* AppActivityManager.swift */,
 			);
 			path = Activity;
 			sourceTree = "<group>";
@@ -344,6 +347,7 @@
 				80A500A52C655F1000EBED90 /* AppOpenAdManager.swift in Sources */,
 				804D8FC82C2871D300FA30F3 /* MainVCCollectiomLayout.swift in Sources */,
 				807D48CC2C1F532B004FB542 /* LidaChallenges.xcdatamodeld in Sources */,
+				80B8BB1E2C766C2900A29B8C /* AppActivityManager.swift in Sources */,
 				809137602C45A83D0021CCE0 /* FontsProvider.swift in Sources */,
 				8091376B2C46FABC0021CCE0 /* KeyboardAppearService.swift in Sources */,
 				800C40C42C5C1D6100AECCA4 /* UIImageResizer.swift in Sources */,

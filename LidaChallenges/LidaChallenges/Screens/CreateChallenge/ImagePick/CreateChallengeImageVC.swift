@@ -33,15 +33,6 @@ final class CreateChallengeImageVC: UIViewController {
     
     var onPickImage: ((UIImage) -> Void)?
     
-    private lazy var saveButton: UIBarButtonItem = {
-        let button = UIBarButtonItem(title: "CreateChallengeImagePickerSave".localised(),
-                                     style: .plain,
-                                     target: self,
-                                     action: #selector(onSave))
-        button.isEnabled = false
-        return button
-    }()
-    
     private let builtInIconNames: [String] = [
         "challengeIconPick_1",
         "challengeIconPick_1",
@@ -69,7 +60,6 @@ final class CreateChallengeImageVC: UIViewController {
         view.backgroundColor = .clear
         
         navigationItem.title = "CreateChallengeImagePickerTitle".localised()
-        navigationItem.rightBarButtonItem = saveButton
         
         view.addSubview(collectionView)
         collectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
@@ -79,11 +69,6 @@ final class CreateChallengeImageVC: UIViewController {
         
         collectionView.register(CreateChallengeImagePickGalleryCell.self, forCellWithReuseIdentifier: "CreateChallengeImagePickGalleryCell")
         collectionView.register(CreateChallengeImagePickCell.self, forCellWithReuseIdentifier: "CreateChallengeImagePickCell")
-    }
-    
-
-    @objc private func onSave() {
-        
     }
     
     private func toGalleryPicker() {

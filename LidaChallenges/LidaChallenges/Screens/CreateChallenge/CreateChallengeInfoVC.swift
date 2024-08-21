@@ -19,13 +19,17 @@ final class CreateChallengeInfoVC: UIViewController {
     
     private var keyboardService: KeyboardAppearService?
     
+    private lazy var activityManager: AppActivityManager = {
+        return AppActivityManager()
+    }()
+    
     private lazy var hideInputsTapGesture: UITapGestureRecognizer = {
         let gesture = UITapGestureRecognizer(target: self, action: #selector(hideInputs))
         return gesture
     }()
     
     private lazy var startButton: UIBarButtonItem = {
-        let button = UIBarButtonItem(title: "CreateChallengeInfoContinue".localised(),
+        let button = UIBarButtonItem(title: "CreateChallengeInfoSave".localised(),
                                      style: .plain,
                                      target: self,
                                      action: #selector(onStart))
@@ -213,10 +217,9 @@ final class CreateChallengeInfoVC: UIViewController {
     @objc private func onStart() {
         hideInputs()
         
-        let overlay = AppActivityVC()
-        navigationController?.present(overlay, animated: true, completion: {
-            overlay.startAnimation()
-        })
+        if let navVC = navigationController {
+            activityManager.lock(vc: navVC.parent ?? navVC)
+        }
     }
     
     @objc private func onPickImage() {
