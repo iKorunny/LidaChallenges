@@ -35,23 +35,23 @@ final class CreateChallengeImageVC: UIViewController {
     
     private let builtInIconNames: [String] = [
         "challengeIconPick_1",
-        "challengeIconPick_1",
-        "challengeIconPick_1",
-        "challengeIconPick_1",
-        "challengeIconPick_1",
-        "challengeIconPick_1",
-        "challengeIconPick_1",
-        "challengeIconPick_1",
-        "challengeIconPick_1",
-        "challengeIconPick_1",
-        "challengeIconPick_1",
-        "challengeIconPick_1",
-        "challengeIconPick_1",
-        "challengeIconPick_1",
-        "challengeIconPick_1",
-        "challengeIconPick_1",
-        "challengeIconPick_1",
-        "challengeIconPick_1"
+        "challengeIconPick_2",
+        "challengeIconPick_3",
+        "challengeIconPick_4",
+        "challengeIconPick_5",
+        "challengeIconPick_6",
+        "challengeIconPick_7",
+        "challengeIconPick_8",
+        "challengeIconPick_9",
+        "challengeIconPick_10",
+        "challengeIconPick_11",
+        "challengeIconPick_12",
+        "challengeIconPick_13",
+        "challengeIconPick_14",
+        "challengeIconPick_15",
+        "challengeIconPick_16",
+        "challengeIconPick_17",
+        "challengeIconPick_18"
     ]
 
     override func viewDidLoad() {
