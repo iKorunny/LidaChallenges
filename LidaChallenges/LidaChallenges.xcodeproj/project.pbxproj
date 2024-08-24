@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8002FC6E2C7A3C71001FF4A3 /* DatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8002FC6D2C7A3C71001FF4A3 /* DatabaseService.swift */; };
+		8002FC702C7A4491001FF4A3 /* CustomChallengeDBService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8002FC6F2C7A4491001FF4A3 /* CustomChallengeDBService.swift */; };
+		8002FC772C7A473F001FF4A3 /* DBCustomChallengeModel+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8002FC752C7A473F001FF4A3 /* DBCustomChallengeModel+CoreDataClass.swift */; };
+		8002FC782C7A473F001FF4A3 /* DBCustomChallengeModel+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8002FC762C7A473F001FF4A3 /* DBCustomChallengeModel+CoreDataProperties.swift */; };
+		8002FC7C2C7A4EDE001FF4A3 /* CustomChallenge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8002FC7B2C7A4EDE001FF4A3 /* CustomChallenge.swift */; };
 		800C40C22C5C1D2200AECCA4 /* UIImage+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800C40C12C5C1D2200AECCA4 /* UIImage+Utils.swift */; };
 		800C40C42C5C1D6100AECCA4 /* UIImageResizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800C40C32C5C1D6100AECCA4 /* UIImageResizer.swift */; };
 		800C40C92C5EBCEC00AECCA4 /* AlertsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800C40C82C5EBCEC00AECCA4 /* AlertsPresenter.swift */; };
@@ -51,6 +56,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8002FC6D2C7A3C71001FF4A3 /* DatabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseService.swift; sourceTree = "<group>"; };
+		8002FC6F2C7A4491001FF4A3 /* CustomChallengeDBService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomChallengeDBService.swift; sourceTree = "<group>"; };
+		8002FC752C7A473F001FF4A3 /* DBCustomChallengeModel+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DBCustomChallengeModel+CoreDataClass.swift"; sourceTree = "<group>"; };
+		8002FC762C7A473F001FF4A3 /* DBCustomChallengeModel+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DBCustomChallengeModel+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		8002FC7B2C7A4EDE001FF4A3 /* CustomChallenge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomChallenge.swift; sourceTree = "<group>"; };
 		800C40C12C5C1D2200AECCA4 /* UIImage+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Utils.swift"; sourceTree = "<group>"; };
 		800C40C32C5C1D6100AECCA4 /* UIImageResizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageResizer.swift; sourceTree = "<group>"; };
 		800C40C82C5EBCEC00AECCA4 /* AlertsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertsPresenter.swift; sourceTree = "<group>"; };
@@ -108,6 +118,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8002FC682C7A33F9001FF4A3 /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				8002FC7A2C7A4EC7001FF4A3 /* DBModels */,
+				8002FC792C7A4EBD001FF4A3 /* AppModels */,
+				8002FC6D2C7A3C71001FF4A3 /* DatabaseService.swift */,
+				8002FC6F2C7A4491001FF4A3 /* CustomChallengeDBService.swift */,
+			);
+			path = Database;
+			sourceTree = "<group>";
+		};
+		8002FC792C7A4EBD001FF4A3 /* AppModels */ = {
+			isa = PBXGroup;
+			children = (
+				8002FC7B2C7A4EDE001FF4A3 /* CustomChallenge.swift */,
+			);
+			path = AppModels;
+			sourceTree = "<group>";
+		};
+		8002FC7A2C7A4EC7001FF4A3 /* DBModels */ = {
+			isa = PBXGroup;
+			children = (
+				8002FC752C7A473F001FF4A3 /* DBCustomChallengeModel+CoreDataClass.swift */,
+				8002FC762C7A473F001FF4A3 /* DBCustomChallengeModel+CoreDataProperties.swift */,
+			);
+			path = DBModels;
+			sourceTree = "<group>";
+		};
 		801309812C6BE99200E2020D /* Activity */ = {
 			isa = PBXGroup;
 			children = (
@@ -134,7 +172,6 @@
 		807D48B52C1F532B004FB542 = {
 			isa = PBXGroup;
 			children = (
-				805E27482C235CF30048F78F /* Localizable.strings */,
 				807D48C02C1F532B004FB542 /* LidaChallenges */,
 				807D48BF2C1F532B004FB542 /* Products */,
 			);
@@ -151,6 +188,8 @@
 		807D48C02C1F532B004FB542 /* LidaChallenges */ = {
 			isa = PBXGroup;
 			children = (
+				805E27482C235CF30048F78F /* Localizable.strings */,
+				8002FC682C7A33F9001FF4A3 /* Database */,
 				807D48C12C1F532B004FB542 /* AppDelegate.swift */,
 				807D48C32C1F532B004FB542 /* SceneDelegate.swift */,
 				807D48C52C1F532B004FB542 /* AfterLaunchViewController.swift */,
@@ -323,7 +362,10 @@
 				809137692C46F50C0021CCE0 /* CreateChallengeMainVC.swift in Sources */,
 				8091376D2C47009F0021CCE0 /* OffsetsService.swift in Sources */,
 				808C18382C5C110E00316CA8 /* CreateChallengeImagePickCell.swift in Sources */,
+				8002FC772C7A473F001FF4A3 /* DBCustomChallengeModel+CoreDataClass.swift in Sources */,
+				8002FC782C7A473F001FF4A3 /* DBCustomChallengeModel+CoreDataProperties.swift in Sources */,
 				807D48C62C1F532B004FB542 /* AfterLaunchViewController.swift in Sources */,
+				8002FC6E2C7A3C71001FF4A3 /* DatabaseService.swift in Sources */,
 				80F2CE0D2C20BC6600B0E611 /* MainVC.swift in Sources */,
 				802647202C52EBF300705B2E /* CreateChallengeRegularityUtils.swift in Sources */,
 				805E274B2C2360340048F78F /* CategoriesSectionHeader.swift in Sources */,
@@ -336,6 +378,7 @@
 				807D48C22C1F532B004FB542 /* AppDelegate.swift in Sources */,
 				80F2CE022C20B36A00B0E611 /* ColorThemes.swift in Sources */,
 				800C40C92C5EBCEC00AECCA4 /* AlertsPresenter.swift in Sources */,
+				8002FC702C7A4491001FF4A3 /* CustomChallengeDBService.swift in Sources */,
 				807D48C42C1F532B004FB542 /* SceneDelegate.swift in Sources */,
 				807862002C29E5EB00FA8938 /* MainVCListActionItem.swift in Sources */,
 				804D8FC62C2861EE00FA30F3 /* MainCategoriesCell.swift in Sources */,
@@ -350,6 +393,7 @@
 				80B8BB1E2C766C2900A29B8C /* AppActivityManager.swift in Sources */,
 				809137602C45A83D0021CCE0 /* FontsProvider.swift in Sources */,
 				8091376B2C46FABC0021CCE0 /* KeyboardAppearService.swift in Sources */,
+				8002FC7C2C7A4EDE001FF4A3 /* CustomChallenge.swift in Sources */,
 				800C40C42C5C1D6100AECCA4 /* UIImageResizer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

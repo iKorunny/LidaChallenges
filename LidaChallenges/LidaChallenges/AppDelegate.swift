@@ -23,6 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        UINavigationBar.appearance().scrollEdgeAppearance = navigationBarAppearance
         
         ADSManager.shared.initialise()
+        DatabaseService.shared.context = persistentContainer.viewContext
         
         return true
     }

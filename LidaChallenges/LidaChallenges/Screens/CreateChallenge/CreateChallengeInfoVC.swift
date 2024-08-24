@@ -216,15 +216,26 @@ final class CreateChallengeInfoVC: UIViewController {
     
     @objc private func onStart() {
         hideInputs()
-        
+        guard let newModel = model else { return }
         if let navVC = navigationController {
             activityManager.lock(vc: navVC.parent ?? navVC)
+        }
+        
+        DatabaseService.shared.createCustomChallenge(name: newModel.name,
+                                                     daysCount: newModel.daysCount,
+                                                     selectedRegularity: newModel.selectedRegularity,
+                                                     icon: model?.icon,
+                                                     description: newModel.description) { [weak self] createdChallenge in
+            DispatchQueue.main.async { [weak self] in
+                self?.activityManager.unlock()
+            }
         }
     }
     
     @objc private func onPickImage() {
         hideInputs()
         AppRouter.shared.toCreateChallengeImage { [weak self] pickedImage in
+            self?.model?.icon = pickedImage
             self?.pickImageButton.setImage(pickedImage, for: .normal)
             self?.pickImageLabel.isHidden = true
             self?.changeImageView.isHidden = false
@@ -258,6 +269,7 @@ extension CreateChallengeInfoVC: UITextViewDelegate {
     
     func textViewDidEndEditing(_ textView: UITextView) {
         showPlaceholderIfNeeded(currentText: textView.text)
+        model?.description = textView.text
     }
 }
 

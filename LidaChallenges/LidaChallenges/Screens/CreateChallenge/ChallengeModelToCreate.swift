@@ -6,11 +6,15 @@
 //
 
 import Foundation
+import UIKit
 
 final class ChallengeModelToCreate {
     var name: String
     var daysCount: Int
     var selectedRegularity: Set<CreateChallengeRegularityType>
+    
+    var icon: UIImage?
+    var description: String?
     
     init(name: String,
          daysCount: Int,
