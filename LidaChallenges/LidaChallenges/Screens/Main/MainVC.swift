@@ -106,10 +106,13 @@ final class MainVC: UIViewController {
     }
     
     private func addSearch() {
-        let search = UISearchController(searchResultsController: nil)
+        let resultController = ChallengesSearchResultController()
+        let search = UISearchController(searchResultsController: resultController)
+        search.searchResultsUpdater = resultController
         search.delegate = self
         search.searchBar.delegate = self
         self.navigationItem.searchController = search
+        search.searchBar.sizeToFit()
     }
     
     private func addScroll() {
