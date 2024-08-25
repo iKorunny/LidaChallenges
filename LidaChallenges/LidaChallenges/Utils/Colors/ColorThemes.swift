@@ -14,6 +14,7 @@ protocol ColorTheme {
     var itemBackgroundHighlighted: UIColor { get }
     var itemTextTitle: UIColor { get }
     var separator: UIColor { get }
+    var ligthSeparator: UIColor { get }
     var ligthItem: UIColor { get }
     var warningItem: UIColor { get }
     var placeholder: UIColor { get }
@@ -31,6 +32,7 @@ final class LightTheme: ColorTheme {
     var itemBackgroundHighlighted: UIColor { UIColor.color(from: "#E5E5E9") }
     var itemTextTitle: UIColor { .black }
     var separator: UIColor { UIColor.color(from: "#A9A9AC") }
+    var ligthSeparator: UIColor { UIColor.color(from: "#A4A4A4") }
     var ligthItem: UIColor { UIColor.color(from: "#A4A4A4") }
     var warningItem: UIColor { UIColor.color(from: "#888888") }
     var placeholder: UIColor { UIColor.color(from: "#606060") }

@@ -227,13 +227,18 @@ final class CreateChallengeInfoVC: UIViewController {
                                                      icon: model?.icon,
                                                      description: newModel.description) { [weak self] createdChallenge in
             DispatchQueue.main.async { [weak self] in
-                self?.activityManager.unlock()
+                self?.activityManager.unlock() {
+                    guard let createdChallenge = createdChallenge else { return }
+                    AppRouter.shared.toOpenChallengeAfterCreation(model: createdChallenge)
+                }
             }
         }
     }
     
     @objc private func onPickImage() {
+        let keyboardOpen = textView.isFirstResponder
         hideInputs()
+        guard !keyboardOpen else { return }
         AppRouter.shared.toCreateChallengeImage { [weak self] pickedImage in
             self?.model?.icon = pickedImage
             self?.pickImageButton.setImage(pickedImage, for: .normal)

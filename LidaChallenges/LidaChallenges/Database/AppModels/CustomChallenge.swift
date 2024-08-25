@@ -52,3 +52,7 @@ extension CustomChallenge {
                                description: dbModel.descriptionString)
     }
 }
+
+extension CustomChallenge: OpenedChallengeModel {
+    
+}

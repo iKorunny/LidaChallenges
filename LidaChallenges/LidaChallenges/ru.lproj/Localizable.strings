@@ -43,3 +43,5 @@
 "NoLibraryAccessAlertBody" = "Перейдите в настройки";
 "AlertToSettingsButtonTitle" = "Настройки";
 "AlertCancelButtonTitle" = "Отмена";
+"OpenedChallengeTitle" = "Челлендж";
+"OpenedChallengeStartButton" = "Начать";

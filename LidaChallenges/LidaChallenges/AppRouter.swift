@@ -50,4 +50,12 @@ final class AppRouter {
         nextVC.onPickImage = onPickImage
         navigationController?.pushViewController(nextVC, animated: false)
     }
+    
+    func toOpenChallengeAfterCreation(model: OpenedChallengeModel) {
+        navigationController?.popToRootViewController(animated: false)
+        DispatchQueue.main.asyncAfter(deadline: .now()) { [weak self] in
+            let nextVC = StartOpenedChallengeVC(model: model)
+            self?.navigationController?.pushViewController(nextVC, animated: false)
+        }
+    }
 }

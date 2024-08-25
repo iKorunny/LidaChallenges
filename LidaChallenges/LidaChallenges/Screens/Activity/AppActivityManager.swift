@@ -25,11 +25,12 @@ final class AppActivityManager {
         }
     }
     
-    func unlock() {
+    func unlock(onUnlock: (() -> Void)?) {
         count -= 1
         guard count == 0 else { return }
         activityVC.dismiss(animated: true) { [weak self] in
             self?.activityVC.stopAnimation()
+            onUnlock?()
         }
     }
 }
