@@ -72,4 +72,18 @@ final class CustomChallengeDBService {
             }
         }
     }
+    
+    func fetchCustomChallenges(with nameSubstring: String,
+                               context: NSManagedObjectContext,
+                               onSuccess: @escaping (([DBCustomChallengeModel]?) -> Void)) {
+        do {
+            let request = DBCustomChallengeModel.fetchRequest()
+            request.predicate = NSPredicate(format: "%K CONTAINS[cd] %@", #keyPath(DBCustomChallengeModel.name), nameSubstring)
+            let models = try context.fetch(request)
+            onSuccess(models)
+        }
+        catch let error {
+            print("fetchCustomChallenges with nameSubstring: \(error)")
+        }
+    }
 }

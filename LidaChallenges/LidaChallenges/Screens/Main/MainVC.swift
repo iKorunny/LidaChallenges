@@ -45,6 +45,7 @@ final class MainVC: UIViewController {
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         scrollView.backgroundColor = .clear
         scrollView.alwaysBounceVertical = true
+        scrollView.delegate = self
         return scrollView
     }()
     
@@ -187,7 +188,9 @@ extension MainVC: UISearchBarDelegate {
 
 extension MainVC: UICollectionViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        
+        if scrollView === self.scrollView && scrollView.isTracking {
+            navigationItem.searchController?.searchBar.resignFirstResponder()
+        }
     }
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
@@ -197,6 +200,7 @@ extension MainVC: UICollectionViewDelegate {
     }
     
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        guard scrollView === collectionView else { return }
         if decelerate {
             return
         }

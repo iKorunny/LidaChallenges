@@ -14,6 +14,10 @@ final class ChallengesSearchResultController: UIViewController {
         static let cellId = "ChallengesSearchResultCell"
     }
     
+    private lazy var searchService: ChallengesSearchService = {
+        ChallengesSearchService()
+    }()
+    
     private lazy var backgroundImageView: UIImageView = {
         let imageView = UIImageView(image: .init(named: "MainAppBackground"))
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -27,7 +31,7 @@ final class ChallengesSearchResultController: UIViewController {
         table.delegate = self
         table.dataSource = self
         
-        table.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 200, right: 0)
+        table.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 350, right: 0)
         
         table.register(ChallengesSearchResultHeaderView.self, forHeaderFooterViewReuseIdentifier: Constants.headerId)
         table.register(ChallengesSearchResultCell.self, forCellReuseIdentifier: Constants.cellId)
@@ -44,6 +48,12 @@ final class ChallengesSearchResultController: UIViewController {
         indicator.translatesAutoresizingMaskIntoConstraints = false
         return indicator
     }()
+    
+    private var tableSections: [ChallengesSearchResultSection] = [] {
+        didSet {
+            tableView.reloadData()
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,28 +73,38 @@ final class ChallengesSearchResultController: UIViewController {
         view.addSubview(activityIndicator)
         activityIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         activityIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        
+        tableView.reloadData()
     }
 }
 
 extension ChallengesSearchResultController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
-        tableView.reloadData()
+        activityIndicator.startAnimating()
+        tableView.isUserInteractionEnabled = false
+        searchService.search(with: searchController.searchBar.text ?? "") { [weak self] sections in
+            self?.activityIndicator.stopAnimating()
+            self?.tableView.isUserInteractionEnabled = true
+            
+            self?.tableSections = sections
+        }
     }
 }
 
 extension ChallengesSearchResultController: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return tableSections.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return tableSections[section].rows.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.cellId, for: indexPath) as? ChallengesSearchResultCell else { return UITableViewCell() }
         
-        cell.titleLabel.text = "Custom_\(indexPath.row)"
+        cell.setupIfNeeded()
+        cell.titleLabel.text = tableSections[indexPath.section].rows[indexPath.row].title
         
         return cell
     }
@@ -92,11 +112,14 @@ extension ChallengesSearchResultController: UITableViewDelegate, UITableViewData
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         guard let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: Constants.headerId) as? ChallengesSearchResultHeaderView else { return nil }
         header.setupIfNeeded()
-        header.titleLabel.text = "CustomChallengeSectionTitle".localised()
+        header.titleLabel.text = tableSections[section].title
         return header
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        
+        let model = tableSections[indexPath.section].rows[indexPath.row].model
+        AppRouter.shared.toOpenChallenge(model: model)
     }
 }

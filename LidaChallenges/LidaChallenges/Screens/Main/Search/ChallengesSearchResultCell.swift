@@ -35,7 +35,7 @@ final class ChallengesSearchResultCell: UITableViewCell {
         return view
     }()
     
-    private func setupIfNeeded() {
+    func setupIfNeeded() {
         guard !didSetup else { return }
         didSetup = true
         

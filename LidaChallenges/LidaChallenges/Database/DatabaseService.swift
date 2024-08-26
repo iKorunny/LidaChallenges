@@ -61,4 +61,15 @@ final class DatabaseService {
             CustomChallengeDBService.shared.deleteAllCustomChallenges(context: context)
         }
     }
+    
+    func fetchCustomChallenges(with nameSubstring: String, onSuccess: @escaping (([CustomChallenge]?) -> Void)) {
+        guard let context = context else { return }
+        
+        workingQueue.async {
+            CustomChallengeDBService.shared.fetchCustomChallenges(with: nameSubstring,
+                                                                  context: context) { dbModels in
+                onSuccess(dbModels?.compactMap({ CustomChallenge.create(from: $0) }))
+            }
+        }
+    }
 }
