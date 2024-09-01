@@ -31,6 +31,18 @@ enum CreateChallengeRegularityType: Int {
         case .sunday: return "CreateChallengeRegularitySunday".localised()
         }
     }
+    
+    func infoStringValue() -> String {
+        switch self {
+        case .monday: return "ChallengeInfoRegularityMonday".localised()
+        case .tuesday: return "ChallengeInfoRegularityTuesday".localised()
+        case .wednesday: return "ChallengeInfoRegularityWednesday".localised()
+        case .thursday: return "ChallengeInfoRegularityThursday".localised()
+        case .friday: return "ChallengeInfoRegularityFriday".localised()
+        case .saturday: return "ChallengeInfoRegularitySaturday".localised()
+        case .sunday: return "ChallengeInfoRegularitySunday".localised()
+        }
+    }
 }
 
 final class CreateChallengeMainVC: UIViewController {

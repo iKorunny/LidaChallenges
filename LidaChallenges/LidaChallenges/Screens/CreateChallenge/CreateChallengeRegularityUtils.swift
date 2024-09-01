@@ -17,4 +17,18 @@ final class CreateChallengeRegularityUtils {
             return regularity.sorted(by: { $0.rawValue < $1.rawValue }).map({ $0.stringValue() }).joined(separator: ", ")
         }
     }
+    
+    static func regularityToInfoString(_ regularity: Set<CreateChallengeRegularityType>) -> String {
+        let intersection = regularity.intersection(CreateChallengeRegularityType.allValues())
+        if intersection.count == CreateChallengeRegularityType.allValues().count {
+            return "ChallengeInfoRegularityDaily".localised()
+        }
+        else {
+            let result = regularity.sorted(by: { $0.rawValue < $1.rawValue }).map({ $0.stringValue() }).joined(separator: ", ")
+            let first = String(result.prefix(1))
+            let other = String(result.dropFirst())
+            
+            return (first + other.lowercased())
+        }
+    }
 }

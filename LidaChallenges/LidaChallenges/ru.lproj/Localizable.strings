@@ -46,3 +46,12 @@
 "OpenedChallengeTitle" = "Челлендж";
 "OpenedChallengeStartButton" = "Начать";
 "CustomChallengeSectionTitle" = "Пользовательские";
+"ChallengeInfoRegularityTitle" = "Регулярность: %@";
+"ChallengeInfoRegularityDaily" = "Ежедневно";
+"ChallengeInfoRegularityMonday" = "Пн";
+"ChallengeInfoRegularityTuesday" = "Вт";
+"ChallengeInfoRegularityWednesday" = "Ср";
+"ChallengeInfoRegularityThursday" = "Чт";
+"ChallengeInfoRegularityFriday" = "Птн";
+"ChallengeInfoRegularitySaturday" = "Сб";
+"ChallengeInfoRegularitySunday" = "Вскр";

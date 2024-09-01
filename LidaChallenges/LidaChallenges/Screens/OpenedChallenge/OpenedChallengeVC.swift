@@ -10,7 +10,7 @@ import UIKit
 protocol OpenedChallengeModel {
     var identifier: String { get }
     var name: String { get }
-    var description: String? { get }
+    var fullDescription: String? { get }
     var icon: UIImage? { get }
 }
 
@@ -77,7 +77,7 @@ class OpenedChallengeVC: UIViewController {
         label.textAlignment = .left
         label.font = FontsProvider.regularAppFont(with: 14)
         label.textColor = ColorThemeProvider.shared.itemTextTitle
-        label.text = model.description
+        label.text = model.fullDescription
         
         return label
     }()

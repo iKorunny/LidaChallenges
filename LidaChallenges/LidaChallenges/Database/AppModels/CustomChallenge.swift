@@ -54,5 +54,7 @@ extension CustomChallenge {
 }
 
 extension CustomChallenge: OpenedChallengeModel {
-    
+    var fullDescription: String? {
+        return "\(String(format: "ChallengeInfoRegularityTitle".localised(), CreateChallengeRegularityUtils.regularityToInfoString(regularity)))\n\(description ?? "")"
+    }
 }

@@ -604,8 +604,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "54"
             endingLineNumber = "54"
-            landmarkName = "ChallengesSearchResultController"
-            landmarkType = "3">
+            landmarkName = "tableSections"
+            landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
