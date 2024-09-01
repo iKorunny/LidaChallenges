@@ -13,7 +13,7 @@ final class CustomChallenge {
     
     let name: String
     let daysCount: Int
-    let regularity: Set<CreateChallengeRegularityType>
+    let regularity: Set<ChallengeRegularityType>
     
     let icon: UIImage?
     let description: String?
@@ -21,7 +21,7 @@ final class CustomChallenge {
     init(identifier: String,
          name: String,
          daysCount: Int,
-         regularity: Set<CreateChallengeRegularityType>,
+         regularity: Set<ChallengeRegularityType>,
          icon: UIImage? = nil,
          description: String? = nil) {
         self.identifier = identifier
@@ -47,7 +47,7 @@ extension CustomChallenge {
         return CustomChallenge(identifier: id,
                                name: name,
                                daysCount: Int(dbModel.daysCount),
-                               regularity: Set(regularityArra.compactMap({ CreateChallengeRegularityType(rawValue: $0) })),
+                               regularity: Set(regularityArra.compactMap({ ChallengeRegularityType(rawValue: $0) })),
                                icon: icon,
                                description: dbModel.descriptionString)
     }

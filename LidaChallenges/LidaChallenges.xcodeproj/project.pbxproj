@@ -53,6 +53,12 @@
 		8091376D2C47009F0021CCE0 /* OffsetsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8091376C2C47009F0021CCE0 /* OffsetsService.swift */; };
 		80A500A52C655F1000EBED90 /* AppOpenAdManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A500A42C655F1000EBED90 /* AppOpenAdManager.swift */; };
 		80B8BB1E2C766C2900A29B8C /* AppActivityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B8BB1D2C766C2900A29B8C /* AppActivityManager.swift */; };
+		80E0725E2C84A6AF00DDE0C2 /* DBStartedChallengeModel+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E0725C2C84A6AF00DDE0C2 /* DBStartedChallengeModel+CoreDataClass.swift */; };
+		80E0725F2C84A6AF00DDE0C2 /* DBStartedChallengeModel+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E0725D2C84A6AF00DDE0C2 /* DBStartedChallengeModel+CoreDataProperties.swift */; };
+		80E072612C84A95600DDE0C2 /* StartedChallengeDBService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E072602C84A95600DDE0C2 /* StartedChallengeDBService.swift */; };
+		80E072632C84AAFD00DDE0C2 /* StartedChallenge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E072622C84AAFD00DDE0C2 /* StartedChallenge.swift */; };
+		80E072652C84AC4D00DDE0C2 /* Challenge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E072642C84AC4D00DDE0C2 /* Challenge.swift */; };
+		80E072672C84B47800DDE0C2 /* ChallengeDayRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80E072662C84B47800DDE0C2 /* ChallengeDayRecord.swift */; };
 		80F2CDFF2C20B33000B0E611 /* ColorThemeProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F2CDFE2C20B33000B0E611 /* ColorThemeProvider.swift */; };
 		80F2CE022C20B36A00B0E611 /* ColorThemes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F2CE012C20B36A00B0E611 /* ColorThemes.swift */; };
 		80F2CE052C20B3D200B0E611 /* Color+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F2CE032C20B3D200B0E611 /* Color+Hex.swift */; };
@@ -111,6 +117,12 @@
 		8091376C2C47009F0021CCE0 /* OffsetsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OffsetsService.swift; sourceTree = "<group>"; };
 		80A500A42C655F1000EBED90 /* AppOpenAdManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppOpenAdManager.swift; sourceTree = "<group>"; };
 		80B8BB1D2C766C2900A29B8C /* AppActivityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppActivityManager.swift; sourceTree = "<group>"; };
+		80E0725C2C84A6AF00DDE0C2 /* DBStartedChallengeModel+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DBStartedChallengeModel+CoreDataClass.swift"; sourceTree = "<group>"; };
+		80E0725D2C84A6AF00DDE0C2 /* DBStartedChallengeModel+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DBStartedChallengeModel+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		80E072602C84A95600DDE0C2 /* StartedChallengeDBService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartedChallengeDBService.swift; sourceTree = "<group>"; };
+		80E072622C84AAFD00DDE0C2 /* StartedChallenge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartedChallenge.swift; sourceTree = "<group>"; };
+		80E072642C84AC4D00DDE0C2 /* Challenge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Challenge.swift; sourceTree = "<group>"; };
+		80E072662C84B47800DDE0C2 /* ChallengeDayRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeDayRecord.swift; sourceTree = "<group>"; };
 		80F2CDFE2C20B33000B0E611 /* ColorThemeProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorThemeProvider.swift; sourceTree = "<group>"; };
 		80F2CE012C20B36A00B0E611 /* ColorThemes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorThemes.swift; sourceTree = "<group>"; };
 		80F2CE032C20B3D200B0E611 /* Color+Hex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Color+Hex.swift"; sourceTree = "<group>"; };
@@ -139,6 +151,7 @@
 				8002FC792C7A4EBD001FF4A3 /* AppModels */,
 				8002FC6D2C7A3C71001FF4A3 /* DatabaseService.swift */,
 				8002FC6F2C7A4491001FF4A3 /* CustomChallengeDBService.swift */,
+				80E072602C84A95600DDE0C2 /* StartedChallengeDBService.swift */,
 			);
 			path = Database;
 			sourceTree = "<group>";
@@ -147,6 +160,9 @@
 			isa = PBXGroup;
 			children = (
 				8002FC7B2C7A4EDE001FF4A3 /* CustomChallenge.swift */,
+				80E072622C84AAFD00DDE0C2 /* StartedChallenge.swift */,
+				80E072642C84AC4D00DDE0C2 /* Challenge.swift */,
+				80E072662C84B47800DDE0C2 /* ChallengeDayRecord.swift */,
 			);
 			path = AppModels;
 			sourceTree = "<group>";
@@ -156,6 +172,8 @@
 			children = (
 				8002FC752C7A473F001FF4A3 /* DBCustomChallengeModel+CoreDataClass.swift */,
 				8002FC762C7A473F001FF4A3 /* DBCustomChallengeModel+CoreDataProperties.swift */,
+				80E0725C2C84A6AF00DDE0C2 /* DBStartedChallengeModel+CoreDataClass.swift */,
+				80E0725D2C84A6AF00DDE0C2 /* DBStartedChallengeModel+CoreDataProperties.swift */,
 			);
 			path = DBModels;
 			sourceTree = "<group>";
@@ -422,15 +440,21 @@
 				8002FC702C7A4491001FF4A3 /* CustomChallengeDBService.swift in Sources */,
 				807D48C42C1F532B004FB542 /* SceneDelegate.swift in Sources */,
 				807862002C29E5EB00FA8938 /* MainVCListActionItem.swift in Sources */,
+				80E072652C84AC4D00DDE0C2 /* Challenge.swift in Sources */,
 				804D8FC62C2861EE00FA30F3 /* MainCategoriesCell.swift in Sources */,
 				80722BBF2C7BB29B0069A08D /* ChallengesSearchResultHeaderView.swift in Sources */,
 				801309832C6BE9A700E2020D /* AppActivityVC.swift in Sources */,
+				80E072612C84A95600DDE0C2 /* StartedChallengeDBService.swift in Sources */,
 				809137652C45AC160021CCE0 /* MyChallengesVC.swift in Sources */,
 				800C40C22C5C1D2200AECCA4 /* UIImage+Utils.swift in Sources */,
 				8074463C2C55991F0093D65F /* CreateChallengeImageVC.swift in Sources */,
 				8026471E2C52EB8800705B2E /* ChallengeModelToCreate.swift in Sources */,
 				80A500A52C655F1000EBED90 /* AppOpenAdManager.swift in Sources */,
 				8002FC812C7B6CE4001FF4A3 /* StartOpenedChallengeVC.swift in Sources */,
+				80E0725E2C84A6AF00DDE0C2 /* DBStartedChallengeModel+CoreDataClass.swift in Sources */,
+				80E072672C84B47800DDE0C2 /* ChallengeDayRecord.swift in Sources */,
+				80E0725F2C84A6AF00DDE0C2 /* DBStartedChallengeModel+CoreDataProperties.swift in Sources */,
+				80E072632C84AAFD00DDE0C2 /* StartedChallenge.swift in Sources */,
 				804D8FC82C2871D300FA30F3 /* MainVCCollectiomLayout.swift in Sources */,
 				807D48CC2C1F532B004FB542 /* LidaChallenges.xcdatamodeld in Sources */,
 				80B8BB1E2C766C2900A29B8C /* AppActivityManager.swift in Sources */,

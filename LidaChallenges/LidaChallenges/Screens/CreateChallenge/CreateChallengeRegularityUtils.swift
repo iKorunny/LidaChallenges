@@ -8,9 +8,9 @@
 import Foundation
 
 final class CreateChallengeRegularityUtils {
-    static func regularityToString(_ regularity: Set<CreateChallengeRegularityType>) -> String {
-        let intersection = regularity.intersection(CreateChallengeRegularityType.allValues())
-        if intersection.count == CreateChallengeRegularityType.allValues().count {
+    static func regularityToString(_ regularity: Set<ChallengeRegularityType>) -> String {
+        let intersection = regularity.intersection(ChallengeRegularityType.allValues())
+        if intersection.count == ChallengeRegularityType.allValues().count {
             return "CreateChallengeRegularityDaily".localised()
         }
         else {
@@ -18,9 +18,9 @@ final class CreateChallengeRegularityUtils {
         }
     }
     
-    static func regularityToInfoString(_ regularity: Set<CreateChallengeRegularityType>) -> String {
-        let intersection = regularity.intersection(CreateChallengeRegularityType.allValues())
-        if intersection.count == CreateChallengeRegularityType.allValues().count {
+    static func regularityToInfoString(_ regularity: Set<ChallengeRegularityType>) -> String {
+        let intersection = regularity.intersection(ChallengeRegularityType.allValues())
+        if intersection.count == ChallengeRegularityType.allValues().count {
             return "ChallengeInfoRegularityDaily".localised()
         }
         else {

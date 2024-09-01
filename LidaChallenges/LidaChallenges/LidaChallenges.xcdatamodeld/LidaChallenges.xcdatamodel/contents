@@ -8,4 +8,11 @@
         <attribute name="name" attributeType="String"/>
         <attribute name="regularity" attributeType="Transformable"/>
     </entity>
+    <entity name="DBStartedChallengeModel" representedClassName=".DBStartedChallengeModel" syncable="YES">
+        <attribute name="dayRecords" optional="YES" attributeType="Transformable"/>
+        <attribute name="identifier" attributeType="String"/>
+        <attribute name="isCustomChallenge" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="originalChallengeIdentifier" attributeType="String"/>
+        <attribute name="startDate" attributeType="Date" usesScalarValueType="NO"/>
+    </entity>
 </model>

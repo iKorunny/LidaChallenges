@@ -8,10 +8,6 @@
 import Foundation
 import UIKit
 
-final class Challenge {
-    
-}
-
 final class Category {
     let title: String
     let icon: UIImage

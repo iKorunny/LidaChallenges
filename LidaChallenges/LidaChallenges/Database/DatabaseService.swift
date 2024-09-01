@@ -12,6 +12,8 @@ import UIKit
 final class DatabaseService {
     static let shared = DatabaseService()
     
+    private let startedDBService = StartedChallengeDBService()
+    
     private lazy var workingQueue: DispatchQueue = {
         return DispatchQueue(label: "DatabaseServiceQueue", qos: .userInitiated, attributes: .concurrent)
     }()
@@ -20,7 +22,7 @@ final class DatabaseService {
     
     func createCustomChallenge(name: String,
                                daysCount: Int,
-                               selectedRegularity: Set<CreateChallengeRegularityType>,
+                               selectedRegularity: Set<ChallengeRegularityType>,
                                icon: UIImage?,
                                description: String?,
                                completion: @escaping ((CustomChallenge?) -> Void)) {
@@ -71,5 +73,13 @@ final class DatabaseService {
                 onSuccess(dbModels?.compactMap({ CustomChallenge.create(from: $0) }))
             }
         }
+    }
+}
+
+
+// MARK: StartedCHallenges
+extension DatabaseService {
+    func startChallenge(with id: String, isCustom: Bool, completion: ((StartedChallenge) -> Void)) {
+        
     }
 }

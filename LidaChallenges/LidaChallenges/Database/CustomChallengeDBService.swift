@@ -14,7 +14,7 @@ final class CustomChallengeDBService {
     
     func createCustomChallenge(name: String,
                                daysCount: Int,
-                               selectedRegularity: Set<CreateChallengeRegularityType>,
+                               selectedRegularity: Set<ChallengeRegularityType>,
                                icon: UIImage?,
                                description: String?,
                                context: NSManagedObjectContext,

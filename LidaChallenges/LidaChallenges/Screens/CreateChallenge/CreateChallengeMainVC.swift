@@ -7,7 +7,7 @@
 
 import UIKit
 
-enum CreateChallengeRegularityType: Int {
+enum ChallengeRegularityType: Int, Codable {
     case monday = 1
     case tuesday = 2
     case wednesday = 3
@@ -16,7 +16,7 @@ enum CreateChallengeRegularityType: Int {
     case saturday = 6
     case sunday = 7
     
-    static func allValues() -> [CreateChallengeRegularityType] {
+    static func allValues() -> [ChallengeRegularityType] {
         return [.monday, .tuesday, .wednesday, .thursday, .friday,. saturday, .sunday]
     }
     
@@ -53,7 +53,7 @@ final class CreateChallengeMainVC: UIViewController {
     
     private var keyboardService: KeyboardAppearService?
     
-    private var selectedRegularity: Set<CreateChallengeRegularityType> = Set<CreateChallengeRegularityType>(CreateChallengeRegularityType.allValues())
+    private var selectedRegularity: Set<ChallengeRegularityType> = Set<ChallengeRegularityType>(ChallengeRegularityType.allValues())
     private var daysCount: Int? {
         guard let daysString = daysCountField.text else { return nil }
         return Int(daysString)
@@ -78,18 +78,18 @@ final class CreateChallengeMainVC: UIViewController {
     private lazy var daysPickerButtonsStack: UIStackView = {
         var arrangedSubviews: [UIView] = []
         
-        for i in 0..<CreateChallengeRegularityType.allValues().count {
+        for i in 0..<ChallengeRegularityType.allValues().count {
             let buttonContainer = UIView()
             buttonContainer.backgroundColor = .clear
             buttonContainer.isUserInteractionEnabled = true
             let button = UIButton()
             button.titleLabel?.font = FontsProvider.regularAppFont(with: 14)
             button.tag = i
-            button.setTitle(CreateChallengeRegularityType.allValues()[i].stringValue(), for: .normal)
+            button.setTitle(ChallengeRegularityType.allValues()[i].stringValue(), for: .normal)
             button.setTitleColor(ColorThemeProvider.shared.itemBackground, for: .normal)
             button.addTarget(self, action: #selector(onDayPick(_:)), for: .touchUpInside)
             button.translatesAutoresizingMaskIntoConstraints = false
-            if i < (CreateChallengeRegularityType.allValues().count - 1) {
+            if i < (ChallengeRegularityType.allValues().count - 1) {
                 let line = UIView()
                 line.translatesAutoresizingMaskIntoConstraints = false
                 line.backgroundColor = ColorThemeProvider.shared.pickerBorder
@@ -454,7 +454,7 @@ final class CreateChallengeMainVC: UIViewController {
     }
     
     @objc private func onDayPick(_ sender: UIButton) {
-        guard let day = CreateChallengeRegularityType(rawValue: sender.tag + 1) else { return }
+        guard let day = ChallengeRegularityType(rawValue: sender.tag + 1) else { return }
         let button = daysPickerButtons[sender.tag]
         if selectedRegularity.contains(day) {
             selectedRegularity.remove(day)
@@ -477,7 +477,7 @@ final class CreateChallengeMainVC: UIViewController {
         daysCountHint.isHidden = false
     }
     
-    private func updateRegularityText(with types: Set<CreateChallengeRegularityType>) {
+    private func updateRegularityText(with types: Set<ChallengeRegularityType>) {
         regularityLabel.text = CreateChallengeRegularityUtils.regularityToString(types)
     }
     
