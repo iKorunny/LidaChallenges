@@ -30,6 +30,19 @@ final class Challenge: Codable {
     
     let isCustom: Bool
     
+    static func create(from custom: DBCustomChallengeModel) -> Challenge? {
+        guard let model = CustomChallenge.create(from: custom) else { return nil }
+        
+        return Challenge(identifier: model.identifier,
+                         title: model.name,
+                         subtitle: nil,
+                         description: model.description,
+                         daysCount: model.daysCount,
+                         regularity: model.regularity,
+                         icon: model.icon,
+                         isCustom: true)
+    }
+    
     init(identifier: String, 
          title: String,
          subtitle: String?,

@@ -63,4 +63,12 @@ final class AppRouter {
         let nextVC = StartOpenedChallengeVC(model: model)
         navigationController?.pushViewController(nextVC, animated: false)
     }
+    
+    func toStartedChallengeAfterStart(model: StartedChallenge) {
+        navigationController?.popToRootViewController(animated: false)
+        DispatchQueue.main.asyncAfter(deadline: .now()) { [weak self] in
+            let nextVC = StartedChallengeDetailsVC(model: model)
+            self?.navigationController?.pushViewController(nextVC, animated: false)
+        }
+    }
 }

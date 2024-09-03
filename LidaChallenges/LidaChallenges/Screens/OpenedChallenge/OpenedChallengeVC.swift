@@ -12,6 +12,7 @@ protocol OpenedChallengeModel {
     var name: String { get }
     var fullDescription: String? { get }
     var icon: UIImage? { get }
+    var isCustom: Bool { get }
 }
 
 class OpenedChallengeVC: UIViewController {

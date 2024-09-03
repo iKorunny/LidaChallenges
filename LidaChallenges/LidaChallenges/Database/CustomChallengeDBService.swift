@@ -65,6 +65,21 @@ final class CustomChallengeDBService {
         }
     }
     
+    func fetchCustomChallenge(context: NSManagedObjectContext,
+                              with id: String) -> DBCustomChallengeModel? {
+        do {
+            let request = DBCustomChallengeModel.fetchRequest()
+            request.predicate = NSPredicate(format: "identifier == %@", id)
+            let models = try context.fetch(request)
+            return models.first
+        }
+        catch let error {
+            print("fetchCustomChallenge with id: \(error)")
+        }
+        
+        return nil
+    }
+    
     func deleteAllCustomChallenges(context: NSManagedObjectContext) {
         fetchCustomChallenges(context: context) { dbModels in
             for model in (dbModels ?? []) {

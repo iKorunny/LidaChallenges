@@ -17,6 +17,10 @@ final class StartOpenedChallengeVC: OpenedChallengeVC {
         return button
     }()
     
+    private lazy var activityManager: AppActivityManager = {
+        return AppActivityManager()
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -24,6 +28,18 @@ final class StartOpenedChallengeVC: OpenedChallengeVC {
     }
     
     @objc private func onStart() {
+        if let navVC = navigationController {
+            activityManager.lock(vc: navVC.parent ?? navVC)
+        }
         
+        DatabaseService.shared.startChallenge(with: model.identifier, 
+                                              isCustom: model.isCustom) { [weak self] startedChallenge in
+            DispatchQueue.main.async { [weak self] in
+                self?.activityManager.unlock() {
+                    guard let startedChallenge = startedChallenge else { return }
+                    AppRouter.shared.toStartedChallengeAfterStart(model: startedChallenge)
+                }
+            }
+        }
     }
 }

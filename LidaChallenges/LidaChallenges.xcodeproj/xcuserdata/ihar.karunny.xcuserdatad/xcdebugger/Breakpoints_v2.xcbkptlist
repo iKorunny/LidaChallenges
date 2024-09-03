@@ -327,22 +327,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "E4A67E03-7BA9-4107-8B63-221953E205E9"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "LidaChallenges/Screens/CreateChallenge/CreateChallengeInfoVC.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "221"
-            endingLineNumber = "221"
-            landmarkName = "onStart()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "96BCD128-EF87-473D-9E61-0357604E1509"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -353,22 +337,6 @@
             startingLineNumber = "38"
             endingLineNumber = "38"
             landmarkName = "create(from:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "EBA7D993-550D-42DD-8408-F5AEA8BF694C"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "LidaChallenges/Screens/CreateChallenge/CreateChallengeInfoVC.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "230"
-            endingLineNumber = "230"
-            landmarkName = "onStart()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -532,7 +500,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "4961F1FD-E0C9-4190-B72C-A5BFBA3BA856"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LidaChallenges/Database/CustomChallengeDBService.swift"
@@ -548,14 +516,14 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "EA0DD6B5-B83E-46E1-B7EA-79861276A84D"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LidaChallenges/Database/CustomChallengeDBService.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "83"
-            endingLineNumber = "83"
+            startingLineNumber = "98"
+            endingLineNumber = "98"
             landmarkName = "fetchCustomChallenges(with:context:onSuccess:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -580,7 +548,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "2D6B293A-2E53-4184-AE30-821D9D77D295"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LidaChallenges/Screens/Main/Search/ChallengesSearchResultController.swift"
@@ -596,7 +564,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "D3A5CFC5-8034-4F1B-9477-BAF5BBEA1061"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LidaChallenges/Screens/Main/Search/ChallengesSearchResultController.swift"
@@ -612,7 +580,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "905A30E4-4303-4097-8A7D-0E0801DCC834"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LidaChallenges/Screens/Main/Search/ChallengesSearchResultController.swift"
@@ -628,7 +596,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "43A3262F-FFB2-4CDF-B56E-022A88C1ACE9"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LidaChallenges/Screens/Main/MainVC.swift"
@@ -644,7 +612,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "BD710605-0EA3-43A0-884D-BEDACFF9E707"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "LidaChallenges/Screens/Main/MainVC.swift"
@@ -654,6 +622,114 @@
             endingLineNumber = "197"
             landmarkName = "scrollViewDidEndDecelerating(_:)"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "23C9AF74-565E-49C2-BC44-80A5C5800F03"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LidaChallenges/Screens/OpenedChallenge/StartOpenedChallengeVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
+            landmarkName = "onStart()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "04A9883C-20A0-40F9-8DFC-4095368C0EC4"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LidaChallenges/Screens/OpenedChallenge/StartOpenedChallengeVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
+            landmarkName = "onStart()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "04A9883C-20A0-40F9-8DFC-4095368C0EC4 - 1fca5d795b231a1c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;LidaChallenges.StartedChallenge&gt;) -&gt; () in LidaChallenges.StartOpenedChallengeVC.onStart() -&gt; ()"
+                  moduleName = "LidaChallenges"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ihar.karunny/Documents/Home/LidaChallenges/LidaChallenges/LidaChallenges/Screens/OpenedChallenge/StartOpenedChallengeVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "37"
+                  endingLineNumber = "37">
+               </Location>
+               <Location
+                  uuid = "04A9883C-20A0-40F9-8DFC-4095368C0EC4 - 127bb3ad1760e526"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Swift.MainActor () -&gt; () in closure #1 (Swift.Optional&lt;LidaChallenges.StartedChallenge&gt;) -&gt; () in LidaChallenges.StartOpenedChallengeVC.onStart() -&gt; ()"
+                  moduleName = "LidaChallenges"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ihar.karunny/Documents/Home/LidaChallenges/LidaChallenges/LidaChallenges/Screens/OpenedChallenge/StartOpenedChallengeVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "37"
+                  endingLineNumber = "37">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "871C8F64-7C06-4F4A-8B8E-4587136BAE6E"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LidaChallenges/Screens/OpenedChallenge/StartOpenedChallengeVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "38"
+            endingLineNumber = "38"
+            landmarkName = "onStart()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "871C8F64-7C06-4F4A-8B8E-4587136BAE6E - 127bb3ad1760e507"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Swift.MainActor () -&gt; () in closure #1 (Swift.Optional&lt;LidaChallenges.StartedChallenge&gt;) -&gt; () in LidaChallenges.StartOpenedChallengeVC.onStart() -&gt; ()"
+                  moduleName = "LidaChallenges"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ihar.karunny/Documents/Home/LidaChallenges/LidaChallenges/LidaChallenges/Screens/OpenedChallenge/StartOpenedChallengeVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "38"
+                  endingLineNumber = "38">
+               </Location>
+               <Location
+                  uuid = "871C8F64-7C06-4F4A-8B8E-4587136BAE6E - fd2dc0ade03ee398"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in closure #1 @Swift.MainActor () -&gt; () in closure #1 (Swift.Optional&lt;LidaChallenges.StartedChallenge&gt;) -&gt; () in LidaChallenges.StartOpenedChallengeVC.onStart() -&gt; ()"
+                  moduleName = "LidaChallenges"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ihar.karunny/Documents/Home/LidaChallenges/LidaChallenges/LidaChallenges/Screens/OpenedChallenge/StartOpenedChallengeVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "39"
+                  endingLineNumber = "39">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
