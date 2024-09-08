@@ -26,3 +26,7 @@ final class StartedChallenge {
         self.dayRecords = dayRecords
     }
 }
+
+extension StartedChallenge {
+    var isFinished: Bool { false }
+}

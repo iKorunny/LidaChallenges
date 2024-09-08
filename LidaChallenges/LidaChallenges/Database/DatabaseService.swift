@@ -129,6 +129,7 @@ extension DatabaseService {
         
         workingQueue.async { [weak self] in
             self?.startedDBService.fetchAllStartedChallenges(context: context, onSuccess: { [weak self] dbModels in
+            
                 onSuccess(self?.startedDbModelsToModels(dbModels: dbModels))
             })
         }

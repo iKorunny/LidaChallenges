@@ -71,4 +71,9 @@ final class AppRouter {
             self?.navigationController?.pushViewController(nextVC, animated: false)
         }
     }
+    
+    func toStartedChallenge(model: StartedChallenge) {
+        let nextVC = StartedChallengeDetailsVC(model: model)
+        navigationController?.pushViewController(nextVC, animated: false)
+    }
 }

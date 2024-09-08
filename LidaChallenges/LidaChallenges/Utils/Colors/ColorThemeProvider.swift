@@ -17,6 +17,7 @@ final class ColorThemeProvider: ColorTheme {
     var itemBackground: UIColor { currentTheme.itemBackground }
     var itemBackgroundHighlighted: UIColor { currentTheme.itemBackgroundHighlighted }
     var itemTextTitle: UIColor { currentTheme.itemTextTitle }
+    var itemSecondaryTextTitle: UIColor { currentTheme.itemSecondaryTextTitle }
     var separator: UIColor { currentTheme.separator }
     var ligthSeparator: UIColor { currentTheme.ligthSeparator }
     var ligthItem: UIColor { currentTheme.ligthItem }
