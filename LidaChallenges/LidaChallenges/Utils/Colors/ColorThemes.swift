@@ -25,6 +25,7 @@ protocol ColorTheme {
     var pickerBorder: UIColor { get }
     var buttonText: UIColor { get }
     var pickerButtonText: UIColor { get }
+    var subtitle: UIColor { get }
 }
 
 final class LightTheme: ColorTheme {
@@ -44,4 +45,5 @@ final class LightTheme: ColorTheme {
     var pickerBorder: UIColor { UIColor.color(from: "#4A4A4A") }
     var buttonText: UIColor { UIColor.color(from: "#818181") }
     var pickerButtonText: UIColor { UIColor.color(from: "#707070") }
+    var subtitle: UIColor { UIColor.color(from: "#7B7B7B") }
 }

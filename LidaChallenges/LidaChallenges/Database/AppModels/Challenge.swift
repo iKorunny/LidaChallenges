@@ -92,3 +92,17 @@ final class Challenge: Codable {
         isCustom = try container.decode(Bool.self, forKey: .isCustom)
     }
 }
+
+extension Challenge: OpenedChallengeModel {
+    var name: String {
+        title
+    }
+    
+    var fullDescription: String? {
+        guard let subtitle else {
+            return "\(String(format: "ChallengeInfoRegularityTitle".localised(), CreateChallengeRegularityUtils.regularityToInfoString(regularity)))\n\(description ?? "")"
+        }
+        
+        return "\(String(format: "ChallengeInfoRegularityTitle".localised(), CreateChallengeRegularityUtils.regularityToInfoString(regularity)))\n\(subtitle)\n\(description ?? "")"
+    }
+}

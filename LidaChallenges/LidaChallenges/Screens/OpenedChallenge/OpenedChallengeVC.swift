@@ -138,6 +138,6 @@ class OpenedChallengeVC: UIViewController {
         descriptionLabel.leadingAnchor.constraint(equalTo: scrollContentView.leadingAnchor, constant: 36).isActive = true
         descriptionLabel.trailingAnchor.constraint(equalTo: scrollContentView.trailingAnchor, constant: -36).isActive = true
         descriptionLabel.bottomAnchor.constraint(equalTo: scrollContentView.bottomAnchor).isActive = true
-        descriptionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 46).isActive = true
+        descriptionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 27).isActive = true
     }
 }
