@@ -30,4 +30,5 @@ final class ColorThemeProvider: ColorTheme {
     var buttonText: UIColor { currentTheme.buttonText }
     var pickerButtonText: UIColor { currentTheme.pickerButtonText }
     var subtitle: UIColor { currentTheme.subtitle }
+    var itemBackgroundDisabled: UIColor { currentTheme.itemBackgroundDisabled }
 }

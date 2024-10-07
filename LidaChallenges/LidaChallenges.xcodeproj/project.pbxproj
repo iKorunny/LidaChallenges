@@ -35,6 +35,7 @@
 		80722BBF2C7BB29B0069A08D /* ChallengesSearchResultHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80722BBE2C7BB29B0069A08D /* ChallengesSearchResultHeaderView.swift */; };
 		80722BC12C7BB6680069A08D /* ChallengesSearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80722BC02C7BB6680069A08D /* ChallengesSearchResultCell.swift */; };
 		8074463C2C55991F0093D65F /* CreateChallengeImageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8074463B2C55991E0093D65F /* CreateChallengeImageVC.swift */; };
+		807502742CB3FD5200726438 /* ChallengeDayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807502732CB3FD5200726438 /* ChallengeDayCell.swift */; };
 		807862002C29E5EB00FA8938 /* MainVCListActionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807861FF2C29E5EB00FA8938 /* MainVCListActionItem.swift */; };
 		807862022C29E86200FA8938 /* MainVCListActionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807862012C29E86200FA8938 /* MainVCListActionView.swift */; };
 		807D48C22C1F532B004FB542 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807D48C12C1F532B004FB542 /* AppDelegate.swift */; };
@@ -101,6 +102,7 @@
 		80722BBE2C7BB29B0069A08D /* ChallengesSearchResultHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengesSearchResultHeaderView.swift; sourceTree = "<group>"; };
 		80722BC02C7BB6680069A08D /* ChallengesSearchResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengesSearchResultCell.swift; sourceTree = "<group>"; };
 		8074463B2C55991E0093D65F /* CreateChallengeImageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateChallengeImageVC.swift; sourceTree = "<group>"; };
+		807502732CB3FD5200726438 /* ChallengeDayCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeDayCell.swift; sourceTree = "<group>"; };
 		807861FF2C29E5EB00FA8938 /* MainVCListActionItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVCListActionItem.swift; sourceTree = "<group>"; };
 		807862012C29E86200FA8938 /* MainVCListActionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVCListActionView.swift; sourceTree = "<group>"; };
 		807D48BE2C1F532B004FB542 /* LidaChallenges.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LidaChallenges.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -192,6 +194,7 @@
 				8002FC7E2C7B6613001FF4A3 /* OpenedChallengeVC.swift */,
 				8002FC802C7B6CE4001FF4A3 /* StartOpenedChallengeVC.swift */,
 				8035724B2C87940600B0F65B /* StartedChallengeDetailsVC.swift */,
+				807502732CB3FD5200726438 /* ChallengeDayCell.swift */,
 			);
 			path = OpenedChallenge;
 			sourceTree = "<group>";
@@ -296,7 +299,6 @@
 				809137682C46F50C0021CCE0 /* CreateChallengeMainVC.swift */,
 				8026471F2C52EBF300705B2E /* CreateChallengeRegularityUtils.swift */,
 				8026471D2C52EB8800705B2E /* ChallengeModelToCreate.swift */,
-				8091376A2C46FABC0021CCE0 /* KeyboardAppearService.swift */,
 				8026471A2C52E35600705B2E /* CreateChallengeInfoVC.swift */,
 				808C18342C5C02A600316CA8 /* ImagePick */,
 			);
@@ -306,6 +308,7 @@
 		80F2CDFD2C20B2F600B0E611 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				8091376A2C46FABC0021CCE0 /* KeyboardAppearService.swift */,
 				800DA6C62C6172D800FCFCD6 /* ADSManager.swift */,
 				80A500A42C655F1000EBED90 /* AppOpenAdManager.swift */,
 				80F2CE032C20B3D200B0E611 /* Color+Hex.swift */,
@@ -437,6 +440,7 @@
 				8087DE022C8E038100F00064 /* MyChallengesSection.swift in Sources */,
 				8002FC6E2C7A3C71001FF4A3 /* DatabaseService.swift in Sources */,
 				80722BBD2C7B85EE0069A08D /* ChallengesSearchResultController.swift in Sources */,
+				807502742CB3FD5200726438 /* ChallengeDayCell.swift in Sources */,
 				80F2CE0D2C20BC6600B0E611 /* MainVC.swift in Sources */,
 				802647202C52EBF300705B2E /* CreateChallengeRegularityUtils.swift in Sources */,
 				805E274B2C2360340048F78F /* CategoriesSectionHeader.swift in Sources */,
