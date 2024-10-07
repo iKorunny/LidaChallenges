@@ -30,6 +30,6 @@ final class MyChallengesSectionHeader: UICollectionReusableView {
         titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 36).isActive = true
         titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -36).isActive = true
         titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 22).isActive = true
-        titleLabel.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+        titleLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -5).isActive = true
     }
 }

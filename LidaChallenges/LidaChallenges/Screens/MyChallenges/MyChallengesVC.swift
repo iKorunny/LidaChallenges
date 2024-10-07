@@ -181,7 +181,7 @@ extension MyChallengesVC: UICollectionViewDelegate, UICollectionViewDataSource, 
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         let collectionWidth = (window?.bounds.width ?? 0)
-        return CGSize(width: collectionWidth, height: 49)
+        return CGSize(width: collectionWidth, height: 54)
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
