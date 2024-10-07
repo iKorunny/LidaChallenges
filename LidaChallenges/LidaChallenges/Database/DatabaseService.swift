@@ -105,7 +105,8 @@ extension DatabaseService {
                             completion(StartedChallenge(identifier: modelId, 
                                                         startDate: modelStartDate,
                                                         isCustomChallenge: model.isCustomChallenge, originalChallenge: originalChallenge,
-                                                        dayRecords: []))
+                                                        dayRecords: [], 
+                                                        note: nil))
                         })
                     }
                 }
@@ -156,7 +157,8 @@ extension DatabaseService {
                                            startDate: modelStartDate,
                                            isCustomChallenge: model.isCustomChallenge,
                                            originalChallenge: originalChallenge,
-                                           dayRecords: [])) // TODO: implement later
+                                           dayRecords: [], 
+                                           note: model.note)) // TODO: implement later
         }
         
         return result

@@ -13,17 +13,20 @@ final class StartedChallenge {
     let isCustomChallenge: Bool
     let originalChallenge: Challenge
     let dayRecords: Set<ChallengeDayRecordResult>
+    let note: String?
     
     init(identifier: String, 
          startDate: Date,
          isCustomChallenge: Bool,
          originalChallenge: Challenge,
-         dayRecords: Set<ChallengeDayRecordResult>) {
+         dayRecords: Set<ChallengeDayRecordResult>,
+         note: String?) {
         self.identifier = identifier
         self.startDate = startDate
         self.isCustomChallenge = isCustomChallenge
         self.originalChallenge = originalChallenge
         self.dayRecords = dayRecords
+        self.note = note
     }
 }
 

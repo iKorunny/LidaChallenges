@@ -16,6 +16,7 @@ extension DBStartedChallengeModel {
         return NSFetchRequest<DBStartedChallengeModel>(entityName: "DBStartedChallengeModel")
     }
 
+    @NSManaged public var note: String?
     @NSManaged public var identifier: String?
     @NSManaged public var startDate: Date?
     @NSManaged public var isCustomChallenge: Bool
