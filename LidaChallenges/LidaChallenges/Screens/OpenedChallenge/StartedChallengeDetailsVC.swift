@@ -66,6 +66,15 @@ final class StartedChallengeDetailsVC: UIViewController {
         collectionView.trailingAnchor.constraint(equalTo: content.trailingAnchor, constant: -52).isActive = true
         collectionView.heightAnchor.constraint(equalToConstant: calculatedCollectionHeight).isActive = true
         
+        
+        content.addSubview(textView)
+        
+        textView.topAnchor.constraint(equalTo: collectionView.bottomAnchor, constant: 25).isActive = true
+        textView.leadingAnchor.constraint(equalTo: content.leadingAnchor, constant: 52).isActive = true
+        textView.trailingAnchor.constraint(equalTo: content.trailingAnchor, constant: -52).isActive = true
+        textView.bottomAnchor.constraint(equalTo: content.bottomAnchor, constant: -10).isActive = true
+        textView.heightAnchor.constraint(equalToConstant: 153).isActive = true
+        
         return content
     }()
     
@@ -82,6 +91,16 @@ final class StartedChallengeDetailsVC: UIViewController {
         collection.register(ChallengeDayCell.self, forCellWithReuseIdentifier: Constants.cellID)
         
         return collection
+    }()
+    
+    private lazy var textView: TextViewWithPlaceholder = {
+        let view = TextViewWithPlaceholder(placeholderData: .init(text: "ChallengeNotePlaceholder".localised(), color: ColorThemeProvider.shared.textNotes, font: FontsProvider.regularAppFont(with: 14)),
+                                           proxyDelegate: self)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = ColorThemeProvider.shared.itemBackground
+        view.layer.masksToBounds = true
+        view.layer.cornerRadius = 5
+        return view
     }()
     
     private lazy var window: UIWindow? = {
@@ -161,7 +180,7 @@ final class StartedChallengeDetailsVC: UIViewController {
     }
     
     private func hideInputViews() {
-        
+        textView.resignFirstResponder()
     }
 }
 
@@ -199,5 +218,15 @@ extension StartedChallengeDetailsVC: UICollectionViewDelegate, UICollectionViewD
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 6
+    }
+}
+
+
+extension StartedChallengeDetailsVC: UITextViewDelegate {
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) { [weak self] in
+            guard let self else { return }
+            self.scrollView.scrollRectToVisible(self.textView.frame, animated: true)
+        }
     }
 }

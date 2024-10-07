@@ -36,6 +36,7 @@
 		80722BC12C7BB6680069A08D /* ChallengesSearchResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80722BC02C7BB6680069A08D /* ChallengesSearchResultCell.swift */; };
 		8074463C2C55991F0093D65F /* CreateChallengeImageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8074463B2C55991E0093D65F /* CreateChallengeImageVC.swift */; };
 		807502742CB3FD5200726438 /* ChallengeDayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807502732CB3FD5200726438 /* ChallengeDayCell.swift */; };
+		807502792CB4099F00726438 /* TextViewWithPlaceholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807502782CB4099F00726438 /* TextViewWithPlaceholder.swift */; };
 		807862002C29E5EB00FA8938 /* MainVCListActionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807861FF2C29E5EB00FA8938 /* MainVCListActionItem.swift */; };
 		807862022C29E86200FA8938 /* MainVCListActionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807862012C29E86200FA8938 /* MainVCListActionView.swift */; };
 		807D48C22C1F532B004FB542 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 807D48C12C1F532B004FB542 /* AppDelegate.swift */; };
@@ -103,6 +104,7 @@
 		80722BC02C7BB6680069A08D /* ChallengesSearchResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengesSearchResultCell.swift; sourceTree = "<group>"; };
 		8074463B2C55991E0093D65F /* CreateChallengeImageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateChallengeImageVC.swift; sourceTree = "<group>"; };
 		807502732CB3FD5200726438 /* ChallengeDayCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeDayCell.swift; sourceTree = "<group>"; };
+		807502782CB4099F00726438 /* TextViewWithPlaceholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewWithPlaceholder.swift; sourceTree = "<group>"; };
 		807861FF2C29E5EB00FA8938 /* MainVCListActionItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVCListActionItem.swift; sourceTree = "<group>"; };
 		807862012C29E86200FA8938 /* MainVCListActionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVCListActionView.swift; sourceTree = "<group>"; };
 		807D48BE2C1F532B004FB542 /* LidaChallenges.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LidaChallenges.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -235,6 +237,14 @@
 			path = Search;
 			sourceTree = "<group>";
 		};
+		807502752CB4095B00726438 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				807502782CB4099F00726438 /* TextViewWithPlaceholder.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
 		807D48B52C1F532B004FB542 = {
 			isa = PBXGroup;
 			children = (
@@ -308,6 +318,7 @@
 		80F2CDFD2C20B2F600B0E611 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				807502752CB4095B00726438 /* UI */,
 				8091376A2C46FABC0021CCE0 /* KeyboardAppearService.swift */,
 				800DA6C62C6172D800FCFCD6 /* ADSManager.swift */,
 				80A500A42C655F1000EBED90 /* AppOpenAdManager.swift */,
@@ -427,6 +438,7 @@
 				807862022C29E86200FA8938 /* MainVCListActionView.swift in Sources */,
 				80F2CE062C20B3D200B0E611 /* String+Localisation.swift in Sources */,
 				809137622C45A9FF0021CCE0 /* AppRouter.swift in Sources */,
+				807502792CB4099F00726438 /* TextViewWithPlaceholder.swift in Sources */,
 				80F2CE052C20B3D200B0E611 /* Color+Hex.swift in Sources */,
 				804A2B512C7CE6BB00301BC4 /* ChallengesSearchResultSection.swift in Sources */,
 				8035724C2C87940600B0F65B /* StartedChallengeDetailsVC.swift in Sources */,

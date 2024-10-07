@@ -27,6 +27,7 @@ protocol ColorTheme {
     var pickerButtonText: UIColor { get }
     var subtitle: UIColor { get }
     var itemBackgroundDisabled: UIColor { get }
+    var textNotes: UIColor { get }
 }
 
 final class LightTheme: ColorTheme {
@@ -48,4 +49,5 @@ final class LightTheme: ColorTheme {
     var pickerButtonText: UIColor { UIColor.color(from: "#707070") }
     var subtitle: UIColor { UIColor.color(from: "#7B7B7B") }
     var itemBackgroundDisabled: UIColor { UIColor.color(from: "#E7E7E7") }
+    var textNotes: UIColor { UIColor.color(from: "#A9A9A9") }
 }
