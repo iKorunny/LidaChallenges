@@ -58,3 +58,4 @@
 "MyChallengesActiveTitle" = "Активные";
 "MyChallengesCompleteTitle" = "Пройденные";
 "ChallengeNotePlaceholder" = "Заметки...";
+"ChallengeNextDayAvailableText" = "Следующий день будет\nдоступен\n%@";

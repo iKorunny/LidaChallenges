@@ -32,6 +32,7 @@ protocol ColorTheme {
     var defaultOverlay: UIColor { get }
     var popupBackground: UIColor { get }
     var popupSeparator: UIColor { get }
+    var popupInfoText: UIColor { get }
 }
 
 final class LightTheme: ColorTheme {
@@ -58,4 +59,5 @@ final class LightTheme: ColorTheme {
     var defaultOverlay: UIColor { UIColor.white.withAlphaComponent(0.5) }
     var popupBackground: UIColor { UIColor.color(from: "#D9D9D9").withAlphaComponent(0.5) }
     var popupSeparator: UIColor { UIColor.color(from: "#B0B0B0").withAlphaComponent(0.5) }
+    var popupInfoText: UIColor { UIColor.color(from: "#898989") }
 }

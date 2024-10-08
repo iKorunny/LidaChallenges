@@ -36,4 +36,5 @@ final class ColorThemeProvider: ColorTheme {
     var defaultOverlay: UIColor { currentTheme.defaultOverlay }
     var popupBackground: UIColor { currentTheme.popupBackground }
     var popupSeparator: UIColor { currentTheme.popupSeparator }
+    var popupInfoText: UIColor { currentTheme.popupInfoText }
 }

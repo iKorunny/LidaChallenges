@@ -14,3 +14,4 @@
 "CreateChallengeContinueButtonTitle" = "Continue";
 
 "ChallengeInfoRegularityTitle" = "Regularity: %@";
+"ChallengeNextDayAvailableText" = "Next day will be\navailable at\n%@";

@@ -259,6 +259,12 @@ extension StartedChallengeDetailsVC: UICollectionViewDelegate, UICollectionViewD
             
             self.popupVC = popupVC
         }
+        else {
+            let popupVC = PopupFactory.markChallengeDayWillBeEnable(at: Date())
+            popupVC.modalPresentationStyle = .overFullScreen
+            popupVC.modalTransitionStyle = .crossDissolve
+            present(popupVC, animated: true)
+        }
     }
 }
 

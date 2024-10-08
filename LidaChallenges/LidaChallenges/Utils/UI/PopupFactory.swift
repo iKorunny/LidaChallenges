@@ -55,4 +55,43 @@ final class PopupFactory {
                                                           autodismiss: false))
         return vc
     }
+    
+    static func markChallengeDayWillBeEnable(at date: Date) -> UIViewController {
+        let content = UIView()
+        content.translatesAutoresizingMaskIntoConstraints = false
+        content.backgroundColor = ColorThemeProvider.shared.popupBackground
+        content.layer.masksToBounds = true
+        content.layer.cornerRadius = 10
+        
+        content.widthAnchor.constraint(lessThanOrEqualToConstant: 250).isActive = true
+        
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.numberOfLines = 0
+        label.textAlignment = .center
+        
+        let dateString = Formatters.formatePopupDate(date)
+        let string = String(format: "ChallengeNextDayAvailableText".localised(), dateString)
+        var attrString = NSMutableAttributedString(string: string, attributes: [
+            .foregroundColor: ColorThemeProvider.shared.popupInfoText,
+            .font: FontsProvider.mediumAppFont(with: 14)
+        ])
+        let dateRange = (string as NSString).range(of: dateString)
+        if dateRange.length > 0 {
+            attrString.addAttribute(.font, value: FontsProvider.boldAppFont(with: 14), range: dateRange)
+        }
+        
+        label.attributedText = attrString
+        
+        content.addSubview(label)
+        label.topAnchor.constraint(equalTo: content.topAnchor, constant: 14).isActive = true
+        label.bottomAnchor.constraint(equalTo: content.bottomAnchor, constant: -14).isActive = true
+        label.leadingAnchor.constraint(equalTo: content.leadingAnchor, constant: 7).isActive = true
+        label.trailingAnchor.constraint(equalTo: content.trailingAnchor, constant: -7).isActive = true
+        
+        let vc = PopupVC(with: content, config: .init(overlayBackground: false,
+                                                          overlayColor: .clear,
+                                                          autodismiss: true))
+        return vc
+    }
 }
