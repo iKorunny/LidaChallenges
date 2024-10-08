@@ -29,6 +29,9 @@ protocol ColorTheme {
     var itemBackgroundDisabled: UIColor { get }
     var textNotes: UIColor { get }
     var infoBright: UIColor { get }
+    var defaultOverlay: UIColor { get }
+    var popupBackground: UIColor { get }
+    var popupSeparator: UIColor { get }
 }
 
 final class LightTheme: ColorTheme {
@@ -52,4 +55,7 @@ final class LightTheme: ColorTheme {
     var itemBackgroundDisabled: UIColor { UIColor.color(from: "#E7E7E7") }
     var textNotes: UIColor { UIColor.color(from: "#A9A9A9") }
     var infoBright: UIColor { UIColor.color(from: "#F10166") }
+    var defaultOverlay: UIColor { UIColor.white.withAlphaComponent(0.5) }
+    var popupBackground: UIColor { UIColor.color(from: "#D9D9D9").withAlphaComponent(0.5) }
+    var popupSeparator: UIColor { UIColor.color(from: "#B0B0B0").withAlphaComponent(0.5) }
 }

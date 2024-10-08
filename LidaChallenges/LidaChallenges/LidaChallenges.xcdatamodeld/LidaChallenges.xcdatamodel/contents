@@ -6,10 +6,10 @@
         <attribute name="icon" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES"/>
         <attribute name="identifier" attributeType="String"/>
         <attribute name="name" attributeType="String"/>
-        <attribute name="regularity" attributeType="Transformable"/>
+        <attribute name="regularity" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromDataTransformer"/>
     </entity>
     <entity name="DBStartedChallengeModel" representedClassName=".DBStartedChallengeModel" syncable="YES">
-        <attribute name="dayRecords" optional="YES" attributeType="Transformable"/>
+        <attribute name="dayRecords" optional="YES" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromDataTransformer"/>
         <attribute name="identifier" attributeType="String"/>
         <attribute name="isCustomChallenge" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
         <attribute name="note" optional="YES" attributeType="String"/>

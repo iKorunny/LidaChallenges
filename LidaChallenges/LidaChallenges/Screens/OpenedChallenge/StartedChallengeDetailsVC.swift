@@ -17,6 +17,8 @@ final class StartedChallengeDetailsVC: UIViewController {
     
     private var keyboardService: KeyboardAppearService?
     
+    private weak var popupVC: UIViewController?
+    
     private lazy var infoButton: UIBarButtonItem = {
         UIBarButtonItem(image: UIImage(named: "ChallengeInfoIcon"),
                         style: .plain,
@@ -198,6 +200,14 @@ final class StartedChallengeDetailsVC: UIViewController {
     private func hideInputViews() {
         textView.resignFirstResponder()
     }
+    
+    @objc private func completeDay() {
+        popupVC?.dismiss(animated: true)
+    }
+    
+    @objc private func failDay() {
+        popupVC?.dismiss(animated: true)
+    }
 }
 
 extension StartedChallengeDetailsVC: UIScrollViewDelegate {
@@ -234,6 +244,21 @@ extension StartedChallengeDetailsVC: UICollectionViewDelegate, UICollectionViewD
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 6
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let state = ChallengeDayCellState(rawValue: Int.random(in: 0...3))!
+        
+        if state != .disabled {
+            let popupVC = PopupFactory.markChallengeDayPopup(target: self,
+                                                             completeAction: #selector(completeDay),
+                                                             failedAction: #selector(failDay))
+            popupVC.modalPresentationStyle = .overFullScreen
+            popupVC.modalTransitionStyle = .crossDissolve
+            present(popupVC, animated: true)
+            
+            self.popupVC = popupVC
+        }
     }
 }
 
