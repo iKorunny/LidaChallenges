@@ -28,6 +28,7 @@ protocol ColorTheme {
     var subtitle: UIColor { get }
     var itemBackgroundDisabled: UIColor { get }
     var textNotes: UIColor { get }
+    var infoBright: UIColor { get }
 }
 
 final class LightTheme: ColorTheme {
@@ -50,4 +51,5 @@ final class LightTheme: ColorTheme {
     var subtitle: UIColor { UIColor.color(from: "#7B7B7B") }
     var itemBackgroundDisabled: UIColor { UIColor.color(from: "#E7E7E7") }
     var textNotes: UIColor { UIColor.color(from: "#A9A9A9") }
+    var infoBright: UIColor { UIColor.color(from: "#F10166") }
 }

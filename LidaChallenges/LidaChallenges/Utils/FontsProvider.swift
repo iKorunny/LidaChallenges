@@ -10,6 +10,13 @@ import UIKit
 
 final class FontsProvider {
     /**
+        500
+     */
+    static func mediumAppFont(with size: CGFloat) -> UIFont {
+        return UIFont.systemFont(ofSize: size, weight: .medium)
+    }
+    
+    /**
         400
      */
     static func regularAppFont(with size: CGFloat) -> UIFont {

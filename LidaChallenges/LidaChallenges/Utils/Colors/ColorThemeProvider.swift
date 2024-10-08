@@ -32,4 +32,5 @@ final class ColorThemeProvider: ColorTheme {
     var subtitle: UIColor { currentTheme.subtitle }
     var itemBackgroundDisabled: UIColor { currentTheme.itemBackgroundDisabled }
     var textNotes: UIColor { currentTheme.textNotes }
+    var infoBright: UIColor { currentTheme.infoBright }
 }

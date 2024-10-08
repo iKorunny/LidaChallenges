@@ -24,7 +24,7 @@ final class CreateChallengeRegularityUtils {
             return "ChallengeInfoRegularityDaily".localised()
         }
         else {
-            let result = regularity.sorted(by: { $0.rawValue < $1.rawValue }).map({ $0.stringValue() }).joined(separator: ", ")
+            let result = regularity.sorted(by: { $0.rawValue < $1.rawValue }).map({ $0.infoStringValue() }).joined(separator: ", ")
             let first = String(result.prefix(1))
             let other = String(result.dropFirst())
             

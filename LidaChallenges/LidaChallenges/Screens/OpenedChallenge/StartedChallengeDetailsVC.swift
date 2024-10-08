@@ -55,13 +55,41 @@ final class StartedChallengeDetailsVC: UIViewController {
         return scroll
     }()
     
+    private lazy var periodLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.numberOfLines = 0
+        label.textColor = ColorThemeProvider.shared.infoBright
+        label.font = FontsProvider.mediumAppFont(with: 14)
+        label.text = CreateChallengeRegularityUtils.regularityToInfoString(model.originalChallenge.regularity)
+        return label
+    }()
+    
     private lazy var scrollContent: UIView = {
         let content = UIView()
         content.translatesAutoresizingMaskIntoConstraints = false
         content.backgroundColor = .clear
         
+        content.addSubview(periodLabel)
+        
+        if hasSubtitle {
+            content.addSubview(subtitleLabel)
+            subtitleLabel.topAnchor.constraint(equalTo: content.topAnchor).isActive = true
+            subtitleLabel.trailingAnchor.constraint(equalTo: content.trailingAnchor, constant: -18).isActive = true
+            subtitleLabel.leadingAnchor.constraint(equalTo: content.leadingAnchor, constant: 130).isActive = true
+            subtitleLabel.text = model.originalChallenge.subtitle
+            
+            periodLabel.topAnchor.constraint(equalTo: subtitleLabel.bottomAnchor, constant: 9).isActive = true
+        }
+        else {
+            periodLabel.topAnchor.constraint(equalTo: content.topAnchor, constant: 9).isActive = true
+        }
+        
+        periodLabel.leadingAnchor.constraint(equalTo: content.leadingAnchor, constant: 52).isActive = true
+        periodLabel.trailingAnchor.constraint(lessThanOrEqualTo: content.trailingAnchor, constant: -52).isActive = true
+        
         content.addSubview(collectionView)
-        collectionView.topAnchor.constraint(equalTo: content.topAnchor, constant: 57).isActive = true
+        collectionView.topAnchor.constraint(equalTo: periodLabel.bottomAnchor, constant: 9).isActive = true
         collectionView.leadingAnchor.constraint(equalTo: content.leadingAnchor, constant: 52).isActive = true
         collectionView.trailingAnchor.constraint(equalTo: content.trailingAnchor, constant: -52).isActive = true
         collectionView.heightAnchor.constraint(equalToConstant: calculatedCollectionHeight).isActive = true
@@ -150,19 +178,7 @@ final class StartedChallengeDetailsVC: UIViewController {
         navigationItem.rightBarButtonItem = infoButton
         
         view.addSubview(scrollView)
-        
-        if hasSubtitle {
-            view.addSubview(subtitleLabel)
-            subtitleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 23).isActive = true
-            subtitleLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -18).isActive = true
-            subtitleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 130).isActive = true
-            subtitleLabel.text = model.originalChallenge.subtitle
-            
-            scrollView.topAnchor.constraint(equalTo: subtitleLabel.bottomAnchor).isActive = true
-        }
-        else {
-            scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
-        }
+        scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
         
         scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
