@@ -57,7 +57,7 @@ final class Challenge: Codable {
         self.description = description
         self.daysCount = daysCount
         self.regularity = regularity
-        self.icon = icon
+        self.icon = icon ?? UIImage(named: "challengeIconDefault")
         self.isCustom = isCustom
     }
     

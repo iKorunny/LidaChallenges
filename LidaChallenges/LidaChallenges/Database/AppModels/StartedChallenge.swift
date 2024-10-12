@@ -12,14 +12,14 @@ final class StartedChallenge {
     let startDate: Date
     let isCustomChallenge: Bool
     let originalChallenge: Challenge
-    let dayRecords: Set<ChallengeDayRecordResult>
+    let dayRecords: Array<ChallengeDayRecord>
     let note: String?
     
     init(identifier: String, 
          startDate: Date,
          isCustomChallenge: Bool,
          originalChallenge: Challenge,
-         dayRecords: Set<ChallengeDayRecordResult>,
+         dayRecords: Array<ChallengeDayRecord>,
          note: String?) {
         self.identifier = identifier
         self.startDate = startDate
@@ -32,4 +32,57 @@ final class StartedChallenge {
 
 extension StartedChallenge {
     var isFinished: Bool { false }
+}
+
+final class StartedChallengeUtils {
+    static func closestNotAvailableDate(for challenge: StartedChallenge, currentDate: Date) -> Date? {
+        let dates = dates(for: challenge)
+        return dates.first(where: { !currentDate.isLessOrEqualIgnoringTime(to: $0) })
+    }
+    
+    static func state(for challenge: StartedChallenge, index: Int, currentDate: Date) -> ChallengeDayCellState {
+        if let savedState = challenge.dayRecords.first(where: { $0.dayIndex == index })?.result {
+            switch savedState {
+            case .fail:
+                return .failed
+            case .success:
+                return .completed
+            case .pending:
+                return .enabled
+            }
+        }
+        
+        return isAvailableDay(for: challenge, with: index, currentDate: currentDate) ? .enabled : .disabled
+    }
+    
+    static func dateOfDay(for challenge: StartedChallenge, with index: Int) -> Date {
+        return dates(for: challenge)[index]
+    }
+    
+    private static func isAvailableDay(for challenge: StartedChallenge, with index: Int, currentDate: Date) -> Bool {
+        return currentDate.isLessOrEqualIgnoringTime(to: dateOfDay(for: challenge, with: index))
+    }
+    
+    private static func dates(for challenge: StartedChallenge) -> [Date] {
+        var dates: [Date] = []
+        
+        let startingDate = challenge.startDate
+        
+        var regularityToCheck = startingDate.dayRegularity()!
+        var previousDate = startingDate.dayBefore
+        var dateToCheck = Date.nexteDate(of: regularityToCheck.toAppleValue(), from: previousDate)!
+        
+        while dates.count < challenge.originalChallenge.daysCount {
+            if challenge.originalChallenge.regularity.contains(regularityToCheck) {
+                dates.append(dateToCheck)
+            }
+            
+            regularityToCheck = regularityToCheck.next()
+            let oldDate = dateToCheck
+            dateToCheck = Date.nexteDate(of: regularityToCheck.toAppleValue(), from: previousDate)!
+            previousDate = oldDate
+        }
+        
+        return dates
+    }
 }

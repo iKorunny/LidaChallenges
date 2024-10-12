@@ -16,6 +16,33 @@ enum ChallengeRegularityType: Int, Codable {
     case saturday = 6
     case sunday = 7
     
+    func next() -> ChallengeRegularityType {
+        var nextValue = rawValue + 1
+        if nextValue > 7 {
+            nextValue -= 7
+        }
+        
+        return ChallengeRegularityType.init(rawValue: nextValue)!
+    }
+    
+    func toAppleValue() -> Int {
+        var result = rawValue - 6
+        if result < 1 {
+            result += 7
+        }
+        
+        return result
+    }
+    
+    static func fromApple(value: Int) -> ChallengeRegularityType {
+        var intValue = value + 6
+        if intValue > 7 {
+            intValue -= 7
+        }
+        
+        return ChallengeRegularityType.init(rawValue: intValue)!
+    }
+    
     static func allValues() -> [ChallengeRegularityType] {
         return [.monday, .tuesday, .wednesday, .thursday, .friday,. saturday, .sunday]
     }
@@ -429,6 +456,8 @@ final class CreateChallengeMainVC: UIViewController {
     
     @objc private func onContinue() {
         hideInputViews()
+        updateContinueButtonEnability()
+        guard continueButton.isEnabled else { return }
         AppRouter.shared.toCreateChallengeInfo(with: ChallengeModelToCreate(name: name ?? "",
                                                                             daysCount: daysCount ?? 0,
                                                                             selectedRegularity: selectedRegularity))

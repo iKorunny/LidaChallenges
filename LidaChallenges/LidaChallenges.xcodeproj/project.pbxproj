@@ -14,6 +14,7 @@
 		8002FC7C2C7A4EDE001FF4A3 /* CustomChallenge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8002FC7B2C7A4EDE001FF4A3 /* CustomChallenge.swift */; };
 		8002FC7F2C7B6613001FF4A3 /* OpenedChallengeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8002FC7E2C7B6613001FF4A3 /* OpenedChallengeVC.swift */; };
 		8002FC812C7B6CE4001FF4A3 /* StartOpenedChallengeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8002FC802C7B6CE4001FF4A3 /* StartOpenedChallengeVC.swift */; };
+		80054B312CBAE19A009A00A3 /* Date+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80054B302CBAE19A009A00A3 /* Date+Utils.swift */; };
 		800C40C22C5C1D2200AECCA4 /* UIImage+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800C40C12C5C1D2200AECCA4 /* UIImage+Utils.swift */; };
 		800C40C42C5C1D6100AECCA4 /* UIImageResizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800C40C32C5C1D6100AECCA4 /* UIImageResizer.swift */; };
 		800C40C92C5EBCEC00AECCA4 /* AlertsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800C40C82C5EBCEC00AECCA4 /* AlertsPresenter.swift */; };
@@ -85,6 +86,7 @@
 		8002FC7B2C7A4EDE001FF4A3 /* CustomChallenge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomChallenge.swift; sourceTree = "<group>"; };
 		8002FC7E2C7B6613001FF4A3 /* OpenedChallengeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenedChallengeVC.swift; sourceTree = "<group>"; };
 		8002FC802C7B6CE4001FF4A3 /* StartOpenedChallengeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartOpenedChallengeVC.swift; sourceTree = "<group>"; };
+		80054B302CBAE19A009A00A3 /* Date+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Utils.swift"; sourceTree = "<group>"; };
 		800C40C12C5C1D2200AECCA4 /* UIImage+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Utils.swift"; sourceTree = "<group>"; };
 		800C40C32C5C1D6100AECCA4 /* UIImageResizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageResizer.swift; sourceTree = "<group>"; };
 		800C40C82C5EBCEC00AECCA4 /* AlertsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertsPresenter.swift; sourceTree = "<group>"; };
@@ -339,6 +341,7 @@
 				800C40C32C5C1D6100AECCA4 /* UIImageResizer.swift */,
 				800C40C82C5EBCEC00AECCA4 /* AlertsPresenter.swift */,
 				80BCB5E02CB555730080EF19 /* Formatters.swift */,
+				80054B302CBAE19A009A00A3 /* Date+Utils.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -481,6 +484,7 @@
 				800C40C92C5EBCEC00AECCA4 /* AlertsPresenter.swift in Sources */,
 				8002FC702C7A4491001FF4A3 /* CustomChallengeDBService.swift in Sources */,
 				807D48C42C1F532B004FB542 /* SceneDelegate.swift in Sources */,
+				80054B312CBAE19A009A00A3 /* Date+Utils.swift in Sources */,
 				807862002C29E5EB00FA8938 /* MainVCListActionItem.swift in Sources */,
 				80E072652C84AC4D00DDE0C2 /* Challenge.swift in Sources */,
 				804D8FC62C2861EE00FA30F3 /* MainCategoriesCell.swift in Sources */,

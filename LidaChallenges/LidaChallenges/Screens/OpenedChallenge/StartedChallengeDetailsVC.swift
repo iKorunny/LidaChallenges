@@ -19,6 +19,10 @@ final class StartedChallengeDetailsVC: UIViewController {
     
     private weak var popupVC: UIViewController?
     
+    private lazy var currentDate: Date = {
+        Date()
+    }()
+    
     private lazy var infoButton: UIBarButtonItem = {
         UIBarButtonItem(image: UIImage(named: "ChallengeInfoIcon"),
                         style: .plain,
@@ -229,7 +233,8 @@ extension StartedChallengeDetailsVC: UICollectionViewDelegate, UICollectionViewD
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.cellID, for: indexPath) as? ChallengeDayCell else { return UICollectionViewCell() }
         
         cell.setupIfNeeded()
-        cell.set(state: ChallengeDayCellState(rawValue: Int.random(in: 0...3))!)
+        let state = StartedChallengeUtils.state(for: model, index: indexPath.row, currentDate: currentDate)
+        cell.set(state: state)
         
         return cell
     }
@@ -247,7 +252,7 @@ extension StartedChallengeDetailsVC: UICollectionViewDelegate, UICollectionViewD
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let state = ChallengeDayCellState(rawValue: Int.random(in: 0...3))!
+        let state = StartedChallengeUtils.state(for: model, index: indexPath.row, currentDate: currentDate)
         
         if state != .disabled {
             let popupVC = PopupFactory.markChallengeDayPopup(target: self,
@@ -259,8 +264,8 @@ extension StartedChallengeDetailsVC: UICollectionViewDelegate, UICollectionViewD
             
             self.popupVC = popupVC
         }
-        else {
-            let popupVC = PopupFactory.markChallengeDayWillBeEnable(at: Date())
+        else if let nextDate = StartedChallengeUtils.closestNotAvailableDate(for: model, currentDate: currentDate) {
+            let popupVC = PopupFactory.markChallengeDayWillBeEnable(at: nextDate)
             popupVC.modalPresentationStyle = .overFullScreen
             popupVC.modalTransitionStyle = .crossDissolve
             present(popupVC, animated: true)
