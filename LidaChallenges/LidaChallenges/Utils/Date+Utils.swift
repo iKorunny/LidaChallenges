@@ -48,6 +48,20 @@ extension Date {
         }
     }
     
+    func isLessIgnoringTime(to date: Date) -> Bool {
+        let startOfMe = gregorianCalendar.startOfDay(for: self)
+        let startOfDate = gregorianCalendar.startOfDay(for: date)
+        
+        let order = Calendar.current.compare(startOfMe, to: startOfDate, toGranularity: .day)
+        
+        switch order {
+        case .orderedDescending:
+            return true
+        case .orderedAscending, .orderedSame:
+            return false
+        }
+    }
+    
     var dayBefore: Date {
         return gregorianCalendar.date(byAdding: .day, value: -1, to: self)!
     }

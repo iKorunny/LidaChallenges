@@ -31,7 +31,11 @@ final class StartedChallenge {
 }
 
 extension StartedChallenge {
-    var isFinished: Bool { false }
+    var isFinished: Bool {
+        guard let lastDay = StartedChallengeUtils.lastDate(for: self) else { return false }
+                
+        return !Date().isLessOrEqualIgnoringTime(to: lastDay)
+    }
 }
 
 final class StartedChallengeUtils {
@@ -57,6 +61,10 @@ final class StartedChallengeUtils {
     
     static func dateOfDay(for challenge: StartedChallenge, with index: Int) -> Date {
         return dates(for: challenge)[index]
+    }
+    
+    static func lastDate(for challenge: StartedChallenge) -> Date? {
+        return dates(for: challenge).last
     }
     
     private static func isAvailableDay(for challenge: StartedChallenge, with index: Int, currentDate: Date) -> Bool {
