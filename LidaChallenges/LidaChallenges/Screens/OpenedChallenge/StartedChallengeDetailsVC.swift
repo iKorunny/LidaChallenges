@@ -13,7 +13,7 @@ private enum Constants {
 
 final class StartedChallengeDetailsVC: UIViewController {
     
-    let model: StartedChallenge
+    var model: StartedChallenge
     
     private var keyboardService: KeyboardAppearService?
     
@@ -141,6 +141,8 @@ final class StartedChallengeDetailsVC: UIViewController {
         return navigationController?.view.window
     }()
     
+    private var lastEditIndex: Int = -1
+    
     init(model: StartedChallenge) {
         self.model = model
         super.init(nibName: nil, bundle: nil)
@@ -207,10 +209,36 @@ final class StartedChallengeDetailsVC: UIViewController {
     
     @objc private func completeDay() {
         popupVC?.dismiss(animated: true)
+        guard lastEditIndex >= 0 else { return }
+        
+        DatabaseService.shared.save(dayResult: .success,
+                                    dayIndex: lastEditIndex,
+                                    challengeID: model.identifier) { success, updatedModel in
+            guard success, let newModel = updatedModel else { return }
+            DispatchQueue.main.async { [weak self] in
+                self?.model = newModel
+                self?.collectionView.reloadData()
+            }
+        }
+        
+        lastEditIndex = -1
     }
     
     @objc private func failDay() {
         popupVC?.dismiss(animated: true)
+        guard lastEditIndex >= 0 else { return }
+        
+        DatabaseService.shared.save(dayResult: .fail,
+                                    dayIndex: lastEditIndex,
+                                    challengeID: model.identifier) { success, updatedModel in
+            guard success, let newModel = updatedModel else { return }
+            DispatchQueue.main.async { [weak self] in
+                self?.model = newModel
+                self?.collectionView.reloadData()
+            }
+        }
+        
+        lastEditIndex = -1
     }
 }
 
@@ -255,6 +283,7 @@ extension StartedChallengeDetailsVC: UICollectionViewDelegate, UICollectionViewD
         let state = StartedChallengeUtils.state(for: model, index: indexPath.row, currentDate: currentDate)
         
         if state != .disabled {
+            lastEditIndex = indexPath.row
             let popupVC = PopupFactory.markChallengeDayPopup(target: self,
                                                              completeAction: #selector(completeDay),
                                                              failedAction: #selector(failDay))

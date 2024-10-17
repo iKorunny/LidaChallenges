@@ -14,7 +14,7 @@ enum ChallengeDayRecordResult: Int, Codable {
 
 final class ChallengeDayRecord: Codable {
     let dayIndex: Int
-    let result: ChallengeDayRecordResult
+    var result: ChallengeDayRecordResult
     
     init(dayIndex: Int, 
          result: ChallengeDayRecordResult) {

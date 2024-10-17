@@ -65,4 +65,32 @@ final class StartedChallengeDBService {
             }
         }
     }
+    
+    func save(dayResult: ChallengeDayRecordResult,
+              dayIndex: Int,
+              to challenge: DBStartedChallengeModel,
+              context: NSManagedObjectContext,
+              completion: @escaping ((DBStartedChallengeModel?) -> Void)) {
+        
+        var records: [ChallengeDayRecord] = challenge.dayRecords != nil ?
+        ((try? JSONDecoder().decode([ChallengeDayRecord].self, from: challenge.dayRecords!)) ?? [])
+        : []
+        if let storedDay = records.first(where: { $0.dayIndex == dayIndex }) {
+            storedDay.result = dayResult
+        }
+        else {
+            records.append(.init(dayIndex: dayIndex, result: dayResult))
+        }
+        challenge.dayRecords = try! JSONEncoder().encode(records)
+        
+        do {
+            try context.save()
+            fetchStartedChallenge(context: context,
+                                  with: challenge.identifier!,
+                                  onSuccess: completion)
+        }
+        catch let error {
+            print("save(dayResult: \(error)")
+        }
+    }
 }

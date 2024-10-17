@@ -153,14 +153,53 @@ extension DatabaseService {
                 return
             }
             
+            var dayRecords: [ChallengeDayRecord] = []
+            
+            if let recordsData = model.dayRecords {
+                dayRecords = (try? JSONDecoder().decode([ChallengeDayRecord].self, from: recordsData)) ?? []
+            }
+            
             result.append(StartedChallenge(identifier: modelId,
                                            startDate: modelStartDate,
                                            isCustomChallenge: model.isCustomChallenge,
                                            originalChallenge: originalChallenge,
-                                           dayRecords: [], 
+                                           dayRecords: dayRecords,
                                            note: model.note)) // TODO: implement later
         }
         
         return result
+    }
+    
+    func save(dayResult: ChallengeDayRecordResult,
+              dayIndex: Int,
+              challengeID: String,
+              completion: @escaping ((Bool, StartedChallenge?) -> Void)) {
+        guard let context = context else { return }
+        
+        workingQueue.async { [weak self] in
+            self?.startedDBService.fetchStartedChallenge(context: context,
+                                                         with: challengeID,
+                                                         onSuccess: { [weak self] foundChallenge in
+                guard let foundChallenge else {
+                    completion(false, nil)
+                    return
+                }
+                
+                self?.workingQueue.async(flags: .barrier) {
+                    self?.startedDBService.save(dayResult: dayResult,
+                                                dayIndex: dayIndex,
+                                                to: foundChallenge,
+                                                context: context,
+                                                completion: { [weak self] updatedDBModel in
+                        guard let updatedDBModel else {
+                            completion(false, nil)
+                            return
+                        }
+                        
+                        completion(true, self?.startedDbModelsToModels(dbModels: [updatedDBModel])?.first)
+                    })
+                }
+            })
+        }
     }
 }

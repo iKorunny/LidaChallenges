@@ -21,7 +21,7 @@ extension DBStartedChallengeModel {
     @NSManaged public var startDate: Date?
     @NSManaged public var isCustomChallenge: Bool
     @NSManaged public var originalChallengeIdentifier: String?
-    @NSManaged public var dayRecords: NSObject?
+    @NSManaged public var dayRecords: Data?
 
 }
 
