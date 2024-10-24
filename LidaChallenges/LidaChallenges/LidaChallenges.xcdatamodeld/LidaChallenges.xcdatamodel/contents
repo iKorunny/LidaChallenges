@@ -1,5 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="23231" systemVersion="23H124" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="DBBuiltInChallenge" representedClassName=".DBBuiltInChallenge" syncable="YES">
+        <attribute name="categoryID" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="daysCount" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="descriptionKey" optional="YES" attributeType="String"/>
+        <attribute name="iconName" optional="YES" attributeType="String" allowsExternalBinaryDataStorage="YES"/>
+        <attribute name="identifier" attributeType="String"/>
+        <attribute name="nameKey" attributeType="String"/>
+        <attribute name="regularity" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromDataTransformer"/>
+        <attribute name="subtitleKey" optional="YES" attributeType="String"/>
+    </entity>
     <entity name="DBCustomChallengeModel" representedClassName=".DBCustomChallengeModel" syncable="YES">
         <attribute name="daysCount" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="descriptionString" optional="YES" attributeType="String"/>

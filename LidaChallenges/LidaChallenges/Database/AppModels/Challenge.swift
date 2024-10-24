@@ -18,6 +18,7 @@ final class Challenge: Codable {
         case regularity
         case icon
         case isCustom
+        case categoryID
     }
     
     let identifier: String
@@ -30,6 +31,8 @@ final class Challenge: Codable {
     
     let isCustom: Bool
     
+    let categoryID: Int
+    
     static func create(from custom: DBCustomChallengeModel) -> Challenge? {
         guard let model = CustomChallenge.create(from: custom) else { return nil }
         
@@ -40,7 +43,22 @@ final class Challenge: Codable {
                          daysCount: model.daysCount,
                          regularity: model.regularity,
                          icon: model.icon,
-                         isCustom: true)
+                         isCustom: true,
+                         categoryID: 0)
+    }
+    
+    static func create(from builtIn: DBBuiltInChallenge) -> Challenge? {
+        guard let model = BuiltInChallenge.create(from: builtIn) else { return nil }
+        
+        return Challenge(identifier: model.identifier,
+                         title: model.name,
+                         subtitle: model.subtitleKey?.localised(),
+                         description: model.descriptionKey?.localised(),
+                         daysCount: model.daysCount,
+                         regularity: model.regularity,
+                         icon: model.icon,
+                         isCustom: false,
+                         categoryID: model.categoryID)
     }
     
     init(identifier: String, 
@@ -50,7 +68,8 @@ final class Challenge: Codable {
          daysCount: Int,
          regularity: Set<ChallengeRegularityType>,
          icon: UIImage?,
-         isCustom: Bool) {
+         isCustom: Bool,
+         categoryID: Int) {
         self.identifier = identifier
         self.title = title
         self.subtitle = subtitle
@@ -59,6 +78,7 @@ final class Challenge: Codable {
         self.regularity = regularity
         self.icon = icon ?? UIImage(named: "challengeIconDefault")
         self.isCustom = isCustom
+        self.categoryID = categoryID
     }
     
     func encode(to encoder: Encoder) throws {
@@ -71,6 +91,7 @@ final class Challenge: Codable {
         try container.encode(regularity, forKey: .regularity)
         try container.encode(icon?.pngData(), forKey: .icon)
         try container.encode(isCustom, forKey: .isCustom)
+        try container.encode(categoryID, forKey: .categoryID)
     }
     
     init(from decoder: Decoder) throws {
@@ -90,6 +111,7 @@ final class Challenge: Codable {
         }
         
         isCustom = try container.decode(Bool.self, forKey: .isCustom)
+        categoryID = try container.decode(Int.self, forKey: .categoryID)
     }
 }
 

@@ -9,10 +9,15 @@ import Foundation
 import CoreData
 import UIKit
 
+protocol BuiltInChallengesDatabase {
+    func saveBuiltIn(challenges: [BuiltInChallengeConfig], completion: @escaping ((Bool) -> Void))
+}
+
 final class DatabaseService {
     static let shared = DatabaseService()
     
     private let startedDBService = StartedChallengeDBService()
+    private let buildInDBService = BuiltInChallengeDBService()
     
     private lazy var workingQueue: DispatchQueue = {
         return DispatchQueue(label: "DatabaseServiceQueue", qos: .userInitiated, attributes: .concurrent)
@@ -200,6 +205,42 @@ extension DatabaseService {
                     })
                 }
             })
+        }
+    }
+}
+
+extension DatabaseService: BuiltInChallengesDatabase {
+    func saveBuiltIn(challenges: [BuiltInChallengeConfig], completion: @escaping ((Bool) -> Void)) {
+        guard let context = context else {
+            completion(false)
+            return
+        }
+        workingQueue.async(flags: .barrier) { [weak self] in
+            let group: DispatchGroup = .init()
+            challenges.forEach { _ in
+//                print("group.enter()")
+                group.enter()
+            }
+            
+            challenges.forEach { challenge in
+                self?.buildInDBService.saveChallenge(id: challenge.identifier,
+                                                     daysCount: challenge.daysCount,
+                                                     descriptionKey: challenge.descriptionKey,
+                                                     iconName: challenge.iconName,
+                                                     nameKey: challenge.nameKey,
+                                                     regularity: challenge.regularity,
+                                                     subtitleKey: challenge.subtitleKey,
+                                                     categoryID: challenge.categoryID,
+                                                     context: context,
+                                                     completion: {
+                    group.leave()
+//                    print("group.leave()")
+                })
+            }
+            
+            group.notify(queue: .main) {
+                completion(true)
+            }
         }
     }
 }

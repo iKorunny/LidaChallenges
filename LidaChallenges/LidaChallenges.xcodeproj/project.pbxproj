@@ -76,6 +76,13 @@
 		80F2CE092C20B66400B0E611 /* AppRootVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F2CE082C20B66400B0E611 /* AppRootVC.swift */; };
 		80F2CE0B2C20B74100B0E611 /* Controller+Childred.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F2CE0A2C20B74100B0E611 /* Controller+Childred.swift */; };
 		80F2CE0D2C20BC6600B0E611 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F2CE0C2C20BC6600B0E611 /* MainVC.swift */; };
+		80FD66722CCA928B0087DDC8 /* DBBuiltInChallenge+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80FD66702CCA928B0087DDC8 /* DBBuiltInChallenge+CoreDataClass.swift */; };
+		80FD66732CCA928B0087DDC8 /* DBBuiltInChallenge+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80FD66712CCA928B0087DDC8 /* DBBuiltInChallenge+CoreDataProperties.swift */; };
+		80FD66762CCA94B30087DDC8 /* BuiltInChallengesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80FD66752CCA94B30087DDC8 /* BuiltInChallengesManager.swift */; };
+		80FD66782CCA952B0087DDC8 /* BuiltInChallenges.plist in Resources */ = {isa = PBXBuildFile; fileRef = 80FD66772CCA952B0087DDC8 /* BuiltInChallenges.plist */; };
+		80FD667A2CCA97A20087DDC8 /* BuiltInChallenge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80FD66792CCA97A20087DDC8 /* BuiltInChallenge.swift */; };
+		80FD667C2CCA9E1F0087DDC8 /* BuiltInConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80FD667B2CCA9E1F0087DDC8 /* BuiltInConfig.swift */; };
+		80FD667E2CCAA2A70087DDC8 /* BuiltInChallengeDBService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80FD667D2CCAA2A70087DDC8 /* BuiltInChallengeDBService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -150,6 +157,13 @@
 		80F2CE082C20B66400B0E611 /* AppRootVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRootVC.swift; sourceTree = "<group>"; };
 		80F2CE0A2C20B74100B0E611 /* Controller+Childred.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Controller+Childred.swift"; sourceTree = "<group>"; };
 		80F2CE0C2C20BC6600B0E611 /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
+		80FD66702CCA928B0087DDC8 /* DBBuiltInChallenge+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DBBuiltInChallenge+CoreDataClass.swift"; sourceTree = "<group>"; };
+		80FD66712CCA928B0087DDC8 /* DBBuiltInChallenge+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DBBuiltInChallenge+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		80FD66752CCA94B30087DDC8 /* BuiltInChallengesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuiltInChallengesManager.swift; sourceTree = "<group>"; };
+		80FD66772CCA952B0087DDC8 /* BuiltInChallenges.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = BuiltInChallenges.plist; sourceTree = "<group>"; };
+		80FD66792CCA97A20087DDC8 /* BuiltInChallenge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuiltInChallenge.swift; sourceTree = "<group>"; };
+		80FD667B2CCA9E1F0087DDC8 /* BuiltInConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuiltInConfig.swift; sourceTree = "<group>"; };
+		80FD667D2CCAA2A70087DDC8 /* BuiltInChallengeDBService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuiltInChallengeDBService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,6 +186,7 @@
 				8002FC6D2C7A3C71001FF4A3 /* DatabaseService.swift */,
 				8002FC6F2C7A4491001FF4A3 /* CustomChallengeDBService.swift */,
 				80E072602C84A95600DDE0C2 /* StartedChallengeDBService.swift */,
+				80FD667D2CCAA2A70087DDC8 /* BuiltInChallengeDBService.swift */,
 			);
 			path = Database;
 			sourceTree = "<group>";
@@ -183,6 +198,7 @@
 				80E072622C84AAFD00DDE0C2 /* StartedChallenge.swift */,
 				80E072642C84AC4D00DDE0C2 /* Challenge.swift */,
 				80E072662C84B47800DDE0C2 /* ChallengeDayRecord.swift */,
+				80FD66792CCA97A20087DDC8 /* BuiltInChallenge.swift */,
 			);
 			path = AppModels;
 			sourceTree = "<group>";
@@ -190,6 +206,8 @@
 		8002FC7A2C7A4EC7001FF4A3 /* DBModels */ = {
 			isa = PBXGroup;
 			children = (
+				80FD66702CCA928B0087DDC8 /* DBBuiltInChallenge+CoreDataClass.swift */,
+				80FD66712CCA928B0087DDC8 /* DBBuiltInChallenge+CoreDataProperties.swift */,
 				8002FC752C7A473F001FF4A3 /* DBCustomChallengeModel+CoreDataClass.swift */,
 				8002FC762C7A473F001FF4A3 /* DBCustomChallengeModel+CoreDataProperties.swift */,
 				80E0725C2C84A6AF00DDE0C2 /* DBStartedChallengeModel+CoreDataClass.swift */,
@@ -274,6 +292,7 @@
 		807D48C02C1F532B004FB542 /* LidaChallenges */ = {
 			isa = PBXGroup;
 			children = (
+				80FD66742CCA948F0087DDC8 /* BuiltInChallengesManager */,
 				805E27482C235CF30048F78F /* Localizable.strings */,
 				8002FC682C7A33F9001FF4A3 /* Database */,
 				807D48C12C1F532B004FB542 /* AppDelegate.swift */,
@@ -368,6 +387,16 @@
 			path = Screens;
 			sourceTree = "<group>";
 		};
+		80FD66742CCA948F0087DDC8 /* BuiltInChallengesManager */ = {
+			isa = PBXGroup;
+			children = (
+				80FD66752CCA94B30087DDC8 /* BuiltInChallengesManager.swift */,
+				80FD66772CCA952B0087DDC8 /* BuiltInChallenges.plist */,
+				80FD667B2CCA9E1F0087DDC8 /* BuiltInConfig.swift */,
+			);
+			path = BuiltInChallengesManager;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -437,6 +466,7 @@
 				805E27462C235CF30048F78F /* Localizable.strings in Resources */,
 				807D48CE2C1F532D004FB542 /* Assets.xcassets in Resources */,
 				807D48C92C1F532B004FB542 /* Main.storyboard in Resources */,
+				80FD66782CCA952B0087DDC8 /* BuiltInChallenges.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -466,6 +496,7 @@
 				8002FC6E2C7A3C71001FF4A3 /* DatabaseService.swift in Sources */,
 				80722BBD2C7B85EE0069A08D /* ChallengesSearchResultController.swift in Sources */,
 				807502742CB3FD5200726438 /* ChallengeDayCell.swift in Sources */,
+				80FD66762CCA94B30087DDC8 /* BuiltInChallengesManager.swift in Sources */,
 				80F2CE0D2C20BC6600B0E611 /* MainVC.swift in Sources */,
 				802647202C52EBF300705B2E /* CreateChallengeRegularityUtils.swift in Sources */,
 				805E274B2C2360340048F78F /* CategoriesSectionHeader.swift in Sources */,
@@ -483,10 +514,13 @@
 				8087DE042C8E068E00F00064 /* MyChallengesSectionHeader.swift in Sources */,
 				800C40C92C5EBCEC00AECCA4 /* AlertsPresenter.swift in Sources */,
 				8002FC702C7A4491001FF4A3 /* CustomChallengeDBService.swift in Sources */,
+				80FD667E2CCAA2A70087DDC8 /* BuiltInChallengeDBService.swift in Sources */,
 				807D48C42C1F532B004FB542 /* SceneDelegate.swift in Sources */,
 				80054B312CBAE19A009A00A3 /* Date+Utils.swift in Sources */,
 				807862002C29E5EB00FA8938 /* MainVCListActionItem.swift in Sources */,
 				80E072652C84AC4D00DDE0C2 /* Challenge.swift in Sources */,
+				80FD66722CCA928B0087DDC8 /* DBBuiltInChallenge+CoreDataClass.swift in Sources */,
+				80FD66732CCA928B0087DDC8 /* DBBuiltInChallenge+CoreDataProperties.swift in Sources */,
 				804D8FC62C2861EE00FA30F3 /* MainCategoriesCell.swift in Sources */,
 				80722BBF2C7BB29B0069A08D /* ChallengesSearchResultHeaderView.swift in Sources */,
 				801309832C6BE9A700E2020D /* AppActivityVC.swift in Sources */,
@@ -510,7 +544,9 @@
 				80722BC12C7BB6680069A08D /* ChallengesSearchResultCell.swift in Sources */,
 				8091376B2C46FABC0021CCE0 /* KeyboardAppearService.swift in Sources */,
 				8002FC7C2C7A4EDE001FF4A3 /* CustomChallenge.swift in Sources */,
+				80FD667C2CCA9E1F0087DDC8 /* BuiltInConfig.swift in Sources */,
 				800C40C42C5C1D6100AECCA4 /* UIImageResizer.swift in Sources */,
+				80FD667A2CCA97A20087DDC8 /* BuiltInChallenge.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

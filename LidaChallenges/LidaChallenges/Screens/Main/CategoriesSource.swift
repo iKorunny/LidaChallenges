@@ -9,11 +9,13 @@ import Foundation
 import UIKit
 
 final class Category {
+    let id: Int
     let title: String
     let icon: UIImage
     let challenges: [Challenge]
     
-    init(title: String, icon: UIImage, challenges: [Challenge]) {
+    init(id: Int, title: String, icon: UIImage, challenges: [Challenge]) {
+        self.id = id
         self.title = title
         self.icon = icon
         self.challenges = challenges
@@ -28,19 +30,24 @@ protocol CategoriesSource {
 final class CategoriesSourceMock: CategoriesSource {
     var categories: [Category] {
         return [
-            Category(title: "CategoriesHabbits".localised(),
+            Category(id: 1,
+                     title: "CategoriesHabbits".localised(),
                      icon: UIImage(named: "habbits")!,
                      challenges: []),
-            Category(title: "CategoriesCare".localised(),
+            Category(id: 2,
+                     title: "CategoriesCare".localised(),
                      icon: UIImage(named: "care")!,
                      challenges: []),
-            Category(title: "CategoriesSport".localised(),
+            Category(id: 3,
+                     title: "CategoriesSport".localised(),
                      icon: UIImage(named: "sport")!,
                      challenges: []),
-            Category(title: "CategoriesHealth".localised(),
+            Category(id: 4,
+                     title: "CategoriesHealth".localised(),
                      icon: UIImage(named: "health")!,
                      challenges: []),
-            Category(title: "CategoriesEducation".localised(),
+            Category(id: 5,
+                     title: "CategoriesEducation".localised(),
                      icon: UIImage(named: "education")!,
                      challenges: [])
         ]

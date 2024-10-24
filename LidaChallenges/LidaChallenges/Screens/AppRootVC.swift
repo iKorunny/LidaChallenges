@@ -115,7 +115,6 @@ final class AppRootVC: UIViewController {
         buttonContainer.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         buttonContainer.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         buttonContainer.bottomAnchor.constraint(equalTo: bannerView.topAnchor).isActive = true
-//        buttonContainer.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true // TODO: containt to advertising view
         
         containerView.bottomAnchor.constraint(equalTo: buttonContainer.topAnchor).isActive = true
         
