@@ -13,6 +13,7 @@ protocol OpenedChallengeModel {
     var fullDescription: String? { get }
     var icon: UIImage? { get }
     var isCustom: Bool { get }
+    var categoryID: Int { get }
 }
 
 class OpenedChallengeVC: UIViewController {

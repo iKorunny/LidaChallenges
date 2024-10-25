@@ -79,6 +79,33 @@ final class DatabaseService {
             }
         }
     }
+    
+    func fetchAllStoredChallenges(onSuccess: @escaping (([Challenge]) -> Void)) {
+        guard let context = context else { return }
+        
+        let group = DispatchGroup()
+        
+        var customChallenges: [Challenge] = []
+        group.enter()
+        workingQueue.async {
+            CustomChallengeDBService.shared.fetchCustomChallenges(context: context) { dbModels in
+                customChallenges = dbModels?.compactMap({ Challenge.create(from: $0) }) ?? []
+                group.leave()
+            }
+        }
+        
+        var builtInChallenges: [Challenge] = []
+        group.enter()
+        workingQueue.async { [weak self] in
+            let dbChallenges = self?.buildInDBService.syncFetchAllChallenges(context: context) ?? []
+            builtInChallenges = dbChallenges.compactMap({ Challenge.create(from: $0) }).sorted(by: { $0.categoryID < $1.categoryID })
+            group.leave()
+        }
+        
+        group.notify(queue: .main) {
+            onSuccess(builtInChallenges + customChallenges)
+        }
+    }
 }
 
 

@@ -54,6 +54,10 @@ extension CustomChallenge {
 }
 
 extension CustomChallenge: OpenedChallengeModel {
+    var categoryID: Int {
+        return -1
+    }
+    
     var isCustom: Bool {
         true
     }

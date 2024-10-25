@@ -243,6 +243,6 @@ extension MainVC: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        source.categories[indexPath.row]
+        AppRouter.shared.toChallengesList(categoryID: source.categories[indexPath.row].id)
     }
 }

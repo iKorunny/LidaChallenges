@@ -81,4 +81,10 @@ final class AppRouter {
         let nextVC = OpenedChallengeVC(model: model)
         navigationController?.pushViewController(nextVC, animated: false)
     }
+    
+    func toChallengesList(categoryID: Int) {
+        let nextVC = ChallengesListVC()
+        nextVC.categoryID = categoryID
+        navigationController?.pushViewController(nextVC, animated: false)
+    }
 }

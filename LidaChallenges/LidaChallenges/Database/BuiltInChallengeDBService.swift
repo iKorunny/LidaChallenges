@@ -62,7 +62,19 @@ final class BuiltInChallengeDBService {
             return models
         }
         catch let error {
-            print("syncFetchChallengesWithNameKeys:: \(error)")
+            print("syncFetchChallengesWithNameKeys: \(error)")
+        }
+        return []
+    }
+    
+    func syncFetchAllChallenges(context: NSManagedObjectContext) -> [DBBuiltInChallenge] {
+        do {
+            let request = DBBuiltInChallenge.fetchRequest()
+            let models = try context.fetch(request)
+            return models
+        }
+        catch let error {
+            print("syncFetchAllChallenges: \(error)")
         }
         return []
     }
