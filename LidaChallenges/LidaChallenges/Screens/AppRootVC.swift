@@ -132,6 +132,6 @@ final class AppRootVC: UIViewController {
     }
     
     @objc private func toMyChallenges() {
-        AppRouter.shared.toMyChallenges()
+        AppRouter.shared.toMyChallenges(with: .all, screenTitle: nil)
     }
 }

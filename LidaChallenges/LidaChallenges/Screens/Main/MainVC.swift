@@ -96,8 +96,11 @@ final class MainVC: UIViewController {
                                  }),
             MainVCListActionItem(image: UIImage(named: "CompletedChallengesAction")!,
                                  title: "CompletedChallengesActionTitle".localised(),
-                                 action: { [weak self] item in
+                                 action: { item in
                                      print("action \(item.title)")
+                                     
+                                     AppRouter.shared.toMyChallenges(with: .completed,
+                                                                     screenTitle: "CompletedChallengesActionTitle".localised())
                                  })
         ]
 

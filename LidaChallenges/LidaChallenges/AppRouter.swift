@@ -28,9 +28,11 @@ final class AppRouter {
         }
     }
     
-    func toMyChallenges() {
+    func toMyChallenges(with mode: MyChallengesVCMode, screenTitle: String?) {
         guard currentNavigationStackType != .myChallenges else { return }
         let nextVC = MyChallengesVC()
+        nextVC.mode = mode
+        nextVC.screenTitle = screenTitle
         navigationController?.pushViewController(nextVC, animated: false)
     }
     

@@ -17,6 +17,29 @@ private struct Constants {
     static let cellID = "MyChallengesVCCell"
 }
 
+enum MyChallengesVCMode {
+    case all
+    case completed
+    
+    func activeSupported() -> Bool {
+        switch self {
+        case .all:
+            return true
+        case .completed:
+            return false
+        }
+    }
+    
+    func completedSupported() -> Bool {
+        switch self {
+        case .all:
+            return true
+        case .completed:
+            return true
+        }
+    }
+}
+
 final class MyChallengesVC: UIViewController {
     
     private lazy var window: UIWindow? = {
@@ -69,12 +92,15 @@ final class MyChallengesVC: UIViewController {
         
         return collection
     }()
+    
+    var mode: MyChallengesVCMode = .all
+    var screenTitle: String?
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         view.backgroundColor = .clear
-        navigationItem.title = "MyChallengesLargeButtonTitle".localised()
+        navigationItem.title = screenTitle ?? "MyChallengesLargeButtonTitle".localised()
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: FontsProvider.regularAppFont(with: 20),
                                                                    .foregroundColor: ColorThemeProvider.shared.itemTextTitle]
         view.addSubview(noDataLabel)
@@ -107,11 +133,11 @@ final class MyChallengesVC: UIViewController {
             DispatchQueue.main.async { [weak self] in
                 self?.activityManager.unlock(onUnlock: { [weak self] in
                     var newSections: [MyChallengesSection] = []
-                    if !active.isEmpty {
+                    if !active.isEmpty && self?.mode.activeSupported() == true {
                         newSections.append(.init(title: "MyChallengesActiveTitle".localised(), challenges: active))
                     }
                     
-                    if !complete.isEmpty {
+                    if !complete.isEmpty && self?.mode.completedSupported() == true {
                         newSections.append(.init(title: "MyChallengesCompleteTitle".localised(), challenges: complete))
                     }
                     
