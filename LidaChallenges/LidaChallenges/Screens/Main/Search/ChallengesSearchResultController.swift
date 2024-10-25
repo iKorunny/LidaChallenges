@@ -38,6 +38,8 @@ final class ChallengesSearchResultController: UIViewController {
         table.backgroundView = nil
         
         table.separatorStyle = .none
+        table.sectionFooterHeight = CGFloat.leastNormalMagnitude
+        table.sectionHeaderTopPadding = 1.0
         
         return table
     }()

@@ -12,7 +12,7 @@ final class MainVC: UIViewController {
         return navigationController?.view.window
     }()
     
-    private let source: CategoriesSource = CategoriesSourceMock()
+    private let source: CategoriesSource = CategoriesSourceImpl()
     
     private var onceAppeared = false
     
@@ -240,5 +240,9 @@ extension MainVC: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
         guard let screenWidth = window?.bounds.width else { return UIEdgeInsets.zero }
         let inset = screenWidth * 0.5 - 224.66 * 0.5
         return UIEdgeInsets(top: 0, left: inset, bottom: 0, right: inset)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        source.categories[indexPath.row]
     }
 }

@@ -17,7 +17,7 @@ final class StartedChallengeDBService {
         let identifier = "StartedChallenge_\(challengeIdentifier)"
         newStartedChallenge.identifier = identifier
         newStartedChallenge.originalChallengeIdentifier = challengeIdentifier
-        newStartedChallenge.isCustomChallenge = true
+        newStartedChallenge.isCustomChallenge = isCustom
         newStartedChallenge.startDate = Date()
         
         do {

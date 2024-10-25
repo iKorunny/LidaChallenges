@@ -26,8 +26,8 @@ final class AfterLaunchViewController: UIViewController {
         imageView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         imageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         
-        if BuiltInChallengesManager().shouldSync {
-            BuiltInChallengesManager().syncIfNeeded { [weak self] in
+        if BuiltInChallengesManager.shared.shouldSync {
+            BuiltInChallengesManager.shared.syncIfNeeded { [weak self] in
                 self?.toAppAfterDelay()
             }
         }

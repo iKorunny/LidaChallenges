@@ -87,7 +87,7 @@ extension DatabaseService {
     func startChallenge(with id: String, isCustom: Bool, completion: @escaping ((StartedChallenge?) -> Void)) {
         guard let context = context else { return }
         
-        workingQueue.async {
+        workingQueue.async { [weak self] in
             if isCustom {
                 CustomChallengeDBService.shared.fetchCustomChallenge(context: context,
                                                                      with: id) { [weak self] customChallenge in
@@ -96,7 +96,7 @@ extension DatabaseService {
                             let challengeId = customChallenge.identifier else { return }
                     self.workingQueue.async(flags: .barrier) { [weak self] in
                         self?.startedDBService.startChallenge(challengeIdentifier: challengeId,
-                                                              isCustom: true,
+                                                              isCustom: isCustom,
                                                               context: context,
                                                               completion: { dbModel in
                             guard let model = dbModel,
@@ -117,7 +117,30 @@ extension DatabaseService {
                 }
             }
             else {
-                //TODO: implement later
+                let builtInChallenge = self?.buildInDBService.syncFetchChallenge(with: id, context: context)
+                guard let builtInChallenge,
+                        let self,
+                        let challengeId = builtInChallenge.identifier else { return }
+                self.workingQueue.async(flags: .barrier) { [weak self] in
+                    self?.startedDBService.startChallenge(challengeIdentifier: challengeId,
+                                                          isCustom: isCustom,
+                                                          context: context,
+                                                          completion: { dbModel in
+                        guard let model = dbModel,
+                              let modelId = model.identifier,
+                              let modelStartDate = model.startDate,
+                              let originalChallenge = Challenge.create(from: builtInChallenge) else {
+                            completion(nil)
+                            return
+                        }
+                        
+                        completion(StartedChallenge(identifier: modelId,
+                                                    startDate: modelStartDate,
+                                                    isCustomChallenge: model.isCustomChallenge, originalChallenge: originalChallenge,
+                                                    dayRecords: [],
+                                                    note: nil))
+                    })
+                }
             }
         }
     }
@@ -151,10 +174,7 @@ extension DatabaseService {
             guard let context,
                   let modelId = model.identifier,
                   let modelStartDate = model.startDate,
-                  let originalChallengeIdentifier = model.originalChallengeIdentifier,
-                  let customChallenge = CustomChallengeDBService.shared.fetchCustomChallenge(context: context,
-                                                                                             with: originalChallengeIdentifier),
-                  let originalChallenge = Challenge.create(from: customChallenge) else {
+                  let originalChallengeIdentifier = model.originalChallengeIdentifier else {
                 return
             }
             
@@ -162,6 +182,19 @@ extension DatabaseService {
             
             if let recordsData = model.dayRecords {
                 dayRecords = (try? JSONDecoder().decode([ChallengeDayRecord].self, from: recordsData)) ?? []
+            }
+            
+            var originalChallenge: Challenge
+            if model.isCustomChallenge {
+                guard let customChallenge = CustomChallengeDBService.shared.fetchCustomChallenge(context: context,
+                                                                                           with: originalChallengeIdentifier),
+                      let challenge = Challenge.create(from: customChallenge) else { return }
+                originalChallenge = challenge
+            }
+            else {
+                guard let builtInChallenge = buildInDBService.syncFetchChallenge(with: originalChallengeIdentifier, context: context),
+                      let challenge = Challenge.create(from: builtInChallenge) else { return }
+                originalChallenge = challenge
             }
             
             result.append(StartedChallenge(identifier: modelId,
@@ -243,4 +276,22 @@ extension DatabaseService: BuiltInChallengesDatabase {
             }
         }
     }
+    
+    func fetchAllBuiltInChallenges(with nameSubsctring: String,
+                                   onSuccess: @escaping (([BuiltInChallenge]?) -> Void)) {
+        guard let context = context else { return }
+        
+        workingQueue.async { [weak self] in
+            let allNameKeys = BuiltInChallengesManager.shared.builtInChallengesNameKeys
+            let filteredNameKeys = allNameKeys.filter({ $0.localised().lowercased().contains(nameSubsctring.lowercased()) })
+            guard !filteredNameKeys.isEmpty else {
+                onSuccess([])
+                return
+            }
+            
+            let dbModels = self?.buildInDBService.syncFetchChallenges(with: filteredNameKeys, context: context) ?? []
+            onSuccess(dbModels.compactMap({ BuiltInChallenge.create(from: $0) }))
+        }
+    }
 }
+

@@ -23,11 +23,32 @@ final class ChallengesSearchService {
             group.leave()
         }
         
+        var builtInChallenges: [BuiltInChallenge] = []
+        group.enter()
+        DatabaseService.shared.fetchAllBuiltInChallenges(with: text) { challenges in
+            builtInChallenges = challenges ?? []
+            group.leave()
+        }
+        
         group.notify(queue: .main) { [weak self] in
             guard self?.lastSearchText == text else { return }
             self?.lastSearchText = nil
             
             var sections: [ChallengesSearchResultSection] = []
+            
+            var categoryIds: Set<Int> = []
+            
+            builtInChallenges.forEach {
+                categoryIds.insert($0.categoryID)
+            }
+            let categories = CategoriesSourceImpl().categories(with: Array(categoryIds))
+            
+            categories.forEach { category in
+                sections.append(ChallengesSearchResultSection(title: category.title,
+                                                              rows: builtInChallenges.filter({ $0.categoryID == category.id }).compactMap({ ChallengesSearchResultRow(model: $0) })))
+            }
+            
+            
             
             if !customChallenges.isEmpty {
                 sections.append(.init(title: "CustomChallengeSectionTitle".localised(),

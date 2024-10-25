@@ -34,20 +34,6 @@ extension Date {
         return nil
     }
     
-    func isLessOrEqualIgnoringTime(to date: Date) -> Bool {
-        let startOfMe = gregorianCalendar.startOfDay(for: self)
-        let startOfDate = gregorianCalendar.startOfDay(for: date)
-        
-        let order = Calendar.current.compare(startOfMe, to: startOfDate, toGranularity: .day)
-        
-        switch order {
-        case .orderedDescending, .orderedSame:
-            return true
-        case .orderedAscending:
-            return false
-        }
-    }
-    
     func isLessIgnoringTime(to date: Date) -> Bool {
         let startOfMe = gregorianCalendar.startOfDay(for: self)
         let startOfDate = gregorianCalendar.startOfDay(for: date)
@@ -55,10 +41,24 @@ extension Date {
         let order = Calendar.current.compare(startOfMe, to: startOfDate, toGranularity: .day)
         
         switch order {
-        case .orderedDescending:
-            return true
-        case .orderedAscending, .orderedSame:
+        case .orderedDescending, .orderedSame:
             return false
+        case .orderedAscending:
+            return true
+        }
+    }
+    
+    func isLessOrEqualIgnoringTime(to date: Date) -> Bool {
+        let startOfMe = gregorianCalendar.startOfDay(for: self)
+        let startOfDate = gregorianCalendar.startOfDay(for: date)
+        
+        let order = Calendar.current.compare(startOfMe, to: startOfDate, toGranularity: .day)
+        
+        switch order {
+        case .orderedDescending:
+            return false
+        case .orderedAscending, .orderedSame:
+            return true
         }
     }
     

@@ -68,7 +68,7 @@ final class StartedChallengeUtils {
     }
     
     private static func isAvailableDay(for challenge: StartedChallenge, with index: Int, currentDate: Date) -> Bool {
-        return currentDate.isLessOrEqualIgnoringTime(to: dateOfDay(for: challenge, with: index))
+        return !currentDate.isLessIgnoringTime(to: dateOfDay(for: challenge, with: index))
     }
     
     private static func dates(for challenge: StartedChallenge) -> [Date] {

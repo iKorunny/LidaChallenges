@@ -8,6 +8,8 @@
 import Foundation
 
 final class BuiltInChallengesManager {
+    static let shared = BuiltInChallengesManager()
+    
     private var plistConfig: BuiltInConfig? {
         guard let filePath = Bundle.main.path(forResource: "BuiltInChallenges", ofType: "plist"),
               let data = try? Data(contentsOf: URL(fileURLWithPath: filePath)) else { return nil }
@@ -20,6 +22,10 @@ final class BuiltInChallengesManager {
         let plistVersion = plistConfig?.version ?? 0.0
         
         return savedVersion.distance(to: plistVersion) > 0
+    }
+    
+    var builtInChallengesNameKeys: [String] {
+        plistConfig?.challenges.map { $0.nameKey } ?? []
     }
     
     func syncIfNeeded(completion: @escaping (() -> Void)) {

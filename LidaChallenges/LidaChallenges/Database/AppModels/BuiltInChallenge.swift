@@ -63,7 +63,7 @@ extension BuiltInChallenge: OpenedChallengeModel {
     }
     
     var icon: UIImage? {
-        guard let iconName else { return nil }
+        guard let iconName, !iconName.isEmpty else { return nil }
         return UIImage(named: iconName)
     }
     
@@ -72,6 +72,10 @@ extension BuiltInChallenge: OpenedChallengeModel {
     }
     
     var fullDescription: String? {
-        return "\(String(format: "ChallengeInfoRegularityTitle".localised(), CreateChallengeRegularityUtils.regularityToInfoString(regularity)))\n\(descriptionKey?.localised() ?? "")"
+        var subtitleLine = subtitleKey?.localised() ?? ""
+        if !subtitleLine.isEmpty {
+            subtitleLine += "\n"
+        }
+        return "\(subtitleLine)\(String(format: "ChallengeInfoRegularityTitle".localised(), CreateChallengeRegularityUtils.regularityToInfoString(regularity)))\n\(descriptionKey?.localised() ?? "")"
     }
 }

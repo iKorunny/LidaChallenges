@@ -52,4 +52,18 @@ final class BuiltInChallengeDBService {
         }
         return nil
     }
+    
+    func syncFetchChallenges(with nameKeys: [String],
+                             context: NSManagedObjectContext) -> [DBBuiltInChallenge] {
+        do {
+            let request = DBBuiltInChallenge.fetchRequest()
+            request.predicate = NSPredicate(format: "%K IN %@", #keyPath(DBBuiltInChallenge.nameKey), nameKeys)
+            let models = try context.fetch(request)
+            return models
+        }
+        catch let error {
+            print("syncFetchChallengesWithNameKeys:: \(error)")
+        }
+        return []
+    }
 }
