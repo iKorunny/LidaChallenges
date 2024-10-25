@@ -106,6 +106,17 @@ final class DatabaseService {
             onSuccess(builtInChallenges + customChallenges)
         }
     }
+    
+    func fetchRandomChallenge(onSuccess: @escaping ((Challenge?) -> Void)) {
+        guard let context = context else { return }
+        fetchAllStoredChallenges { challenges in
+            guard let challenge = challenges.randomElement() else {
+                onSuccess(nil)
+                return
+            }
+            onSuccess(challenges.randomElement())
+        }
+    }
 }
 
 

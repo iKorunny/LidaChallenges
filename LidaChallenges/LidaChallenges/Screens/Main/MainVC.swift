@@ -16,6 +16,10 @@ final class MainVC: UIViewController {
     
     private var onceAppeared = false
     
+    private lazy var activityManager: AppActivityManager = {
+        return AppActivityManager()
+    }()
+    
     private lazy var headerLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -73,6 +77,17 @@ final class MainVC: UIViewController {
                                  title: "RandomChallengeActionTitle".localised(),
                                  action: { [weak self] item in
                                      print("action \(item.title)")
+                                     guard let self else { return }
+                                     self.activityManager.lock(vc: self)
+                                     
+                                     DatabaseService.shared.fetchRandomChallenge { [weak self] challenge in
+                                         DispatchQueue.main.async { [weak self] in
+                                             self?.activityManager.unlock(onUnlock: {
+                                                 guard let challenge else { return }
+                                                 AppRouter.shared.toOpenChallenge(model: challenge)
+                                             })
+                                         }
+                                     }
                                  }),
             MainVCListActionItem(image: UIImage(named: "PopularChallengesAction")!,
                                  title: "PopularChallengesActionTitle".localised(),

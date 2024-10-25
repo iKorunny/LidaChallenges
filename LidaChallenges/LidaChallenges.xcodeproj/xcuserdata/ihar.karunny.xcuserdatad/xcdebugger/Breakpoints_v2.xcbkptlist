@@ -14,8 +14,8 @@
             filePath = "LidaChallenges/Screens/Main/MainVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "40"
-            endingLineNumber = "40"
+            startingLineNumber = "44"
+            endingLineNumber = "44"
             landmarkName = "collectionView"
             landmarkType = "24">
          </BreakpointContent>
@@ -62,10 +62,10 @@
             filePath = "LidaChallenges/Screens/Main/MainVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "213"
-            endingLineNumber = "213"
-            landmarkName = "collectionViewStoppedScroll()"
-            landmarkType = "7">
+            startingLineNumber = "228"
+            endingLineNumber = "228"
+            landmarkName = "MainVC"
+            landmarkType = "21">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -602,8 +602,8 @@
             filePath = "LidaChallenges/Screens/Main/MainVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "191"
-            endingLineNumber = "191"
+            startingLineNumber = "206"
+            endingLineNumber = "206"
             landmarkName = "scrollViewDidScroll(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -618,8 +618,8 @@
             filePath = "LidaChallenges/Screens/Main/MainVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "197"
-            endingLineNumber = "197"
+            startingLineNumber = "212"
+            endingLineNumber = "212"
             landmarkName = "scrollViewDidEndDecelerating(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -798,6 +798,36 @@
             endingLineNumber = "235"
             landmarkName = "failDay()"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "836A034F-39F2-4760-A649-1A4835014720 - 9497da51ff43f8f3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Bool, Swift.Optional&lt;LidaChallenges.StartedChallenge&gt;) -&gt; () in LidaChallenges.StartedChallengeDetailsVC.failDay() -&gt; ()"
+                  moduleName = "LidaChallenges.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ihar.karunny/Documents/Home/LidaChallenges/LidaChallenges/LidaChallenges/Screens/OpenedChallenge/StartedChallengeDetailsVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "235"
+                  endingLineNumber = "235">
+               </Location>
+               <Location
+                  uuid = "836A034F-39F2-4760-A649-1A4835014720 - d1f9d29219297d86"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Swift.MainActor () -&gt; () in closure #1 (Swift.Bool, Swift.Optional&lt;LidaChallenges.StartedChallenge&gt;) -&gt; () in LidaChallenges.StartedChallengeDetailsVC.failDay() -&gt; ()"
+                  moduleName = "LidaChallenges.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ihar.karunny/Documents/Home/LidaChallenges/LidaChallenges/LidaChallenges/Screens/OpenedChallenge/StartedChallengeDetailsVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "235"
+                  endingLineNumber = "235">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -826,8 +856,8 @@
             filePath = "LidaChallenges/Screens/Main/MainVC.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "64"
-            endingLineNumber = "64"
+            startingLineNumber = "68"
+            endingLineNumber = "68"
             landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
@@ -874,8 +904,8 @@
             filePath = "LidaChallenges/Database/DatabaseService.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "302"
-            endingLineNumber = "302"
+            startingLineNumber = "313"
+            endingLineNumber = "313"
             landmarkName = "saveBuiltIn(challenges:completion:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -890,8 +920,8 @@
             filePath = "LidaChallenges/Database/DatabaseService.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "296"
-            endingLineNumber = "296"
+            startingLineNumber = "307"
+            endingLineNumber = "307"
             landmarkName = "saveBuiltIn(challenges:completion:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -970,8 +1000,8 @@
             filePath = "LidaChallenges/Database/DatabaseService.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "189"
-            endingLineNumber = "189"
+            startingLineNumber = "200"
+            endingLineNumber = "200"
             landmarkName = "fetchAllStartedChallenges(onSuccess:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1005,6 +1035,22 @@
             startingLineNumber = "108"
             endingLineNumber = "108"
             landmarkName = "tableView(_:cellForRowAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8EAD6910-1D30-4201-AECD-730D74485555"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LidaChallenges/Screens/Main/MainVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "87"
+            endingLineNumber = "87"
+            landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
