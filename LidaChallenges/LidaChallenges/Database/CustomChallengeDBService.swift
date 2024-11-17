@@ -20,7 +20,8 @@ final class CustomChallengeDBService {
                                context: NSManagedObjectContext,
                                completion: @escaping ((DBCustomChallengeModel?) -> Void)) {
         let newCustomChallenge = DBCustomChallengeModel(context: context)
-        let identifier = "CustomChallenge_\(UUID().uuidString)"
+        let deviceID = UIDevice.current.identifierForVendor?.uuidString ?? "some-device"
+        let identifier = "CustomChallenge_\(UUID().uuidString)+\(deviceID)"
         newCustomChallenge.identifier = identifier
         newCustomChallenge.name = name
         newCustomChallenge.daysCount = Int64(daysCount)
