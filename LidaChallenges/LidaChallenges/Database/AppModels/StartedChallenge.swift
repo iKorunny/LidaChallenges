@@ -78,7 +78,7 @@ final class StartedChallengeUtils {
         
         var regularityToCheck = startingDate.dayRegularity()!
         var previousDate = startingDate.dayBefore
-        var dateToCheck = Date.nexteDate(of: regularityToCheck.toAppleValue(), from: previousDate)!
+        var dateToCheck = Date.nextDate(of: regularityToCheck.toAppleValue(), from: previousDate)!
         
         while dates.count < challenge.originalChallenge.daysCount {
             if challenge.originalChallenge.regularity.contains(regularityToCheck) {
@@ -87,7 +87,7 @@ final class StartedChallengeUtils {
             
             regularityToCheck = regularityToCheck.next()
             let oldDate = dateToCheck
-            dateToCheck = Date.nexteDate(of: regularityToCheck.toAppleValue(), from: previousDate)!
+            dateToCheck = Date.nextDate(of: regularityToCheck.toAppleValue(), from: previousDate)!
             previousDate = oldDate
         }
         

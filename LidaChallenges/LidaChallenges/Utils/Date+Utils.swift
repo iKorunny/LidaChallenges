@@ -22,7 +22,7 @@ extension Date {
         return ChallengeRegularityType.fromApple(value: dayInt)
     }
     
-    static func nexteDate(of weekday: Int, from previousDate: Date) -> Date? {
+    static func nextDate(of weekday: Int, from previousDate: Date) -> Date? {
         let cal = Calendar(identifier: .gregorian)
         var comps = DateComponents()
         comps.weekday = weekday
@@ -32,6 +32,23 @@ extension Date {
         }
         
         return nil
+    }
+    
+    static func dates(for weekdays: [Int], from previousDate: Date) -> [Date] {
+        let cal = Calendar(identifier: .gregorian)
+        
+        var result: [Date] = []
+        var comps = DateComponents()
+        
+        weekdays.forEach { weekday in
+            comps.weekday = weekday
+            let now = previousDate
+            guard let day = cal.nextDate(after: now, matching: comps, matchingPolicy: .nextTimePreservingSmallerComponents) else { return }
+            guard !result.contains(day) else { return }
+            result.append(day)
+        }
+        
+        return result
     }
     
     func isLessIgnoringTime(to date: Date) -> Bool {
@@ -62,7 +79,31 @@ extension Date {
         }
     }
     
+    func adding(seconds: Int) -> Date {
+        return gregorianCalendar.date(byAdding: .second, value: seconds, to: self)!
+    }
+    
     var dayBefore: Date {
         return gregorianCalendar.date(byAdding: .day, value: -1, to: self)!
+    }
+    
+    var dayAfterWeek: Date {
+        return gregorianCalendar.date(byAdding: .day, value: 7, to: self)!
+    }
+    
+    var start: Date {
+        return gregorianCalendar.startOfDay(for: self)
+    }
+    
+    func convertToComponents(calendar: Calendar = Calendar(identifier: .gregorian), hours: Int? = nil) -> DateComponents {
+        var components = calendar.dateComponents([.year, .month, .day], from: self)
+        components.hour = hours
+        return components
+    }
+    
+    func convertToComponentsWithTime(calendar: Calendar = Calendar(identifier: .gregorian), hours: Int? = nil) -> DateComponents {
+        var components = calendar.dateComponents([.year, .month, .day, .hour, .minute, .second], from: self)
+        components.hour = hours ?? components.hour
+        return components
     }
 }

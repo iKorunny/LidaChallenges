@@ -10,6 +10,12 @@ import CoreData
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
+    static var shared: AppDelegate { UIApplication.shared.delegate as! AppDelegate }
+    
+    lazy var appNotificationManager: AppNotificationManager = {
+        AppNotificationManagerImpl(notificationService: AppNotificationServiceImpl(), databaseService: DatabaseService.shared)
+    }()
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
 //        let navigationBarAppearance = UINavigationBarAppearance()
@@ -22,8 +28,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        UINavigationBar.appearance().compactAppearance = navigationBarAppearance
 //        UINavigationBar.appearance().scrollEdgeAppearance = navigationBarAppearance
         
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { success, error in
+            print("Notification granted: \(success)")
+        }
+        
         ADSManager.shared.initialise()
         DatabaseService.shared.context = persistentContainer.viewContext
+        
+        appNotificationManager.resetNotifications()
         
         return true
     }

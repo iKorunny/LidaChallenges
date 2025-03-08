@@ -13,4 +13,11 @@ final class Formatters {
         formatter.dateFormat = "dd.MM.yy"
         return formatter.string(from: date)
     }
+    
+    static func formateDefaultReminder(_ dateComponents: DateComponents) -> String {
+        guard let date = Calendar.current.date(from: dateComponents) else { return "" }
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd.MM.yy"
+        return formatter.string(from: date)
+    }
 }

@@ -59,3 +59,5 @@
 "MyChallengesCompleteTitle" = "Пройденные";
 "ChallengeNotePlaceholder" = "Заметки...";
 "ChallengeNextDayAvailableText" = "Следующий день будет\nдоступен\n%@";
+"NotificationReminderDefaultTitle" = "Напоминание";
+"NotificationReminderDefaultBody" = "Не забудьте проверить Ваши челленджи на сегодня";

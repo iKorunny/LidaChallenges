@@ -39,6 +39,15 @@ final class StartOpenedChallengeVC: OpenedChallengeVC {
                     guard let startedChallenge = startedChallenge else { return }
                     AppRouter.shared.toStartedChallengeAfterStart(model: startedChallenge)
                 }
+                
+                if let challenge = startedChallenge?.originalChallenge {
+                    AppDelegate.shared.appNotificationManager.scheduleNotification(for: challenge)
+                    
+#if DEBUG
+                    AppDelegate.shared.appNotificationManager.scheduleDebugNotification(for: challenge)
+#endif
+                }
+                
             }
         }
     }

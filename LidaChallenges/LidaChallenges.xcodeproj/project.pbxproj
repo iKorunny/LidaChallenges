@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		02C248132D7C9562002828C2 /* AppNotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C248122D7C954E002828C2 /* AppNotificationService.swift */; };
+		02C248152D7C9E6E002828C2 /* AppNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C248142D7C9E61002828C2 /* AppNotificationManager.swift */; };
 		8002FC6E2C7A3C71001FF4A3 /* DatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8002FC6D2C7A3C71001FF4A3 /* DatabaseService.swift */; };
 		8002FC702C7A4491001FF4A3 /* CustomChallengeDBService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8002FC6F2C7A4491001FF4A3 /* CustomChallengeDBService.swift */; };
 		8002FC772C7A473F001FF4A3 /* DBCustomChallengeModel+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8002FC752C7A473F001FF4A3 /* DBCustomChallengeModel+CoreDataClass.swift */; };
@@ -87,6 +89,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		02C248122D7C954E002828C2 /* AppNotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNotificationService.swift; sourceTree = "<group>"; };
+		02C248142D7C9E61002828C2 /* AppNotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNotificationManager.swift; sourceTree = "<group>"; };
 		8002FC6D2C7A3C71001FF4A3 /* DatabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseService.swift; sourceTree = "<group>"; };
 		8002FC6F2C7A4491001FF4A3 /* CustomChallengeDBService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomChallengeDBService.swift; sourceTree = "<group>"; };
 		8002FC752C7A473F001FF4A3 /* DBCustomChallengeModel+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DBCustomChallengeModel+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -180,6 +184,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		02C248112D7C953D002828C2 /* Notifications */ = {
+			isa = PBXGroup;
+			children = (
+				02C248122D7C954E002828C2 /* AppNotificationService.swift */,
+				02C248142D7C9E61002828C2 /* AppNotificationManager.swift */,
+			);
+			path = Notifications;
+			sourceTree = "<group>";
+		};
 		8002FC682C7A33F9001FF4A3 /* Database */ = {
 			isa = PBXGroup;
 			children = (
@@ -350,6 +363,7 @@
 		80F2CDFD2C20B2F600B0E611 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				02C248112D7C953D002828C2 /* Notifications */,
 				807502752CB4095B00726438 /* UI */,
 				8091376A2C46FABC0021CCE0 /* KeyboardAppearService.swift */,
 				800DA6C62C6172D800FCFCD6 /* ADSManager.swift */,
@@ -488,6 +502,7 @@
 				804A2B512C7CE6BB00301BC4 /* ChallengesSearchResultSection.swift in Sources */,
 				8035724C2C87940600B0F65B /* StartedChallengeDetailsVC.swift in Sources */,
 				80F2CDFF2C20B33000B0E611 /* ColorThemeProvider.swift in Sources */,
+				02C248132D7C9562002828C2 /* AppNotificationService.swift in Sources */,
 				809137692C46F50C0021CCE0 /* CreateChallengeMainVC.swift in Sources */,
 				8091376D2C47009F0021CCE0 /* OffsetsService.swift in Sources */,
 				808C18382C5C110E00316CA8 /* CreateChallengeImagePickCell.swift in Sources */,
@@ -498,6 +513,7 @@
 				8087DE022C8E038100F00064 /* MyChallengesSection.swift in Sources */,
 				8002FC6E2C7A3C71001FF4A3 /* DatabaseService.swift in Sources */,
 				80722BBD2C7B85EE0069A08D /* ChallengesSearchResultController.swift in Sources */,
+				02C248152D7C9E6E002828C2 /* AppNotificationManager.swift in Sources */,
 				807502742CB3FD5200726438 /* ChallengeDayCell.swift in Sources */,
 				80FD66762CCA94B30087DDC8 /* BuiltInChallengesManager.swift in Sources */,
 				80F2CE0D2C20BC6600B0E611 /* MainVC.swift in Sources */,
