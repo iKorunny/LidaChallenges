@@ -278,6 +278,26 @@ extension DatabaseService {
             })
         }
     }
+    
+    func save(note: String?, for challengeID: String) {
+        guard let context = context else { return }
+        
+        workingQueue.async { [weak self] in
+            self?.startedDBService.fetchStartedChallenge(context: context,
+                                                         with: challengeID,
+                                                         onSuccess: { [weak self] foundChallenge in
+                guard let foundChallenge else {
+                    return
+                }
+                
+                self?.workingQueue.async(flags: .barrier) {
+                    self?.startedDBService.save(note: note,
+                                                to: foundChallenge,
+                                                context: context)
+                }
+            })
+        }
+    }
 }
 
 extension DatabaseService: BuiltInChallengesDatabase {

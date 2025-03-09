@@ -20,4 +20,11 @@ final class Formatters {
         formatter.dateFormat = "dd.MM.yy"
         return formatter.string(from: date)
     }
+    
+    static func formateDateTimeLong(_ date: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .short
+        formatter.timeStyle = .long
+        return formatter.string(from: date)
+    }
 }

@@ -14,7 +14,7 @@ final class StartedChallengeDBService {
                         context: NSManagedObjectContext,
                         completion: @escaping ((DBStartedChallengeModel?) -> Void)) {
         let newStartedChallenge = DBStartedChallengeModel(context: context)
-        let identifier = "StartedChallenge_\(challengeIdentifier)"
+        let identifier = "StartedChallenge_\(challengeIdentifier)_\(Formatters.formateDateTimeLong(Date()))"
         newStartedChallenge.identifier = identifier
         newStartedChallenge.originalChallengeIdentifier = challengeIdentifier
         newStartedChallenge.isCustomChallenge = isCustom
@@ -91,6 +91,20 @@ final class StartedChallengeDBService {
         }
         catch let error {
             print("save(dayResult: \(error)")
+        }
+    }
+    
+    func save(note: String?,
+              to challenge: DBStartedChallengeModel,
+              context: NSManagedObjectContext) {
+        
+        challenge.note = note
+        
+        do {
+            try context.save()
+        }
+        catch let error {
+            print("save(note: \(error)")
         }
     }
 }

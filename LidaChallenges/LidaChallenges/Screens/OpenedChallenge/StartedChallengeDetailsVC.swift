@@ -134,6 +134,7 @@ final class StartedChallengeDetailsVC: UIViewController {
         view.backgroundColor = ColorThemeProvider.shared.itemBackground
         view.layer.masksToBounds = true
         view.layer.cornerRadius = 5
+        view.set(text: model.note)
         return view
     }()
     
@@ -194,9 +195,7 @@ final class StartedChallengeDetailsVC: UIViewController {
         scrollBottom.isActive = true
         keyboardService = KeyboardAppearService(mainView: view, bottomConstraint: scrollBottom)
         
-        
-
-        view.backgroundColor = .clear
+        view.backgroundColor = .clear // TODO: remove blending
     }
     
     @objc private func onInfo() {
@@ -280,6 +279,8 @@ extension StartedChallengeDetailsVC: UICollectionViewDelegate, UICollectionViewD
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        hideInputViews()
+        
         let state = StartedChallengeUtils.state(for: model, index: indexPath.row, currentDate: currentDate)
         
         if state != .disabled {
@@ -309,5 +310,9 @@ extension StartedChallengeDetailsVC: UITextViewDelegate {
             guard let self else { return }
             self.scrollView.scrollRectToVisible(self.textView.frame, animated: true)
         }
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        DatabaseService.shared.save(note: textView.text, for: model.identifier)
     }
 }

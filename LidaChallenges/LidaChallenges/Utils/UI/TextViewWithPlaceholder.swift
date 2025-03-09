@@ -104,6 +104,21 @@ final class TextViewWithPlaceholder: UITextView {
         }
     }
     
+    func set(text: String?) {
+        textData.text = text
+        
+        if (textData.text?.count ?? 0) == 0 {
+            self.text = placeholderData?.text
+            font = placeholderData?.font
+            textColor = placeholderData?.color
+        }
+        else {
+            self.text = textData.text
+            font = textData.font
+            textColor = textData.color
+        }
+    }
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
