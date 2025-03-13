@@ -3,12 +3,12 @@
 <plist version="1.0">
 <dict>
 	<key>version</key>
-	<real>0.1</real>
+	<real>0.2</real>
 	<key>challenges</key>
 	<array>
 		<dict>
 			<key>subtitleKey</key>
-			<string>BultInChallengeTestSubtitle</string>
+			<string>ChallengeEarlyWakeUpSubtitle</string>
 			<key>regularity</key>
 			<array>
 				<integer>1</integer>
@@ -20,21 +20,25 @@
 				<integer>7</integer>
 			</array>
 			<key>nameKey</key>
-			<string>BuiltInChallengeTestName</string>
+			<string>ChallengeEarlyWakeUpTitle</string>
 			<key>identifier</key>
-			<string>testChallenge1</string>
+			<string>ChallengeEarlyWakeUp</string>
 			<key>iconName</key>
 			<string></string>
 			<key>descriptionKey</key>
-			<string>BuiltInChallengeTestDescription</string>
+			<string>ChallengeEarlyWakeUpDescription</string>
 			<key>categoryID</key>
 			<integer>1</integer>
 			<key>daysCount</key>
-			<integer>15</integer>
+			<integer>30</integer>
 		</dict>
 		<dict>
+			<key>nameKey</key>
+			<string>ChallengeContrastShowerTitle</string>
 			<key>subtitleKey</key>
-			<string>BultInChallengeTestSubtitle</string>
+			<string>ChallengeContrastShowerSubtitle</string>
+			<key>descriptionKey</key>
+			<string>ChallengeContrastShowerDescription</string>
 			<key>regularity</key>
 			<array>
 				<integer>1</integer>
@@ -45,22 +49,152 @@
 				<integer>6</integer>
 				<integer>7</integer>
 			</array>
-			<key>nameKey</key>
-			<string>BuiltInChallengeTestName</string>
 			<key>identifier</key>
-			<string>testChallenge2</string>
+			<string>ChallengeContrastShower</string>
 			<key>iconName</key>
 			<string></string>
+			<key>categoryID</key>
+			<integer>1</integer>
+			<key>daysCount</key>
+			<integer>30</integer>
+		</dict>
+		<dict>
+			<key>nameKey</key>
+			<string>ChallengeFruitsAndVegetablesTitle</string>
+			<key>subtitleKey</key>
+			<string>ChallengeFruitsAndVegetablesSubtitle</string>
 			<key>descriptionKey</key>
-			<string>BuiltInChallengeTestDescription</string>
+			<string>ChallengeFruitsAndVegetablesDescription</string>
+			<key>regularity</key>
+			<array>
+				<integer>1</integer>
+				<integer>2</integer>
+				<integer>3</integer>
+				<integer>4</integer>
+				<integer>5</integer>
+				<integer>6</integer>
+				<integer>7</integer>
+			</array>
+			<key>identifier</key>
+			<string>ChallengeFruitsAndVegetables</string>
+			<key>iconName</key>
+			<string></string>
+			<key>categoryID</key>
+			<integer>1</integer>
+			<key>daysCount</key>
+			<integer>30</integer>
+		</dict>
+		<dict>
+			<key>nameKey</key>
+			<string>ChallengeDailyMeditationTitle</string>
+			<key>subtitleKey</key>
+			<string>ChallengeDailyMeditationSubtitle</string>
+			<key>descriptionKey</key>
+			<string>ChallengeDailyMeditationDescription</string>
+			<key>regularity</key>
+			<array>
+				<integer>1</integer>
+				<integer>2</integer>
+				<integer>3</integer>
+				<integer>4</integer>
+				<integer>5</integer>
+				<integer>6</integer>
+				<integer>7</integer>
+			</array>
+			<key>identifier</key>
+			<string>ChallengeDailyMeditation</string>
+			<key>iconName</key>
+			<string></string>
+			<key>categoryID</key>
+			<integer>1</integer>
+			<key>daysCount</key>
+			<integer>30</integer>
+		</dict>
+		<dict>
+			<key>nameKey</key>
+			<string>ChallengeGoBedTitle</string>
+			<key>subtitleKey</key>
+			<string>ChallengeGoBedSubtitle</string>
+			<key>descriptionKey</key>
+			<string>ChallengeGoBedDescription</string>
+			<key>regularity</key>
+			<array>
+				<integer>1</integer>
+				<integer>2</integer>
+				<integer>3</integer>
+				<integer>4</integer>
+				<integer>5</integer>
+				<integer>6</integer>
+				<integer>7</integer>
+			</array>
+			<key>identifier</key>
+			<string>ChallengeGoBed</string>
+			<key>iconName</key>
+			<string></string>
+			<key>categoryID</key>
+			<integer>1</integer>
+			<key>daysCount</key>
+			<integer>30</integer>
+		</dict>
+		<dict>
+			<key>nameKey</key>
+			<string>ChallengeNoPhoneMorningTitle</string>
+			<key>subtitleKey</key>
+			<string>ChallengeNoPhoneMorningSubtitle</string>
+			<key>descriptionKey</key>
+			<string>ChallengeNoPhoneMorningDescription</string>
+			<key>regularity</key>
+			<array>
+				<integer>1</integer>
+				<integer>2</integer>
+				<integer>3</integer>
+				<integer>4</integer>
+				<integer>5</integer>
+				<integer>6</integer>
+				<integer>7</integer>
+			</array>
+			<key>identifier</key>
+			<string>ChallengeNoPhoneMorning</string>
+			<key>iconName</key>
+			<string></string>
+			<key>categoryID</key>
+			<integer>1</integer>
+			<key>daysCount</key>
+			<integer>30</integer>
+		</dict>
+		<dict>
+			<key>nameKey</key>
+			<string>ChallengeFaceMassageTitle</string>
+			<key>subtitleKey</key>
+			<string>ChallengeFaceMassageSubtitle</string>
+			<key>descriptionKey</key>
+			<string>ChallengeFaceMassageDescription</string>
+			<key>regularity</key>
+			<array>
+				<integer>1</integer>
+				<integer>2</integer>
+				<integer>3</integer>
+				<integer>4</integer>
+				<integer>5</integer>
+				<integer>6</integer>
+				<integer>7</integer>
+			</array>
+			<key>identifier</key>
+			<string>ChallengeFaceMassage</string>
+			<key>iconName</key>
+			<string></string>
 			<key>categoryID</key>
 			<integer>2</integer>
 			<key>daysCount</key>
-			<integer>15</integer>
+			<integer>30</integer>
 		</dict>
 		<dict>
+			<key>nameKey</key>
+			<string>ChallengeLymphoMassageTitle</string>
 			<key>subtitleKey</key>
-			<string>BultInChallengeTestSubtitle</string>
+			<string>ChallengeLymphoMassageSubtitle</string>
+			<key>descriptionKey</key>
+			<string>ChallengeLymphoMassageDescription</string>
 			<key>regularity</key>
 			<array>
 				<integer>1</integer>
@@ -71,70 +205,14 @@
 				<integer>6</integer>
 				<integer>7</integer>
 			</array>
-			<key>nameKey</key>
-			<string>BuiltInChallengeTestName</string>
 			<key>identifier</key>
-			<string>testChallenge3</string>
+			<string>ChallengeLymphoMassage</string>
 			<key>iconName</key>
 			<string></string>
-			<key>descriptionKey</key>
-			<string>BuiltInChallengeTestDescription</string>
 			<key>categoryID</key>
-			<integer>3</integer>
+			<integer>2</integer>
 			<key>daysCount</key>
-			<integer>15</integer>
-		</dict>
-		<dict>
-			<key>subtitleKey</key>
-			<string>BultInChallengeTestSubtitle</string>
-			<key>regularity</key>
-			<array>
-				<integer>1</integer>
-				<integer>2</integer>
-				<integer>3</integer>
-				<integer>4</integer>
-				<integer>5</integer>
-				<integer>6</integer>
-				<integer>7</integer>
-			</array>
-			<key>nameKey</key>
-			<string>BuiltInChallengeTestName</string>
-			<key>identifier</key>
-			<string>testChallenge4</string>
-			<key>iconName</key>
-			<string></string>
-			<key>descriptionKey</key>
-			<string>BuiltInChallengeTestDescription</string>
-			<key>categoryID</key>
-			<integer>4</integer>
-			<key>daysCount</key>
-			<integer>15</integer>
-		</dict>
-		<dict>
-			<key>subtitleKey</key>
-			<string>BultInChallengeTestSubtitle</string>
-			<key>regularity</key>
-			<array>
-				<integer>1</integer>
-				<integer>2</integer>
-				<integer>3</integer>
-				<integer>4</integer>
-				<integer>5</integer>
-				<integer>6</integer>
-				<integer>7</integer>
-			</array>
-			<key>nameKey</key>
-			<string>BuiltInChallengeTestName</string>
-			<key>identifier</key>
-			<string>testChallenge5</string>
-			<key>iconName</key>
-			<string></string>
-			<key>descriptionKey</key>
-			<string>BuiltInChallengeTestDescription</string>
-			<key>categoryID</key>
-			<integer>5</integer>
-			<key>daysCount</key>
-			<integer>15</integer>
+			<integer>30</integer>
 		</dict>
 	</array>
 </dict>

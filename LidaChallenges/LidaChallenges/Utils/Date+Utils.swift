@@ -65,6 +65,20 @@ extension Date {
         }
     }
     
+    func isGreaterOrEqualIgnoringTime(to date: Date) -> Bool {
+        let startOfMe = gregorianCalendar.startOfDay(for: self)
+        let startOfDate = gregorianCalendar.startOfDay(for: date)
+        
+        let order = Calendar.current.compare(startOfMe, to: startOfDate, toGranularity: .day)
+        
+        switch order {
+        case .orderedAscending:
+            return false
+        case .orderedDescending, .orderedSame:
+            return true
+        }
+    }
+    
     func isLessOrEqualIgnoringTime(to date: Date) -> Bool {
         let startOfMe = gregorianCalendar.startOfDay(for: self)
         let startOfDate = gregorianCalendar.startOfDay(for: date)

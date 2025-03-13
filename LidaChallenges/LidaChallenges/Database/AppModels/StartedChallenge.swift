@@ -41,7 +41,7 @@ extension StartedChallenge {
 final class StartedChallengeUtils {
     static func closestNotAvailableDate(for challenge: StartedChallenge, currentDate: Date) -> Date? {
         let dates = dates(for: challenge)
-        return dates.first(where: { !currentDate.isLessOrEqualIgnoringTime(to: $0) })
+        return dates.first(where: { !currentDate.isGreaterOrEqualIgnoringTime(to: $0) })
     }
     
     static func state(for challenge: StartedChallenge, index: Int, currentDate: Date) -> ChallengeDayCellState {

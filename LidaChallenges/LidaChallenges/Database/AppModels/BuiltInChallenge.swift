@@ -63,8 +63,15 @@ extension BuiltInChallenge: OpenedChallengeModel {
     }
     
     var icon: UIImage? {
-        guard let iconName, !iconName.isEmpty else { return UIImage(named: "challengeIconDefault") }
-        return UIImage(named: iconName)
+        if let iconName, !iconName.isEmpty {
+            return UIImage(named: iconName)
+        }
+        
+        if let category = CategoriesSourceImpl().categories(with: [categoryID]).first {
+            return category.icon
+        }
+        
+        return UIImage(named: "challengeIconDefault")
     }
     
     var isCustom: Bool {
