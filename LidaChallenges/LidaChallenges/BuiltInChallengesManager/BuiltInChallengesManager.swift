@@ -37,7 +37,7 @@ final class BuiltInChallengesManager {
         DatabaseService.shared.saveBuiltIn(challenges: config.challenges) { finished in
             DispatchQueue.main.async {
                 if finished {
-//                    UserDefaults.standard.set(config.version, forKey: "BuiltInSyncVersion")
+                    UserDefaults.standard.set(config.version, forKey: "BuiltInSyncVersion")
                 }
                 
                 completion()

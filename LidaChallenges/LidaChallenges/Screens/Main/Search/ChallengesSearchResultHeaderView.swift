@@ -27,10 +27,18 @@ final class ChallengesSearchResultHeaderView: UITableViewHeaderFooterView {
         backgroundColor = .clear
         contentView.backgroundColor = .clear
         contentView.addSubview(titleLabel)
+        //        defaultBackgroundConfiguration().backgroundColor = .clear
         
         titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 19).isActive = true
         titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -19).isActive = true
         titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 5).isActive = true
         titleLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -20).isActive = true
+    }
+    
+    override func updateConfiguration(using state: UIViewConfigurationState) {
+        super.updateConfiguration(using: state)
+        
+        backgroundConfiguration?.backgroundColor = state.isPinned ? ColorThemeProvider.shared.itemBackground : .clear
+        backgroundConfiguration?.cornerRadius = state.isPinned ? 10 : 0
     }
 }
