@@ -27,7 +27,6 @@ final class ChallengesSearchResultHeaderView: UITableViewHeaderFooterView {
         backgroundColor = .clear
         contentView.backgroundColor = .clear
         contentView.addSubview(titleLabel)
-        //        defaultBackgroundConfiguration().backgroundColor = .clear
         
         titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 19).isActive = true
         titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -19).isActive = true

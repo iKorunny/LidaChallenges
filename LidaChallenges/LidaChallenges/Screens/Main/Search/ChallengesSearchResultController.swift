@@ -25,7 +25,7 @@ final class ChallengesSearchResultController: UIViewController {
     }()
     
     private lazy var tableView: UITableView = {
-        let table = UITableView()
+        let table = UITableView(frame: .zero, style: .grouped)
         table.backgroundColor = .clear
         table.translatesAutoresizingMaskIntoConstraints = false
         table.delegate = self
