@@ -95,6 +95,7 @@ final class MyChallengesVC: UIViewController {
     
     var mode: MyChallengesVCMode = .all
     var screenTitle: String?
+    private var shouldReloadData = true
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -119,11 +120,14 @@ final class MyChallengesVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        reloadData()
+        reloadDataIfNeeded()
     }
     
-    private func reloadData() {
-        if let navVC = navigationController {
+    private func reloadDataIfNeeded() {
+        guard shouldReloadData else { return }
+        shouldReloadData = false
+        let isTopVC = navigationController?.topViewController == self
+        if isTopVC, let navVC = navigationController {
             activityManager.lock(vc: navVC.parent ?? navVC)
         }
         
@@ -131,7 +135,7 @@ final class MyChallengesVC: UIViewController {
             let active = challenges?.filter({ !$0.isFinished }) ?? []
             let complete = challenges?.filter({ $0.isFinished }) ?? []
             DispatchQueue.main.async { [weak self] in
-                self?.activityManager.unlock(onUnlock: { [weak self] in
+                let handleBlock: () -> Void = { [weak self] in
                     var newSections: [MyChallengesSection] = []
                     if !active.isEmpty && self?.mode.activeSupported() == true {
                         newSections.append(.init(title: "MyChallengesActiveTitle".localised(), challenges: active))
@@ -142,7 +146,14 @@ final class MyChallengesVC: UIViewController {
                     }
                     
                     self?.sections = newSections
-                })
+                }
+                
+                if isTopVC {
+                    self?.activityManager.unlock(onUnlock: handleBlock)
+                }
+                else {
+                    handleBlock()
+                }
             }
         }
     }

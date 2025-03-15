@@ -35,6 +35,7 @@ final class AppNotificationManagerImpl: AppNotificationManager {
                     
                     allStarted?.forEach({ started in
                         let todayDate = Date().start
+                        guard !started.isFinished else { return }
                         var componentsValue = Date.dates(for: started.originalChallenge.regularity.map { $0.toAppleValue() }, from: todayDate).map { $0.convertToComponents(hours: 9) }
                         componentsValue.append(contentsOf: Date.dates(for: started.originalChallenge.regularity.map { $0.toAppleValue() }, from: todayDate.dayAfterWeek).map { $0.convertToComponents(hours: 9) })
                         componentsValue.forEach { component in

@@ -208,7 +208,7 @@ extension DatabaseService {
         var result: [StartedChallenge] = []
         
         dbModels.forEach { model in
-            // TODO: implement later for not custom
+
             guard let context,
                   let modelId = model.identifier,
                   let modelStartDate = model.startDate,

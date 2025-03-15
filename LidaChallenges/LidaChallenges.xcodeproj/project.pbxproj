@@ -21,7 +21,6 @@
 		800C40C42C5C1D6100AECCA4 /* UIImageResizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800C40C32C5C1D6100AECCA4 /* UIImageResizer.swift */; };
 		800C40C92C5EBCEC00AECCA4 /* AlertsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800C40C82C5EBCEC00AECCA4 /* AlertsPresenter.swift */; };
 		800DA6C72C6172D800FCFCD6 /* ADSManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800DA6C62C6172D800FCFCD6 /* ADSManager.swift */; };
-		801309802C6BE8F000E2020D /* GoogleMobileAds in Frameworks */ = {isa = PBXBuildFile; productRef = 8013097F2C6BE8F000E2020D /* GoogleMobileAds */; };
 		801309832C6BE9A700E2020D /* AppActivityVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 801309822C6BE9A700E2020D /* AppActivityVC.swift */; };
 		8026471B2C52E35600705B2E /* CreateChallengeInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8026471A2C52E35600705B2E /* CreateChallengeInfoVC.swift */; };
 		8026471E2C52EB8800705B2E /* ChallengeModelToCreate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8026471D2C52EB8800705B2E /* ChallengeModelToCreate.swift */; };
@@ -177,7 +176,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				801309802C6BE8F000E2020D /* GoogleMobileAds in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -431,7 +429,6 @@
 			);
 			name = LidaChallenges;
 			packageProductDependencies = (
-				8013097F2C6BE8F000E2020D /* GoogleMobileAds */,
 			);
 			productName = LidaChallenges;
 			productReference = 807D48BE2C1F532B004FB542 /* LidaChallenges.app */;
@@ -463,7 +460,6 @@
 			);
 			mainGroup = 807D48B52C1F532B004FB542;
 			packageReferences = (
-				8013097E2C6BE8F000E2020D /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */,
 			);
 			productRefGroup = 807D48BF2C1F532B004FB542 /* Products */;
 			projectDirPath = "";
@@ -808,25 +804,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		8013097E2C6BE8F000E2020D /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/googleads/swift-package-manager-google-mobile-ads.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 11.8.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		8013097F2C6BE8F000E2020D /* GoogleMobileAds */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 8013097E2C6BE8F000E2020D /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */;
-			productName = GoogleMobileAds;
-		};
-/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		807D48CA2C1F532B004FB542 /* LidaChallenges.xcdatamodeld */ = {

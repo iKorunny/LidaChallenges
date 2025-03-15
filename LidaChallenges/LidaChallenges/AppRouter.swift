@@ -30,6 +30,16 @@ final class AppRouter {
     
     func toMyChallenges(with mode: MyChallengesVCMode, screenTitle: String?) {
         guard currentNavigationStackType != .myChallenges else { return }
+        
+        let stackCount = navigationController?.viewControllers.count ?? 0
+        if stackCount > 1 {
+            if navigationController!.viewControllers[stackCount - 2] is MyChallengesVC {
+                navigationController?.popViewController(animated: false)
+                return
+            }
+        }
+        
+        
         let nextVC = MyChallengesVC()
         nextVC.mode = mode
         nextVC.screenTitle = screenTitle

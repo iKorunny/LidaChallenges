@@ -34,10 +34,11 @@ final class ChallengesSearchResultHeaderView: UITableViewHeaderFooterView {
         titleLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -20).isActive = true
     }
     
-    override func updateConfiguration(using state: UIViewConfigurationState) {
-        super.updateConfiguration(using: state)
-        
-        backgroundConfiguration?.backgroundColor = state.isPinned ? ColorThemeProvider.shared.itemBackground : .clear
-        backgroundConfiguration?.cornerRadius = state.isPinned ? 10 : 0
-    }
+// For Plain Style (Pinned header at the top)
+//    override func updateConfiguration(using state: UIViewConfigurationState) {
+//        super.updateConfiguration(using: state)
+//        
+//        backgroundConfiguration?.backgroundColor = state.isPinned ? ColorThemeProvider.shared.itemBackground : .clear
+//        backgroundConfiguration?.cornerRadius = state.isPinned ? 10 : 0
+//    }
 }
