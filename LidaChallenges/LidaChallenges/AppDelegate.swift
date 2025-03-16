@@ -16,6 +16,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         AppNotificationManagerImpl(notificationService: AppNotificationServiceImpl(), databaseService: DatabaseService.shared)
     }()
     
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+        print()
+        return true
+    }
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
 //        let navigationBarAppearance = UINavigationBarAppearance()

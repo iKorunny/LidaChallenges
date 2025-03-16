@@ -15,6 +15,8 @@
 		02313F542D86081D0070CB6A /* MobileAdsBundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 02313F532D86081D0070CB6A /* MobileAdsBundle.bundle */; };
 		02313F572D8684C90070CB6A /* YandexADSManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02313F562D8684C90070CB6A /* YandexADSManager.swift */; };
 		0272DA9B2D86A3C900366CF7 /* YandexAppOpenAdManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0272DA9A2D86A3C900366CF7 /* YandexAppOpenAdManager.swift */; };
+		0272DA9D2D87407900366CF7 /* Ceasar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0272DA9C2D87407400366CF7 /* Ceasar.swift */; };
+		0272DA9F2D87430C00366CF7 /* URLSchemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0272DA9E2D8742FD00366CF7 /* URLSchemeManager.swift */; };
 		02C248132D7C9562002828C2 /* AppNotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C248122D7C954E002828C2 /* AppNotificationService.swift */; };
 		02C248152D7C9E6E002828C2 /* AppNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C248142D7C9E61002828C2 /* AppNotificationManager.swift */; };
 		02C71A692D869A87006337EA /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C71A682D869A80006337EA /* NetworkManager.swift */; };
@@ -103,6 +105,8 @@
 		02313F532D86081D0070CB6A /* MobileAdsBundle.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MobileAdsBundle.bundle; sourceTree = "<group>"; };
 		02313F562D8684C90070CB6A /* YandexADSManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YandexADSManager.swift; sourceTree = "<group>"; };
 		0272DA9A2D86A3C900366CF7 /* YandexAppOpenAdManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YandexAppOpenAdManager.swift; sourceTree = "<group>"; };
+		0272DA9C2D87407400366CF7 /* Ceasar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ceasar.swift; sourceTree = "<group>"; };
+		0272DA9E2D8742FD00366CF7 /* URLSchemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSchemeManager.swift; sourceTree = "<group>"; };
 		02C248122D7C954E002828C2 /* AppNotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNotificationService.swift; sourceTree = "<group>"; };
 		02C248142D7C9E61002828C2 /* AppNotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNotificationManager.swift; sourceTree = "<group>"; };
 		02C71A682D869A80006337EA /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
@@ -394,6 +398,8 @@
 		80F2CDFD2C20B2F600B0E611 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				0272DA9E2D8742FD00366CF7 /* URLSchemeManager.swift */,
+				0272DA9C2D87407400366CF7 /* Ceasar.swift */,
 				02C71A682D869A80006337EA /* NetworkManager.swift */,
 				02C248112D7C953D002828C2 /* Notifications */,
 				807502752CB4095B00726438 /* UI */,
@@ -588,6 +594,7 @@
 				8074463C2C55991F0093D65F /* CreateChallengeImageVC.swift in Sources */,
 				8026471E2C52EB8800705B2E /* ChallengeModelToCreate.swift in Sources */,
 				80A500A52C655F1000EBED90 /* GoogleAppOpenAdManager.swift in Sources */,
+				0272DA9F2D87430C00366CF7 /* URLSchemeManager.swift in Sources */,
 				80BCB5E12CB555730080EF19 /* Formatters.swift in Sources */,
 				80E7C1762CCC0904005B2252 /* ChallengesListVC.swift in Sources */,
 				8002FC812C7B6CE4001FF4A3 /* StartOpenedChallengeVC.swift in Sources */,
@@ -602,6 +609,7 @@
 				809137602C45A83D0021CCE0 /* FontsProvider.swift in Sources */,
 				80722BC12C7BB6680069A08D /* ChallengesSearchResultCell.swift in Sources */,
 				8091376B2C46FABC0021CCE0 /* KeyboardAppearService.swift in Sources */,
+				0272DA9D2D87407900366CF7 /* Ceasar.swift in Sources */,
 				8002FC7C2C7A4EDE001FF4A3 /* CustomChallenge.swift in Sources */,
 				80FD667C2CCA9E1F0087DDC8 /* BuiltInConfig.swift in Sources */,
 				800C40C42C5C1D6100AECCA4 /* UIImageResizer.swift in Sources */,
@@ -774,7 +782,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = LidaChallenges/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = ChallengeTime;
-				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "$(PRODUCT_NAME) would like to access your photo.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "LidaChallenges would like to access your photo.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -806,7 +814,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = LidaChallenges/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = ChallengeTime;
-				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "$(PRODUCT_NAME) would like to access your photo.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "LidaChallenges would like to access your photo.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;

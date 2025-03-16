@@ -132,10 +132,8 @@ final class AppRootVC: UIViewController {
     
     private func toMainVC() {
         let nextVC = UINavigationController(rootViewController: MainVC())
-        
-        AppRouter.shared.navigationController = nextVC
-        
         smartAddChild(vc: nextVC, to: containerView)
+        AppRouter.shared.navigationController = nextVC
     }
     
     @objc private func toMyChallenges() {

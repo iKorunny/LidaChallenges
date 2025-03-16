@@ -15,7 +15,19 @@ enum AppScreenType {
 
 final class AppRouter {
     static var shared = AppRouter()
-    var navigationController: UINavigationController?
+    var navigationController: UINavigationController? {
+        didSet {
+            if navigationController != nil {
+                delayedStack.forEach { vc in
+                    navigationController?.pushViewController(vc, animated: false)
+                }
+                
+                delayedStack = []
+            }
+        }
+    }
+    
+    private var delayedStack: [UIViewController] = []
     
     var currentNavigationStackType: AppScreenType {
         guard let vc = navigationController?.visibleViewController else { return .other }
@@ -71,9 +83,13 @@ final class AppRouter {
         }
     }
     
-    func toOpenChallenge(model: OpenedChallengeModel) {
+    func toOpenChallenge(model: OpenedChallengeModel, delayIfNeeded: Bool = false) {
         let nextVC = StartOpenedChallengeVC(model: model)
         navigationController?.pushViewController(nextVC, animated: false)
+        
+        if delayIfNeeded && navigationController == nil {
+            delayedStack.append(nextVC)
+        }
     }
     
     func toStartedChallengeAfterStart(model: StartedChallenge) {

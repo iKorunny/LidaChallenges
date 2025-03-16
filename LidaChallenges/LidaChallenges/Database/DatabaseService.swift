@@ -108,9 +108,8 @@ final class DatabaseService {
     }
     
     func fetchRandomChallenge(onSuccess: @escaping ((Challenge?) -> Void)) {
-        guard let context = context else { return }
         fetchAllStoredChallenges { challenges in
-            guard let challenge = challenges.randomElement() else {
+            guard !challenges.isEmpty else {
                 onSuccess(nil)
                 return
             }
@@ -349,6 +348,25 @@ extension DatabaseService: BuiltInChallengesDatabase {
             
             let dbModels = self?.buildInDBService.syncFetchChallenges(with: filteredNameKeys, context: context) ?? []
             onSuccess(dbModels.compactMap({ BuiltInChallenge.create(from: $0) }))
+        }
+    }
+    
+    func fetchBuiltInChallenge(with id: String, completion: @escaping (BuiltInChallenge?) -> Void) {
+        guard let context = context else { return }
+        
+        workingQueue.async { [weak self] in
+            guard !id.isEmpty else {
+                completion(nil)
+                return
+            }
+            
+            guard let dbModel = self?.buildInDBService.syncFetchChallenge(with: id, context: context) else {
+                completion(nil)
+                return
+            }
+            
+            let model = BuiltInChallenge.create(from: dbModel)
+            completion(model)
         }
     }
 }
