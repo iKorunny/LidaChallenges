@@ -32,17 +32,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             print("Notification granted: \(success)")
         }
         
-        ADSManager.shared.initialise()
+        ADSGodContainer.shared.adsManager.initialise()
         DatabaseService.shared.context = persistentContainer.viewContext
         
         appNotificationManager.resetNotifications()
+        
+        NetworkManager.shared.startMonitoring()
         
         return true
     }
     
     func applicationDidBecomeActive(_ application: UIApplication) {
-        ADSManager.shared.didBecomeActive()
-        ADSManager.shared.showOnLaunchAdIfNeeded(fromv: AppRouter.shared.navigationController)
+        ADSGodContainer.shared.adsManager.didBecomeActive()
+        ADSGodContainer.shared.adsManager.showOnLaunchAdIfNeeded(fromv: AppRouter.shared.navigationController)
     }
 
     // MARK: UISceneSession Lifecycle

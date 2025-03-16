@@ -7,8 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		02313F492D8600450070CB6A /* ADSManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02313F482D8600450070CB6A /* ADSManager.swift */; };
+		02313F4B2D8601EF0070CB6A /* AppOpenAdManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02313F4A2D8601E90070CB6A /* AppOpenAdManager.swift */; };
+		02313F4D2D8602A20070CB6A /* ADSGodContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02313F4C2D8602970070CB6A /* ADSGodContainer.swift */; };
+		02313F502D8606750070CB6A /* YandexMobileAds in Frameworks */ = {isa = PBXBuildFile; productRef = 02313F4F2D8606750070CB6A /* YandexMobileAds */; };
+		02313F522D8606750070CB6A /* YandexMobileAdsInstream in Frameworks */ = {isa = PBXBuildFile; productRef = 02313F512D8606750070CB6A /* YandexMobileAdsInstream */; };
+		02313F542D86081D0070CB6A /* MobileAdsBundle.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 02313F532D86081D0070CB6A /* MobileAdsBundle.bundle */; };
+		02313F572D8684C90070CB6A /* YandexADSManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02313F562D8684C90070CB6A /* YandexADSManager.swift */; };
+		0272DA9B2D86A3C900366CF7 /* YandexAppOpenAdManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0272DA9A2D86A3C900366CF7 /* YandexAppOpenAdManager.swift */; };
 		02C248132D7C9562002828C2 /* AppNotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C248122D7C954E002828C2 /* AppNotificationService.swift */; };
 		02C248152D7C9E6E002828C2 /* AppNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C248142D7C9E61002828C2 /* AppNotificationManager.swift */; };
+		02C71A692D869A87006337EA /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C71A682D869A80006337EA /* NetworkManager.swift */; };
 		8002FC6E2C7A3C71001FF4A3 /* DatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8002FC6D2C7A3C71001FF4A3 /* DatabaseService.swift */; };
 		8002FC702C7A4491001FF4A3 /* CustomChallengeDBService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8002FC6F2C7A4491001FF4A3 /* CustomChallengeDBService.swift */; };
 		8002FC772C7A473F001FF4A3 /* DBCustomChallengeModel+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8002FC752C7A473F001FF4A3 /* DBCustomChallengeModel+CoreDataClass.swift */; };
@@ -20,7 +29,7 @@
 		800C40C22C5C1D2200AECCA4 /* UIImage+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800C40C12C5C1D2200AECCA4 /* UIImage+Utils.swift */; };
 		800C40C42C5C1D6100AECCA4 /* UIImageResizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800C40C32C5C1D6100AECCA4 /* UIImageResizer.swift */; };
 		800C40C92C5EBCEC00AECCA4 /* AlertsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800C40C82C5EBCEC00AECCA4 /* AlertsPresenter.swift */; };
-		800DA6C72C6172D800FCFCD6 /* ADSManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800DA6C62C6172D800FCFCD6 /* ADSManager.swift */; };
+		800DA6C72C6172D800FCFCD6 /* GoogleADSManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 800DA6C62C6172D800FCFCD6 /* GoogleADSManager.swift */; };
 		801309832C6BE9A700E2020D /* AppActivityVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 801309822C6BE9A700E2020D /* AppActivityVC.swift */; };
 		8026471B2C52E35600705B2E /* CreateChallengeInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8026471A2C52E35600705B2E /* CreateChallengeInfoVC.swift */; };
 		8026471E2C52EB8800705B2E /* ChallengeModelToCreate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8026471D2C52EB8800705B2E /* ChallengeModelToCreate.swift */; };
@@ -59,7 +68,7 @@
 		809137692C46F50C0021CCE0 /* CreateChallengeMainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 809137682C46F50C0021CCE0 /* CreateChallengeMainVC.swift */; };
 		8091376B2C46FABC0021CCE0 /* KeyboardAppearService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8091376A2C46FABC0021CCE0 /* KeyboardAppearService.swift */; };
 		8091376D2C47009F0021CCE0 /* OffsetsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8091376C2C47009F0021CCE0 /* OffsetsService.swift */; };
-		80A500A52C655F1000EBED90 /* AppOpenAdManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A500A42C655F1000EBED90 /* AppOpenAdManager.swift */; };
+		80A500A52C655F1000EBED90 /* GoogleAppOpenAdManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A500A42C655F1000EBED90 /* GoogleAppOpenAdManager.swift */; };
 		80B8BB1E2C766C2900A29B8C /* AppActivityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B8BB1D2C766C2900A29B8C /* AppActivityManager.swift */; };
 		80BCB5DD2CB53E480080EF19 /* PopupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80BCB5DC2CB53E480080EF19 /* PopupVC.swift */; };
 		80BCB5DF2CB543E70080EF19 /* PopupFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80BCB5DE2CB543E70080EF19 /* PopupFactory.swift */; };
@@ -88,8 +97,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		02313F482D8600450070CB6A /* ADSManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADSManager.swift; sourceTree = "<group>"; };
+		02313F4A2D8601E90070CB6A /* AppOpenAdManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppOpenAdManager.swift; sourceTree = "<group>"; };
+		02313F4C2D8602970070CB6A /* ADSGodContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADSGodContainer.swift; sourceTree = "<group>"; };
+		02313F532D86081D0070CB6A /* MobileAdsBundle.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MobileAdsBundle.bundle; sourceTree = "<group>"; };
+		02313F562D8684C90070CB6A /* YandexADSManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YandexADSManager.swift; sourceTree = "<group>"; };
+		0272DA9A2D86A3C900366CF7 /* YandexAppOpenAdManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YandexAppOpenAdManager.swift; sourceTree = "<group>"; };
 		02C248122D7C954E002828C2 /* AppNotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNotificationService.swift; sourceTree = "<group>"; };
 		02C248142D7C9E61002828C2 /* AppNotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNotificationManager.swift; sourceTree = "<group>"; };
+		02C71A682D869A80006337EA /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		8002FC6D2C7A3C71001FF4A3 /* DatabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseService.swift; sourceTree = "<group>"; };
 		8002FC6F2C7A4491001FF4A3 /* CustomChallengeDBService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomChallengeDBService.swift; sourceTree = "<group>"; };
 		8002FC752C7A473F001FF4A3 /* DBCustomChallengeModel+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DBCustomChallengeModel+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -101,7 +117,7 @@
 		800C40C12C5C1D2200AECCA4 /* UIImage+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Utils.swift"; sourceTree = "<group>"; };
 		800C40C32C5C1D6100AECCA4 /* UIImageResizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageResizer.swift; sourceTree = "<group>"; };
 		800C40C82C5EBCEC00AECCA4 /* AlertsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertsPresenter.swift; sourceTree = "<group>"; };
-		800DA6C62C6172D800FCFCD6 /* ADSManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ADSManager.swift; sourceTree = "<group>"; };
+		800DA6C62C6172D800FCFCD6 /* GoogleADSManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoogleADSManager.swift; sourceTree = "<group>"; };
 		801309822C6BE9A700E2020D /* AppActivityVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppActivityVC.swift; sourceTree = "<group>"; };
 		8026471A2C52E35600705B2E /* CreateChallengeInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateChallengeInfoVC.swift; sourceTree = "<group>"; };
 		8026471D2C52EB8800705B2E /* ChallengeModelToCreate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeModelToCreate.swift; sourceTree = "<group>"; };
@@ -143,7 +159,7 @@
 		809137682C46F50C0021CCE0 /* CreateChallengeMainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateChallengeMainVC.swift; sourceTree = "<group>"; };
 		8091376A2C46FABC0021CCE0 /* KeyboardAppearService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardAppearService.swift; sourceTree = "<group>"; };
 		8091376C2C47009F0021CCE0 /* OffsetsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OffsetsService.swift; sourceTree = "<group>"; };
-		80A500A42C655F1000EBED90 /* AppOpenAdManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppOpenAdManager.swift; sourceTree = "<group>"; };
+		80A500A42C655F1000EBED90 /* GoogleAppOpenAdManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleAppOpenAdManager.swift; sourceTree = "<group>"; };
 		80B8BB1D2C766C2900A29B8C /* AppActivityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppActivityManager.swift; sourceTree = "<group>"; };
 		80BCB5DC2CB53E480080EF19 /* PopupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupVC.swift; sourceTree = "<group>"; };
 		80BCB5DE2CB543E70080EF19 /* PopupFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupFactory.swift; sourceTree = "<group>"; };
@@ -176,12 +192,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02313F502D8606750070CB6A /* YandexMobileAds in Frameworks */,
+				02313F522D8606750070CB6A /* YandexMobileAdsInstream in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0262B5642D85FF7E00686BDD /* Ads */ = {
+			isa = PBXGroup;
+			children = (
+				02313F4C2D8602970070CB6A /* ADSGodContainer.swift */,
+				02313F482D8600450070CB6A /* ADSManager.swift */,
+				800DA6C62C6172D800FCFCD6 /* GoogleADSManager.swift */,
+				02313F562D8684C90070CB6A /* YandexADSManager.swift */,
+				02313F4A2D8601E90070CB6A /* AppOpenAdManager.swift */,
+				80A500A42C655F1000EBED90 /* GoogleAppOpenAdManager.swift */,
+				0272DA9A2D86A3C900366CF7 /* YandexAppOpenAdManager.swift */,
+			);
+			path = Ads;
+			sourceTree = "<group>";
+		};
 		02C248112D7C953D002828C2 /* Notifications */ = {
 			isa = PBXGroup;
 			children = (
@@ -290,6 +322,7 @@
 		807D48B52C1F532B004FB542 = {
 			isa = PBXGroup;
 			children = (
+				02313F532D86081D0070CB6A /* MobileAdsBundle.bundle */,
 				807D48C02C1F532B004FB542 /* LidaChallenges */,
 				807D48BF2C1F532B004FB542 /* Products */,
 			);
@@ -361,11 +394,11 @@
 		80F2CDFD2C20B2F600B0E611 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				02C71A682D869A80006337EA /* NetworkManager.swift */,
 				02C248112D7C953D002828C2 /* Notifications */,
 				807502752CB4095B00726438 /* UI */,
 				8091376A2C46FABC0021CCE0 /* KeyboardAppearService.swift */,
-				800DA6C62C6172D800FCFCD6 /* ADSManager.swift */,
-				80A500A42C655F1000EBED90 /* AppOpenAdManager.swift */,
+				0262B5642D85FF7E00686BDD /* Ads */,
 				80F2CE032C20B3D200B0E611 /* Color+Hex.swift */,
 				80F2CE042C20B3D200B0E611 /* String+Localisation.swift */,
 				80F2CE0A2C20B74100B0E611 /* Controller+Childred.swift */,
@@ -429,6 +462,8 @@
 			);
 			name = LidaChallenges;
 			packageProductDependencies = (
+				02313F4F2D8606750070CB6A /* YandexMobileAds */,
+				02313F512D8606750070CB6A /* YandexMobileAdsInstream */,
 			);
 			productName = LidaChallenges;
 			productReference = 807D48BE2C1F532B004FB542 /* LidaChallenges.app */;
@@ -460,6 +495,7 @@
 			);
 			mainGroup = 807D48B52C1F532B004FB542;
 			packageReferences = (
+				02313F4E2D8606750070CB6A /* XCRemoteSwiftPackageReference "yandex-ads-sdk-ios" */,
 			);
 			productRefGroup = 807D48BF2C1F532B004FB542 /* Products */;
 			projectDirPath = "";
@@ -475,6 +511,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02313F542D86081D0070CB6A /* MobileAdsBundle.bundle in Resources */,
 				807D48D12C1F532D004FB542 /* LaunchScreen.storyboard in Resources */,
 				805E27462C235CF30048F78F /* Localizable.strings in Resources */,
 				807D48CE2C1F532D004FB542 /* Assets.xcassets in Resources */,
@@ -498,6 +535,7 @@
 				804A2B512C7CE6BB00301BC4 /* ChallengesSearchResultSection.swift in Sources */,
 				8035724C2C87940600B0F65B /* StartedChallengeDetailsVC.swift in Sources */,
 				80F2CDFF2C20B33000B0E611 /* ColorThemeProvider.swift in Sources */,
+				02313F572D8684C90070CB6A /* YandexADSManager.swift in Sources */,
 				02C248132D7C9562002828C2 /* AppNotificationService.swift in Sources */,
 				809137692C46F50C0021CCE0 /* CreateChallengeMainVC.swift in Sources */,
 				8091376D2C47009F0021CCE0 /* OffsetsService.swift in Sources */,
@@ -508,18 +546,21 @@
 				807D48C62C1F532B004FB542 /* AfterLaunchViewController.swift in Sources */,
 				8087DE022C8E038100F00064 /* MyChallengesSection.swift in Sources */,
 				8002FC6E2C7A3C71001FF4A3 /* DatabaseService.swift in Sources */,
+				02313F492D8600450070CB6A /* ADSManager.swift in Sources */,
 				80722BBD2C7B85EE0069A08D /* ChallengesSearchResultController.swift in Sources */,
 				02C248152D7C9E6E002828C2 /* AppNotificationManager.swift in Sources */,
 				807502742CB3FD5200726438 /* ChallengeDayCell.swift in Sources */,
 				80FD66762CCA94B30087DDC8 /* BuiltInChallengesManager.swift in Sources */,
 				80F2CE0D2C20BC6600B0E611 /* MainVC.swift in Sources */,
 				802647202C52EBF300705B2E /* CreateChallengeRegularityUtils.swift in Sources */,
+				02313F4D2D8602A20070CB6A /* ADSGodContainer.swift in Sources */,
 				805E274B2C2360340048F78F /* CategoriesSectionHeader.swift in Sources */,
 				8026471B2C52E35600705B2E /* CreateChallengeInfoVC.swift in Sources */,
 				80F2CE0B2C20B74100B0E611 /* Controller+Childred.swift in Sources */,
 				808C18362C5C0A1F00316CA8 /* CreateChallengeImagePickGalleryCell.swift in Sources */,
-				800DA6C72C6172D800FCFCD6 /* ADSManager.swift in Sources */,
+				800DA6C72C6172D800FCFCD6 /* GoogleADSManager.swift in Sources */,
 				804A2B532C7CE7BE00301BC4 /* ChallengesSearchService.swift in Sources */,
+				0272DA9B2D86A3C900366CF7 /* YandexAppOpenAdManager.swift in Sources */,
 				805E27432C235BAA0048F78F /* CategoriesSource.swift in Sources */,
 				80F2CE092C20B66400B0E611 /* AppRootVC.swift in Sources */,
 				807D48C22C1F532B004FB542 /* AppDelegate.swift in Sources */,
@@ -529,6 +570,7 @@
 				8087DE042C8E068E00F00064 /* MyChallengesSectionHeader.swift in Sources */,
 				800C40C92C5EBCEC00AECCA4 /* AlertsPresenter.swift in Sources */,
 				8002FC702C7A4491001FF4A3 /* CustomChallengeDBService.swift in Sources */,
+				02C71A692D869A87006337EA /* NetworkManager.swift in Sources */,
 				80FD667E2CCAA2A70087DDC8 /* BuiltInChallengeDBService.swift in Sources */,
 				807D48C42C1F532B004FB542 /* SceneDelegate.swift in Sources */,
 				80054B312CBAE19A009A00A3 /* Date+Utils.swift in Sources */,
@@ -536,6 +578,7 @@
 				80E072652C84AC4D00DDE0C2 /* Challenge.swift in Sources */,
 				80FD66722CCA928B0087DDC8 /* DBBuiltInChallenge+CoreDataClass.swift in Sources */,
 				80FD66732CCA928B0087DDC8 /* DBBuiltInChallenge+CoreDataProperties.swift in Sources */,
+				02313F4B2D8601EF0070CB6A /* AppOpenAdManager.swift in Sources */,
 				804D8FC62C2861EE00FA30F3 /* MainCategoriesCell.swift in Sources */,
 				80722BBF2C7BB29B0069A08D /* ChallengesSearchResultHeaderView.swift in Sources */,
 				801309832C6BE9A700E2020D /* AppActivityVC.swift in Sources */,
@@ -544,7 +587,7 @@
 				800C40C22C5C1D2200AECCA4 /* UIImage+Utils.swift in Sources */,
 				8074463C2C55991F0093D65F /* CreateChallengeImageVC.swift in Sources */,
 				8026471E2C52EB8800705B2E /* ChallengeModelToCreate.swift in Sources */,
-				80A500A52C655F1000EBED90 /* AppOpenAdManager.swift in Sources */,
+				80A500A52C655F1000EBED90 /* GoogleAppOpenAdManager.swift in Sources */,
 				80BCB5E12CB555730080EF19 /* Formatters.swift in Sources */,
 				80E7C1762CCC0904005B2252 /* ChallengesListVC.swift in Sources */,
 				8002FC812C7B6CE4001FF4A3 /* StartOpenedChallengeVC.swift in Sources */,
@@ -655,6 +698,7 @@
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "-ObjC";
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -712,6 +756,7 @@
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				OTHER_LDFLAGS = "-ObjC";
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				VALIDATE_PRODUCT = YES;
@@ -804,6 +849,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		02313F4E2D8606750070CB6A /* XCRemoteSwiftPackageReference "yandex-ads-sdk-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/yandexmobile/yandex-ads-sdk-ios";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.11.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		02313F4F2D8606750070CB6A /* YandexMobileAds */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 02313F4E2D8606750070CB6A /* XCRemoteSwiftPackageReference "yandex-ads-sdk-ios" */;
+			productName = YandexMobileAds;
+		};
+		02313F512D8606750070CB6A /* YandexMobileAdsInstream */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 02313F4E2D8606750070CB6A /* XCRemoteSwiftPackageReference "yandex-ads-sdk-ios" */;
+			productName = YandexMobileAdsInstream;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		807D48CA2C1F532B004FB542 /* LidaChallenges.xcdatamodeld */ = {

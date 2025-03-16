@@ -1,0 +1,78 @@
+{
+  "originHash" : "8b0a1fa720d9cf9339f639f3b6a55752f83e7b5e3396ce326e002e034808348a",
+  "pins" : [
+    {
+      "identity" : "appmetrica-sdk-ios",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/appmetrica/appmetrica-sdk-ios",
+      "state" : {
+        "revision" : "a23678a2e783b126c247b53b3e3b44f09a3d39c1",
+        "version" : "5.9.0"
+      }
+    },
+    {
+      "identity" : "divkit-ios",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/divkit/divkit-ios.git",
+      "state" : {
+        "revision" : "0978d01f7c5814fd7e391a6048524208ce7750e7",
+        "version" : "31.6.0"
+      }
+    },
+    {
+      "identity" : "divkit-ios-facade",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/divkit/divkit-ios-facade",
+      "state" : {
+        "revision" : "947cc79c0f0fb8a3393ac33b5e420c635a6e1d94",
+        "version" : "4.6.1"
+      }
+    },
+    {
+      "identity" : "kscrash",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/kstenerud/KSCrash",
+      "state" : {
+        "revision" : "b87a3ef5b0b84e2a34a546b9836813756cd362a9",
+        "version" : "2.0.0"
+      }
+    },
+    {
+      "identity" : "swift-cmark",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/apple/swift-cmark.git",
+      "state" : {
+        "revision" : "3ccff77b2dc5b96b77db3da0d68d28068593fa53",
+        "version" : "0.5.0"
+      }
+    },
+    {
+      "identity" : "swift-markdown",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/apple/swift-markdown.git",
+      "state" : {
+        "revision" : "8f79cb175981458a0a27e76cb42fee8e17b1a993",
+        "version" : "0.5.0"
+      }
+    },
+    {
+      "identity" : "vgsl",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/yandex/vgsl.git",
+      "state" : {
+        "revision" : "bea58060702294e15023725d7c267a99851149c1",
+        "version" : "6.24.4"
+      }
+    },
+    {
+      "identity" : "yandex-ads-sdk-ios",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/yandexmobile/yandex-ads-sdk-ios",
+      "state" : {
+        "revision" : "f7dcd6a358257a773fa1be1a0aa34008dc73cf91",
+        "version" : "7.11.1"
+      }
+    }
+  ],
+  "version" : 3
+}

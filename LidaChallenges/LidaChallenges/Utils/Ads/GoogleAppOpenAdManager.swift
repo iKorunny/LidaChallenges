@@ -1,30 +1,27 @@
 //
-//  AppOpenAdManager.swift
+//  GoogleAppOpenAdManager.swift
 //  LidaChallenges
 //
 //  Created by Ihar Karunny on 8/8/24.
 //
 
 import Foundation
-import GoogleMobileAds
+import UIKit
+//import GoogleMobileAds
 
-protocol AppOpenAdManagerDelegate {
-    func didShowAd()
-}
-
-final class AppOpenAdManager: NSObject {
-    private var appOpenAd: GADAppOpenAd? {
-        didSet {
-            appOpenAd?.fullScreenContentDelegate = self
-            loadTime = Date()
-        }
-    }
+final class GoogleAppOpenAdManager: NSObject, AppOpenAdManager {
+//    private var appOpenAd: GADAppOpenAd? {
+//        didSet {
+//            appOpenAd?.fullScreenContentDelegate = self
+//            loadTime = Date()
+//        }
+//    }
     private var isLoadingAd = false
     private var isShowingAd = false
     private var loadTime: Date?
     private let fourHoursInSeconds = TimeInterval(3600 * 4)
     
-    static let shared = AppOpenAdManager()
+    static let shared = GoogleAppOpenAdManager()
     
     var delegate: AppOpenAdManagerDelegate?
     
@@ -36,8 +33,8 @@ final class AppOpenAdManager: NSObject {
         isLoadingAd = true
         
         do {
-            appOpenAd = try await GADAppOpenAd.load(
-                withAdUnitID: "ca-app-pub-7140632902714147/6212772985", request: GADRequest())
+//            appOpenAd = try await GADAppOpenAd.load(
+//                withAdUnitID: "ca-app-pub-7140632902714147/6212772985", request: GADRequest())
         } catch {
             print("AppOpenAdManager: App open ad failed to load with error: \(error.localizedDescription)")
         }
@@ -61,15 +58,16 @@ final class AppOpenAdManager: NSObject {
     }
     
     private func showAd(from vc: UIViewController?) {
-        if let ad = appOpenAd, let vc {
-            isShowingAd = true
-            ad.present(fromRootViewController: vc)
-        }
+//        if let ad = appOpenAd, let vc {
+//            isShowingAd = true
+//            ad.present(fromRootViewController: vc)
+//        }
     }
     
     private func isAdAvailable() -> Bool {
         // Check if ad exists and can be shown.
-        return appOpenAd != nil && wasLoadTimeLessThanFourHoursAgo()
+//        return appOpenAd != nil && wasLoadTimeLessThanFourHoursAgo()
+        return false
     }
     
     private func wasLoadTimeLessThanFourHoursAgo() -> Bool {
@@ -79,30 +77,30 @@ final class AppOpenAdManager: NSObject {
     }
 }
 
-extension AppOpenAdManager: GADFullScreenContentDelegate {
-    func adWillPresentFullScreenContent(_ ad: GADFullScreenPresentingAd) {
-        print("AppOpenAdManager: App open ad will be presented.")
-    }
-    
-    func adDidDismissFullScreenContent(_ ad: GADFullScreenPresentingAd) {
-        appOpenAd = nil
-        isShowingAd = false
-        delegate?.didShowAd()
-        // Reload an ad.
-        Task {
-            await loadAd()
-        }
-    }
-    
-    func ad(
-        _ ad: GADFullScreenPresentingAd,
-        didFailToPresentFullScreenContentWithError error: Error
-    ) {
-        appOpenAd = nil
-        isShowingAd = false
-        // Reload an ad.
-        Task {
-            await loadAd()
-        }
-    }
-}
+//extension GoogleAppOpenAdManager: GADFullScreenContentDelegate {
+//    func adWillPresentFullScreenContent(_ ad: GADFullScreenPresentingAd) {
+//        print("AppOpenAdManager: App open ad will be presented.")
+//    }
+//    
+//    func adDidDismissFullScreenContent(_ ad: GADFullScreenPresentingAd) {
+//        appOpenAd = nil
+//        isShowingAd = false
+//        delegate?.didShowAd()
+//        // Reload an ad.
+//        Task {
+//            await loadAd()
+//        }
+//    }
+//    
+//    func ad(
+//        _ ad: GADFullScreenPresentingAd,
+//        didFailToPresentFullScreenContentWithError error: Error
+//    ) {
+//        appOpenAd = nil
+//        isShowingAd = false
+//        // Reload an ad.
+//        Task {
+//            await loadAd()
+//        }
+//    }
+//}

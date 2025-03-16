@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import GoogleMobileAds
 
 final class AppRootVC: UIViewController {
     private lazy var window: UIWindow? = {
@@ -42,12 +41,8 @@ final class AppRootVC: UIViewController {
         return button
     }()
     
-    private lazy var bannerView: GADBannerView = {
-        let viewWidth = view.frame.inset(by: view.safeAreaInsets).width
-        let adaptiveSize = GADCurrentOrientationAnchoredAdaptiveBannerAdSizeWithWidth(viewWidth)
-        let banner = GADBannerView(adSize: adaptiveSize)
-        banner.translatesAutoresizingMaskIntoConstraints = false
-        return banner
+    private lazy var bannerView: UIView = {
+        return ADSGodContainer.shared.adsManager.createBannerView(with: view.frame.inset(by: view.safeAreaInsets).width, useCache: true)
     }()
     
     private lazy var myChallengesLabel: UILabel = {
@@ -84,6 +79,8 @@ final class AppRootVC: UIViewController {
         
         return container
     }()
+    
+    private var adsBannerHeightConstraint: NSLayoutConstraint?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -110,6 +107,16 @@ final class AppRootVC: UIViewController {
         bannerView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
         bannerView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         
+        adsBannerHeightConstraint = bannerView.heightAnchor.constraint(equalToConstant: 0)
+        
+        ADSGodContainer.shared.adsManager.onAdAvailable = { [weak self] available in
+            self?.adsBannerHeightConstraint?.isActive = !available
+        }
+        
+        if !ADSGodContainer.shared.adsManager.adAvailable {
+            adsBannerHeightConstraint?.isActive = true
+        }
+        
         view.addSubview(buttonContainer)
         buttonContainer.heightAnchor.constraint(equalToConstant: OffsetsService.shared.myChallengesButtonHeight).isActive = true
         buttonContainer.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
@@ -120,7 +127,7 @@ final class AppRootVC: UIViewController {
         
         toMainVC()
         
-        ADSManager.shared.setupBannerView(bannerView, from: self)
+        ADSGodContainer.shared.adsManager.setupBannerView(from: self)
     }
     
     private func toMainVC() {
