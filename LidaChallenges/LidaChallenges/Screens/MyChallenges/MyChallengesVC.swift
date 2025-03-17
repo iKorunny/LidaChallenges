@@ -223,6 +223,8 @@ extension MyChallengesVC: UICollectionViewDelegate, UICollectionViewDataSource, 
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let model = sections[indexPath.section].challenges[indexPath.row]
-        AppRouter.shared.toStartedChallenge(model: model)
+        AppRouter.shared.toStartedChallenge(model: model) { [weak self] in
+            self?.shouldReloadData = true
+        }
     }
 }

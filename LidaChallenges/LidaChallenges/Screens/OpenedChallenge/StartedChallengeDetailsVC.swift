@@ -150,8 +150,11 @@ final class StartedChallengeDetailsVC: UIViewController {
     
     private var lastEditIndex: Int = -1
     
-    init(model: StartedChallenge) {
+    private var onChangesToReload: (() -> Void)?
+    
+    init(model: StartedChallenge, onChangesToReload: (() -> Void)?) {
         self.model = model
+        self.onChangesToReload = onChangesToReload
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -207,6 +210,10 @@ final class StartedChallengeDetailsVC: UIViewController {
         scrollBottom.isActive = true
         keyboardService = KeyboardAppearService(mainView: view, bottomConstraint: scrollBottom)
         
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(hideInputViews))
+        tapGesture.cancelsTouchesInView = false
+        view.addGestureRecognizer(tapGesture)
+        
         view.backgroundColor = .clear // TODO: remove blending
     }
     
@@ -214,7 +221,7 @@ final class StartedChallengeDetailsVC: UIViewController {
         AppRouter.shared.toOpenChallengeInfo(model: model.originalChallenge)
     }
     
-    private func hideInputViews() {
+    @objc private func hideInputViews() {
         textView.resignFirstResponder()
     }
     
@@ -224,8 +231,9 @@ final class StartedChallengeDetailsVC: UIViewController {
         
         DatabaseService.shared.save(dayResult: .success,
                                     dayIndex: lastEditIndex,
-                                    challengeID: model.identifier) { success, updatedModel in
+                                    challengeID: model.identifier) { [weak self] success, updatedModel in
             guard success, let newModel = updatedModel else { return }
+            self?.onChangesToReload?()
             DispatchQueue.main.async { [weak self] in
                 self?.model = newModel
                 self?.collectionView.reloadData()
@@ -241,8 +249,9 @@ final class StartedChallengeDetailsVC: UIViewController {
         
         DatabaseService.shared.save(dayResult: .fail,
                                     dayIndex: lastEditIndex,
-                                    challengeID: model.identifier) { success, updatedModel in
+                                    challengeID: model.identifier) { [weak self] success, updatedModel in
             guard success, let newModel = updatedModel else { return }
+            self?.onChangesToReload?()
             DispatchQueue.main.async { [weak self] in
                 self?.model = newModel
                 self?.collectionView.reloadData()
@@ -325,6 +334,8 @@ extension StartedChallengeDetailsVC: UITextViewDelegate {
     }
     
     func textViewDidEndEditing(_ textView: UITextView) {
-        DatabaseService.shared.save(note: textView.text, for: model.identifier)
+        guard self.textView.textData.text != model.note else { return }
+        onChangesToReload?()
+        DatabaseService.shared.save(note: self.textView.textData.text, for: model.identifier)
     }
 }

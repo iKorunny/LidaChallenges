@@ -95,13 +95,13 @@ final class AppRouter {
     func toStartedChallengeAfterStart(model: StartedChallenge) {
         navigationController?.popToRootViewController(animated: false)
         DispatchQueue.main.asyncAfter(deadline: .now()) { [weak self] in
-            let nextVC = StartedChallengeDetailsVC(model: model)
+            let nextVC = StartedChallengeDetailsVC(model: model, onChangesToReload: nil)
             self?.navigationController?.pushViewController(nextVC, animated: false)
         }
     }
     
-    func toStartedChallenge(model: StartedChallenge) {
-        let nextVC = StartedChallengeDetailsVC(model: model)
+    func toStartedChallenge(model: StartedChallenge, onSomeChanges: (() -> Void)? = nil) {
+        let nextVC = StartedChallengeDetailsVC(model: model, onChangesToReload: onSomeChanges)
         navigationController?.pushViewController(nextVC, animated: false)
     }
     
