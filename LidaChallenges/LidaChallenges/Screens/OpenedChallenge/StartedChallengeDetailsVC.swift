@@ -71,6 +71,24 @@ final class StartedChallengeDetailsVC: UIViewController {
         return label
     }()
     
+    private lazy var intervalLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.numberOfLines = 0
+        label.textColor = ColorThemeProvider.shared.subtitle
+        label.font = FontsProvider.regularAppFont(with: 12)
+        
+        var text: String = ""
+        if let endDate = model.endDate {
+            text = "\(Formatters.formateDateShort(model.startDate)) - \(Formatters.formateDateShort(endDate))"
+        }
+        else {
+            text = Formatters.formateDateShort(model.startDate)
+        }
+        label.text = text
+        return label
+    }()
+    
     private lazy var scrollContent: UIView = {
         let content = UIView()
         content.translatesAutoresizingMaskIntoConstraints = false
@@ -94,8 +112,12 @@ final class StartedChallengeDetailsVC: UIViewController {
         periodLabel.leadingAnchor.constraint(equalTo: content.leadingAnchor, constant: 52).isActive = true
         periodLabel.trailingAnchor.constraint(lessThanOrEqualTo: content.trailingAnchor, constant: -52).isActive = true
         
+        content.addSubview(intervalLabel)
+        intervalLabel.leadingAnchor.constraint(equalTo: periodLabel.leadingAnchor).isActive = true
+        intervalLabel.topAnchor.constraint(equalTo: periodLabel.bottomAnchor, constant: 4).isActive = true
+        
         content.addSubview(collectionView)
-        collectionView.topAnchor.constraint(equalTo: periodLabel.bottomAnchor, constant: 9).isActive = true
+        collectionView.topAnchor.constraint(equalTo: intervalLabel.bottomAnchor, constant: 14).isActive = true
         collectionView.leadingAnchor.constraint(equalTo: content.leadingAnchor, constant: 52).isActive = true
         collectionView.trailingAnchor.constraint(equalTo: content.trailingAnchor, constant: -52).isActive = true
         collectionView.heightAnchor.constraint(equalToConstant: calculatedCollectionHeight).isActive = true

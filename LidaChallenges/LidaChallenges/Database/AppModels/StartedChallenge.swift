@@ -31,8 +31,12 @@ final class StartedChallenge {
 }
 
 extension StartedChallenge {
+    var endDate: Date? {
+        return StartedChallengeUtils.lastDate(for: self)
+    }
+    
     var isFinished: Bool {
-        guard let lastDay = StartedChallengeUtils.lastDate(for: self) else { return false }
+        guard let lastDay = endDate else { return false }
                 
         return !Date().isLessOrEqualIgnoringTime(to: lastDay)
     }

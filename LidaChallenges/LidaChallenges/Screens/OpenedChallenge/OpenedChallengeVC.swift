@@ -84,6 +84,13 @@ class OpenedChallengeVC: UIViewController {
         return label
     }()
     
+    private(set) lazy var shareBuiltInButton: UIBarButtonItem = {
+        UIBarButtonItem(image: UIImage.init(named: "ChallegeBuiltInShare"),
+                        style: .plain,
+                        target: self,
+                        action: #selector(shareBuiltInChallenge))
+    }()
+    
     init(model: OpenedChallengeModel) {
         self.model = model
         super.init(nibName: nil, bundle: nil)
@@ -99,6 +106,8 @@ class OpenedChallengeVC: UIViewController {
         navigationItem.title = "OpenedChallengeTitle".localised()
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: FontsProvider.regularAppFont(with: 16),
                                                                    .foregroundColor: ColorThemeProvider.shared.itemTextTitle]
+        
+        navigationItem.rightBarButtonItems = model.isCustom ? [] : [shareBuiltInButton]
         
         view.addSubview(scrollView)
         scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
@@ -140,5 +149,9 @@ class OpenedChallengeVC: UIViewController {
         descriptionLabel.trailingAnchor.constraint(equalTo: scrollContentView.trailingAnchor, constant: -36).isActive = true
         descriptionLabel.bottomAnchor.constraint(equalTo: scrollContentView.bottomAnchor, constant: -27).isActive = true
         descriptionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 27).isActive = true
+    }
+    
+    @objc private func shareBuiltInChallenge() {
+        URLSchemeManager.shared.shareBuiltInChallenge(with: model.identifier, from: self)
     }
 }

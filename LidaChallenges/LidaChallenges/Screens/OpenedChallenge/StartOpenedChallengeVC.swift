@@ -24,7 +24,7 @@ final class StartOpenedChallengeVC: OpenedChallengeVC {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationItem.rightBarButtonItem = startButton
+        navigationItem.rightBarButtonItems = model.isCustom ? [startButton] : [startButton, shareBuiltInButton]
     }
     
     @objc private func onStart() {

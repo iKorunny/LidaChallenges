@@ -27,4 +27,11 @@ final class Formatters {
         formatter.timeStyle = .long
         return formatter.string(from: date)
     }
+    
+    static func formateDateShort(_ date: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .short
+        formatter.timeStyle = .none
+        return formatter.string(from: date)
+    }
 }
