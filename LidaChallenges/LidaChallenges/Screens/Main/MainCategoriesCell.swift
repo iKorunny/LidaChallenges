@@ -13,9 +13,14 @@ final class MainCategoriesCell: UICollectionViewCell {
         let imgView = UIImageView()
         imgView.translatesAutoresizingMaskIntoConstraints = false
         imgView.contentMode = .center
-        imgView.layer.masksToBounds = true
-        imgView.layer.cornerRadius = 10
-        imgView.backgroundColor = ColorThemeProvider.shared.itemBackground
+        return imgView
+    }()
+    
+    private(set) lazy var gradientBackground: UIImageView = {
+        let imgView = UIImageView()
+        imgView.translatesAutoresizingMaskIntoConstraints = false
+        imgView.contentMode = .scaleToFill
+        imgView.image = UIImage(named: "ChallengeCategoryBackground")
         return imgView
     }()
     
@@ -23,7 +28,7 @@ final class MainCategoriesCell: UICollectionViewCell {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 1
-        label.font = FontsProvider.regularAppFont(with: 20)
+        label.font = FontsProvider.regularAppFont(with: 24)
         label.textColor = ColorThemeProvider.shared.itemTextTitle
         label.textAlignment = .center
         return label
@@ -34,20 +39,27 @@ final class MainCategoriesCell: UICollectionViewCell {
     func setupIfNeeded() {
         guard !settedUp else { return }
         
-        contentView.backgroundColor = .clear
+        contentView.layer.masksToBounds = true
+        contentView.layer.cornerRadius = 10
+        
+        contentView.addSubview(gradientBackground)
+        gradientBackground.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
+        gradientBackground.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
+        gradientBackground.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
+        gradientBackground.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
+        gradientBackground.widthAnchor.constraint(equalToConstant: 237).isActive = true
+        gradientBackground.heightAnchor.constraint(equalToConstant: 169).isActive = true
         
         contentView.addSubview(iconView)
         iconView.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
-        iconView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor).isActive = true
-        iconView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
-        iconView.heightAnchor.constraint(equalToConstant: 157.6).isActive = true
-        iconView.widthAnchor.constraint(equalToConstant: 224.66).isActive = true
+        iconView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
+        iconView.heightAnchor.constraint(equalToConstant: 156).isActive = true
+        iconView.widthAnchor.constraint(equalToConstant: 156).isActive = true
         
         contentView.addSubview(textLabel)
         textLabel.widthAnchor.constraint(equalTo: iconView.widthAnchor).isActive = true
         textLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
-        textLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -2).isActive = true
-        textLabel.topAnchor.constraint(equalTo: iconView.bottomAnchor, constant: 8).isActive = true
+        textLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -7).isActive = true
         
         settedUp = true
     }

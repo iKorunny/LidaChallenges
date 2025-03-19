@@ -89,10 +89,26 @@ final class MainVC: UIViewController {
                                          }
                                      }
                                  }),
-            MainVCListActionItem(image: UIImage(named: "PopularChallengesAction")!,
-                                 title: "PopularChallengesActionTitle".localised(),
+            MainVCListActionItem(image: UIImage(named: "CreatedChallenges")!,
+                                 title: "CreatedChallengesActionTitle".localised(),
                                  action: { [weak self] item in
                                      print("action \(item.title)")
+                                     
+                                     guard let self else { return }
+                                     self.activityManager.lock(vc: self)
+                                     
+                                     DatabaseService.shared.fetchHasCustomChallenges { [weak self] hasCustomChallenges in
+                                         DispatchQueue.main.async { [weak self] in
+                                             self?.activityManager.unlock(onUnlock: {
+                                                 if hasCustomChallenges {
+                                                     AppRouter.shared.toChallengesList(categoryID: 0)
+                                                 }
+                                                 else {
+                                                     AppRouter.shared.toStartCreateChallenge()
+                                                 }
+                                             })
+                                         }
+                                     }
                                  }),
             MainVCListActionItem(image: UIImage(named: "CompletedChallengesAction")!,
                                  title: "CompletedChallengesActionTitle".localised(),
@@ -158,9 +174,9 @@ final class MainVC: UIViewController {
     
     private func addCollectionView() {
         scrollContentView.addSubview(collectionView)
-        collectionView.heightAnchor.constraint(equalToConstant: 190).isActive = true
+        collectionView.heightAnchor.constraint(equalToConstant: 169).isActive = true
         collectionView.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
-        collectionView.topAnchor.constraint(equalTo: headerLabel.bottomAnchor, constant: 15).isActive = true
+        collectionView.topAnchor.constraint(equalTo: headerLabel.bottomAnchor, constant: 33).isActive = true
 //        collectionView.bottomAnchor.constraint(equalTo: scrollContentView.bottomAnchor).isActive = true
         collectionView.leadingAnchor.constraint(equalTo: scrollContentView.leadingAnchor).isActive = true
         collectionView.trailingAnchor.constraint(equalTo: scrollContentView.trailingAnchor).isActive = true
@@ -226,7 +242,7 @@ extension MainVC: UICollectionViewDelegate {
     }
     
     private func collectionViewStoppedScroll() {
-        let pageOffset = 224.66 + 20.5
+        let pageOffset: CGFloat = 237 + 38
         let page: Int = Int(round(collectionView.contentOffset.x / pageOffset))
         collectionView.setContentOffset(CGPoint(x: pageOffset * Double(page), y: 0), animated: true)
     }
@@ -247,16 +263,16 @@ extension MainVC: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 224.66, height: 190)
+        return CGSize(width: 237, height: 169)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 20.5
+        return 34
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         guard let screenWidth = window?.bounds.width else { return UIEdgeInsets.zero }
-        let inset = screenWidth * 0.5 - 224.66 * 0.5
+        let inset = screenWidth * 0.5 - 237 * 0.5
         return UIEdgeInsets(top: 0, left: inset, bottom: 0, right: inset)
     }
     

@@ -41,11 +41,13 @@ class OpenedChallengeVC: UIViewController {
         
         let imageView = UIImageView(image: model.icon)
         imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.contentMode = .scaleAspectFit
         
         iconView.addSubview(imageView)
         imageView.topAnchor.constraint(equalTo: iconView.topAnchor, constant: 27).isActive = true
         imageView.bottomAnchor.constraint(equalTo: iconView.bottomAnchor, constant: -28).isActive = true
         imageView.centerXAnchor.constraint(equalTo: iconView.centerXAnchor).isActive = true
+        imageView.heightAnchor.constraint(equalToConstant: 160).isActive = true
         
         let line = UIView()
         line.translatesAutoresizingMaskIntoConstraints = false

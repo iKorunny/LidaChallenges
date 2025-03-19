@@ -14,8 +14,9 @@
 "CreateChallengeContinueButtonTitle" = "Далее";
 // Not transribed
 "CreateChallengeActionTitle" = "Конструктор челленджа";
-"RandomChallengeActionTitle" = "Сгенерировать челлендж случайно";
+"RandomChallengeActionTitle" = "Подобрать челлендж";
 "PopularChallengesActionTitle" = "Популярные челленджи";
+"CreatedChallengesActionTitle" = "Созданные челленджи";
 "CompletedChallengesActionTitle" = "Пройденные челленджи";
 "MyChallengesLargeButtonTitle" = "Мои челленджи";
 "MyChallengesNoData" = "Нет данных";

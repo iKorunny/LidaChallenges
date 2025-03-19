@@ -52,6 +52,18 @@ final class CustomChallengeDBService {
         }
     }
     
+    func fetchCustomHasChallenges(context: NSManagedObjectContext,
+                                  completion: @escaping ((Bool) -> Void)) {
+        do {
+            let request = DBCustomChallengeModel.fetchRequest()
+            let modelsCount = try context.count(for: request)
+            completion(modelsCount > 0)
+        }
+        catch let error {
+            print("fetchCustomChallenges: \(error)")
+        }
+    }
+    
     func fetchCustomChallenge(context: NSManagedObjectContext,
                               with id: String,
                               onSuccess: @escaping ((DBCustomChallengeModel?) -> Void)) {

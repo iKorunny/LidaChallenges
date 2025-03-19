@@ -61,6 +61,14 @@ final class DatabaseService {
         }
     }
     
+    func fetchHasCustomChallenges(completion: @escaping (Bool) -> Void) {
+        guard let context = context else { return }
+        
+        workingQueue.async {
+            CustomChallengeDBService.shared.fetchCustomHasChallenges(context: context, completion: completion)
+        }
+    }
+    
     func deleteAllCustomChallenges() {
         guard let context = context else { return }
         
