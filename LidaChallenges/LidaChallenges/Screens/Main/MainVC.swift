@@ -174,7 +174,7 @@ final class MainVC: UIViewController {
     
     private func addCollectionView() {
         scrollContentView.addSubview(collectionView)
-        collectionView.heightAnchor.constraint(equalToConstant: 169).isActive = true
+        collectionView.heightAnchor.constraint(equalToConstant: 186).isActive = true
         collectionView.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
         collectionView.topAnchor.constraint(equalTo: headerLabel.bottomAnchor, constant: 33).isActive = true
 //        collectionView.bottomAnchor.constraint(equalTo: scrollContentView.bottomAnchor).isActive = true
@@ -201,7 +201,7 @@ final class MainVC: UIViewController {
             
             let isLast = i == (actionItems.count - 1)
             if isLast {
-                actionView.bottomAnchor.constraint(equalTo: scrollContentView.bottomAnchor).isActive = true
+                actionView.bottomAnchor.constraint(equalTo: scrollContentView.bottomAnchor, constant: -23).isActive = true
             }
             previousView = actionView
         }
@@ -263,7 +263,7 @@ extension MainVC: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 237, height: 169)
+        return CGSize(width: 237, height: 186)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {

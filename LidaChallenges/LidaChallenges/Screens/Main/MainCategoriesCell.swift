@@ -12,7 +12,7 @@ final class MainCategoriesCell: UICollectionViewCell {
     private(set) lazy var iconView: UIImageView = {
         let imgView = UIImageView()
         imgView.translatesAutoresizingMaskIntoConstraints = false
-        imgView.contentMode = .center
+        imgView.contentMode = .scaleAspectFit
         return imgView
     }()
     
@@ -48,7 +48,7 @@ final class MainCategoriesCell: UICollectionViewCell {
         gradientBackground.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
         gradientBackground.bottomAnchor.constraint(equalTo: contentView.bottomAnchor).isActive = true
         gradientBackground.widthAnchor.constraint(equalToConstant: 237).isActive = true
-        gradientBackground.heightAnchor.constraint(equalToConstant: 169).isActive = true
+        gradientBackground.heightAnchor.constraint(equalToConstant: 186).isActive = true
         
         contentView.addSubview(iconView)
         iconView.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
@@ -59,7 +59,7 @@ final class MainCategoriesCell: UICollectionViewCell {
         contentView.addSubview(textLabel)
         textLabel.widthAnchor.constraint(equalTo: iconView.widthAnchor).isActive = true
         textLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
-        textLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -7).isActive = true
+        textLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -5).isActive = true
         
         settedUp = true
     }
