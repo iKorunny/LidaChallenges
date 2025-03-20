@@ -59,7 +59,7 @@ final class MainCategoriesCell: UICollectionViewCell {
         contentView.addSubview(textLabel)
         textLabel.widthAnchor.constraint(equalTo: iconView.widthAnchor).isActive = true
         textLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
-        textLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -5).isActive = true
+        textLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -7).isActive = true
         
         settedUp = true
     }
