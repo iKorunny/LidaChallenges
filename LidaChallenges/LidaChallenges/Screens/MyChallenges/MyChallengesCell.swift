@@ -58,8 +58,8 @@ final class MyChallengesCell: UICollectionViewCell {
         contentView.layer.cornerRadius = 10
         
         contentView.addSubview(indicatorImageView)
-        indicatorImageView.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
-        indicatorImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor).isActive = true
+        indicatorImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8).isActive = true
+        indicatorImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -15).isActive = true
         
         contentView.addSubview(iconImageView)
         iconImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 30).isActive = true
@@ -68,8 +68,8 @@ final class MyChallengesCell: UICollectionViewCell {
         iconImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -30).isActive = true
         
         contentView.addSubview(intervalLabel)
-        intervalLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 1).isActive = true
-        intervalLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 3).isActive = true
+        intervalLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8).isActive = true
+        intervalLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 15).isActive = true
         intervalLabel.trailingAnchor.constraint(lessThanOrEqualTo: indicatorImageView.leadingAnchor, constant: -3).isActive = true
         
         contentView.addSubview(titleLabel)

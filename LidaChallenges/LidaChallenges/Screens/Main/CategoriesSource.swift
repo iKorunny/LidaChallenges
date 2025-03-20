@@ -44,7 +44,10 @@ final class CategoriesSourceImpl: CategoriesSource {
                      icon: UIImage(named: "health")!),
             Category(id: 5,
                      title: "CategoriesEducation".localised(),
-                     icon: UIImage(named: "education")!)
+                     icon: UIImage(named: "education")!),
+            Category(id: 6,
+                     title: "CategoriesGoodWorks".localised(),
+                     icon: UIImage(named: "goodWorks")!)
         ]
     }
     

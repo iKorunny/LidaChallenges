@@ -242,7 +242,7 @@ extension MainVC: UICollectionViewDelegate {
     }
     
     private func collectionViewStoppedScroll() {
-        let pageOffset: CGFloat = 237 + 38
+        let pageOffset: CGFloat = 237 + 34
         let page: Int = Int(round(collectionView.contentOffset.x / pageOffset))
         collectionView.setContentOffset(CGPoint(x: pageOffset * Double(page), y: 0), animated: true)
     }

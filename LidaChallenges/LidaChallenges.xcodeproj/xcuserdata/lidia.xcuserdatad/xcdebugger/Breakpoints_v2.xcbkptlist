@@ -418,6 +418,36 @@
             endingLineNumber = "37"
             landmarkName = "tryToHandleBuiltInChallengeURLScheme(_:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "DF737C77-8604-48E7-9C80-1B74C6FA9D4D - 3aea6550469eb387"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "LidaChallenges.URLSchemeManager.tryToHandleBuiltInChallengeURLScheme(Foundation.URL) -&gt; Swift.Bool"
+                  moduleName = "LidaChallenges.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lidia/Documents/Projects/LidaChallenges/LidaChallenges/LidaChallenges/Utils/URLSchemeManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "37"
+                  endingLineNumber = "37">
+               </Location>
+               <Location
+                  uuid = "DF737C77-8604-48E7-9C80-1B74C6FA9D4D - 971fdd55bec4518e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;LidaChallenges.BuiltInChallenge&gt;) -&gt; () in LidaChallenges.URLSchemeManager.tryToHandleBuiltInChallengeURLScheme(Foundation.URL) -&gt; Swift.Bool"
+                  moduleName = "LidaChallenges.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lidia/Documents/Projects/LidaChallenges/LidaChallenges/LidaChallenges/Utils/URLSchemeManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "38"
+                  endingLineNumber = "38">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -481,6 +511,38 @@
             startingLineNumber = "35"
             endingLineNumber = "35"
             landmarkName = "formateDateShort(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "ABD15428-0F5B-4CCC-A85E-D932A0CF7A8A"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LidaChallenges/Screens/Main/ChallengesListVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "127"
+            endingLineNumber = "127"
+            landmarkName = "numberOfSections(in:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B80A3D36-921A-43D1-BCC4-892ABD85FB8D"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LidaChallenges/Screens/Main/ChallengesListVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "131"
+            endingLineNumber = "131"
+            landmarkName = "tableView(_:numberOfRowsInSection:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
