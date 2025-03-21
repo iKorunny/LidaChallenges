@@ -418,36 +418,6 @@
             endingLineNumber = "37"
             landmarkName = "tryToHandleBuiltInChallengeURLScheme(_:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "DF737C77-8604-48E7-9C80-1B74C6FA9D4D - 3aea6550469eb387"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "LidaChallenges.URLSchemeManager.tryToHandleBuiltInChallengeURLScheme(Foundation.URL) -&gt; Swift.Bool"
-                  moduleName = "LidaChallenges.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/lidia/Documents/Projects/LidaChallenges/LidaChallenges/LidaChallenges/Utils/URLSchemeManager.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "37"
-                  endingLineNumber = "37">
-               </Location>
-               <Location
-                  uuid = "DF737C77-8604-48E7-9C80-1B74C6FA9D4D - 971fdd55bec4518e"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;LidaChallenges.BuiltInChallenge&gt;) -&gt; () in LidaChallenges.URLSchemeManager.tryToHandleBuiltInChallengeURLScheme(Foundation.URL) -&gt; Swift.Bool"
-                  moduleName = "LidaChallenges.debug.dylib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/lidia/Documents/Projects/LidaChallenges/LidaChallenges/LidaChallenges/Utils/URLSchemeManager.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "38"
-                  endingLineNumber = "38">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
