@@ -440,8 +440,6 @@ final class CreateChallengeMainVC: UIViewController {
 
         view.backgroundColor = .clear
         navigationItem.title = "CreateChallengeTitle".localised()
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: FontsProvider.regularAppFont(with: 20),
-                                                                   .foregroundColor: ColorThemeProvider.shared.itemTextTitle]
         
         navigationItem.rightBarButtonItem = continueButton
         
@@ -452,6 +450,12 @@ final class CreateChallengeMainVC: UIViewController {
         let scrollBottom = scrollView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -OffsetsService.shared.bottomOffset)
         scrollBottom.isActive = true
         keyboardService = KeyboardAppearService(mainView: view, bottomConstraint: scrollBottom)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: FontsProvider.regularAppFont(with: 20),
+                                                                   .foregroundColor: ColorThemeProvider.shared.itemTextTitle]
     }
     
     @objc private func onContinue() {

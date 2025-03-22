@@ -102,8 +102,6 @@ final class MyChallengesVC: UIViewController {
 
         view.backgroundColor = .clear
         navigationItem.title = screenTitle ?? "MyChallengesLargeButtonTitle".localised()
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: FontsProvider.regularAppFont(with: 20),
-                                                                   .foregroundColor: ColorThemeProvider.shared.itemTextTitle]
         view.addSubview(noDataLabel)
         noDataLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         noDataLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
@@ -119,6 +117,9 @@ final class MyChallengesVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: FontsProvider.regularAppFont(with: 20),
+                                                                   .foregroundColor: ColorThemeProvider.shared.itemTextTitle]
         
         reloadDataIfNeeded()
     }

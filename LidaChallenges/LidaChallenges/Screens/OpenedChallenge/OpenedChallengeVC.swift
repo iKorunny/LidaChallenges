@@ -106,8 +106,6 @@ class OpenedChallengeVC: UIViewController {
         super.viewDidLoad()
 
         navigationItem.title = "OpenedChallengeTitle".localised()
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: FontsProvider.regularAppFont(with: 16),
-                                                                   .foregroundColor: ColorThemeProvider.shared.itemTextTitle]
         
         navigationItem.rightBarButtonItems = model.isCustom ? [] : [shareBuiltInButton]
         
@@ -151,6 +149,13 @@ class OpenedChallengeVC: UIViewController {
         descriptionLabel.trailingAnchor.constraint(equalTo: scrollContentView.trailingAnchor, constant: -36).isActive = true
         descriptionLabel.bottomAnchor.constraint(equalTo: scrollContentView.bottomAnchor, constant: -27).isActive = true
         descriptionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 27).isActive = true
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: FontsProvider.regularAppFont(with: 16),
+                                                                   .foregroundColor: ColorThemeProvider.shared.itemTextTitle]
     }
     
     @objc private func shareBuiltInChallenge() {

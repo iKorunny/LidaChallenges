@@ -219,8 +219,6 @@ final class StartedChallengeDetailsVC: UIViewController {
         backgroundImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         
         navigationItem.title = model.originalChallenge.title
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: FontsProvider.regularAppFont(with: 32),
-                                                                   .foregroundColor: ColorThemeProvider.shared.itemTextTitle]
         navigationItem.rightBarButtonItem = infoButton
         
         view.addSubview(scrollView)
@@ -237,6 +235,13 @@ final class StartedChallengeDetailsVC: UIViewController {
         view.addGestureRecognizer(tapGesture)
         
         view.backgroundColor = .clear // TODO: remove blending
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: FontsProvider.regularAppFont(with: 32),
+                                                                   .foregroundColor: ColorThemeProvider.shared.itemTextTitle]
     }
     
     @objc private func onInfo() {

@@ -24,7 +24,7 @@ final class CreateChallengeImagePickCell: UICollectionViewCell {
         
         container.addSubview(iconImageView)
         iconImageView.topAnchor.constraint(equalTo: container.topAnchor, constant: 11).isActive = true
-        iconImageView.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: 1).isActive = true
+        iconImageView.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: 11).isActive = true
         iconImageView.trailingAnchor.constraint(equalTo: container.trailingAnchor, constant: -11).isActive = true
         iconImageView.bottomAnchor.constraint(equalTo: container.bottomAnchor, constant: -11).isActive = true
         
