@@ -47,7 +47,7 @@
 "AlertCancelButtonTitle" = "Отмена";
 "OpenedChallengeTitle" = "Челлендж";
 "OpenedChallengeStartButton" = "Начать";
-"CustomChallengeSectionTitle" = "Пользовательские";
+"CustomChallengeSectionTitle" = "Созданные";
 "ChallengeInfoRegularityTitle" = "Регулярность: %@";
 "ChallengeInfoRegularityDaily" = "Ежедневно";
 "ChallengeInfoRegularityMonday" = "Пн";

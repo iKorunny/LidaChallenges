@@ -240,7 +240,7 @@ final class StartedChallengeDetailsVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: FontsProvider.regularAppFont(with: 32),
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: FontsProvider.regularAppFont(with: 20),
                                                                    .foregroundColor: ColorThemeProvider.shared.itemTextTitle]
     }
     
@@ -330,6 +330,11 @@ extension StartedChallengeDetailsVC: UICollectionViewDelegate, UICollectionViewD
         hideInputViews()
         
         let state = StartedChallengeUtils.state(for: model, index: indexPath.row, currentDate: currentDate)
+        
+        guard state != .completed && state != .failed else {
+            // TODO: Premium
+            return
+        }
         
         if state != .disabled {
             lastEditIndex = indexPath.row
