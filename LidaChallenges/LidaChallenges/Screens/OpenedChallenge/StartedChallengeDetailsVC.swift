@@ -13,9 +13,15 @@ private enum Constants {
 
 final class StartedChallengeDetailsVC: UIViewController {
     
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
     var model: StartedChallenge
     
     private var keyboardService: KeyboardAppearService?
+    
+    private var scrollBottomAnchor: NSLayoutConstraint?
     
     private weak var popupVC: UIViewController?
     
@@ -212,6 +218,8 @@ final class StartedChallengeDetailsVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        NotificationCenter.default.addObserver(self, selector: #selector(bannerADAvailabilityChanged), name: .bannerAdChanged, object: nil)
+        
         view.addSubview(backgroundImageView)
         backgroundImageView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         backgroundImageView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
@@ -229,6 +237,7 @@ final class StartedChallengeDetailsVC: UIViewController {
         let scrollBottom = scrollView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -OffsetsService.shared.bottomOffset)
         scrollBottom.isActive = true
         keyboardService = KeyboardAppearService(mainView: view, bottomConstraint: scrollBottom)
+        scrollBottomAnchor = scrollBottom
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(hideInputViews))
         tapGesture.cancelsTouchesInView = false
@@ -286,6 +295,11 @@ final class StartedChallengeDetailsVC: UIViewController {
         }
         
         lastEditIndex = -1
+    }
+    
+    @objc private func bannerADAvailabilityChanged() {
+        scrollBottomAnchor?.constant = -OffsetsService.shared.bottomOffset
+        view.layoutIfNeeded()
     }
 }
 

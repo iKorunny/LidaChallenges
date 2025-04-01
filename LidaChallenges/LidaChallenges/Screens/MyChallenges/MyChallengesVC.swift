@@ -42,6 +42,12 @@ enum MyChallengesVCMode {
 
 final class MyChallengesVC: UIViewController {
     
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    private var contentBottomConstraint: NSLayoutConstraint?
+    
     private lazy var window: UIWindow? = {
         return navigationController?.view.window
     }()
@@ -99,6 +105,8 @@ final class MyChallengesVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(bannerADAvailabilityChanged), name: .bannerAdChanged, object: nil)
 
         view.backgroundColor = .clear
         navigationItem.title = screenTitle ?? "MyChallengesLargeButtonTitle".localised()
@@ -110,7 +118,8 @@ final class MyChallengesVC: UIViewController {
         collectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
         collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        collectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -OffsetsService.shared.bottomOffset).isActive = true
+        contentBottomConstraint = collectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -OffsetsService.shared.bottomOffset)
+        contentBottomConstraint?.isActive = true
         
         stateChanged(newState: state)
     }
@@ -170,6 +179,12 @@ final class MyChallengesVC: UIViewController {
         }
         
         collectionView.reloadData()
+    }
+    
+    @objc private func bannerADAvailabilityChanged() {
+        collectionView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: OffsetsService.shared.bottomOffset, right: 0)
+        contentBottomConstraint?.constant = -OffsetsService.shared.bottomOffset
+        view.layoutIfNeeded()
     }
 }
 

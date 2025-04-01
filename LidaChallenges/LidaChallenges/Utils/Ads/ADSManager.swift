@@ -8,6 +8,10 @@
 import Foundation
 import UIKit
 
+extension Notification.Name {
+    static let bannerAdChanged = Notification.Name("ADsManagerBannerAdChanged")
+}
+
 enum AdsManagerConstants {
     static let becomeActiveToShowLaunchAd: Int = 3
     static let becomeActiveCountKey = "becomeActiveCountKey"

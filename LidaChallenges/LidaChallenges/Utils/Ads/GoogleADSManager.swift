@@ -11,7 +11,11 @@ import UIKit
 
 final class GoogleADSManager: NSObject, ADSManager {
     var onAdAvailable: ((Bool) -> Void)?
-    var adAvailable: Bool = false
+    var adAvailable: Bool = false {
+        didSet {
+            NotificationCenter.default.post(name: NSNotification.Name.bannerAdChanged, object: nil)
+        }
+    }
     
     static var shared = GoogleADSManager()
     

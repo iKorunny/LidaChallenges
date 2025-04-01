@@ -17,7 +17,14 @@ final class YandexADSManager: NSObject, ADSManager {
     
     var onAdAvailable: ((Bool) -> Void)?
     
-    var adAvailable: Bool = false
+    var adAvailable: Bool = false {
+        didSet {
+            guard oldValue != adAvailable else { return }
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.33) {
+                NotificationCenter.default.post(name: NSNotification.Name.bannerAdChanged, object: nil)
+            }
+        }
+    }
     
     static var shared = GoogleADSManager()
     

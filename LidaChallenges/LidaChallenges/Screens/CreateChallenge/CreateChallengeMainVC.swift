@@ -76,7 +76,10 @@ final class CreateChallengeMainVC: UIViewController {
     
     deinit {
         scrollView.removeGestureRecognizer(hideInputsTapGesture)
+        NotificationCenter.default.removeObserver(self)
     }
+    
+    private var contentBottomConstraint: NSLayoutConstraint?
     
     private var keyboardService: KeyboardAppearService?
     
@@ -437,6 +440,8 @@ final class CreateChallengeMainVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(bannerADAvailabilityChanged), name: .bannerAdChanged, object: nil)
 
         view.backgroundColor = .clear
         navigationItem.title = "CreateChallengeTitle".localised()
@@ -449,6 +454,7 @@ final class CreateChallengeMainVC: UIViewController {
         scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         let scrollBottom = scrollView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -OffsetsService.shared.bottomOffset)
         scrollBottom.isActive = true
+        contentBottomConstraint = scrollBottom
         keyboardService = KeyboardAppearService(mainView: view, bottomConstraint: scrollBottom)
     }
     
@@ -517,6 +523,11 @@ final class CreateChallengeMainVC: UIViewController {
     private func updateContinueButtonEnability() {
         let insEnabled = !selectedRegularity.isEmpty && isDaysValid && isNameValid
         continueButton.isEnabled = insEnabled
+    }
+    
+    @objc private func bannerADAvailabilityChanged() {
+        contentBottomConstraint?.constant = -OffsetsService.shared.bottomOffset
+        view.layoutIfNeeded()
     }
 }
 

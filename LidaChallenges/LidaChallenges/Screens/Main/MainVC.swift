@@ -8,6 +8,10 @@
 import UIKit
 
 final class MainVC: UIViewController {
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
     private lazy var window: UIWindow? = {
         return navigationController?.view.window
     }()
@@ -50,6 +54,7 @@ final class MainVC: UIViewController {
         scrollView.backgroundColor = .clear
         scrollView.alwaysBounceVertical = true
         scrollView.delegate = self
+        scrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: OffsetsService.shared.bottomOffset, right: 0)
         return scrollView
     }()
     
@@ -64,6 +69,8 @@ final class MainVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(bannerADAvailabilityChanged), name: .bannerAdChanged, object: nil)
         
         navigationItem.title = ""
         
@@ -205,6 +212,10 @@ final class MainVC: UIViewController {
             }
             previousView = actionView
         }
+    }
+    
+    @objc private func bannerADAvailabilityChanged() {
+        scrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: OffsetsService.shared.bottomOffset, right: 0)
     }
 }
 

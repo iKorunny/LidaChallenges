@@ -17,7 +17,14 @@ protocol OpenedChallengeModel {
 }
 
 class OpenedChallengeVC: UIViewController {
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
     let model: OpenedChallengeModel
+    
+    private var contentBottomConstraint: NSLayoutConstraint?
     
     private lazy var scrollView: UIScrollView = {
         let scroll = UIScrollView()
@@ -104,6 +111,8 @@ class OpenedChallengeVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(bannerADAvailabilityChanged), name: .bannerAdChanged, object: nil)
 
         navigationItem.title = "OpenedChallengeTitle".localised()
         
@@ -111,7 +120,8 @@ class OpenedChallengeVC: UIViewController {
         
         view.addSubview(scrollView)
         scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
-        scrollView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -OffsetsService.shared.bottomOffset).isActive = true
+        contentBottomConstraint = scrollView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -OffsetsService.shared.bottomOffset)
+        contentBottomConstraint?.isActive = true
         scrollView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor).isActive = true
         scrollView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor).isActive = true
         
@@ -160,5 +170,10 @@ class OpenedChallengeVC: UIViewController {
     
     @objc private func shareBuiltInChallenge() {
         URLSchemeManager.shared.shareBuiltInChallenge(with: model.identifier, from: self)
+    }
+    
+    @objc private func bannerADAvailabilityChanged() {
+        contentBottomConstraint?.constant = -OffsetsService.shared.bottomOffset
+        view.layoutIfNeeded()
     }
 }

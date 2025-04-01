@@ -9,6 +9,12 @@ import UIKit
 import Photos
 
 final class CreateChallengeImageVC: UIViewController {
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    private var contentBottomConstraint: NSLayoutConstraint?
+    
     private lazy var window: UIWindow? = {
         return navigationController?.view.window
     }()
@@ -45,6 +51,8 @@ final class CreateChallengeImageVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(bannerADAvailabilityChanged), name: .bannerAdChanged, object: nil)
 
         view.backgroundColor = .clear
         
@@ -54,7 +62,8 @@ final class CreateChallengeImageVC: UIViewController {
         collectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
         collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.offset).isActive = true
         collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Constants.offset).isActive = true
-        collectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -OffsetsService.shared.bottomOffset).isActive = true
+        contentBottomConstraint = collectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -OffsetsService.shared.bottomOffset)
+        contentBottomConstraint?.isActive = true
         
         collectionView.register(CreateChallengeImagePickGalleryCell.self, forCellWithReuseIdentifier: "CreateChallengeImagePickGalleryCell")
         collectionView.register(CreateChallengeImagePickCell.self, forCellWithReuseIdentifier: "CreateChallengeImagePickCell")
@@ -72,6 +81,11 @@ final class CreateChallengeImageVC: UIViewController {
             nativePicker.delegate = self
             (navigationController ?? self).present(nativePicker, animated: true)
         }
+    }
+    
+    @objc private func bannerADAvailabilityChanged() {
+        contentBottomConstraint?.constant = -OffsetsService.shared.bottomOffset
+        view.layoutIfNeeded()
     }
 }
 
