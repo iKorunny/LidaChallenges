@@ -20,7 +20,7 @@ final class DatabaseService {
     private let buildInDBService = BuiltInChallengeDBService()
     
     private lazy var workingQueue: DispatchQueue = {
-        return DispatchQueue(label: "DatabaseServiceQueue", qos: .userInitiated, attributes: .concurrent)
+        return DispatchQueue(label: "DatabaseServiceQueue", qos: .userInitiated)
     }()
     
     var context: NSManagedObjectContext?
