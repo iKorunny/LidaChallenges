@@ -7,16 +7,9 @@
 
 import UIKit
 
-final class AppRootVC: UIViewController {
+final class AppRootVC: BaseBackgroundedViewController {
     private lazy var window: UIWindow? = {
         return (UIApplication.shared.connectedScenes.first(where: { $0.activationState == .foregroundActive }) as? UIWindowScene)?.windows.last
-    }()
-    
-    private lazy var backgroundImageView: UIImageView = {
-        let imageView = UIImageView(image: .init(named: "MainAppBackground"))
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.contentMode = .scaleAspectFill
-        return imageView
     }()
     
     private lazy var safeAreaBackgroundView: UIView = {
@@ -84,12 +77,6 @@ final class AppRootVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        view.addSubview(backgroundImageView)
-        backgroundImageView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        backgroundImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-        backgroundImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        backgroundImageView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         
         view.addSubview(containerView)
         containerView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true

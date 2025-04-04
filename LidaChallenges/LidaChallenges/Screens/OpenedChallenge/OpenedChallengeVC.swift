@@ -16,7 +16,7 @@ protocol OpenedChallengeModel {
     var categoryID: Int { get }
 }
 
-class OpenedChallengeVC: UIViewController {
+class OpenedChallengeVC: BaseBackgroundedViewController {
     
     deinit {
         NotificationCenter.default.removeObserver(self)

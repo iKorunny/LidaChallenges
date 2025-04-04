@@ -11,7 +11,7 @@ private enum Constants {
     static let cellID = "ChallengeDayCell"
 }
 
-final class StartedChallengeDetailsVC: UIViewController {
+final class StartedChallengeDetailsVC: BaseBackgroundedViewController {
     
     deinit {
         NotificationCenter.default.removeObserver(self)
@@ -166,12 +166,6 @@ final class StartedChallengeDetailsVC: UIViewController {
         return view
     }()
     
-    private lazy var backgroundImageView: UIImageView = {
-        let imageView = UIImageView(image: .init(named: "MainAppBackground"))
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        return imageView
-    }()
-    
     private lazy var window: UIWindow? = {
         return navigationController?.view.window
     }()
@@ -219,12 +213,6 @@ final class StartedChallengeDetailsVC: UIViewController {
         super.viewDidLoad()
         
         NotificationCenter.default.addObserver(self, selector: #selector(bannerADAvailabilityChanged), name: .bannerAdChanged, object: nil)
-        
-        view.addSubview(backgroundImageView)
-        backgroundImageView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        backgroundImageView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-        backgroundImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-        backgroundImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         
         navigationItem.title = model.originalChallenge.title
         navigationItem.rightBarButtonItem = infoButton

@@ -72,7 +72,7 @@ enum ChallengeRegularityType: Int, Codable {
     }
 }
 
-final class CreateChallengeMainVC: UIViewController {
+final class CreateChallengeMainVC: BaseBackgroundedViewController {
     
     deinit {
         scrollView.removeGestureRecognizer(hideInputsTapGesture)

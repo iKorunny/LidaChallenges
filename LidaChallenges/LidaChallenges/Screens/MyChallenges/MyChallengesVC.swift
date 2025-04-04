@@ -40,7 +40,7 @@ enum MyChallengesVCMode {
     }
 }
 
-final class MyChallengesVC: UIViewController {
+final class MyChallengesVC: BaseBackgroundedViewController {
     
     deinit {
         NotificationCenter.default.removeObserver(self)

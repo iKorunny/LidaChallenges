@@ -20,6 +20,7 @@
 		02C248132D7C9562002828C2 /* AppNotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C248122D7C954E002828C2 /* AppNotificationService.swift */; };
 		02C248152D7C9E6E002828C2 /* AppNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C248142D7C9E61002828C2 /* AppNotificationManager.swift */; };
 		02C71A692D869A87006337EA /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C71A682D869A80006337EA /* NetworkManager.swift */; };
+		02C93D072DA048C800FCDCDF /* BaseBackgroundedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C93D062DA048BB00FCDCDF /* BaseBackgroundedViewController.swift */; };
 		8002FC6E2C7A3C71001FF4A3 /* DatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8002FC6D2C7A3C71001FF4A3 /* DatabaseService.swift */; };
 		8002FC702C7A4491001FF4A3 /* CustomChallengeDBService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8002FC6F2C7A4491001FF4A3 /* CustomChallengeDBService.swift */; };
 		8002FC772C7A473F001FF4A3 /* DBCustomChallengeModel+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8002FC752C7A473F001FF4A3 /* DBCustomChallengeModel+CoreDataClass.swift */; };
@@ -110,6 +111,7 @@
 		02C248122D7C954E002828C2 /* AppNotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNotificationService.swift; sourceTree = "<group>"; };
 		02C248142D7C9E61002828C2 /* AppNotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNotificationManager.swift; sourceTree = "<group>"; };
 		02C71A682D869A80006337EA /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		02C93D062DA048BB00FCDCDF /* BaseBackgroundedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseBackgroundedViewController.swift; sourceTree = "<group>"; };
 		8002FC6D2C7A3C71001FF4A3 /* DatabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseService.swift; sourceTree = "<group>"; };
 		8002FC6F2C7A4491001FF4A3 /* CustomChallengeDBService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomChallengeDBService.swift; sourceTree = "<group>"; };
 		8002FC752C7A473F001FF4A3 /* DBCustomChallengeModel+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DBCustomChallengeModel+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -431,6 +433,7 @@
 		80F2CE072C20B5E800B0E611 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				02C93D062DA048BB00FCDCDF /* BaseBackgroundedViewController.swift */,
 				801309812C6BE99200E2020D /* Activity */,
 				80F2CE082C20B66400B0E611 /* AppRootVC.swift */,
 				8002FC7D2C7B653C001FF4A3 /* OpenedChallenge */,
@@ -551,6 +554,7 @@
 				8002FC782C7A473F001FF4A3 /* DBCustomChallengeModel+CoreDataProperties.swift in Sources */,
 				807D48C62C1F532B004FB542 /* AfterLaunchViewController.swift in Sources */,
 				8087DE022C8E038100F00064 /* MyChallengesSection.swift in Sources */,
+				02C93D072DA048C800FCDCDF /* BaseBackgroundedViewController.swift in Sources */,
 				8002FC6E2C7A3C71001FF4A3 /* DatabaseService.swift in Sources */,
 				02313F492D8600450070CB6A /* ADSManager.swift in Sources */,
 				80722BBD2C7B85EE0069A08D /* ChallengesSearchResultController.swift in Sources */,

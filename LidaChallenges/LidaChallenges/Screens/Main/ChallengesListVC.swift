@@ -8,17 +8,11 @@
 import Foundation
 import UIKit
 
-final class ChallengesListVC: UIViewController {
+final class ChallengesListVC: BaseBackgroundedViewController {
     private struct Constants {
         static let headerId = "ChallengesSearchResultHeaderView"
         static let cellId = "ChallengesSearchResultCell"
     }
-    
-    private lazy var backgroundImageView: UIImageView = {
-        let imageView = UIImageView(image: .init(named: "MainAppBackground"))
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        return imageView
-    }()
     
     private lazy var tableView: UITableView = {
         let table = UITableView(frame: .zero, style: .grouped)
@@ -59,12 +53,6 @@ final class ChallengesListVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        view.addSubview(backgroundImageView)
-        backgroundImageView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        backgroundImageView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-        backgroundImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-        backgroundImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        
         view.addSubview(tableView)
         tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
         tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
