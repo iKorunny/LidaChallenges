@@ -379,3 +379,23 @@ extension DatabaseService: BuiltInChallengesDatabase {
     }
 }
 
+extension DatabaseService { // Delete
+    func deleteCustomChallenge(with id: String) {
+        guard let context = context else { return }
+        
+        workingQueue.async(flags: .barrier) {
+            guard !id.isEmpty else { return }
+            CustomChallengeDBService.shared.deleteCustomChallenge(context: context, with: id)
+        }
+    }
+    
+    func deleteStartedChallenges(with originalChallengeID: String,
+                                 completion: ((Bool) -> Void)? = nil) {
+        guard let context = context else { return }
+        
+        workingQueue.async(flags: .barrier) { [weak self] in
+            self?.startedDBService.deleteAllStartedChallenges(context: context, and: originalChallengeID,
+                                                              completion: completion)
+        }
+    }
+}

@@ -11,7 +11,8 @@ import UIKit
 final class ChallengesListVC: BaseBackgroundedViewController {
     private struct Constants {
         static let headerId = "ChallengesSearchResultHeaderView"
-        static let cellId = "ChallengesSearchResultCell"
+        static let cellId = "ChallengesListCell"
+        static let fakeCellId = "ChallengesFakeCell"
     }
     
     private lazy var tableView: UITableView = {
@@ -24,12 +25,15 @@ final class ChallengesListVC: BaseBackgroundedViewController {
         table.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 350, right: 0)
         
         table.register(ChallengesSearchResultHeaderView.self, forHeaderFooterViewReuseIdentifier: Constants.headerId)
-        table.register(ChallengesSearchResultCell.self, forCellReuseIdentifier: Constants.cellId)
+        table.register(ChallengesListCell.self, forCellReuseIdentifier: Constants.cellId)
+        table.register(ChallengesFakeCell.self, forCellReuseIdentifier: Constants.fakeCellId)
         table.backgroundView = nil
         
         table.separatorStyle = .none
         table.sectionFooterHeight = CGFloat.leastNormalMagnitude
         table.sectionHeaderTopPadding = 1.0
+        
+        table.estimatedRowHeight = 16.0
         
         return table
     }()
@@ -41,11 +45,7 @@ final class ChallengesListVC: BaseBackgroundedViewController {
         return indicator
     }()
     
-    private var tableSections: [ChallengesSearchResultSection] = [] {
-        didSet {
-            tableView.reloadData()
-        }
-    }
+    private var tableSections: [ChallengesSearchResultSection] = []
     
     private var didDBRequest = false
     var categoryID: Int = 0
@@ -56,8 +56,8 @@ final class ChallengesListVC: BaseBackgroundedViewController {
         view.addSubview(tableView)
         tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
         tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
-        tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-        tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 18).isActive = true
+        tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -18).isActive = true
         
         view.addSubview(activityIndicator)
         activityIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
@@ -103,6 +103,7 @@ final class ChallengesListVC: BaseBackgroundedViewController {
             self?.tableView.isUserInteractionEnabled = true
             
             self?.tableSections = calculatedSections
+            self?.tableView.reloadData()
             
             guard let focusSectionIndex = calculatedSections.firstIndex(where: { $0.rows.first?.model.categoryID == self?.categoryID }) else { return }
             self?.tableView.scrollToRow(at: IndexPath(row: 0, section: focusSectionIndex), at: .top, animated: false)
@@ -116,16 +117,27 @@ extension ChallengesListVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return tableSections[section].rows.count
+        return tableSections[section].rows.count * 2
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.cellId, for: indexPath) as? ChallengesSearchResultCell else { return UITableViewCell() }
+        let notFakeCell = isNotFakeCellIndex(row: indexPath.row)
         
-        cell.setupIfNeeded()
-        cell.titleLabel.text = tableSections[indexPath.section].rows[indexPath.row].title
-        
-        return cell
+        if notFakeCell {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.cellId, for: indexPath) as? ChallengesListCell else { return UITableViewCell() }
+            
+            cell.setupIfNeeded()
+            let modelIndex = getModelIndex(rowIndex: indexPath.row)
+            cell.titleLabel.text = tableSections[indexPath.section].rows[modelIndex].title
+            
+            return cell
+        }
+        else {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.fakeCellId, for: indexPath) as? ChallengesFakeCell else { return UITableViewCell() }
+            cell.setup()
+            
+            return cell
+        }
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -136,9 +148,55 @@ extension ChallengesListVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard isNotFakeCellIndex(row: indexPath.row) else { return }
+        
         tableView.deselectRow(at: indexPath, animated: true)
         
-        let model = tableSections[indexPath.section].rows[indexPath.row].model
+        let modelIndex = getModelIndex(rowIndex: indexPath.row)
+        let model = tableSections[indexPath.section].rows[modelIndex].model
         AppRouter.shared.toOpenChallenge(model: model)
+    }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return isCustomSection(with: indexPath.section) && isNotFakeCellIndex(row: indexPath.row)
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        guard editingStyle == .delete else { return }
+        let section = tableSections[indexPath.section]
+        let removed = section.rows.remove(at: getModelIndex(rowIndex: indexPath.row))
+        if section.rows.isEmpty {
+            tableSections.remove(at: indexPath.section)
+            tableView.deleteSections([indexPath.section], with: .automatic)
+        }
+        else {
+            let attachedFakeIndexPath = IndexPath(row: indexPath.row + 1, section: indexPath.section)
+            tableView.deleteRows(at: [indexPath, attachedFakeIndexPath], with: .automatic)
+        }
+        
+        DatabaseService.shared.deleteStartedChallenges(with: removed.model.identifier) { _ in
+            AppDelegate.shared.appNotificationManager.resetNotifications()
+        }
+        DatabaseService.shared.deleteCustomChallenge(with: removed.model.identifier)
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        guard isNotFakeCellIndex(row: indexPath.row) else {
+            return 16
+        }
+        
+        return UITableView.automaticDimension
+    }
+    
+    private func isCustomSection(with index: Int) -> Bool {
+        return tableSections[index].isCustom
+    }
+    
+    private func isNotFakeCellIndex(row: Int) -> Bool {
+        return row % 2 == 0
+    }
+    
+    private func getModelIndex(rowIndex: Int) -> Int {
+        return Int(floor(CGFloat(rowIndex) / 2.0))
     }
 }

@@ -46,8 +46,8 @@ final class ChallengesSearchResultCell: UITableViewCell {
         
         contentView.addSubview(visibleContentView)
         visibleContentView.topAnchor.constraint(equalTo: contentView.topAnchor).isActive = true
-        visibleContentView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 18).isActive = true
-        visibleContentView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -18).isActive = true
+        visibleContentView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 0).isActive = true
+        visibleContentView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 0).isActive = true
         visibleContentView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -16).isActive = true
         
         visibleContentView.backgroundColor = isSelected ? ColorThemeProvider.shared.itemBackgroundHighlighted : ColorThemeProvider.shared.itemBackground

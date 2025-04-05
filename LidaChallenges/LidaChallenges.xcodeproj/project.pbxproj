@@ -21,6 +21,8 @@
 		02C248152D7C9E6E002828C2 /* AppNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C248142D7C9E61002828C2 /* AppNotificationManager.swift */; };
 		02C71A692D869A87006337EA /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C71A682D869A80006337EA /* NetworkManager.swift */; };
 		02C93D072DA048C800FCDCDF /* BaseBackgroundedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C93D062DA048BB00FCDCDF /* BaseBackgroundedViewController.swift */; };
+		02C93D092DA050F900FCDCDF /* ChallengesFakeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C93D082DA050F400FCDCDF /* ChallengesFakeCell.swift */; };
+		02C93D0B2DA051B700FCDCDF /* ChallengesListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C93D0A2DA051B200FCDCDF /* ChallengesListCell.swift */; };
 		8002FC6E2C7A3C71001FF4A3 /* DatabaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8002FC6D2C7A3C71001FF4A3 /* DatabaseService.swift */; };
 		8002FC702C7A4491001FF4A3 /* CustomChallengeDBService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8002FC6F2C7A4491001FF4A3 /* CustomChallengeDBService.swift */; };
 		8002FC772C7A473F001FF4A3 /* DBCustomChallengeModel+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8002FC752C7A473F001FF4A3 /* DBCustomChallengeModel+CoreDataClass.swift */; };
@@ -112,6 +114,8 @@
 		02C248142D7C9E61002828C2 /* AppNotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNotificationManager.swift; sourceTree = "<group>"; };
 		02C71A682D869A80006337EA /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		02C93D062DA048BB00FCDCDF /* BaseBackgroundedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseBackgroundedViewController.swift; sourceTree = "<group>"; };
+		02C93D082DA050F400FCDCDF /* ChallengesFakeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengesFakeCell.swift; sourceTree = "<group>"; };
+		02C93D0A2DA051B200FCDCDF /* ChallengesListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengesListCell.swift; sourceTree = "<group>"; };
 		8002FC6D2C7A3C71001FF4A3 /* DatabaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseService.swift; sourceTree = "<group>"; };
 		8002FC6F2C7A4491001FF4A3 /* CustomChallengeDBService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomChallengeDBService.swift; sourceTree = "<group>"; };
 		8002FC752C7A473F001FF4A3 /* DBCustomChallengeModel+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DBCustomChallengeModel+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -299,6 +303,8 @@
 				807861FF2C29E5EB00FA8938 /* MainVCListActionItem.swift */,
 				807862012C29E86200FA8938 /* MainVCListActionView.swift */,
 				80E7C1752CCC0904005B2252 /* ChallengesListVC.swift */,
+				02C93D082DA050F400FCDCDF /* ChallengesFakeCell.swift */,
+				02C93D0A2DA051B200FCDCDF /* ChallengesListCell.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -566,8 +572,10 @@
 				02313F4D2D8602A20070CB6A /* ADSGodContainer.swift in Sources */,
 				805E274B2C2360340048F78F /* CategoriesSectionHeader.swift in Sources */,
 				8026471B2C52E35600705B2E /* CreateChallengeInfoVC.swift in Sources */,
+				02C93D0B2DA051B700FCDCDF /* ChallengesListCell.swift in Sources */,
 				80F2CE0B2C20B74100B0E611 /* Controller+Childred.swift in Sources */,
 				808C18362C5C0A1F00316CA8 /* CreateChallengeImagePickGalleryCell.swift in Sources */,
+				02C93D092DA050F900FCDCDF /* ChallengesFakeCell.swift in Sources */,
 				800DA6C72C6172D800FCFCD6 /* GoogleADSManager.swift in Sources */,
 				804A2B532C7CE7BE00301BC4 /* ChallengesSearchService.swift in Sources */,
 				0272DA9B2D86A3C900366CF7 /* YandexAppOpenAdManager.swift in Sources */,

@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>version</key>
-	<real>0.3</real>
+	<real>0.4</real>
 	<key>challenges</key>
 	<array>
 		<dict>
@@ -24,7 +24,7 @@
 			<key>identifier</key>
 			<string>ChallengeEarlyWakeUp</string>
 			<key>iconName</key>
-			<string></string>
+			<string>challengeIconPick_176</string>
 			<key>descriptionKey</key>
 			<string>ChallengeEarlyWakeUpDescription</string>
 			<key>categoryID</key>
@@ -52,7 +52,7 @@
 			<key>identifier</key>
 			<string>ChallengeContrastShower</string>
 			<key>iconName</key>
-			<string></string>
+			<string>challengeIconPick_119</string>
 			<key>categoryID</key>
 			<integer>1</integer>
 			<key>daysCount</key>
@@ -78,7 +78,7 @@
 			<key>identifier</key>
 			<string>ChallengeFruitsAndVegetables</string>
 			<key>iconName</key>
-			<string></string>
+			<string>challengeIconPick_15</string>
 			<key>categoryID</key>
 			<integer>1</integer>
 			<key>daysCount</key>
@@ -104,7 +104,7 @@
 			<key>identifier</key>
 			<string>ChallengeDailyMeditation</string>
 			<key>iconName</key>
-			<string></string>
+			<string>challengeIconPick_47</string>
 			<key>categoryID</key>
 			<integer>1</integer>
 			<key>daysCount</key>
@@ -130,7 +130,7 @@
 			<key>identifier</key>
 			<string>ChallengeGoBed</string>
 			<key>iconName</key>
-			<string></string>
+			<string>challengeIconPick_168</string>
 			<key>categoryID</key>
 			<integer>1</integer>
 			<key>daysCount</key>
@@ -156,7 +156,7 @@
 			<key>identifier</key>
 			<string>ChallengeNoPhoneMorning</string>
 			<key>iconName</key>
-			<string></string>
+			<string>challengeIconPick_69</string>
 			<key>categoryID</key>
 			<integer>1</integer>
 			<key>daysCount</key>
@@ -182,7 +182,7 @@
 			<key>identifier</key>
 			<string>ChallengeFaceMassage</string>
 			<key>iconName</key>
-			<string></string>
+			<string>challengeIconPick_102</string>
 			<key>categoryID</key>
 			<integer>2</integer>
 			<key>daysCount</key>
@@ -208,7 +208,7 @@
 			<key>identifier</key>
 			<string>ChallengeLymphoMassage</string>
 			<key>iconName</key>
-			<string></string>
+			<string>challengeIconPick_270</string>
 			<key>categoryID</key>
 			<integer>2</integer>
 			<key>daysCount</key>
@@ -234,7 +234,7 @@
 			<key>identifier</key>
 			<string>ChallengeFaceSerum</string>
 			<key>iconName</key>
-			<string></string>
+			<string>challengeIconPick_151</string>
 			<key>categoryID</key>
 			<integer>2</integer>
 			<key>daysCount</key>
@@ -260,7 +260,7 @@
 			<key>identifier</key>
 			<string>ChallengeFaceCare</string>
 			<key>iconName</key>
-			<string></string>
+			<string>challengeIconPick_149</string>
 			<key>categoryID</key>
 			<integer>2</integer>
 			<key>daysCount</key>
@@ -286,7 +286,7 @@
 			<key>identifier</key>
 			<string>ChallengeHeadMassage</string>
 			<key>iconName</key>
-			<string></string>
+			<string>challengeIconPick_90</string>
 			<key>categoryID</key>
 			<integer>2</integer>
 			<key>daysCount</key>
@@ -312,7 +312,7 @@
 			<key>identifier</key>
 			<string>ChallengeHairSerum</string>
 			<key>iconName</key>
-			<string></string>
+			<string>challengeIconPick_160</string>
 			<key>categoryID</key>
 			<integer>2</integer>
 			<key>daysCount</key>
@@ -338,7 +338,7 @@
 			<key>identifier</key>
 			<string>ChallengeMinutesOfSilence</string>
 			<key>iconName</key>
-			<string></string>
+			<string>challengeIconPick_156</string>
 			<key>categoryID</key>
 			<integer>2</integer>
 			<key>daysCount</key>
@@ -364,7 +364,7 @@
 			<key>identifier</key>
 			<string>ChallengeFaceGymnastics</string>
 			<key>iconName</key>
-			<string></string>
+			<string>challengeIconPick_90</string>
 			<key>categoryID</key>
 			<integer>2</integer>
 			<key>daysCount</key>
@@ -390,7 +390,7 @@
 			<key>identifier</key>
 			<string>ChallengeMorningExcersise</string>
 			<key>iconName</key>
-			<string></string>
+			<string>challengeIconPick_23</string>
 			<key>categoryID</key>
 			<integer>3</integer>
 			<key>daysCount</key>
@@ -416,7 +416,7 @@
 			<key>identifier</key>
 			<string>ChallengeOutdoorTraining</string>
 			<key>iconName</key>
-			<string></string>
+			<string>challengeIconPick_13</string>
 			<key>categoryID</key>
 			<integer>3</integer>
 			<key>daysCount</key>
@@ -442,7 +442,7 @@
 			<key>identifier</key>
 			<string>ChallengeSquats</string>
 			<key>iconName</key>
-			<string></string>
+			<string>challengeIconPick_12</string>
 			<key>categoryID</key>
 			<integer>3</integer>
 			<key>daysCount</key>
@@ -468,7 +468,7 @@
 			<key>identifier</key>
 			<string>ChallengePushUps</string>
 			<key>iconName</key>
-			<string></string>
+			<string>challengeIconPick_13</string>
 			<key>categoryID</key>
 			<integer>3</integer>
 			<key>daysCount</key>
@@ -494,7 +494,7 @@
 			<key>identifier</key>
 			<string>ChallengeAbdominalExercises</string>
 			<key>iconName</key>
-			<string></string>
+			<string>challengeIconPick_37</string>
 			<key>categoryID</key>
 			<integer>3</integer>
 			<key>daysCount</key>
@@ -520,7 +520,7 @@
 			<key>identifier</key>
 			<string>ChallengeVitamins</string>
 			<key>iconName</key>
-			<string></string>
+			<string>challengeIconPick_248</string>
 			<key>categoryID</key>
 			<integer>4</integer>
 			<key>daysCount</key>
@@ -546,7 +546,7 @@
 			<key>identifier</key>
 			<string>ChallengeMorningWarmWater</string>
 			<key>iconName</key>
-			<string></string>
+			<string>challengeIconPick_263</string>
 			<key>categoryID</key>
 			<integer>4</integer>
 			<key>daysCount</key>
@@ -572,7 +572,7 @@
 			<key>identifier</key>
 			<string>ChallengeWaterNorm</string>
 			<key>iconName</key>
-			<string></string>
+			<string>challengeIconPick_263</string>
 			<key>categoryID</key>
 			<integer>4</integer>
 			<key>daysCount</key>
@@ -598,7 +598,7 @@
 			<key>identifier</key>
 			<string>ChallengeBalancedFoodMonth</string>
 			<key>iconName</key>
-			<string></string>
+			<string>challengeIconPick_35</string>
 			<key>categoryID</key>
 			<integer>4</integer>
 			<key>daysCount</key>
@@ -624,7 +624,7 @@
 			<key>identifier</key>
 			<string>ChallengeHomeFoodMonth</string>
 			<key>iconName</key>
-			<string></string>
+			<string>challengeIconPick_35</string>
 			<key>categoryID</key>
 			<integer>4</integer>
 			<key>daysCount</key>
@@ -650,7 +650,7 @@
 			<key>identifier</key>
 			<string>ChallengeExcercises15Min</string>
 			<key>iconName</key>
-			<string></string>
+			<string>challengeIconPick_17</string>
 			<key>categoryID</key>
 			<integer>4</integer>
 			<key>daysCount</key>
@@ -676,7 +676,7 @@
 			<key>identifier</key>
 			<string>ChallengeDailyWalks</string>
 			<key>iconName</key>
-			<string></string>
+			<string>challengeIconPick_191</string>
 			<key>categoryID</key>
 			<integer>4</integer>
 			<key>daysCount</key>
@@ -702,7 +702,7 @@
 			<key>identifier</key>
 			<string>ChallengeDailyCycling</string>
 			<key>iconName</key>
-			<string></string>
+			<string>challengeIconPick_7</string>
 			<key>categoryID</key>
 			<integer>4</integer>
 			<key>daysCount</key>
@@ -728,7 +728,7 @@
 			<key>identifier</key>
 			<string>ChallengeNoSugarMonth</string>
 			<key>iconName</key>
-			<string></string>
+			<string>challengeIconPick_15</string>
 			<key>categoryID</key>
 			<integer>4</integer>
 			<key>daysCount</key>
@@ -754,7 +754,7 @@
 			<key>identifier</key>
 			<string>ChallengeNoSweetsMonth</string>
 			<key>iconName</key>
-			<string></string>
+			<string>challengeIconPick_15</string>
 			<key>categoryID</key>
 			<integer>4</integer>
 			<key>daysCount</key>
@@ -780,7 +780,7 @@
 			<key>identifier</key>
 			<string>ChallengeNoSmokingMonth</string>
 			<key>iconName</key>
-			<string></string>
+			<string>challengeIconPick_29</string>
 			<key>categoryID</key>
 			<integer>4</integer>
 			<key>daysCount</key>
@@ -806,7 +806,7 @@
 			<key>identifier</key>
 			<string>ChallengeNoAlcoMonth</string>
 			<key>iconName</key>
-			<string></string>
+			<string>challengeIconPick_29</string>
 			<key>categoryID</key>
 			<integer>4</integer>
 			<key>daysCount</key>
@@ -832,7 +832,7 @@
 			<key>identifier</key>
 			<string>ChallengeJoggingMonth</string>
 			<key>iconName</key>
-			<string></string>
+			<string>challengeIconPick_27</string>
 			<key>categoryID</key>
 			<integer>4</integer>
 			<key>daysCount</key>
@@ -858,7 +858,7 @@
 			<key>identifier</key>
 			<string>ChallengeNoFastfoodMonth</string>
 			<key>iconName</key>
-			<string></string>
+			<string>challengeIconPick_35</string>
 			<key>categoryID</key>
 			<integer>4</integer>
 			<key>daysCount</key>
@@ -884,7 +884,7 @@
 			<key>identifier</key>
 			<string>ChallengeDailyReading</string>
 			<key>iconName</key>
-			<string></string>
+			<string>challengeIconPick_109</string>
 			<key>categoryID</key>
 			<integer>5</integer>
 			<key>daysCount</key>
@@ -910,7 +910,7 @@
 			<key>identifier</key>
 			<string>ChallengeLearnForeignWords</string>
 			<key>iconName</key>
-			<string></string>
+			<string>challengeIconPick_53</string>
 			<key>categoryID</key>
 			<integer>5</integer>
 			<key>daysCount</key>
@@ -936,7 +936,7 @@
 			<key>identifier</key>
 			<string>ChallengeEnglishLearningTime</string>
 			<key>iconName</key>
-			<string></string>
+			<string>challengeIconPick_53</string>
 			<key>categoryID</key>
 			<integer>5</integer>
 			<key>daysCount</key>
@@ -962,7 +962,7 @@
 			<key>identifier</key>
 			<string>ChallengeProductiveWork</string>
 			<key>iconName</key>
-			<string></string>
+			<string>challengeIconPick_57</string>
 			<key>categoryID</key>
 			<integer>5</integer>
 			<key>daysCount</key>
@@ -988,7 +988,7 @@
 			<key>identifier</key>
 			<string>ChallengeDailyProductDevelopment</string>
 			<key>iconName</key>
-			<string></string>
+			<string>challengeIconPick_57</string>
 			<key>categoryID</key>
 			<integer>5</integer>
 			<key>daysCount</key>
@@ -1014,7 +1014,7 @@
 			<key>identifier</key>
 			<string>ChallengeDailyReels</string>
 			<key>iconName</key>
-			<string></string>
+			<string>challengeIconPick_57</string>
 			<key>categoryID</key>
 			<integer>5</integer>
 			<key>daysCount</key>
@@ -1040,7 +1040,7 @@
 			<key>identifier</key>
 			<string>ChallengeDailyPhoto</string>
 			<key>iconName</key>
-			<string></string>
+			<string>challengeIconPick_70</string>
 			<key>categoryID</key>
 			<integer>5</integer>
 			<key>daysCount</key>
@@ -1066,7 +1066,7 @@
 			<key>identifier</key>
 			<string>ChallengeDailyHobbyTime</string>
 			<key>iconName</key>
-			<string></string>
+			<string>challengeIconPick_44</string>
 			<key>categoryID</key>
 			<integer>5</integer>
 			<key>daysCount</key>
@@ -1092,7 +1092,7 @@
 			<key>identifier</key>
 			<string>ChallengeDailyNewRecipe</string>
 			<key>iconName</key>
-			<string></string>
+			<string>challengeIconPick_24</string>
 			<key>categoryID</key>
 			<integer>5</integer>
 			<key>daysCount</key>
@@ -1118,7 +1118,7 @@
 			<key>identifier</key>
 			<string>ChallengeJumpRopeMonth</string>
 			<key>iconName</key>
-			<string></string>
+			<string>challengeIconPick_27</string>
 			<key>categoryID</key>
 			<integer>4</integer>
 			<key>daysCount</key>
@@ -1144,7 +1144,7 @@
 			<key>identifier</key>
 			<string>ChallengeDontOvereatMonth</string>
 			<key>iconName</key>
-			<string></string>
+			<string>challengeIconPick_227</string>
 			<key>categoryID</key>
 			<integer>4</integer>
 			<key>daysCount</key>
@@ -1164,7 +1164,7 @@
 			<key>identifier</key>
 			<string>ChallengeFamilyMonth</string>
 			<key>iconName</key>
-			<string></string>
+			<string>challengeIconPick_203</string>
 			<key>categoryID</key>
 			<integer>6</integer>
 			<key>daysCount</key>
@@ -1184,7 +1184,7 @@
 			<key>identifier</key>
 			<string>ChallengeOfflineSundayMonth</string>
 			<key>iconName</key>
-			<string></string>
+			<string>challengeIconPick_203</string>
 			<key>categoryID</key>
 			<integer>4</integer>
 			<key>daysCount</key>
@@ -1210,7 +1210,7 @@
 			<key>identifier</key>
 			<string>ChallengeThanksMonth</string>
 			<key>iconName</key>
-			<string></string>
+			<string>challengeIconPick_32</string>
 			<key>categoryID</key>
 			<integer>6</integer>
 			<key>daysCount</key>
@@ -1236,7 +1236,7 @@
 			<key>identifier</key>
 			<string>ChallengeComplimentsMonth</string>
 			<key>iconName</key>
-			<string></string>
+			<string>challengeIconPick_32</string>
 			<key>categoryID</key>
 			<integer>6</integer>
 			<key>daysCount</key>
@@ -1262,7 +1262,7 @@
 			<key>identifier</key>
 			<string>ChallengeSmileMonth</string>
 			<key>iconName</key>
-			<string></string>
+			<string>challengeIconPick_156</string>
 			<key>categoryID</key>
 			<integer>6</integer>
 			<key>daysCount</key>
@@ -1288,7 +1288,7 @@
 			<key>identifier</key>
 			<string>ChallengegymnasticsForFeetWeek</string>
 			<key>iconName</key>
-			<string></string>
+			<string>challengeIconPick_167</string>
 			<key>categoryID</key>
 			<integer>4</integer>
 			<key>daysCount</key>
@@ -1314,7 +1314,7 @@
 			<key>identifier</key>
 			<string>ChallengeNailingWeek</string>
 			<key>iconName</key>
-			<string></string>
+			<string>challengeIconPick_167</string>
 			<key>categoryID</key>
 			<integer>1</integer>
 			<key>daysCount</key>
@@ -1340,7 +1340,7 @@
 			<key>identifier</key>
 			<string>ChallengeLuckWeek</string>
 			<key>iconName</key>
-			<string></string>
+			<string>challengeIconPick_167</string>
 			<key>categoryID</key>
 			<integer>6</integer>
 			<key>daysCount</key>
@@ -1360,7 +1360,7 @@
 			<key>identifier</key>
 			<string>ChallengeFishThursdayMonth</string>
 			<key>iconName</key>
-			<string></string>
+			<string>challengeIconPick_123</string>
 			<key>categoryID</key>
 			<integer>4</integer>
 			<key>daysCount</key>
@@ -1380,7 +1380,7 @@
 			<key>identifier</key>
 			<string>ChallengeVeganSaturdatMonth</string>
 			<key>iconName</key>
-			<string></string>
+			<string>challengeIconPick_15</string>
 			<key>categoryID</key>
 			<integer>4</integer>
 			<key>daysCount</key>
@@ -1406,7 +1406,7 @@
 			<key>identifier</key>
 			<string>ChallengeSleepModeWeek</string>
 			<key>iconName</key>
-			<string></string>
+			<string>challengeIconPick_168</string>
 			<key>categoryID</key>
 			<integer>1</integer>
 			<key>daysCount</key>
@@ -1458,7 +1458,7 @@
 			<key>identifier</key>
 			<string>ChallengeBreatheGymnasticsWeek</string>
 			<key>iconName</key>
-			<string></string>
+			<string>challengeIconPick_21</string>
 			<key>categoryID</key>
 			<integer>4</integer>
 			<key>daysCount</key>
@@ -1484,7 +1484,7 @@
 			<key>identifier</key>
 			<string>ChallengeMeditationBeforeBedWeek</string>
 			<key>iconName</key>
-			<string></string>
+			<string>challengeIconPick_22</string>
 			<key>categoryID</key>
 			<integer>4</integer>
 			<key>daysCount</key>
@@ -1510,7 +1510,7 @@
 			<key>identifier</key>
 			<string>ChallengeCalmEveningWeek</string>
 			<key>iconName</key>
-			<string></string>
+			<string>challengeIconPick_174</string>
 			<key>categoryID</key>
 			<integer>1</integer>
 			<key>daysCount</key>
@@ -1536,7 +1536,7 @@
 			<key>identifier</key>
 			<string>ChallengeEyesGymnasticsWeek</string>
 			<key>iconName</key>
-			<string></string>
+			<string>challengeIconPick_147</string>
 			<key>categoryID</key>
 			<integer>4</integer>
 			<key>daysCount</key>
@@ -1556,7 +1556,7 @@
 			<key>identifier</key>
 			<string>ChallengeTennisThursdayMonth</string>
 			<key>iconName</key>
-			<string></string>
+			<string>challengeIconPick_130</string>
 			<key>categoryID</key>
 			<integer>3</integer>
 			<key>daysCount</key>

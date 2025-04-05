@@ -58,11 +58,37 @@ final class StartedChallengeDBService {
         }
     }
     
+    func fetchAllStartedChallenges(context: NSManagedObjectContext,
+                                   and originalChallengeID: String,
+                                   onSuccess: @escaping (([DBStartedChallengeModel]?) -> Void)) {
+        do {
+            let request = DBStartedChallengeModel.fetchRequest()
+            request.predicate = NSPredicate(format: "originalChallengeIdentifier == %@", originalChallengeID)
+            let models = try context.fetch(request)
+            onSuccess(models)
+        }
+        catch let error {
+            print("fetchAllStartedChallenges and originalChallengeID: \(error)")
+        }
+    }
+    
     func deleteAllStartedChallenges(context: NSManagedObjectContext) {
         fetchAllStartedChallenges(context: context) { dbModels in
             for model in (dbModels ?? []) {
                 context.delete(model)
             }
+        }
+    }
+    
+    func deleteAllStartedChallenges(context: NSManagedObjectContext,
+                                    and originalChallengeID: String,
+                                    completion: ((Bool) -> Void)?) {
+        fetchAllStartedChallenges(context: context,
+                                  and: originalChallengeID) { dbModels in
+            for model in (dbModels ?? []) {
+                context.delete(model)
+            }
+            completion?(true)
         }
     }
     

@@ -42,7 +42,7 @@ final class CreateChallengeImageVC: UIViewController {
     private lazy var builtInIconNames: [String] = {
         var result: [String] = []
         
-        for i in 1...180 {
+        for i in 1...276 {
             result.append("challengeIconPick_\(i)")
         }
         

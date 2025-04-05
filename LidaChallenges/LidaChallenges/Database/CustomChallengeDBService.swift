@@ -101,6 +101,15 @@ final class CustomChallengeDBService {
         }
     }
     
+    func deleteCustomChallenge(context: NSManagedObjectContext,
+                               with id: String) {
+        fetchCustomChallenge(context: context,
+                             with: id) { dbModel in
+            guard let dbModel else { return }
+            context.delete(dbModel)
+        }
+    }
+    
     func fetchCustomChallenges(with nameSubstring: String,
                                context: NSManagedObjectContext,
                                onSuccess: @escaping (([DBCustomChallengeModel]?) -> Void)) {
