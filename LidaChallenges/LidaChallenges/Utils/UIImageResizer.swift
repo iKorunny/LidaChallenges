@@ -9,22 +9,28 @@ import Foundation
 import UIKit
 
 final class UIImageResizer {
-    static func resizeTo1080p(image: UIImage) -> UIImage {
+    static func resizeTo1080p(image: UIImage, scale: CGFloat, round: Bool = false) -> UIImage {
         let targetSize: CGSize = .init(width: 1920, height: 1080)
-        return resize(image: image, to: targetSize)
+        return resize(image: image, to: targetSize,
+                      scale: scale,
+                      round: round)
     }
     
-    static func resizeTo720p(image: UIImage) -> UIImage {
+    static func resizeTo720p(image: UIImage, scale: CGFloat, round: Bool = false) -> UIImage {
         let targetSize: CGSize = .init(width: 1280, height: 720)
-        return resize(image: image, to: targetSize)
+        return resize(image: image, to: targetSize,
+                      scale: scale,
+                      round: round)
     }
     
-    static func resize(image: UIImage, to targetSize: CGSize) -> UIImage {
+    static func resize(image: UIImage, to targetSize: CGSize, scale: CGFloat, round: Bool = false) -> UIImage {
         let scaleFactor = max(image.size.width / targetSize.width,
                               image.size.height / targetSize.height)
-        guard scaleFactor > 1 else { return image }
+//        guard scaleFactor > 1 else { return image }
         
         return image.imageWith(newSize: CGSize(width: image.size.width / scaleFactor,
-                                               height: image.size.height / scaleFactor))
+                                               height: image.size.height / scaleFactor),
+                               scale: scale,
+                               round: round)
     }
 }

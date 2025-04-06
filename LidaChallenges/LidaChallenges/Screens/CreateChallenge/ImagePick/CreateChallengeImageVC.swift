@@ -161,7 +161,7 @@ extension CreateChallengeImageVC: UIImagePickerControllerDelegate & UINavigation
     public func imagePickerController(_ picker: UIImagePickerController,
                                       didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let newImage = info[.editedImage] as? UIImage {
-            let pickedImage = UIImageResizer.resizeTo720p(image: newImage)
+            let pickedImage = UIImageResizer.resizeTo720p(image: newImage, scale: window?.screen.scale ?? 1, round: true)
             onPickImage?(pickedImage)
         }
         
