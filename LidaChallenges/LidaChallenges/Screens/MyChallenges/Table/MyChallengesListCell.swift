@@ -24,18 +24,6 @@ final class MyChallengesListCell: UITableViewCell {
         return imageView
     }()
     
-    private lazy var intervalLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = FontsProvider.regularAppFont(with: 10)
-        label.textColor = ColorThemeProvider.shared.subtitle
-        label.adjustsFontSizeToFitWidth = true
-        label.minimumScaleFactor = 0.6
-        label.textAlignment = .left
-        label.setContentHuggingPriority(.required, for: .horizontal)
-        return label
-    }()
-    
     private(set) lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -65,15 +53,11 @@ final class MyChallengesListCell: UITableViewCell {
         indicatorImageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 14).isActive = true
         indicatorImageView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -14).isActive = true
         
-        view.addSubview(intervalLabel)
-        intervalLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-        intervalLabel.trailingAnchor.constraint(equalTo: indicatorImageView.leadingAnchor, constant: -10).isActive = true
-        
         view.addSubview(titleLabel)
         titleLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 12).isActive = true
         titleLabel.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -10).isActive = true
         titleLabel.leadingAnchor.constraint(equalTo: iconImageView.trailingAnchor, constant: 13).isActive = true
-        titleLabel.trailingAnchor.constraint(equalTo: intervalLabel.leadingAnchor, constant: -8).isActive = true
+        titleLabel.trailingAnchor.constraint(equalTo: indicatorImageView.leadingAnchor, constant: -8).isActive = true
         
         return view
     }()
@@ -117,12 +101,5 @@ final class MyChallengesListCell: UITableViewCell {
         titleLabel.text = challenge.originalChallenge.title
         iconImageView.image = challenge.originalChallenge.icon
         indicatorImageView.image = challenge.isFinished ? UIImage(named: "MyChallengesComplete") : UIImage(named: "MyChallengesActive")
-        
-        if let endDate = challenge.endDate {
-            intervalLabel.text = "\(Formatters.formateDateShort(challenge.startDate)) - \(Formatters.formateDateShort(endDate))"
-        }
-        else {
-            intervalLabel.text = Formatters.formateDateShort(challenge.startDate)
-        }
     }
 }
