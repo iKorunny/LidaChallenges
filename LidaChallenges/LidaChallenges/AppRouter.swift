@@ -33,7 +33,7 @@ final class AppRouter {
         guard let vc = navigationController?.visibleViewController else { return .other }
         
         switch vc {
-        case is MyChallengesVC:
+        case is MyChallengesVC, is MyChallengesTableVC:
             return .myChallenges
         default:
             return .other
@@ -52,7 +52,6 @@ final class AppRouter {
         }
         
         
-//        let nextVC = MyChallengesVC()
         let nextVC = MyChallengesTableVC()
         nextVC.mode = mode
         nextVC.screenTitle = screenTitle

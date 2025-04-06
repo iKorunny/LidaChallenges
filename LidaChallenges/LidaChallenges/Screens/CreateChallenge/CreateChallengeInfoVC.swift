@@ -138,13 +138,13 @@ final class CreateChallengeInfoVC: UIViewController {
         let background = UIView()
         background.translatesAutoresizingMaskIntoConstraints = false
         background.backgroundColor = .clear
-        background.heightAnchor.constraint(equalTo: background.widthAnchor, multiplier: 160 / 430).isActive = true
+        background.heightAnchor.constraint(equalTo: background.widthAnchor, multiplier: 213 / 430).isActive = true
         
         background.addSubview(pickImageButton)
-        pickImageButton.topAnchor.constraint(equalTo: background.topAnchor).isActive = true
+        pickImageButton.topAnchor.constraint(equalTo: background.topAnchor, constant: 18).isActive = true
         pickImageButton.leadingAnchor.constraint(equalTo: background.leadingAnchor).isActive = true
         pickImageButton.trailingAnchor.constraint(equalTo: background.trailingAnchor).isActive = true
-        pickImageButton.bottomAnchor.constraint(equalTo: background.bottomAnchor).isActive = true
+        pickImageButton.bottomAnchor.constraint(equalTo: background.bottomAnchor, constant: -35).isActive = true
         
         background.addSubview(pickImageLabel)
         pickImageLabel.centerYAnchor.constraint(equalTo: background.centerYAnchor).isActive = true
