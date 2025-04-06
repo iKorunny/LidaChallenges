@@ -55,22 +55,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "30BEB06B-1A80-435A-8DAC-830C8A82D2E6"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "LidaChallenges/AppDelegate.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "37"
-            endingLineNumber = "37"
-            landmarkName = "application(_:didFinishLaunchingWithOptions:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "5F7D35F3-7F79-4366-BE1B-588913B48873"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -334,8 +318,8 @@
             filePath = "LidaChallenges/Utils/Ads/YandexADSManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "84"
-            endingLineNumber = "84"
+            startingLineNumber = "88"
+            endingLineNumber = "88"
             landmarkName = "connectionChanged()"
             landmarkType = "7">
          </BreakpointContent>
@@ -418,6 +402,36 @@
             endingLineNumber = "37"
             landmarkName = "tryToHandleBuiltInChallengeURLScheme(_:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "DF737C77-8604-48E7-9C80-1B74C6FA9D4D - 3aea6550469eb387"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "LidaChallenges.URLSchemeManager.tryToHandleBuiltInChallengeURLScheme(Foundation.URL) -&gt; Swift.Bool"
+                  moduleName = "LidaChallenges.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lidia/Documents/Projects/LidaChallenges/LidaChallenges/LidaChallenges/Utils/URLSchemeManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "37"
+                  endingLineNumber = "37">
+               </Location>
+               <Location
+                  uuid = "DF737C77-8604-48E7-9C80-1B74C6FA9D4D - 971fdd55bec4518e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;LidaChallenges.BuiltInChallenge&gt;) -&gt; () in LidaChallenges.URLSchemeManager.tryToHandleBuiltInChallengeURLScheme(Foundation.URL) -&gt; Swift.Bool"
+                  moduleName = "LidaChallenges.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lidia/Documents/Projects/LidaChallenges/LidaChallenges/LidaChallenges/Utils/URLSchemeManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "38"
+                  endingLineNumber = "38">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -526,8 +540,8 @@
             filePath = "LidaChallenges/Utils/Ads/YandexADSManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "92"
-            endingLineNumber = "92"
+            startingLineNumber = "96"
+            endingLineNumber = "96"
             landmarkName = "adViewDidLoad(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -542,8 +556,8 @@
             filePath = "LidaChallenges/Utils/Ads/YandexADSManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "98"
-            endingLineNumber = "98"
+            startingLineNumber = "102"
+            endingLineNumber = "102"
             landmarkName = "adViewDidFailLoading(_:error:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -846,8 +860,8 @@
             filePath = "LidaChallenges/AppDelegate.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "101"
-            endingLineNumber = "101"
+            startingLineNumber = "106"
+            endingLineNumber = "106"
             landmarkName = "saveContext()"
             landmarkType = "7">
          </BreakpointContent>
@@ -945,6 +959,38 @@
             startingLineNumber = "18"
             endingLineNumber = "18"
             landmarkName = "imageWith(newSize:scale:round:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B188BC65-D4FC-4A41-95B3-511AEB0BBDE8"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LidaChallenges/Utils/PrivacyManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "19"
+            endingLineNumber = "19"
+            landmarkName = "attGranted(completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8EC6541A-2F57-4B3A-86B5-D11D2F532161"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "LidaChallenges/Utils/PrivacyManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "25"
+            endingLineNumber = "25"
+            landmarkName = "attGranted(completion:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

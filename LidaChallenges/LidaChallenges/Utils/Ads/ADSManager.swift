@@ -27,4 +27,6 @@ protocol ADSManager {
     
     func createBannerView(with width: CGFloat, useCache: Bool) -> UIView
     func setupBannerView(from rootVC: UIViewController)
+    
+    func setUserConsent(_ value: Bool)
 }

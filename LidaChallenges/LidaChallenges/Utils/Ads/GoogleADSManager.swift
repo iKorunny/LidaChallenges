@@ -30,6 +30,10 @@ final class GoogleADSManager: NSObject, ADSManager {
 //        }
 //    }
     
+    func setUserConsent(_ value: Bool) {
+        
+    }
+    
     func showOnLaunchAdIfNeeded(fromv vc: UIViewController?) {
         guard becomeActiveCount >= AdsManagerConstants.becomeActiveToShowLaunchAd else { return }
 //        ADSGodContainer.shared.showAdIfAvailable(from: vc)

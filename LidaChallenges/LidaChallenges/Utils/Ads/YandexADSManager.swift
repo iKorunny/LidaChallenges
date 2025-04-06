@@ -47,6 +47,10 @@ final class YandexADSManager: NSObject, ADSManager {
         NotificationCenter.default.addObserver(self, selector: #selector(connectionChanged), name: .networkAvailabilityChanged, object: nil)
     }
     
+    func setUserConsent(_ value: Bool) {
+        MobileAds.setUserConsent(value)
+    }
+    
     func didBecomeActive() {
         becomeActiveCount += 1
     }

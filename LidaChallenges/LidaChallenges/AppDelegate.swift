@@ -35,6 +35,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { success, error in
             print("Notification granted: \(success)")
+            DispatchQueue.main.async {
+                PrivacyManager.shared.attGranted { result in
+                    ADSGodContainer.shared.adsManager.setUserConsent(result)
+                }
+            }
         }
         
         ADSGodContainer.shared.adsManager.initialise()

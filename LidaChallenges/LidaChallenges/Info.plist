@@ -2,6 +2,14 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Photos will be used in challenges you create and only locally.</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>Photos will be used in challenges you create and only locally.</string>
+	<key>NSUserNotificationsUsageDescription</key>
+	<string>Notifications will help you remember to mark your activity.</string>
+	<key>NSUserTrackingUsageDescription</key>
+	<string>The data will be used to deliver personalized ads to you.</string>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
