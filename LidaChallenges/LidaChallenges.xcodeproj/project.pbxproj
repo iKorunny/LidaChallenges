@@ -17,6 +17,10 @@
 		0272DA9B2D86A3C900366CF7 /* YandexAppOpenAdManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0272DA9A2D86A3C900366CF7 /* YandexAppOpenAdManager.swift */; };
 		0272DA9D2D87407900366CF7 /* Ceasar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0272DA9C2D87407400366CF7 /* Ceasar.swift */; };
 		0272DA9F2D87430C00366CF7 /* URLSchemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0272DA9E2D8742FD00366CF7 /* URLSchemeManager.swift */; };
+		02BDEFDA2DA2482900823626 /* MyChallengesTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BDEFD92DA2482900823626 /* MyChallengesTableHeaderView.swift */; };
+		02BDEFDD2DA248E600823626 /* MyChallengesFakeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BDEFDB2DA248E600823626 /* MyChallengesFakeCell.swift */; };
+		02BDEFDE2DA248E600823626 /* MyChallengesListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BDEFDC2DA248E600823626 /* MyChallengesListCell.swift */; };
+		02BDEFE02DA2497A00823626 /* MyChallengesTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02BDEFDF2DA2497100823626 /* MyChallengesTableVC.swift */; };
 		02C248132D7C9562002828C2 /* AppNotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C248122D7C954E002828C2 /* AppNotificationService.swift */; };
 		02C248152D7C9E6E002828C2 /* AppNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C248142D7C9E61002828C2 /* AppNotificationManager.swift */; };
 		02C71A692D869A87006337EA /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02C71A682D869A80006337EA /* NetworkManager.swift */; };
@@ -110,6 +114,10 @@
 		0272DA9A2D86A3C900366CF7 /* YandexAppOpenAdManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YandexAppOpenAdManager.swift; sourceTree = "<group>"; };
 		0272DA9C2D87407400366CF7 /* Ceasar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ceasar.swift; sourceTree = "<group>"; };
 		0272DA9E2D8742FD00366CF7 /* URLSchemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSchemeManager.swift; sourceTree = "<group>"; };
+		02BDEFD92DA2482900823626 /* MyChallengesTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyChallengesTableHeaderView.swift; sourceTree = "<group>"; };
+		02BDEFDB2DA248E600823626 /* MyChallengesFakeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyChallengesFakeCell.swift; sourceTree = "<group>"; };
+		02BDEFDC2DA248E600823626 /* MyChallengesListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyChallengesListCell.swift; sourceTree = "<group>"; };
+		02BDEFDF2DA2497100823626 /* MyChallengesTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyChallengesTableVC.swift; sourceTree = "<group>"; };
 		02C248122D7C954E002828C2 /* AppNotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNotificationService.swift; sourceTree = "<group>"; };
 		02C248142D7C9E61002828C2 /* AppNotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNotificationManager.swift; sourceTree = "<group>"; };
 		02C71A682D869A80006337EA /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
@@ -222,6 +230,27 @@
 				0272DA9A2D86A3C900366CF7 /* YandexAppOpenAdManager.swift */,
 			);
 			path = Ads;
+			sourceTree = "<group>";
+		};
+		02BDEFD72DA2473D00823626 /* Collection */ = {
+			isa = PBXGroup;
+			children = (
+				809137642C45AC160021CCE0 /* MyChallengesVC.swift */,
+				8087DE032C8E068E00F00064 /* MyChallengesSectionHeader.swift */,
+				8087DE052C8E087100F00064 /* MyChallengesCell.swift */,
+			);
+			path = Collection;
+			sourceTree = "<group>";
+		};
+		02BDEFD82DA2475000823626 /* Table */ = {
+			isa = PBXGroup;
+			children = (
+				02BDEFDF2DA2497100823626 /* MyChallengesTableVC.swift */,
+				02BDEFD92DA2482900823626 /* MyChallengesTableHeaderView.swift */,
+				02BDEFDB2DA248E600823626 /* MyChallengesFakeCell.swift */,
+				02BDEFDC2DA248E600823626 /* MyChallengesListCell.swift */,
+			);
+			path = Table;
 			sourceTree = "<group>";
 		};
 		02C248112D7C953D002828C2 /* Notifications */ = {
@@ -383,10 +412,9 @@
 		809137632C45ABF10021CCE0 /* MyChallenges */ = {
 			isa = PBXGroup;
 			children = (
-				809137642C45AC160021CCE0 /* MyChallengesVC.swift */,
+				02BDEFD72DA2473D00823626 /* Collection */,
 				8087DE012C8E038100F00064 /* MyChallengesSection.swift */,
-				8087DE032C8E068E00F00064 /* MyChallengesSectionHeader.swift */,
-				8087DE052C8E087100F00064 /* MyChallengesCell.swift */,
+				02BDEFD82DA2475000823626 /* Table */,
 			);
 			path = MyChallenges;
 			sourceTree = "<group>";
@@ -550,6 +578,7 @@
 				804A2B512C7CE6BB00301BC4 /* ChallengesSearchResultSection.swift in Sources */,
 				8035724C2C87940600B0F65B /* StartedChallengeDetailsVC.swift in Sources */,
 				80F2CDFF2C20B33000B0E611 /* ColorThemeProvider.swift in Sources */,
+				02BDEFDA2DA2482900823626 /* MyChallengesTableHeaderView.swift in Sources */,
 				02313F572D8684C90070CB6A /* YandexADSManager.swift in Sources */,
 				02C248132D7C9562002828C2 /* AppNotificationService.swift in Sources */,
 				809137692C46F50C0021CCE0 /* CreateChallengeMainVC.swift in Sources */,
@@ -566,6 +595,7 @@
 				80722BBD2C7B85EE0069A08D /* ChallengesSearchResultController.swift in Sources */,
 				02C248152D7C9E6E002828C2 /* AppNotificationManager.swift in Sources */,
 				807502742CB3FD5200726438 /* ChallengeDayCell.swift in Sources */,
+				02BDEFE02DA2497A00823626 /* MyChallengesTableVC.swift in Sources */,
 				80FD66762CCA94B30087DDC8 /* BuiltInChallengesManager.swift in Sources */,
 				80F2CE0D2C20BC6600B0E611 /* MainVC.swift in Sources */,
 				802647202C52EBF300705B2E /* CreateChallengeRegularityUtils.swift in Sources */,
@@ -614,6 +644,8 @@
 				80E072672C84B47800DDE0C2 /* ChallengeDayRecord.swift in Sources */,
 				80E0725F2C84A6AF00DDE0C2 /* DBStartedChallengeModel+CoreDataProperties.swift in Sources */,
 				80E072632C84AAFD00DDE0C2 /* StartedChallenge.swift in Sources */,
+				02BDEFDD2DA248E600823626 /* MyChallengesFakeCell.swift in Sources */,
+				02BDEFDE2DA248E600823626 /* MyChallengesListCell.swift in Sources */,
 				804D8FC82C2871D300FA30F3 /* MainVCCollectiomLayout.swift in Sources */,
 				807D48CC2C1F532B004FB542 /* LidaChallenges.xcdatamodeld in Sources */,
 				80BCB5DF2CB543E70080EF19 /* PopupFactory.swift in Sources */,

@@ -92,6 +92,20 @@ final class StartedChallengeDBService {
         }
     }
     
+    func deleteAllStartedChallenges(context: NSManagedObjectContext,
+                                    identifier: String,
+                                    completion: ((Bool) -> Void)?) {
+        fetchStartedChallenge(context: context,
+                              with: identifier) { dbModel in
+            guard let dbModel else {
+                completion?(false)
+                return
+            }
+            context.delete(dbModel)
+            completion?(true)
+        }
+    }
+    
     func save(dayResult: ChallengeDayRecordResult,
               dayIndex: Int,
               to challenge: DBStartedChallengeModel,

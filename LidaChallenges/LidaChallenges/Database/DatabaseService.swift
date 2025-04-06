@@ -35,7 +35,7 @@ final class DatabaseService {
             completion(nil)
             return
         }
-        workingQueue.async(flags: .barrier) {
+        workingQueue.async {
             CustomChallengeDBService.shared.createCustomChallenge(name: name,
                                                                   daysCount: daysCount,
                                                                   selectedRegularity: selectedRegularity,
@@ -72,7 +72,7 @@ final class DatabaseService {
     func deleteAllCustomChallenges() {
         guard let context = context else { return }
         
-        workingQueue.async(flags: .barrier) {
+        workingQueue.async {
             CustomChallengeDBService.shared.deleteAllCustomChallenges(context: context)
         }
     }
@@ -139,7 +139,7 @@ extension DatabaseService {
                     guard let customChallenge,
                             let self,
                             let challengeId = customChallenge.identifier else { return }
-                    self.workingQueue.async(flags: .barrier) { [weak self] in
+                    self.workingQueue.async { [weak self] in
                         self?.startedDBService.startChallenge(challengeIdentifier: challengeId,
                                                               isCustom: isCustom,
                                                               context: context,
@@ -166,7 +166,7 @@ extension DatabaseService {
                 guard let builtInChallenge,
                         let self,
                         let challengeId = builtInChallenge.identifier else { return }
-                self.workingQueue.async(flags: .barrier) { [weak self] in
+                self.workingQueue.async { [weak self] in
                     self?.startedDBService.startChallenge(challengeIdentifier: challengeId,
                                                           isCustom: isCustom,
                                                           context: context,
@@ -193,7 +193,7 @@ extension DatabaseService {
     func deleteAllStartedChallenges() {
         guard let context = context else { return }
         
-        workingQueue.async(flags: .barrier) { [weak self] in
+        workingQueue.async { [weak self] in
             self?.startedDBService.deleteAllStartedChallenges(context: context)
         }
     }
@@ -268,7 +268,7 @@ extension DatabaseService {
                     return
                 }
                 
-                self?.workingQueue.async(flags: .barrier) {
+                self?.workingQueue.async {
                     self?.startedDBService.save(dayResult: dayResult,
                                                 dayIndex: dayIndex,
                                                 to: foundChallenge,
@@ -297,7 +297,7 @@ extension DatabaseService {
                     return
                 }
                 
-                self?.workingQueue.async(flags: .barrier) {
+                self?.workingQueue.async {
                     self?.startedDBService.save(note: note,
                                                 to: foundChallenge,
                                                 context: context)
@@ -313,7 +313,7 @@ extension DatabaseService: BuiltInChallengesDatabase {
             completion(false)
             return
         }
-        workingQueue.async(flags: .barrier) { [weak self] in
+        workingQueue.async { [weak self] in
             let group: DispatchGroup = .init()
             challenges.forEach { _ in
 //                print("group.enter()")
@@ -383,7 +383,7 @@ extension DatabaseService { // Delete
     func deleteCustomChallenge(with id: String) {
         guard let context = context else { return }
         
-        workingQueue.async(flags: .barrier) {
+        workingQueue.async {
             guard !id.isEmpty else { return }
             CustomChallengeDBService.shared.deleteCustomChallenge(context: context, with: id)
         }
@@ -393,8 +393,20 @@ extension DatabaseService { // Delete
                                  completion: ((Bool) -> Void)? = nil) {
         guard let context = context else { return }
         
-        workingQueue.async(flags: .barrier) { [weak self] in
-            self?.startedDBService.deleteAllStartedChallenges(context: context, and: originalChallengeID,
+        workingQueue.async { [weak self] in
+            self?.startedDBService.deleteAllStartedChallenges(context: context,
+                                                              and: originalChallengeID,
+                                                              completion: completion)
+        }
+    }
+    
+    func deleteStartedChallenges(identifier: String,
+                                 completion: ((Bool) -> Void)? = nil) {
+        guard let context = context else { return }
+        
+        workingQueue.async { [weak self] in
+            self?.startedDBService.deleteAllStartedChallenges(context: context,
+                                                              identifier: identifier,
                                                               completion: completion)
         }
     }

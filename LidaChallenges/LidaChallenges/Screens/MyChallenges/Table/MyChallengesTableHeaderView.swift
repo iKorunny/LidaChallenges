@@ -1,5 +1,5 @@
 //
-//  ChallengesSearchResultHeaderView.swift
+//  MyChallengesTableHeaderView.swift
 //  LidaChallenges
 //
 //  Created by Ihar Karunny on 8/25/24.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class ChallengesSearchResultHeaderView: UITableViewHeaderFooterView {
+final class MyChallengesTableHeaderView: UITableViewHeaderFooterView {
     private var setupComplete = false
     
     private(set) lazy var titleLabel: UILabel = {
@@ -27,10 +27,10 @@ final class ChallengesSearchResultHeaderView: UITableViewHeaderFooterView {
         contentView.backgroundColor = .clear
         contentView.addSubview(titleLabel)
         
-        titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 1).isActive = true
-        titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -1).isActive = true
+        titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 17).isActive = true
+        titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -17).isActive = true
         titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 5).isActive = true
-        titleLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -20).isActive = true
+        titleLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -18).isActive = true
     }
     
 // For Plain Style (Pinned header at the top)

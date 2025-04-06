@@ -52,7 +52,8 @@ final class AppRouter {
         }
         
         
-        let nextVC = MyChallengesVC()
+//        let nextVC = MyChallengesVC()
+        let nextVC = MyChallengesTableVC()
         nextVC.mode = mode
         nextVC.screenTitle = screenTitle
         navigationController?.pushViewController(nextVC, animated: false)

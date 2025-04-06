@@ -7,37 +7,9 @@
 
 import UIKit
 
-enum MyChallengesVCState {
-    case noData
-    case hasData
-}
-
 private struct Constants {
     static let headerID = "MyChallengesVCHeader"
     static let cellID = "MyChallengesVCCell"
-}
-
-enum MyChallengesVCMode {
-    case all
-    case completed
-    
-    func activeSupported() -> Bool {
-        switch self {
-        case .all:
-            return true
-        case .completed:
-            return false
-        }
-    }
-    
-    func completedSupported() -> Bool {
-        switch self {
-        case .all:
-            return true
-        case .completed:
-            return true
-        }
-    }
 }
 
 final class MyChallengesVC: BaseBackgroundedViewController {
