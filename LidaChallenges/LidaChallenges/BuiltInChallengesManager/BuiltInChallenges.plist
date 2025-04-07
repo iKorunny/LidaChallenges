@@ -1322,11 +1322,11 @@
 		</dict>
 		<dict>
 			<key>nameKey</key>
-			<string>ChallengeNailingWeekTitle</string>
+			<string>ChallengeLuckWeekTitle</string>
 			<key>subtitleKey</key>
-			<string>ChallengeNailingWeekSubtitle</string>
+			<string>ChallengeLuckWeekSubtitle</string>
 			<key>descriptionKey</key>
-			<string>ChallengeNailingWeekDescription</string>
+			<string>ChallengeLuckWeekDescription</string>
 			<key>regularity</key>
 			<array>
 				<integer>1</integer>
