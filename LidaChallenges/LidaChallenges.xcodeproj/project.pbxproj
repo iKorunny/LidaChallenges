@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		022D77AB2DB178C200D6016A /* SimplePagedDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 022D77AA2DB178C100D6016A /* SimplePagedDataSource.swift */; };
 		02313F492D8600450070CB6A /* ADSManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02313F482D8600450070CB6A /* ADSManager.swift */; };
 		02313F4B2D8601EF0070CB6A /* AppOpenAdManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02313F4A2D8601E90070CB6A /* AppOpenAdManager.swift */; };
 		02313F4D2D8602A20070CB6A /* ADSGodContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02313F4C2D8602970070CB6A /* ADSGodContainer.swift */; };
@@ -107,6 +108,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		022D77AA2DB178C100D6016A /* SimplePagedDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimplePagedDataSource.swift; sourceTree = "<group>"; };
 		02313F482D8600450070CB6A /* ADSManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADSManager.swift; sourceTree = "<group>"; };
 		02313F4A2D8601E90070CB6A /* AppOpenAdManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppOpenAdManager.swift; sourceTree = "<group>"; };
 		02313F4C2D8602970070CB6A /* ADSGodContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ADSGodContainer.swift; sourceTree = "<group>"; };
@@ -436,6 +438,7 @@
 		80F2CDFD2C20B2F600B0E611 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				022D77AA2DB178C100D6016A /* SimplePagedDataSource.swift */,
 				02BDEFE12DA2CF8F00823626 /* PrivacyManager.swift */,
 				0272DA9E2D8742FD00366CF7 /* URLSchemeManager.swift */,
 				0272DA9C2D87407400366CF7 /* Ceasar.swift */,
@@ -639,6 +642,7 @@
 				800C40C22C5C1D2200AECCA4 /* UIImage+Utils.swift in Sources */,
 				8074463C2C55991F0093D65F /* CreateChallengeImageVC.swift in Sources */,
 				8026471E2C52EB8800705B2E /* ChallengeModelToCreate.swift in Sources */,
+				022D77AB2DB178C200D6016A /* SimplePagedDataSource.swift in Sources */,
 				80A500A52C655F1000EBED90 /* GoogleAppOpenAdManager.swift in Sources */,
 				0272DA9F2D87430C00366CF7 /* URLSchemeManager.swift in Sources */,
 				80BCB5E12CB555730080EF19 /* Formatters.swift in Sources */,

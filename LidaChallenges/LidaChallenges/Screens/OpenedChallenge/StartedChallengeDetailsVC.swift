@@ -205,6 +205,23 @@ final class StartedChallengeDetailsVC: BaseBackgroundedViewController {
         return CGFloat(dayLines) * cellSize.height + CGFloat(dayLines - 1) * 6
     }
     
+    private lazy var simpleDataSource: SimplePagedDataSource = {
+        let source = SimplePagedDataSource(with: 50, maxCount: numberOfDays)
+        source.onInsert = { [weak self] offset, insertedCount in
+            var insertedPaths: [IndexPath] = []
+            for i in 0..<insertedCount {
+                insertedPaths.append(IndexPath(row: offset + i, section: 0))
+            }
+            
+            DispatchQueue.main.async { [weak self] in
+                self?.collectionView.performBatchUpdates { [weak self] in
+                    self?.collectionView.insertItems(at: insertedPaths)
+                }
+            }
+        }
+        return source
+    }()
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -303,7 +320,7 @@ extension StartedChallengeDetailsVC: UIScrollViewDelegate {
 extension StartedChallengeDetailsVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return numberOfDays
+        return simpleDataSource.currentNumberOfItems
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -312,6 +329,8 @@ extension StartedChallengeDetailsVC: UICollectionViewDelegate, UICollectionViewD
         cell.setupIfNeeded()
         let state = StartedChallengeUtils.state(for: model, index: indexPath.row, currentDate: currentDate)
         cell.set(state: state)
+        
+        simpleDataSource.didRequestItem(with: indexPath.row)
         
         return cell
     }
