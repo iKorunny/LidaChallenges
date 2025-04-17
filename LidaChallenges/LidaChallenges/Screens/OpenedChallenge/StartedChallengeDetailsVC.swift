@@ -255,12 +255,12 @@ final class StartedChallengeDetailsVC: BaseBackgroundedViewController {
         
         DatabaseService.shared.save(dayResult: .success,
                                     dayIndex: lastEditIndex,
-                                    challengeID: model.identifier) { [weak self] success, updatedModel in
+                                    challengeID: model.identifier) { [weak self, lastEditIndex] success, updatedModel in
             guard success, let newModel = updatedModel else { return }
             self?.onChangesToReload?()
             DispatchQueue.main.async { [weak self] in
                 self?.model = newModel
-                self?.collectionView.reloadData()
+                self?.collectionView.reloadItems(at: [IndexPath.init(row: lastEditIndex, section: 0)])
             }
         }
         
@@ -273,12 +273,12 @@ final class StartedChallengeDetailsVC: BaseBackgroundedViewController {
         
         DatabaseService.shared.save(dayResult: .fail,
                                     dayIndex: lastEditIndex,
-                                    challengeID: model.identifier) { [weak self] success, updatedModel in
+                                    challengeID: model.identifier) { [weak self, lastEditIndex] success, updatedModel in
             guard success, let newModel = updatedModel else { return }
             self?.onChangesToReload?()
             DispatchQueue.main.async { [weak self] in
                 self?.model = newModel
-                self?.collectionView.reloadData()
+                self?.collectionView.reloadItems(at: [IndexPath.init(row: lastEditIndex, section: 0)])
             }
         }
         
