@@ -19,7 +19,7 @@ final class SimplePagedDataSource {
     init(with pageSize: Int, maxCount: Int) {
         self.pageSize = pageSize
         self.maxCount = maxCount
-        currentNumberOfItems = pageSize
+        currentNumberOfItems = min(pageSize, maxCount)
     }
     
     func didRequestItem(with index: Int) {
