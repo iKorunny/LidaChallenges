@@ -31,6 +31,7 @@ enum MyChallengesVCMode {
 }
 
 enum MyChallengesVCState {
+    case loading
     case noData
     case hasData
 }

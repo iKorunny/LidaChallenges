@@ -24,7 +24,7 @@ final class MyChallengesTableVC: BaseBackgroundedViewController {
         return navigationController?.view.window
     }()
     
-    private var state: MyChallengesVCState = .noData {
+    private var state: MyChallengesVCState = .loading {
         didSet {
             guard oldValue != state else { return }
             stateChanged(newState: state)
@@ -140,6 +140,9 @@ final class MyChallengesTableVC: BaseBackgroundedViewController {
     
     private func stateChanged(newState: MyChallengesVCState) {
         switch newState {
+        case .loading:
+            noDataLabel.isHidden = true
+            tableView.isHidden = true
         case .hasData:
             noDataLabel.isHidden = true
             tableView.isHidden = false
