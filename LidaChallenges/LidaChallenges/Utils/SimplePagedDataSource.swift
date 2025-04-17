@@ -5,6 +5,8 @@
 //  Created by Лидия on 17.04.25.
 //
 
+import Foundation
+
 final class SimplePagedDataSource {
     private let pageSize: Int
     private let maxCount: Int
@@ -14,7 +16,7 @@ final class SimplePagedDataSource {
     /**
             Offset, insertedCount
      */
-    var onInsert: ((Int, Int) -> Void)?
+    var onWillInsert: ((Int, Int, (() -> Void)) -> Void)?
     
     init(with pageSize: Int, maxCount: Int) {
         self.pageSize = pageSize
@@ -27,11 +29,12 @@ final class SimplePagedDataSource {
         if currentNumberOfItems != maxCount && (currentNumberOfItems - index) < Int(Double(pageSize) * 0.5) {
             let oldCount = currentNumberOfItems
             
-            currentNumberOfItems = min(oldCount + pageSize, maxCount)
+            let newNumberOfItems = min(oldCount + pageSize, maxCount)
             
-            onInsert?(oldCount, currentNumberOfItems - oldCount)
+            guard newNumberOfItems - oldCount > 0 else { return }
+            onWillInsert?(oldCount, newNumberOfItems - oldCount, { currentNumberOfItems = newNumberOfItems })
             
-            print("SimplePagedDataSource.onInsert offset: \(oldCount), count: \(currentNumberOfItems - oldCount)")
+            print("SimplePagedDataSource.onWillInsert offset: \(oldCount), count: \(newNumberOfItems - oldCount)")
         }
     }
 }

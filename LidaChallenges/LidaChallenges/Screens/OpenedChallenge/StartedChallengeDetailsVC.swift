@@ -206,17 +206,16 @@ final class StartedChallengeDetailsVC: BaseBackgroundedViewController {
     }
     
     private lazy var simpleDataSource: SimplePagedDataSource = {
-        let source = SimplePagedDataSource(with: 50, maxCount: numberOfDays)
-        source.onInsert = { [weak self] offset, insertedCount in
+        let source = SimplePagedDataSource(with: 30, maxCount: numberOfDays)
+        source.onWillInsert = { [weak self] offset, insertedCount, insertionBlock in
             var insertedPaths: [IndexPath] = []
             for i in 0..<insertedCount {
                 insertedPaths.append(IndexPath(row: offset + i, section: 0))
             }
             
-            DispatchQueue.main.async { [weak self] in
-                self?.collectionView.performBatchUpdates { [weak self] in
-                    self?.collectionView.insertItems(at: insertedPaths)
-                }
+            self?.collectionView.performBatchUpdates { [weak self] in
+                insertionBlock()
+                self?.collectionView.insertItems(at: insertedPaths)
             }
         }
         return source
@@ -247,8 +246,6 @@ final class StartedChallengeDetailsVC: BaseBackgroundedViewController {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(hideInputViews))
         tapGesture.cancelsTouchesInView = false
         view.addGestureRecognizer(tapGesture)
-        
-        view.backgroundColor = .clear // TODO: remove blending
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -256,6 +253,12 @@ final class StartedChallengeDetailsVC: BaseBackgroundedViewController {
         
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: FontsProvider.regularAppFont(with: 20),
                                                                    .foregroundColor: ColorThemeProvider.shared.itemTextTitle]
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        checkVisibleCells()
     }
     
     @objc private func onInfo() {
@@ -306,10 +309,18 @@ final class StartedChallengeDetailsVC: BaseBackgroundedViewController {
         scrollBottomAnchor?.constant = -OffsetsService.shared.bottomOffset
         view.layoutIfNeeded()
     }
+    
+    private func checkVisibleCells() {
+        let lastVisibleLine = ceil((scrollView.contentInset.top + scrollView.contentOffset.y - self.collectionView.frame.origin.y + scrollView.bounds.height) / (cellSize.height + 6))
+        guard lastVisibleLine > 0 else { return }
+        let lastVisibleItem = min((lastVisibleLine * CGFloat(daysPerLine)), CGFloat(simpleDataSource.currentNumberOfItems - 1))
+        simpleDataSource.didRequestItem(with: Int(lastVisibleItem))
+    }
 }
 
 extension StartedChallengeDetailsVC: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        checkVisibleCells()
         if scrollView === self.scrollView {
             guard scrollView.isTracking else { return }
             hideInputViews()
@@ -330,7 +341,11 @@ extension StartedChallengeDetailsVC: UICollectionViewDelegate, UICollectionViewD
         let state = StartedChallengeUtils.state(for: model, index: indexPath.row, currentDate: currentDate)
         cell.set(state: state)
         
-        simpleDataSource.didRequestItem(with: indexPath.row)
+        if !scrollView.isDragging && !scrollView.isDecelerating {
+            DispatchQueue.main.async { [weak self] in
+                self?.simpleDataSource.didRequestItem(with: indexPath.row)
+            }
+        }
         
         return cell
     }
