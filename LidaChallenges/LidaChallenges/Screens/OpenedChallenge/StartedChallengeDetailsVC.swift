@@ -206,7 +206,7 @@ final class StartedChallengeDetailsVC: BaseBackgroundedViewController {
     }
     
     private lazy var simpleDataSource: SimplePagedDataSource = {
-        let source = SimplePagedDataSource(with: 30, maxCount: numberOfDays)
+        let source = SimplePagedDataSource(with: 60, maxCount: numberOfDays)
         source.onWillInsert = { [weak self] offset, insertedCount, insertionBlock in
             var insertedPaths: [IndexPath] = []
             for i in 0..<insertedCount {
@@ -219,6 +219,11 @@ final class StartedChallengeDetailsVC: BaseBackgroundedViewController {
             }
         }
         return source
+    }()
+    
+    private lazy var backgroundManager: BackgroundQueueManager = {
+        let manager = BackgroundQueueManager()
+        return manager
     }()
     
     required init?(coder: NSCoder) {
@@ -338,8 +343,15 @@ extension StartedChallengeDetailsVC: UICollectionViewDelegate, UICollectionViewD
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.cellID, for: indexPath) as? ChallengeDayCell else { return UICollectionViewCell() }
         
         cell.setupIfNeeded()
-        let state = StartedChallengeUtils.state(for: model, index: indexPath.row, currentDate: currentDate)
-        cell.set(state: state)
+        cell.set(state: .disabled)
+        
+        backgroundManager.add { [weak self, weak cell] in
+            guard let self else { return }
+            let state = StartedChallengeUtils.state(for: self.model, index: indexPath.row, currentDate: self.currentDate)
+            DispatchQueue.main.async {
+                cell?.set(state: state)
+            }
+        }
         
         if !scrollView.isDragging && !scrollView.isDecelerating {
             DispatchQueue.main.async { [weak self] in
