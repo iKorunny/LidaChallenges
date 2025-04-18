@@ -8,24 +8,12 @@
 import Foundation
 import AppTrackingTransparency
 
-private enum Constants {
-    static let attKey = "PrivacyManager_attKey"
-}
-
 final class PrivacyManager {
     static let shared = PrivacyManager()
     
     func attGranted(completion: @escaping ((Bool) -> Void)) {
-        guard !UserDefaults.standard.bool(forKey: Constants.attKey) else {
-            completion(convertToBoolATT(status: ATTrackingManager.trackingAuthorizationStatus))
-            return
-        }
-        
         ATTrackingManager.requestTrackingAuthorization { [weak self] status in
             guard let self else { return }
-            if attAnsweredByUser(status: status) {
-                UserDefaults.standard.set(true, forKey: Constants.attKey)
-            }
             completion(convertToBoolATT(status: status))
         }
     }

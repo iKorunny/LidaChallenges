@@ -33,14 +33,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        UINavigationBar.appearance().compactAppearance = navigationBarAppearance
 //        UINavigationBar.appearance().scrollEdgeAppearance = navigationBarAppearance
         
-        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { success, error in
-            print("Notification granted: \(success)")
-            DispatchQueue.main.async {
-                PrivacyManager.shared.attGranted { result in
-                    ADSGodContainer.shared.adsManager.setUserConsent(result)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+            PrivacyManager.shared.attGranted { result in
+                ADSGodContainer.shared.adsManager.setUserConsent(result)
+                
+                UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { success, error in
+                    print("Notification granted: \(success)")
                 }
             }
         }
+        
         
         ADSGodContainer.shared.adsManager.initialise()
         DatabaseService.shared.context = persistentContainer.viewContext
